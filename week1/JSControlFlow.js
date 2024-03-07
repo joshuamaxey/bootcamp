@@ -155,3 +155,90 @@ function bigOrSmallNumber(z) {
 bigOrSmallNumber(100);
 bigOrSmallNumber(50);
 bigOrSmallNumber(200);
+
+/*
+REMINDER: Control flow is the order that instructions are executed within a program. Control structures are expressions that alter the control flow.
+
+LOOPS are statements that do the following:
+
+1. Set a condition
+2. Execute an action
+3. Update the condition
+4. Re-check the condition
+5. Execute the action again
+6. Repeat until the condition is met
+
+The following is a WHILE loop.
+*/
+
+let p = 0;
+
+while (p <= 10) {
+  console.log("p = " + p);
+  p++;
+}
+
+/*
+In the code above, we set the variable p = 0.
+Then we told the computer to check the value of p.
+We tell the computer that while p is less than or equal to 10, it is supposed to print the specified message to the console.
+Then we tell the computer to increment the value of p by 1 each time that the code is run.
+eventually, p is equal to ten. After that, the computer increases the value of p by 1 and then checks the condition again.
+This time, it finds that the value of p is 11, which is NOT less than or equal to ten. Thus, the condition evaluates to false.
+Since the computer knows to ONLY run this code WHILE the condition is true (while p is less than or equal to ten), it stops running the code.
+*/
+
+function lessThanTen(e) {
+  while (e <= 10) {
+    console.log("e = " + e);
+    e++;
+  }
+}
+
+lessThanTen(0);
+lessThanTen(4);
+lessThanTen(15);
+
+//The most important thing to remember when writing loops is to update your condition. If we forget to increment the variable by one (in this example) after the message prints to the console, the variable's value will not change and the loop will run over and over and over again forever. This is called an infinite loop.
+
+/*
+FOR loops have three parts:
+
+1. the initial expression (runs at the beginning of the loop)
+2. the condition (checked every time the loop is run. If it evaluates to true, the loop runs again. If false, the loop ends.)
+3. the loopend expression (runs at the end of the loop before the condition is checked again.)
+
+for (<initial expresion> ; <condition> ; <loopend expression>) {
+    <Code to be run>;
+}
+*/
+
+for (let i = 0; i < 10; i++) {
+  console.log("i = " + i);
+}
+
+function spellTheString(string) {
+  for (let index = 0; index < string.length; index++) {
+    let letter = string[index];
+    console.log(letter);
+  }
+}
+
+spellTheString("Joshua");
+spellTheString("World");
+spellTheString("Servant of the Lord");
+
+/*
+Finally, lets translate one kind of loop into another.
+*/
+
+for (m = 0; m < 10; m += 1) {
+  console.log("m = " + m);
+}
+
+m = 0;
+
+while (m < 10) {
+  console.log("m = " + m);
+  m += 1;
+}
