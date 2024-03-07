@@ -38,6 +38,9 @@ Else/if statements have more parts:
 3. test expression 2 (else if statement)
 4. then expresion 2
 etc.
+
+DO NOT next additional "if" statements within one another. In other words, every test expression following the initial "if statement" should be an "else if" statement.
+Conditional statements can only have ONE IF STATEMENT each, but can have MULTIPLE ELSE IF statements.
 */
 
 function greaterOrLessThan(x) {
@@ -50,8 +53,105 @@ function greaterOrLessThan(x) {
   }
 }
 
+/*
+Note that one of THE TRICKIEST parts of writing conditional statements or using ANY control structure is the syntax.
+Though the logic and arithmetic may appear straightforward sometimes, it's easy to get mixed up when you're writing functions within functions.
+Pay attention and be patient when you run into issues.
+*/
+
 greaterOrLessThan(4);
 greaterOrLessThan(10);
 greaterOrLessThan(52);
 
-//Note that one of THE TRICKIEST parts of writing conditional statements or using ANY control structure is the syntax. Though the logic and arithmetic may appear straightforward sometimes, it's easy to get mixed up when you're writing functions within functions. Pay attention and be patient when you run into issues.
+//The if and else/if statements do NOT provide the option to specify what should happen in the event that ALL of the test expressions evaluate to false. Consider this function:
+
+let v = 10;
+
+function noneOfTheAbove() {
+  if (v < 10) {
+    console.log("v is less than 10.");
+  } else if (v > 10) {
+    console.log("v is greater than 10");
+  } else if (v == 20) {
+    console.log("v is loosely equal to 20!");
+  } else if (v === 100) {
+    console.log("v is stricly equal to 100!");
+  }
+}
+
+noneOfTheAbove();
+
+/*
+When you run the code in this file, you'll see that the noneOfTheAbove statement doesn't run at all.
+It prints nothing to the console. That is because none of the test expressions evaluated to true.
+v was not greater than 10, less than 10, loosely equal to 20, or strictly equal to 100.
+So how do we tell the function what to do when NONE of the test expressions evaluate to true?
+
+This is why we have the else statements. An "else statement" is a conditional that includes these parts:
+
+1. test expression 1 (if statement)
+2. then statement 1 (code that is run if test expression 1 evaluates to true)
+
+3. test expression 2 (else if statement)
+4. then statement 2 (code that is run if test expression 2 evaluates to true)
+
+5. else statement (specifies that there is code to be run when NONE of the test expressions evaluate to true)
+6. then statement 3 (code that will be run when NONE of the test expressions evaluate to true)
+
+So now lets copy the noneOfTheAbove function ^ and modify it with an else statement and minor name change to distinguish it from the first version.
+*/
+
+function noneOfTheAboveElse() {
+  if (v < 10) {
+    console.log("v is less than 10.");
+  } else if (v > 10) {
+    console.log("v is greater than 10");
+  } else if (v == 20) {
+    console.log("v is loosely equal to 20!");
+  } else if (v === 100) {
+    console.log("v is stricly equal to 100!");
+  } else {
+    console.log("The number is 10!");
+  }
+}
+
+noneOfTheAboveElse();
+
+/*
+Now when we run the code in this file, the console prints "The number is 10!" since that is what's in our "else" statement and none of the test expressions evaluate to true.
+
+Note that THERE CAN ONLY BE ONE ELSE STATEMENT IN ANY CONDITIONAL EXPRESSION!
+
+There can be:
+
+-ONE if statement
+-MANY else/if statements
+-ONE else statement
+
+Next, let's write a conditional if/else statement that calls certain functions under certain conditions.
+
+First, define the functions that will be called by the conditional statement.
+Then write the conditional statement that calls the functions.
+*/
+
+function bigNumber() {
+  console.log("This is a big number!");
+}
+
+function smallNumber() {
+  console.log("This is a small number!");
+}
+
+function bigOrSmallNumber(z) {
+  if (z > 100) {
+    bigNumber();
+  } else if (z < 100) {
+    smallNumber();
+  } else {
+    console.log("The number is 100!");
+  }
+}
+
+bigOrSmallNumber(100);
+bigOrSmallNumber(50);
+bigOrSmallNumber(200);
