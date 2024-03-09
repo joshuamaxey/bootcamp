@@ -383,3 +383,7 @@ To actually concatenate two arrays together, you need to use the .concat method.
 console.log(array1.concat(array2));
 
 //^ Here, you can see that the .concat method actually combines the two arrays into a single, new array.
+
+//isFive: Write a function that returns true if a number is equal to 5 and false if it is not
+
+function isFive

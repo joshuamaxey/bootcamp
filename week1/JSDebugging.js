@@ -67,3 +67,15 @@ The condition is such that it checks to see if a number is NOT equal to eleven.
 1 * 2 = 2 * 2 = 4 * 2 = 8 * 2 = 16, etc
 Since index will never be === 11, the condition is never false, and the code runs forever.
 */
+
+function mystery(array) {
+  let value = array[0]; // So here we see that the variable "value" contains the value stored at index 0 of "array"
+
+  for (let i = 1; i < array.length; i += 1) {
+    let num = array[i];
+    value *= num;
+  }
+  return value;
+}
+
+console.log(mystery([1, 2, 3, 4]));

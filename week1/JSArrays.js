@@ -92,3 +92,12 @@ let thirdArray = firstArray.concat(secondArray);
 console.log(thirdArray);
 console.log(firstArray);
 console.log(secondArray);
+
+//array.push() method adds a value to the end of an array
+//array.unshift() method adds a value to the beginning of an array
+//array.pop()
+//array.shift()
+//array.slice()
+//array.splice()
+//array.indexOf()
+//array[]
