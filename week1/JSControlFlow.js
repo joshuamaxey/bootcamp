@@ -297,49 +297,45 @@ function logBetween(a, b) {
 
 console.log(logBetween(5, 10));
 
-
 function printFives(num) {
-    for(let i = 0; i < num; i += 1) {
-        if (i % 5 === 0) {
-            console.log(i);
-        }
+  for (let i = 0; i < num; i += 1) {
+    if (i % 5 === 0) {
+      console.log(i);
     }
+  }
 }
 
 function printFivesShort(num) {
-    for(let i = 0; i <= num; i += 5 ) {
-        console.log(i);
-    }
+  for (let i = 0; i <= num; i += 5) {
+    console.log(i);
+  }
 }
 
 printFives(30);
 
 function logBetweenStepper(min, max, step) {
-    for (i = min; i <= max; i += step) {
-        console.log(i);
-    }
+  for (i = min; i <= max; i += step) {
+    console.log(i);
+  }
 }
 
-logBetweenStepper(10, 50, 5)
+logBetweenStepper(10, 50, 5);
 
 function threeOrSeven(num) {
-    return (num % 7 === 0) || (num % 3 === 0);
+  return num % 7 === 0 || num % 3 === 0;
 }
 
 console.log(threeOrSeven(21));
 console.log(threeOrSeven(9));
 console.log(threeOrSeven(52));
 
-
 //-------------------------------------------------------( Arrays and Loops )----------------------------------------------------
-
-
 
 //Arrays, like variables, hold inforamation.
 
-let variable = "variable"
+let variable = "variable";
 
-let array = ["string", true, 10, ["array2", false], variable]
+let array = ["string", true, 10, ["array2", false], variable];
 
 //Arrays are ordered lists of information.
 
@@ -373,3 +369,17 @@ so far we have seen that the following can be used with arrays, just like string
 2. array[i]
 3. .indexOf["x"]
 */
+
+let array2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+console.log(array1 + array2);
+
+/*
+You can see here ^ that attempting to add arrays together using the "+" operator doesn't actually combine the arrays. Instead, it converts them both to strings and then concatenates the strings together.
+
+To actually concatenate two arrays together, you need to use the .concat method.
+*/
+
+console.log(array1.concat(array2));
+
+//^ Here, you can see that the .concat method actually combines the two arrays into a single, new array.
