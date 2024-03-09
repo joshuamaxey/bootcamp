@@ -166,3 +166,35 @@ function doubler(numbers) {
 
 console.log(doubler([1, 2, 3, 4]));
 console.log(doubler([3, 5, 7, 9]));
+
+//countVowels: Write a function that takes in a string word and returns the number of vowels in the word. Vowels are letters a, e, i, o, and u.
+
+function countVowels(word) {
+  //0. set a vowel counter variable
+  //1. iterate through the word
+  //2. checking whether or not the current letter is a vowel
+  //3. increment the vowel counter variable if the current letter is a vowel
+
+  let vowelCounter = 0;
+  let i = 0;
+
+  while (i < word.length) {
+    let letter = word[i];
+
+    if (
+      letter === "a" ||
+      letter === "e" ||
+      letter === "i" ||
+      letter === "o" ||
+      letter === "u"
+    ) {
+      vowelCounter += 1;
+    }
+    i++;
+  }
+  return vowelCounter;
+}
+
+console.log(countVowels("bootcamp")); // = 3
+console.log(countVowels("apple")); // = 2
+console.log(countVowels("pizza")); // = 2
