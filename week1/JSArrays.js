@@ -50,3 +50,45 @@ To actually concatenate two arrays together, you need to use the .concat method.
 console.log(array1.concat(array2));
 
 //^ Here, you can see that the .concat method actually combines the two arrays into a single, new array.
+
+//----------------------------------------------------------(Notes from Arrays Lecture)-----------------------------------------------------------------------------
+
+//Arrays are lists.
+//Values are stored in order
+//Values are separated by commas
+//Arrays are dynamic, with no set length.
+//Arrays are global objects, you can make them however and wherever you want.
+
+let rainbowColors = ["red", "green", "blue"];
+
+rainbowColors[0]; // = "red"
+
+rainbowColors = []; // They can also be empty.
+
+let numberArray1 = [1, 2, 3, 4, 5];
+
+console.log(numberArray1.length); // .length method, like with strings
+
+console.log(numberArray1.length - 1); // Just like with strings, we can take the final element in an array by taking the length of the array and subtracting 1. This is because, also like strings, arrays are numbered by indices starting at 0. So the last index is always 1 less than the total number of items in the array.
+
+/*
+Arrays can contain ANY type of data
+
+1. strings
+2. booleans
+3. integers
+4. other arrays
+5. etc
+*/
+
+//----------------------------------------------------------------------------(Array Methods)-----------------------------------------------------------------------
+
+//.concat method combines two arrays into a single, new array WITHOUT modifying either of the original arrays.
+
+let firstArray = [1, 2, 3];
+let secondArray = [4, 5, 6];
+let thirdArray = firstArray.concat(secondArray);
+
+console.log(thirdArray);
+console.log(firstArray);
+console.log(secondArray);
