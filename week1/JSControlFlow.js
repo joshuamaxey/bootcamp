@@ -1,4 +1,11 @@
 /*
+
+
+
+---------------------------------------------------------CONDITIONALS------------------------------------------------------------
+
+
+
 Control flow is the order in which instructions are executed within a program.
 
 Control flow is modified using CONTROL STRUCTURES, expressions that alter the control flow based on given parameters.
@@ -156,7 +163,10 @@ bigOrSmallNumber(100);
 bigOrSmallNumber(50);
 bigOrSmallNumber(200);
 
-/*
+/* -----------------------------------------------------------LOOPS--------------------------------------------------------------
+
+
+
 REMINDER: Control flow is the order that instructions are executed within a program. Control structures are expressions that alter the control flow.
 
 LOOPS are statements that do the following:
@@ -242,3 +252,124 @@ while (m < 10) {
   console.log("m = " + m);
   m += 1;
 }
+
+//-----------------------------------------------------CLASS NOTES----------------------------------------------------------------
+
+//check out the "break" keyword
+//check out the do... while statement
+
+//Use a for loop when you know how many iterations you're gonna be doing.
+//Use a while loop when you don't know how many iterations you're gonna be doing.
+
+//Use "i" or "index" for the couter in for loops.
+
+function isFive(num) {
+  if (num === 5) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isFive(5));
+console.log(isFive(2));
+
+function isOdd(num) {
+  return num % 2 !== 0;
+}
+
+function isOddConditional(num) {
+  if (num % 2 !== 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isOddConditional(2));
+console.log(isOddConditional(3));
+
+function logBetween(a, b) {
+  for (i = a; i <= b; i++) {
+    console.log(i);
+  }
+}
+
+console.log(logBetween(5, 10));
+
+
+function printFives(num) {
+    for(let i = 0; i < num; i += 1) {
+        if (i % 5 === 0) {
+            console.log(i);
+        }
+    }
+}
+
+function printFivesShort(num) {
+    for(let i = 0; i <= num; i += 5 ) {
+        console.log(i);
+    }
+}
+
+printFives(30);
+
+function logBetweenStepper(min, max, step) {
+    for (i = min; i <= max; i += step) {
+        console.log(i);
+    }
+}
+
+logBetweenStepper(10, 50, 5)
+
+function threeOrSeven(num) {
+    return (num % 7 === 0) || (num % 3 === 0);
+}
+
+console.log(threeOrSeven(21));
+console.log(threeOrSeven(9));
+console.log(threeOrSeven(52));
+
+
+//-------------------------------------------------------( Arrays and Loops )----------------------------------------------------
+
+
+
+//Arrays, like variables, hold inforamation.
+
+let variable = "variable"
+
+let array = ["string", true, 10, ["array2", false], variable]
+
+//Arrays are ordered lists of information.
+
+//look at the push method
+//look at the pop method
+//look at the shift and unshift method.
+//look up array slice and splice methods.
+
+/*
+loops allow you to choose how many times you want a code to run.
+You are doing something until a condition is met, as many times as that takes.
+The counter is called the index.
+
+Arrays work with many of the same methods and functions as strings.
+*/
+
+let array1 = ["a", "b", "c", "d", "e"];
+
+console.log(array1.length); // = 5, because there are 5 items (strings) within the array.
+
+console.log(array1[2], array1[3]); // = c d, because c is located at index 2 and d at index 3
+
+//like with strings, trying to access an element at an index that is not inside the array resolves to "undefined".
+
+console.log(array1.indexOf("b"), array1.indexOf("e")); // = 1 4
+
+/*
+so far we have seen that the following can be used with arrays, just like strings:
+
+1. .length
+2. array[i]
+3. .indexOf["x"]
+*/
