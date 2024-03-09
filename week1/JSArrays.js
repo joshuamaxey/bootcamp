@@ -101,3 +101,68 @@ console.log(secondArray);
 //array.splice()
 //array.indexOf()
 //array[]
+
+//-----------------------------------------------------------------------------(Array Notes/Exercises)---------------------------------------------------------------
+
+//sumArray: Write a function that takes in an array of numbers and returns the total sm of all the numbers.
+
+/*
+Polya
+
+1. How do you add the values within an array?
+A. Loop through the array ad add values of each array element to a variable called sum.
+
+2. Use a for loop.
+*/
+
+/*function sumArray(arr) {
+  let sum = 0;
+  for (i = 0; i < array.length; i++) {
+    sum += arr[i];
+  }
+  console.log(sum);
+}
+*/
+
+function sumArray(array) {
+  let sum = 0; //create the sum variable before creating the loop.
+
+  for (let i = 0; i < array.length; i += 1) {
+    //standard loop: begins at 0, ends at the last index of the array, increments by 1 each time it runs
+    let num = array[i]; //creat a variable to represent the number at the current index
+    sum += num; //tell the computer to increase the value of "sum" by the value of the number at the current index for each iteration.
+  }
+
+  return sum; //return the new sum, which is the previous sum + the value of the number of the current index this iteration.
+}
+
+console.log(sumArray([1, 2, 3, 4]));
+console.log(sumArray([5, 6, 7, 8]));
+
+//combineArrays: Write a function that takes in two arrays of numbers and returns the two arrays combined into a single array.
+
+function combineArrays(array1, array2) {
+  return array1.concat(array2);
+}
+
+console.log(combineArrays([1, 2, 3, 4], [5, 6, 7, 8]));
+
+//doubler: Write a function that takes an array of numbers and returns a new array where every element of the original array is multiplid by 2.
+
+function doubler(numbers) {
+  let doubledNums = []; //create a new array to hold the doubled numbers
+
+  let i = 0; //set our counter = 0
+  while (i < numbers.length) {
+    //the loop runs while i < the length of the numbers array.
+    let oldNum = numbers[i]; //set oldNum equal to the value at the current index of the numbers array.
+    let newNum = oldNum * 2; // set newNum equal to the oldNum * 2.
+    doubledNums = doubledNums.concat(newNum); //concatenates (adds) each newNum into the new array "doubledNums" using the .concat method.
+
+    i += 1;
+  }
+  return doubledNums; //return the new array
+}
+
+console.log(doubler([1, 2, 3, 4]));
+console.log(doubler([3, 5, 7, 9]));
