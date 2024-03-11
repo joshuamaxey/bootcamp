@@ -198,3 +198,92 @@ function countVowels(word) {
 console.log(countVowels("bootcamp")); // = 3
 console.log(countVowels("apple")); // = 2
 console.log(countVowels("pizza")); // = 2
+
+function aCounterFor(word) {
+  let count = 0;
+  for (let i = 0; i < word.length; i += 1) {
+    let char = word[i];
+    if (char === "a" || char === "A") {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+console.log(aCounterFor("apple")); // = 1
+
+let i = 0;
+
+function eCounterWhile(word) {
+  let count = 0;
+  let i = 0;
+
+  while (i < word.length) {
+    let char = word[i];
+    if (char === "e" || char === "E") {
+      count += 1;
+    }
+    i++;
+  }
+  return count;
+}
+
+console.log(eCounterWhile("apple")); // => 1
+console.log(eCounterWhile("appleapple")); // => 2
+console.log(eCounterWhile("Appleee"));
+
+function isPrime(n) {
+  if (n < 2) {
+    return false; //The smallest prime number is 2, so the first thing we do is check to see if the number is less than 2. If so, it can't be prime. return false.
+  }
+  for (i = 2; i < n; i++) {
+    //set the index = 2 because dividing by less than 2 won't help determine if a number is prime or not. prime numbers are numbers that cannot be divided by any WHOLE besides 1 and itself, so dividng by 1 tells us nothing and any decimal between 1 and 2 is irrelevant.
+    if (n % i === 0) {
+      //if n is divisible by i (any whole number that is >= 2), then it is not prime
+      return false;
+    }
+  }
+  return true; // if a number is 2 or greater and is not divisible by any whole number greater than or equal to 2, it is prime.
+}
+
+console.log(isPrime(2)); // => true
+console.log(isPrime(10)); // => false
+console.log(isPrime(11)); // => true
+console.log(isPrime(9)); // => false
+console.log(isPrime(2017)); // = true
+
+function fizzBuzz(n) {
+  for (let i = 0; i < n; i++) {
+    //default for loop. counter(i) starts at 0, stops when it reaches n (the argument), and increments by 1+ each iteration
+    if (i % 3 === 0 && i % 5 !== 0) {
+      //here we check to see if the number is divisible by 3 and NOT divisible by five.
+      console.log(i); //We tell the computer to print the numbers that are divisible by 3 and NOT divisible by 5.
+    } else if (i % 5 === 0 && i % 3 !== 0) {
+      //we check to see if the number (i) is divisible by five and NOT divisible by 3.
+      console.log(i); //we tell the computer to also print the numbers that are divisible by 5 and NOT divisible by 3.
+    }
+  }
+}
+
+fizzBuzz(20); /* prints out:
+3
+5
+6
+9
+10
+12
+18
+*/
+
+function isSubstring(string, substring) {
+  let lowerString = string.toLowerCase();
+  let lowerSubstring = substring.toLowerCase(); //convert both strings to lowercase so that this function is not case-sensitive.
+
+  return lowerString.indexOf(lowerSubstring) !== -1; //When the .indexOf method returns a -1, it means that the substring is not present within the string. If the substring isn't present within the string, the index returned by the .indexOf will be -1 because indices start at 0 so there is no index at -1, just like there is no substring within the string. We use the strict inequlity operator to check and see if the index returned by the .indexOf method is NOT equal to -1. If any number is returned except for -1, it means that the substring IS located within the string at a certain index. This operator will return TRUE, therefore, if the substring is located within the string and FALSE if it is not.
+
+  //**remember to use the return keyword, or the function will evaluate to "undefined".
+}
+
+console.log(isSubstring("The cat went to the store", "he cat went")); // => true
+console.log(isSubstring("Time to program", "time")); // => true
+console.log(isSubstring("Jump for joy", "joys")); // => false
