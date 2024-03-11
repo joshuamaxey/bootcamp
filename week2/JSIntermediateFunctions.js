@@ -83,3 +83,32 @@ console.log(word); //The original string still prints lower case, it is unchange
 /*
 It is important to note ( ^ ) that the .toUpperCase() method WILL return an uppercase version of a string. But it does NOT actually change (mutate) the original string. Consider that with respect to mathematical operations, performing x+2 does not actually increase the value of x, it just adds 2 to the value but leaves the original variable unchanged. It is only be using x++ (etc) that we change the actual value of the variable x. Similarly, the .toUpperCase will return an uppercase version of the string but does not actually change (mutate) the original string, because strings are immutable.
 */
+
+/*
+In Javascript:
+
+-----(MUTABLE)-----
+
+1. array
+2. object
+
+-----(IMMUTABLE)-----
+
+1. number
+2. string
+3. boolean
+
+With respect to numbers, it may appear that they should be considered mutable.
+*/
+
+let num = 10;
+console.log(num);
+
+num++;
+console.log(num);
+
+/*
+In the above operation ( ^ ) it appears that the variable "num" has been mutated because its value is eleven after the n++ operation has been performed. This indicates that the value of the variable itself has been changed.
+
+However, recall that num ++ (or num += 1) is shorthand for (num = num + 1). This means that we are re-assigning the variable num a new value, which is not the same as mutating the original number.
+*/
