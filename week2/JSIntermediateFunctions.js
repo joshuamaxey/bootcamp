@@ -81,7 +81,11 @@ console.log(word.toUpperCase()); //returns uppercase version of the string witho
 console.log(word); //The original string still prints lower case, it is unchanged.
 
 /*
-It is important to note ( ^ ) that the .toUpperCase() method WILL return an uppercase version of a string. But it does NOT actually change (mutate) the original string. Consider that with respect to mathematical operations, performing x+2 does not actually increase the value of x, it just adds 2 to the value but leaves the original variable unchanged. It is only be using x++ (etc) that we change the actual value of the variable x. Similarly, the .toUpperCase will return an uppercase version of the string but does not actually change (mutate) the original string, because strings are immutable.
+It is important to note ( ^ ) that the .toUpperCase() method WILL return an uppercase version of a string. But it does NOT actually change (mutate) the original string. Rather, it gives you a NEW version of the string that is uppercase, effectively creating a new string without modifying the original.
+
+Consider that with respect to mathematical operations, performing x+2 does not actually increase the value of x, it just adds 2 to the value but leaves the original variable unchanged. It is only be using x++ (etc) that we change the actual value of the variable x.
+
+Similarly, the .toUpperCase will return an uppercase version of the string but does not actually change (mutate) the original string, because strings are immutable.
 */
 
 /*
@@ -112,3 +116,15 @@ In the above operation ( ^ ) it appears that the variable "num" has been mutated
 
 However, recall that num ++ (or num += 1) is shorthand for (num = num + 1). This means that we are re-assigning the variable num a new value, which is not the same as mutating the original number.
 */
+
+let replaceFirst = function (array, newVal) {
+  array[0] = newVal;
+};
+
+let letters = ["a", "b"];
+console.log(letters);
+
+replaceFirst(letters, "x");
+console.log(letters);
+
+//--------------------------------------------------------------------(NESTED LOOPS)---------------------------------------------------------------------------------
