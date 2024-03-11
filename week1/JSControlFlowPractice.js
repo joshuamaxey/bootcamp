@@ -1,6 +1,6 @@
 //isFIve
 
-function isFive(x) {
+/*function isFive(x) {
   if (x === 5) {
     return true;
   } else {
@@ -88,3 +88,38 @@ function threeOrSevenConditional(x) {
 console.log(threeOrSevenConditional(9));
 console.log(threeOrSevenConditional(35));
 console.log(threeOrSevenConditional(2));
+
+
+function wordWithinArray(array, word) {
+  return array.indexOf(word) !== -1; //if the word is located within the array, then the index returned by the .indexOf method will NOT be equal to -1, and the condition returns true (the word is located within the array). If the word is NOT located within the array, then the index returned by the .indexOf method will be -1, since there is no index at -1 (just like there are no instances of that word within the array). When this is the case, the expression evaluates to FALSE since the strict inequality operator is used to check whether the index of the word is NOT equal to -1. If it is, then the expression returns false (the word is not located within the array).
+}
+
+console.log(
+  wordWithinArray(["apple", "banana", "caramel", "chocolate"], "apple")
+); //=> true
+
+console.log(wordWithinArray(["dog", "cat", "camel", "bird"], "camel")); //=> true
+
+console.log(
+  wordWithinArray(["apple", "banana", "caramel", "chocolate"], "pineapple")
+); //=> false
+
+console.log(wordWithinArray(["dog", "cat", "camel", "bird"], "panther")); //=> false
+
+*/
+
+function eitherStringIncluded(sentence, word1, word2) {
+  //the .includes() string method checks to see if a substring is included within a string. It is case sensitive, so the first thing that we have to do is use the .toLowerCase() method to convert the sentence and both strings to lower case. This will ensure that the function is not case-sensitive.
+  let lowerSentence = sentence.toLowerCase();
+  let lowerWord1 = word1.toLowerCase();
+  let lowerWord2 = word2.toLowerCase();
+  //The .includes() method returns a boolean value by default. Since the instructions are for this function to return a boolean value, we don't have to use conditionals. We just check to see whether the sentence includes word1 OR word2. If the sentence does include either word, this expression will return true. If it does not, it will return false.
+  return (
+    lowerSentence.includes(lowerWord1) || lowerSentence.includes(lowerWord2)
+  );
+}
+
+console.log(eitherStringIncluded("how now brown cow?", "panther", "cow")); //=> true
+console.log(eitherStringIncluded("Question?", "Answer", "?")); //=> true
+console.log(eitherStringIncluded("I love programming", "apple", "potato")); //=> false
+console.log(eitherStringIncluded("Dance party!", "?", "what")); //=> false
