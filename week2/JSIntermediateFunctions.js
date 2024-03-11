@@ -128,3 +128,61 @@ replaceFirst(letters, "x");
 console.log(letters);
 
 //--------------------------------------------------------------------(NESTED LOOPS)---------------------------------------------------------------------------------
+
+for (let i = 0; i <= 2; i++) {
+  console.log(i);
+
+  for (let j = 0; j <= 4; j++) {
+    //Note that the name of the index (counter) in the nested loop (j) is DIFFERENT than the index in the original loop (i).
+    console.log("       " + j); //We concatenate j with two tabs so that when the values for both loops print to the console, we can distinguish between the values printed by either loop.
+  }
+}
+
+/*
+When we run a nested loop, this is what happens:
+
+1. We run a single iteration of the first loop.
+2. We run through the entire nested loop (in this case, 5 iterations since our condition is such that the loop only runs while j <= 4)
+3. We run the second iteration of the first loop.
+4. We run through the entire nested loop (another 5 iterations)
+5. We run through the final iteration of the first loop. Since the conditions of the first loop are such that it only runs while i <=2, it only runs a total of three times.
+6. We run through the entire nested loop (another 5 iterations) again!
+
+It's important to note that we run through EVERY iteration of the nested loop for every single iteration of the first loop until the first loop is complete.
+
+Lets look at a different way to run a nested loop.
+*/
+
+for (let i = 0; i <= 5; i += 1) {
+  for (let j = 0; j <= 3; j++) {
+    console.log(i, j);
+  }
+}
+
+/*
+Here ( ^ ), we can see that the our loop functions the same way but evaluates to a different output according to the way that we structure our syntax.
+
+In the first example:
+
+1. The first loop ran through a single iteration, then printed its output
+2. The second loop ran through all of its iterations, then printed them.
+3. The first loop ran through its second iteration, then printed the output.
+4. The second loop ran through all of its iterations again, then printed the output.
+
+In the second example:
+
+1. The first loop runs through its first iteration.
+2. The second loop runs throuhg its first iteration.
+3. The first loop runs throuhg its first iteration.
+4. The second loop runs thorugh its second iteration.
+5. The first loop runs through its first iteration.
+6. The second loop runs through its third iteration.
+
+Then
+
+1. The first loop runs through its second iteration.
+2. The second loop runs throuhg its first iteration.
+3. The first loop runs thoruhg its second iteration.
+4. The second loop runs through its second iteration.
+5. The first loop runs
+*/
