@@ -70,3 +70,87 @@ function moveZeroes(nums) {
 }
 
 console.log(moveZeroes[(0, 2, 0, 3.12)]);
+
+//---------------------------------------------------------------------(ADD TO ARRAY)-------------------------------------------------------------------------------
+
+//ADD TO ARRAY: write a function that takes a location (either "Front" or "back") and adds an element to either the front or the back of the given array.
+//If the location is anythign besides "Front" or "Back," print an error.
+//Your function should not return anything.
+//Your function should mutate the original array.
+
+/*
+Look up the following JavaScript functions:
+
+1. push (array.push() method pushes an element to the end of an array and returns the new length of the array. MUTATES)
+2. pop (the array.pop() method removes the LAST element from an array and returns that element. This method changes the length of an array. MUTATES)
+3. shift (the array.shift() method rmoves the first element from an array and returns that removed element. This method changes the length of an array. MUTATES)
+4. unshift (the array.unshift(x,y) adds the specified elements to the beginning of an array and returns the new length of the array. MUTATES)
+*/
+
+/*
+1. Write a conditional statement to evaluate "location" and then continue if it is either Front or Back, but evaluate to an error message if not.
+2. IF the location is front, use the array.unshift method to add the element to the front of the array.
+3. IF the location is back, use the array.push() method to add the element to the end of the array.
+*/
+
+/*testArray = [1, 2, 3];
+
+function addToArray(location, element, arr) {
+  let locationTrue = location.toLowerCase();
+
+  if (locationTrue === "front") {
+    arr.unshift(element);
+  } else if (locationTrue === "back") {
+    arr.push(element);
+  } else {
+    console.log("ERROR");
+  }
+}
+
+addToArray("FRONT", 0, testArray);
+console.log(testArray); // [0,1,2,3]
+
+addToArray("BACK", 4, testArray);
+console.log(testArray); // [0,1,2,3,4]
+
+addToArray("MIDDLE", 4, testArray); // "ERROR"
+console.log(testArray); // [0,1,2,3,4]
+*/
+
+/*
+REMOVE FROM ARRAY: Write a function that takes a location, either FRONT or BACK, and removes the element at eitehr the front or back of the given array.
+If location is anything besides FRONT or BACK, print an error. Your function should not return anything and should mutate the original array.
+
+1. create a variable with the .toLowerCase method for the location input so that this function is note case-sensitive.
+2. write a conditional statement to determine course of action based on location input.
+    if front, use the array.shift() method to remove the first element in the array.
+    if back, use the array.pop() method to remove the last element in the array.
+    otherwise, return "ERROR"
+*/
+
+function removeFromArray(location, arr) {
+  let locationReal = location.toLowerCase();
+
+  if (locationReal === "front") {
+    arr.shift();
+  } else if (locationReal === "back") {
+    arr.pop();
+  } else {
+    console.log("ERROR");
+  }
+}
+
+testArray = [0, 1, 2, 3, 4];
+
+removeFromArray("FRONT", testArray);
+console.log(testArray); // [1,2,3,4]
+
+removeFromArray("BACK", testArray);
+console.log(testArray); // [1,2,3]
+
+removeFromArray("MIDDLE", 4, testArray); // "ERROR"
+console.log(testArray); // [1,2,3]
+
+let array3 = ["a", "b", "c", "d", "e", "f"];
+array3.splice(2, 3);
+console.log(array3);
