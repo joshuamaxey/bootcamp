@@ -191,3 +191,51 @@ ETC
 //INTERLUDE: For loops are best when you don't know how many iterations you're gonna need.
 
 //INTERLUDE: Notice that the "return" keyword must be placed OUTSIDE of the loops within a given function. I've run into an issue several times where using console.log() returns the correct value but using the return keyword instead and then console.log()ing the function yields undefined or an error. This is because, when the return is placed within a loop or a function, it stops the function exactly where it's at. So if it's located within a loop, it stops that loop from running before it can complete all of its iterations. For instance, my printFives() function continued to print ONLY "5" despite that I'd written the function correctly. THis is because I placed the return keyword inside of the loop, causing the function to end after the first iteration.
+
+// --------------------------------------------------------------------(PAIRS IN ARRAYS)---------------------------------------------------------------------------
+
+let names = ["Joshua", "Jacob", "Caroline", "Sarah", "Rachel"];
+
+//lets say that we want to generate PAIRS of elements in an array.
+
+/*
+for (let i = 0; i < names.length; i++) {
+  let name1 = names[i];
+
+  for (let j = 0; j < names.length; j += 1) {
+    let name2 = names[j];
+
+    console.log(name1, name2);
+  }
+}
+*/
+
+//At first ( ^ ), the loops will generate every possible pair of elements including doubles (Joshua/Joshua) and repeats (Joshua/Rachel)/(Rachel/Joshua).
+
+for (let i = 0; i < names.length; i++) {
+  let name1 = names[i];
+
+  for (let j = i + 1; j < names.length; j += 1) {
+    let name2 = names[j];
+
+    console.log(name1, name2);
+  }
+}
+/*
+So we change j from (j = 0) to (j = i + 1). This means that j will always be ONE index ahead of i.So we change j from (j = 0) to (j = i + 1). This means that j will always be ONE index ahead of i.
+
+So when i starts at index 0 (Joshua), j will skip index 0 (which would yield the duplicate element Joshua) and begin at index 1, which is Jacob.
+Thus, we have eliminated the (Joshua/Joshua) duplicate pair of elements.
+Run this code and look at the difference between the output it generates and the output of the original loops above after making this small change.
+
+We have eliminated the doubles (self-pairs) AND repeats (Joshua/Rachel, Rachel/Joshua), leaving only UNIQUE PAIRS of elements.
+
+The point here is that in order to generate UNIQUE PAIRS of elements within an array, you have to do the following:
+
+1. write a for loop (i)
+2. write a nested for loop (j)
+
+3. !! set the nested loop's counter/index (j) = (i + 1) !!
+
+4. console.log/return both values
+*/
