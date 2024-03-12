@@ -164,25 +164,30 @@ Here ( ^ ), we can see that the our loop functions the same way but evaluates to
 
 In the first example:
 
-1. The first loop ran through a single iteration, then printed its output
-2. The second loop ran through all of its iterations, then printed them.
-3. The first loop ran through its second iteration, then printed the output.
-4. The second loop ran through all of its iterations again, then printed the output.
+1. The first loop runs throuhg its first iteration and prints to the console.
+2. The second loop runs through its first iteration and prints to the console.
+3. The second loop runs through its second iteration and prints to the console.
+4. The second loop runs through its third iteration and prints to the console.
+5. The first loop runs through its second iteration and prints to the console.
+6. The second loop runs through its first iteration and prints to the console.
+7. The second loop runs through its second iteration and prints to the console.
+8. The second loop runs through its second iteration and prints to the console.
+9. The first loop runs through its third iteration and prints to the console.
+10. The second loop runs thorugh its first iteration and prints to the console.
+11. The second loop runs thorugh its first iteration and prints to the console.
+ETC
 
 In the second example:
 
-1. The first loop runs through its first iteration.
-2. The second loop runs throuhg its first iteration.
-3. The first loop runs throuhg its first iteration.
-4. The second loop runs thorugh its second iteration.
-5. The first loop runs through its first iteration.
-6. The second loop runs through its third iteration.
-
-Then
-
-1. The first loop runs through its second iteration.
-2. The second loop runs throuhg its first iteration.
-3. The first loop runs thoruhg its second iteration.
-4. The second loop runs through its second iteration.
-5. The first loop runs
+1. The first loop runs through its first iteration and the second loop runs through its first iteration, both print to the console.
+2. The first loop runs thorugh its first iteration and the second loop runs thorugh its second iteration, both print to the console.
+3. The first loop runs through its first iteration and the second loop runs thorugh its third iteration, both print to the console.
+4. THe first loop runs through its second iteration and the second loop runs through its first iteration, both print to the console.
+5. The first loop runs through its second iteration and the second loop runs through its second iteration, both print to the console.
+6. The first loop runs through its second iteration and the second loop runs through its third iteration, both print to the console.
+ETC
 */
+
+//INTERLUDE: For loops are best when you don't know how many iterations you're gonna need.
+
+//INTERLUDE: Notice that the "return" keyword must be placed OUTSIDE of the loops within a given function. I've run into an issue several times where using console.log() returns the correct value but using the return keyword instead and then console.log()ing the function yields undefined or an error. This is because, when the return is placed within a loop or a function, it stops the function exactly where it's at. So if it's located within a loop, it stops that loop from running before it can complete all of its iterations. For instance, my printFives() function continued to print ONLY "5" despite that I'd written the function correctly. THis is because I placed the return keyword inside of the loop, causing the function to end after the first iteration.
