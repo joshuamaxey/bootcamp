@@ -1,13 +1,13 @@
 /*
-Polya (The process developed by mathematician George Polya) is the process that is used to solve ANY problem in these four steps:
+*Polya (The process developed by mathematician George Polya) is the process that is used to solve ANY problem in these four steps:
 
-1. Understand the problem
-2. Make a plan
-3. Execute the plan
-4. Look back and improve your solution
+&1. Understand the problem
+&2. Make a plan
+&3. Execute the plan
+&4. Look back and improve your solution
 */
 
-//--------------------------------------------------------------( 1. UNDERSTAND THE PROBLEM)--------------------------------------------------------------------------
+//*-------------------------------------------------------------( 1. UNDERSTAND THE PROBLEM)--------------------------------------------------------------------------
 
 //Given an array nums, write a FUNCTION to move all 0's to the end of it WHILE maintaining the relative order of the non-zero elements.
 
@@ -31,7 +31,7 @@ You may have limited time to complete this problem and may be tempted to start c
 - Are there any constraints or edge cases to consider?
 */
 
-//--------------------------------------------------------------------(2. MAKE A PLAN)--------------------------------------------------------------------------------
+//*------------------------------------------------------------------(2. MAKE A PLAN)--------------------------------------------------------------------------------
 
 /*
 Once you have a good understanding of the problem, you may again be tempted to start writing code right away. Before you do that, spend a few minutes planning.
@@ -50,7 +50,7 @@ Here is our plan for the zeroes problem:
 3. If the element is zero, swap its position with the element at the pointer, then decrement the pointer.
 */
 
-//------------------------------------------------------------------(3. EXECUTE THE PLAN)-----------------------------------------------------------------------------
+//*----------------------------------------------------------------(3. EXECUTE THE PLAN)-----------------------------------------------------------------------------
 
 function moveZeroes(nums) {
   //1. set a pointer to the last element in the array.
@@ -71,9 +71,7 @@ function moveZeroes(nums) {
 
 console.log(moveZeroes[(0, 2, 0, 3.12)]);
 
-//---------------------------------------------------------------------(ADD TO ARRAY)-------------------------------------------------------------------------------
-
-//ADD TO ARRAY: write a function that takes a location (either "Front" or "back") and adds an element to either the front or the back of the given array.
+//?ADD TO ARRAY: write a function that takes a location (either "Front" or "back") and adds an element to either the front or the back of the given array.
 //If the location is anythign besides "Front" or "Back," print an error.
 //Your function should not return anything.
 //Your function should mutate the original array.
@@ -81,10 +79,10 @@ console.log(moveZeroes[(0, 2, 0, 3.12)]);
 /*
 Look up the following JavaScript functions:
 
-1. push (array.push() method pushes an element to the end of an array and returns the new length of the array. MUTATES)
-2. pop (the array.pop() method removes the LAST element from an array and returns that element. This method changes the length of an array. MUTATES)
-3. shift (the array.shift() method rmoves the first element from an array and returns that removed element. This method changes the length of an array. MUTATES)
-4. unshift (the array.unshift(x,y) adds the specified elements to the beginning of an array and returns the new length of the array. MUTATES)
+&1. push (array.push() method pushes an element to the end of an array and returns the new length of the array. MUTATES)
+&2. pop (the array.pop() method removes the LAST element from an array and returns that element. This method changes the length of an array. MUTATES)
+&3. shift (the array.shift() method rmoves the first element from an array and returns that removed element. This method changes the length of an array. MUTATES)
+&4. unshift (the array.unshift(x,y) adds the specified elements to the beginning of an array and returns the new length of the array. MUTATES)
 */
 
 /*
@@ -118,7 +116,7 @@ console.log(testArray); // [0,1,2,3,4]
 */
 
 /*
-REMOVE FROM ARRAY: Write a function that takes a location, either FRONT or BACK, and removes the element at eitehr the front or back of the given array.
+?REMOVE FROM ARRAY: Write a function that takes a location, either FRONT or BACK, and removes the element at eitehr the front or back of the given array.
 If location is anything besides FRONT or BACK, print an error. Your function should not return anything and should mutate the original array.
 
 1. create a variable with the .toLowerCase method for the location input so that this function is note case-sensitive.
@@ -189,7 +187,7 @@ console.log(joinAgain); // = "hello"
 //Note that .split and .join methods do NOT mutate the array (or the string, since strings are immutable. console.logging the string after using the .join and .split will yield the original string.)
 
 /*
-REVERSE STRING: Write a function that takes in a stirng and returns a new string where the order of the characters is reversed.
+?REVERSE STRING: Write a function that takes in a stirng and returns a new string where the order of the characters is reversed.
 
 1. initialize an empty string to hold the reversed version that we will return.
 2. Start a loop that begins at the end of the string and iterates back toward the beginning.
@@ -214,7 +212,7 @@ console.log(reverseString("fish")); // 'hsif'
 console.log(reverseString("marathon")); // 'nohtaram'
 
 /*
-RANGE: Write a function range(min, max) that takes in two numbers. The function should return an array containing all numbers from min to max INCLUSIVE. Define this function using fnction expression syntax.
+?RANGE: Write a function range(min, max) that takes in two numbers. The function should return an array containing all numbers from min to max INCLUSIVE. Define this function using fnction expression syntax.
 */
 
 /*
@@ -246,7 +244,7 @@ console.log(range(10, 3)); // []
 //I am beginning to see a distinct pattern throughout these problems concerning arrays (and even strings). We will usually create a variable to hold the output, use a for loop to iterate through the input, then use an array or string method to add each element to the new string or array as the loop runs through each iteration.
 
 /*
-LOG BETWEEN STEPPER: write a function that takes in three numbers as parameters.
+?LOG BETWEEN STEPPER: write a function that takes in three numbers as parameters.
 The function should print out numbers between min and max at step intervals.
 This function only needs to print to the console, it doesn't need to return anything.
 */
@@ -276,7 +274,7 @@ logBetweenStepper(-10, 15, 5); /* prints out:
 */
 
 /*
-MY INCLUDES: write a function myIncludes(arr, target) that accepts an array and a target value as args.
+?MY INCLUDES: write a function myIncludes(arr, target) that accepts an array and a target value as args.
 The function should return a boolean indicating whether the target is found in the array.
 Solve this without array.includes() OR array.indexOF.
 
@@ -306,7 +304,7 @@ console.log(myIncludes([43, -7, 11, 13], 11)); // true
 console.log(myIncludes([43, -7, 11, 13], 1)); // false
 
 /*
-SUM ARRAY: Write a function sumArray(array) that takes in an array of unnumbers and returns the total sum of all the numbers.
+?SUM ARRAY: Write a function sumArray(array) that takes in an array of unnumbers and returns the total sum of all the numbers.
 */
 
 let sumArray = function (array) {
@@ -323,7 +321,7 @@ console.log(sumArray([5, 6, 4])); // => 15
 console.log(sumArray([7, 3, 9, 11])); // => 30
 
 /*
-FACTORS OF: Write a function factorsOf(num) that takes in a number as an argument.
+?FACTORS OF: Write a function factorsOf(num) that takes in a number as an argument.
 The method should return an array containing all positive numbers that are able to divide into num with no remainder.
 Define this funciton using function expression syntax.
 */
@@ -343,7 +341,7 @@ let factorsOf = function (num) {
 };
 
 /*
-MY INDEX OF: Write a function myIndexOf(arr, target) that takes in an array and a target value as arguments.
+?MY INDEX OF: Write a function myIndexOf(arr, target) that takes in an array and a target value as arguments.
 The function should return the first index where the target is found in the array. If the target is not foud it should return -1.
 Solve this without using array.indexOf
 */
@@ -366,7 +364,7 @@ console.log(myIndexOf([43, -7, 11, 13, 43], 43)); // 0
 console.log(myIndexOf([43, -7, 11, 13], 1)); // -1
 
 /*
-VOWEL COUNTER: Write a function countVowels(word) that takes in a string word and returns the number of vowels in the word.
+?VOWEL COUNTER: Write a function countVowels(word) that takes in a string word and returns the number of vowels in the word.
 Vowels are the letters "a" "e" "i" "o" and "u"
 
 - Write a function expression
@@ -377,7 +375,7 @@ Vowels are the letters "a" "e" "i" "o" and "u"
 */
 
 /*
-let vowelCounterRecall = function(word) {
+!let vowelCounterRecall = function(word) {
   let vowels =
   let counter = 0
   for (i = 0; i < word.length; i++) {
@@ -415,7 +413,7 @@ console.log(countVowels("bootcamp")); // => 3
 console.log(countVowels("apple")); // => 2
 console.log(countVowels("pizza")); // => 2
 
-//HAS VOWEL: Write a function hasVowel(str) that tkes in a string and returns a boolean TRUE if the string contains at least one vowel, FALSE otherwise.
+//?HAS VOWEL: Write a function hasVowel(str) that tkes in a string and returns a boolean TRUE if the string contains at least one vowel, FALSE otherwise.
 
 let hasVowel = function (word) {
   let i = 0;
@@ -441,5 +439,126 @@ console.log(hasVowel("conventional")); // true
 console.log(hasVowel("rhythm")); // false
 
 /*
+?FIZZ BUZZ ARRAY: Write a function fizzBuzz(max) that accepts a number as an argument.
+The function should return an aray containing all positive numbers less than max that are divisible by either 3 or 5, but not both.
+*/
 
+let fizzBuzz = function (max) {
+  let nums = []; //Initialize an empty array to store the numbers that met the conditional
+
+  for (i = 1; i < max; i++) {
+    //start a loop from 1 up to the max value, incrementing by 1 each time
+    if ((i % 3 === 0 && i % 5 !== 0) || (i % 5 === 0 && i % 3 !== 0)) {
+      //Check if i is divisible by 3 or 5, but not both
+      nums.push(i); //if the condition is true, push i to the nums array
+    }
+  }
+  return nums; //once the loop is finished, return nums
+};
+
+console.log(fizzBuzz(12)); // [ 3, 5, 6, 9, 10 ]
+console.log(fizzBuzz(20)); // [ 3, 5, 6, 9, 10, 12, 18 ]
+
+/*
+?FIRST VOWEL: Write a function firstVowel(str) that takes in a string and returns the first vowel that appears sequentially in the string.
+If the string does not contain a vowel, return null.
+
+- Write a for loop that iterates through each letter of the string
+- Write a conditional statement that checks to see whether the element at the current index is equal to a, e, i, o, or u
+- If it is, return that letter.
+- If the loop completes without finding a vowel, return null
+*/
+
+firstVowel = function (str) {
+  let i = 0; //set index (counter) = 0;
+  while (i < str.length) {
+    //Write a while loop that will iterate through each letter of the string
+    if (
+      //Write a conditional statement to check whether the element at the current index is a vowel
+      str[i] === "a" ||
+      str[i] === "e" ||
+      str[i] === "i" ||
+      str[i] === "o" ||
+      str[i] === "u"
+    ) {
+      return str[i]; //if the element at the current index is a vowel, return it.
+    }
+    i++; //if not, increment the index (counter) by 1 and run the loop again to check the next index.
+  }
+  return null; //If the loop completes without finding a vowel, return null.
+};
+
+console.log(firstVowel("battery")); // 'a'
+console.log(firstVowel("tunnel")); // 'u'
+console.log(firstVowel("dog")); // 'o'
+console.log(firstVowel("conventional")); // 'o'
+console.log(firstVowel("rhythm")); // null
+
+/*
+?EVEN NUMBERS: Write a function evenNumbers(max) that takes in a number as an arg.
+The funciton should return an array containing all positive even numbers that are less than max.
+Define this function using function expression syntax.
+*/
+
+let evenNumbers = function (max) {
+  let nums = []; //- Initialize a new array nums to hold the numbers that meet the criteria.
+
+  for (i = 1; i < max; i++) {
+    //- Write a for loop that iterates through every index from 1 to the max.
+    if (i % 2 === 0) {
+      //- Write a conditional to check whether each index is even.
+      nums.push(i); //- If the number is even, push to nums.
+    }
+  }
+  return nums; //- Once the loop is complete, return nums.
+};
+
+console.log(evenNumbers(7)); // [ 2, 4, 6 ]
+console.log(evenNumbers(12)); // [ 2, 4, 6, 8, 10 ]
+console.log(evenNumbers(15)); // [ 2, 4, 6, 8, 10, 12, 14 ]
+
+/*
+?IS PRIME RECALL: Define a function isPrime(number) that returns true if the number is prime and false otherwise.
+A umber is prime if it is ony divisible by 1 and itself.
+
+- Check to see if the number is less than 2. 2 is the smallest prime number, so anything less than 2 is not prime.
+- Set the index (counter) = 2.
+- Write a while loop that will check every index until it reaches the number.
+- write a conditional statement that checks to see whether the number is divisible by i.
+- if it is, return false.
+- if the loop completes without finding any factors, return true because the number is prime.
+*/
+
+let isPrime = function (number) {
+  if (number < 2) {
+    //Check to see if the number is less than 2. If it is, it cannot be prime because 2 is the smallest prime number, so return false.
+    return false;
+  }
+
+  i = 2; //set the index (counter) equal to 2 so that the loop begins counting at the number 2.
+
+  while (i < number) {
+    //write a while loop that iterates through every number between 2 and the the number input.
+    if (number % i === 0) {
+      //write a conditional that checks to see whether the number is divisible by the number located at each index.
+      return false; //if it is divisible by any number between 2 and itself, return false because it is not prime.
+    }
+    i++; //if the number is not divisible by the number at the current index, run the loop again and check the next number.
+  }
+  return true; //if no factors are found between 2 and the number input, return true because it is a prime number.
+};
+
+console.log(isPrime(2)); // => true
+console.log(isPrime(10)); // => false
+console.log(isPrime(11)); // => true
+console.log(isPrime(9)); // => false
+console.log(isPrime(2017)); // => true
+
+/*
+?LAST VOWEL: Write a function lastVowel(str) that takes in a string and returns the last vowel that appears sequentially in the string.
+Note that the string may contain capitalization.
+
+- Initialize a variable lowerStr to convert the string to lowercase so that this function is not case-senstive.
+- Write a for loop that iterates backward through the string.
+- Write a conditional statement to check
 */
