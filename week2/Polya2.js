@@ -809,7 +809,7 @@ Pig Latin is a take on the English language wehre you move any consonant cluster
 };
 */
 
-let pigLatinWord = function (word) {
+function pigLatinWord(word) {
   let vowels = "aeiou"; //initialize a string of vowels for comparison
   if (vowels.includes(word.toLowerCase()[0])) {
     //Write a conditional to check whether the first letter of the word is vowel.
@@ -817,12 +817,94 @@ let pigLatinWord = function (word) {
   }
   for (i = 0; i < word.length; i++) {
     //If not, write a loop that iterates through every letter of the word.
-    let letter = word[i];
+    let letter = word[i]; //initialize a variable to store the letter at the current index
 
-    if (vowels.includes(letter.toLowerCase)) {
+    if (vowels.includes(letter)) {
+      //write a conditional with string.includes(letter) to test whether the letter at the current index is a vowel
+      let firstPart = word.slice(i); //use .slice to extract every from the vowel to what remains of the word after the vowel located at the current indix
+      let secondPart = word.slice(0, i); //use .slice to extract the letters that occur in the word prior to the vowel located at the current index.
+      return firstPart + secondPart + "ay"; //concatenate the firstPart and SecondPart of the word with "ay" at the end, then return the resulting string.
+    }
+  }
+}
+
+console.log(pigLatinWord("apple")); //=> "appleyay"
+console.log(pigLatinWord("banana")); //=> "ananabay"
+
+/*
+? PIG LATIN RECALL: Write a function pigLatinWord(word) that takes in a word string and translates the word into pig latin ^^^
+*/
+
+let pigLatinWordRecall = function (word) {
+  let vowels = "aeiou"; // initialize a varuabke to hold a string of vowels for comparion
+
+  if (vowels.includes(word[0])) {
+    //write a conditional to determine whether the letter at the FIRST INDEX(0) of the word is a vowel.
+    return word + "yay"; //If so, return the word plus the suffix "yay"
+  }
+
+  for (i = 0; i < word.length; i += 1) {
+    //if NOT, write a loop to iterate through the word from the first index to the last.
+    let letter = word[i]; //initialize a variable to hold the letter at the current index of the word.
+
+    if (vowels.includes(letter)) {
+      //write a conditional to determine if the letter at the current index is a vowel.
+      let firstPart = word.slice(i); //if it is, use .slice to cut off the remainder of the word after the vowel at the current index.
+      let secondPart = word.slice(0, i); //use slice to cut off the front of the word from index 0 to the index where the first vowel is located
+      return firstPart + secondPart + "ay"; //add the back end of the word first, then the first part of the word up to the first vowel, plus the "ay" suffix
     }
   }
 };
 
-console.log(pigLatinWord("apple")); //=> "appleyay"
-console.log(pigLatinWord("banana")); //=> "ananabay"
+console.log(pigLatinWordRecall("apple")); //=> "appleyay"
+console.log(pigLatinWordRecall("eat")); //=> "eatyay"
+console.log(pigLatinWordRecall("banana")); //=> "ananabay"
+console.log(pigLatinWordRecall("trash")); //=> "ashtray"
+
+/*
+? LEAST COMMON MULTIPLE: Write a function leastCommonMultiple(num1, num2) that takes in two numbers as arguments.
+The function should return the smallest number that is divisible by both num1 and num2
+
+- start a loop from 1 up to the product of num1 and num2
+- check if i is a multiple of both num2 and num2
+- if it is, return 'i' as the LCM
+*/
+
+let leastCommonMultiple = function (num1, num2) {
+  for (let i = 1; i <= num1 * num2; i++) {
+    //write a loop that iterates from 1 (not 0, becuase 0 is not relevant in factoring problems) to the product of num1 and num2. We use the product of num1 * num2 because the product will be the greatest common multiple. If there are no smaller common multiples, this will be what we return as the least common multiple.
+    if (i % num1 === 0 && i % num2 === 0) {
+      //check to see if the number at the current index is evenly divisible by num1 AND num2. If it is, then it is a common multiple of both. Since we are iterating from 1 up, the first common multiple that we find will be the least common multiple.
+      return i; //if we find a common multiple at the current index, return the number at that index.
+    }
+  }
+  //There is no need to return anything else because with respect to positive integers, there should always be a least common multiple. IF there is not, the function will end withour returning a value (undefined).
+};
+
+console.log(leastCommonMultiple(4, 6)); // 12
+console.log(leastCommonMultiple(3, 5)); // 15
+console.log(leastCommonMultiple(2, 10)); // 10
+
+/*
+? SUM ARRAY: Write a function sumArray(arr) that accepts an array as an argument.
+The function should return the total sum of all values in the array.
+
+- initialize a variable sum to hold the values that will be added together.
+- Write a for loop that iterates through each element of the array.
+- For each iteration, add the value of the number at the current index to sum.
+- After the loop runs to completion, return the sum.
+*/
+
+let sumArray2 = function (arr) {
+  let sum = 0;
+
+  for (i = 0; i < arr.length; i++) {
+    let num = arr[i];
+    sum += num;
+  }
+  return sum;
+};
+
+console.log(sumArray([4, 3, -1, 10])); // 16
+console.log(sumArray([6, 7, 2])); // 15
+console.log(sumArray([])); // 0
