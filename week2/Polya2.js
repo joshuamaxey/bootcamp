@@ -93,7 +93,7 @@ Look up the following JavaScript functions:
 
 /*testArray = [1, 2, 3];
 
-function addToArray(location, element, arr) {
+//! function addToArray(location, element, arr) {
   let locationTrue = location.toLowerCase();
 
   if (locationTrue === "front") {
@@ -166,12 +166,12 @@ let string = "There is no machine";
 let splitString = string.split(" ");
 console.log(splitString);
 
-// ^^^ Splits a string into an array using the string.split() method.
+//& string.split() Splits a string into an array using the string.split() method.
 
 let unSplitString = splitString.join(" ");
 console.log(unSplitString);
 
-// ^^^ use the array.join() to turn an array back into a string.
+//& string.join() use the array.join() to turn an array back into a string.
 
 //since strings are immutable, you could use these .join and .split methods together to convert the string to an array, change/remove an element of the array, then convert it back to a string. In this way you bypass the immutability of strings.
 
@@ -216,7 +216,7 @@ console.log(reverseString("marathon")); // 'nohtaram'
 */
 
 /*
-let range = function (min, max) {
+!let range = function (min, max) {
   let i = min;
   while (i < max) {
     console.log(i);
@@ -562,3 +562,267 @@ Note that the string may contain capitalization.
 - Write a for loop that iterates backward through the string.
 - Write a conditional statement to check
 */
+
+/*
+!let lastVowel = function (str) {
+  let lowerStr = str.toLowerCase();
+  let i = lowerStr.length - 1;
+  while (i <= 0) {
+    if ((lowerStr[i] = "a")) {
+      return lowerStr[i];
+    }
+    i--;
+  }
+};
+*/
+
+/*
+- define a string of vowels for comparison
+- start a loop from the end of the string that iterates toward the beginning
+- access each character of the string using its index
+- check if the character is a vowel by vonverting it to lowercase and checking if its included in the 'vowels' string.
+- if the character is a vowel, return iterate
+- if the loop completes without finding a vowel, return null
+*/
+
+//& NOTE that in a for loop, the second condition (i <= string.length, etc) does not define when the loop will STOP. Rather, it defines the conditions under which the loop RUNS.
+
+let lastVowel = function (string) {
+  let vowels = "aeiou"; //define a string of vowels for comparison
+
+  for (i = string.length - 1; i >= 0; i--) {
+    //write a loop that iterates backward through the string input
+    let letter = string[i]; //initialize a variable to hold the letter at the current index
+    if (vowels.includes(letter.toLowerCase())) {
+      //use the .includes method to check whether the letter at the current index matches any of the letters in the 'vowels' string. Use the .toLowerCase method to change the letter at the current index to lower case so that the function is not case-sensitive.
+      return letter; //if the letter at the current index matches any of the vowels, return that letter.
+    }
+  }
+  return null; //if the string runs to completion without finding a vowel, return null.
+};
+
+console.log(lastVowel("battery")); // 'e'
+console.log(lastVowel("TUNNEL")); // 'E'
+console.log(lastVowel("dog")); // 'o'
+console.log(lastVowel("conventional")); // 'a'
+console.log(lastVowel("rhythm")); // null
+
+/*
+? PIT PAT: Write a function pitPat(max) that accepts a number as an argumetn and returns an array containing all postive numbers less than or equal to the max that are divisible by 4 or 6, but not both.
+
+- Create an empty array nums to hold numbers that meet the criteria.
+- write a loop that iterates from 1 to the max.
+- write a conditional to check whether the number is divisible by 4 but not six
+- then check whether the number is divisible by 6 and not 4
+- if a number meets these criteria, use .push to add it to nums.
+- after the loop runs to completion, return nums
+*/
+
+let pitPat = function (number) {
+  let nums = []; //Create an empty array nums to hold numbers that meet the criteria.
+
+  for (i = 1; i <= number; i++) {
+    //write a loop that iterates from 1 to the max
+    if (i % 4 === 0 && i % 6 !== 0) {
+      //write a conditional to check if the number is divisible by 4 but not 6
+      nums.push(i); //if so, use .push to add to nums array
+    } else if (i % 6 === 0 && i % 4 !== 0) {
+      //write a conditional to check if the number is divisible by 6 but not 4.
+      nums.push(i); //if so, use .push to add to nums array
+    }
+  }
+  return nums; //after the loop is complete, return the array nums.
+};
+
+console.log(pitPat(18)); // [ 4, 6, 8, 16, 18 ]
+console.log(pitPat(30)); // [ 4, 6, 8, 16, 18, 20, 28, 30 ]
+
+/*
+? REMOVE LAST VOWEL: Write a function removeLastVowel(word) that takes in a string and returns the string with its last vowel removed.
+& string.slice(start, end) method extracts a section of a string and returns it as a new string. NO MUTATION.
+& substring.includes(searchstring, position) method checks whether a substring is a part of a string or not.
+
+- define a string of vowels for comparison
+- start a loop from the end of the word toward the beginning
+- initialize a variable to contain the letter at the current index-
+- write a conditional with the .includes method to check whether the character is a vowel.
+- if it is a vowel, use .slice to return a new string without the vowel.
+- if the loop completes without finding a vowel, return the original word.
+*/
+
+let removeLastVowel = function (word) {
+  let vowels = "aeiou"; //define a string of vowels for compariosn
+
+  for (i = word.length - 1; i >= 0; i--) {
+    //write a for loop that iterates backward through the word input.
+    let letter = word[i]; //initialize a variable to contain the letter at the current index of the word input.
+
+    if (vowels.includes(letter)) {
+      //write a conditional that uses the .includes method to check whether the letter is a vowel
+      return word.slice(0, i) + word.slice(i + 1); //if it is a vowel, use the .slice() method to return the word without the vowel.
+    }
+  }
+  return word; //if no vowels are found, return the original word.
+};
+
+//^-------------------------------------------------------------SLICE PRACTICE------------------------------------------------------------------------------------
+
+let practiceString = "practice string";
+
+console.log(practiceString.slice(0, 5)); // = "pract" returns characters at indices 1-5
+console.log(practiceString.slice(6)); // = "ce string" returns characters at indices 6+
+
+console.log(practiceString.slice(0, 3) + practiceString.slice(4)); // = "pra tice string" (character at index 4 [c] cut out)
+
+//^---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+? PAIRS MAKER: Write a function pairsMaker(arr) that takes in an array as an argument.
+The function should return a 2D array where the subarrays represent unique pairs of eleemtns fro the input array.
+
+- Initialize an empty array to store the pairs
+- Write an outer loop that goes through each element in the array.
+- Write an inner loop that starts from the element following the current element of the outer loop.
+- Create a pair with the current element of the outer loop and the current element of the inner loop.
+- add the new pair to the 'pairs' array.
+- return the 'pairs' array
+*/
+
+let pairsMaker = function (array) {
+  let pairs = []; //initialize a new array to hold the pairs
+
+  for (let i = 0; i < array.length; i++) {
+    //The outer loop is a regular for loop that iterates through every element of the array.
+    for (let j = i + 1; j < array.length; j++) {
+      //write an inner loop that starts at the index that the first loop is iterating through.
+      let pair = [array[i], array[j]]; //create a pair with the current element of the outer and the inner loop
+      pairs.push(pair); //add the new pair to the pairs array using the .push method
+    }
+  }
+  return pairs;
+};
+
+console.log(pairsMaker(["a", "b", "c", "d"])); // =>
+// [ [ 'a', 'b' ],
+//   [ 'a', 'c' ],
+//   [ 'a', 'd' ],
+//   [ 'b', 'c' ],
+//   [ 'b', 'd' ],
+//   [ 'c', 'd' ] ]
+
+console.log(pairsMaker(["Rosemary", "Alex", "Connor"])); // =>
+// [ [ 'Rosemary', 'Alex' ],
+//   [ 'Rosemary', 'Connor' ],
+//   [ 'Alex', 'Connor' ] ]
+
+/*
+? MIN VALUE: Write a function minValue(nums) that takes in an array of nubers as an argument.
+The function should return the smallest number of the array.
+If the array is empty, the function should return null.
+*/
+
+let minValue = function (nums) {
+  let min = null; // null = nothing
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i];
+    //if the current num is smaller than the curren min, repalce the min with that number
+    //console.log(num); // use console.log to check whether the for loop is correctly iterating through the numbers in the array.
+    if (min === null || num < min) {
+      min = num;
+    }
+  }
+  return min;
+};
+
+console.log(minValue([5, 4, 3, 7]));
+
+/*
+? TWO SUM: Write a function twoSum(arr, target) that accepts an array and a target nubre as arguments.
+The function should return a boolean indicating if two distinct numbers of the array add up to the target value.
+You can assume that input array contains only unique numbers.
+
+- write a for loop to iterate theough each element in the input array.
+- assign the element at the current index to num1
+- iterate through the rest of the array starting from the next element (i + 1)
+- Assign the element at the current intex to num2.
+- check if the sum of num1 and num2 equals the target number
+- if it does, return true.
+- if the loops complete and no pairs add up to the target, return false.
+*/
+
+let twoSum = function (arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    //standard for loop to iterate through each element in the array from start to finish.
+    let num1 = arr[i]; //initialize a variable num1 to store the element located at the current index of the array.
+    for (let j = i + 1; j < arr.length; j++) {
+      //iterate through the rest of the array starting form the next element.
+      let num2 = arr[j]; //initialize a variable num2 to store the element located at the current index of the array.
+      if (num1 + num2 === target) {
+        //write a conditional to check whether num1 and num2 (pair) is equal to the target.
+        return true; // if so, return true
+      }
+    }
+  }
+  return false; // if the loops finish without finding a pair that adds up to the target value, return false.
+};
+
+console.log(twoSum([1, 7, 3, 0, 2], 5)); // true
+console.log(twoSum([1, 7, 3, 0, 2], 6)); // false
+console.log(twoSum([4, 6, 2, 3], 8)); // true
+console.log(twoSum([4, 6, 2, 3], 11)); // false
+
+let birds = ["finch", "eagle", "parrot", "sparrow"];
+
+console.log(birds.slice(0, 2));
+
+/*
+? PIG LATIN: Write a function pigLatinWord(word) that takes in a word string and translates the word into pig latin.
+& string.slice() method: extracts a section of a string and returns t as a new string. String.slice(0, 2) = Str, string.slice(1) = tring
+& string.includes method: sentence.includes(word), word.includes(letter), etc
+Pig Latin is a take on the English language wehre you move any consonant cluster from the start of the word to the end of the word; when words begin on a vowel, you add "-yay." Vowels are aeiou.
+
+- For words that start with a vowel, add 'yay' to the end of the word.
+- For words that start with a consonant, move all letters that come BEFORE the first vowel to the END of the word, then add 'ay'
+& create a string of vowels for comparison
+& Determine if the first letter is a vowel.
+    ^If it is a vowel, return that word plus "yay"
+& Iterate until I find a vowel.
+    ^Take all of the consonants before the current letter
+    ^append that consonant clump to the end of the word
+    ^add "ay" and then return the word
+    //-create a loop that iterates through every letter of the word.
+    //-Write a conditional that uses .includes and .toLowerCase to determine whether the letter at the current index is a vowel
+    //-if it is a vowel, return the original word with "-yay-" added to the end.
+*/
+
+/*
+!let pigLatinWord = function (word) {
+  let vowels = "aeiou";
+
+  for (i = 0; i < word.length; i++) {
+    let letter = word[i];
+
+    if (vowels.includes(letter.toLowerCase())) {
+      return word + "yay";
+    }
+  }
+};
+*/
+
+let pigLatinWord = function (word) {
+  let vowels = "aeiou"; //initialize a string of vowels for comparison
+  if (vowels.includes(word.toLowerCase()[0])) {
+    //Write a conditional to check whether the first letter of the word is vowel.
+    return word + "yay"; // If so, return the word with "yay" added to the end.
+  }
+  for (i = 0; i < word.length; i++) {
+    //If not, write a loop that iterates through every letter of the word.
+    let letter = word[i];
+
+    if (vowels.includes(letter.toLowerCase)) {
+    }
+  }
+};
+
+console.log(pigLatinWord("apple")); //=> "appleyay"
+console.log(pigLatinWord("banana")); //=> "ananabay"
