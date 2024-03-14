@@ -17,3 +17,13 @@ let myFunction = function (x) {
 };
 
 console.log(typeof myFunction); //function
+
+console.log(typeof BigInt(89349759387459837495793485)); // bigInt
+
+console.log(typeof false); //boolean
+
+console.log(null === undefined); //false
+console.log(nul == undefined); //true
+
+//null is for intentionally setting the value of something to 'the absence of a value'
+//undefined is usually assumed to be unintentional. If you need to assign something a non-value, use null instead of undefined.

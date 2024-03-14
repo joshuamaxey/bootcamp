@@ -908,3 +908,61 @@ let sumArray2 = function (arr) {
 console.log(sumArray([4, 3, -1, 10])); // 16
 console.log(sumArray([6, 7, 2])); // 15
 console.log(sumArray([])); // 0
+
+/*
+? TWO DIMENSIONAL SUM: Write a function twoDimensionalSum(arr) that takes in a 2D array of numbers and returns the total sum of all numbers.
+
+- initialize a variable "sum" to keep track of the sum of the numbers as we add them.
+- write a for loop that iterates through ever element of the outter array.
+- write a nested loop that iterates through each index of the inner array.
+- within the inner loop, add each number subArr[j] to the sum.
+- after the loops are complete, return the sum.
+*/
+
+let twoDimensionalSum = function (arr) {
+  let sum = 0;
+
+  for (i = 0; i < arr.length; i++) {
+    //write a for loop to iterate through the outter array.
+    let subArr = arr[i]; //initialize a variable to contain the subArray
+
+    for (let j = 0; j < subArr.length; j++) {
+      //write a nested loop to iterate through the subArray
+      sum += subArr[j]; //add the value at each index of the subarray to sum
+    }
+  }
+  return sum; //return sum
+};
+
+let arr1 = [[1, 3], [-4, 7, 10], [2]];
+console.log(twoDimensionalSum(arr1)); // 19
+
+let arr2 = [[], [3, 1, 2]];
+console.log(twoDimensionalSum(arr2)); // 6
+
+/*
+? REMOVE LAST VOWEL RECALL: Write a function removeLastVowelRecall(word) that takes in a string and returns the string with its last vowel removed
+
+- initialize a variable to contain vowels for comparison
+- write a loop that iterates backward through the given string.
+- write a conditional that checks to see if the letter at the current index is a vowel using the .includes
+- if it is a vowel, use .slice to return the word without the vowel
+*/
+
+let removeLastVowelRecall = function (word) {
+  let vowels = "aeiou";
+
+  for (i = word.length - 1; i >= 0; i--) {
+    let letter = word[i];
+
+    if (vowels.includes(letter)) {
+      word.slice(0, i) + word.slice(i + 1);
+    }
+  }
+  return word;
+};
+
+console.log(removeLastVowel("bootcamp")); // 'bootcmp'
+console.log(removeLastVowel("better")); // 'bettr'
+console.log(removeLastVowel("graph")); // 'grph'
+console.log(removeLastVowel("thy")); // 'thy'
