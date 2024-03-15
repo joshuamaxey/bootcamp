@@ -158,18 +158,22 @@ The function should return an array containing only the words that are longer th
 */
 
 let longWords = function (words) {
-  if (words.length === 0) { // write a conditional to handle edge cases where array.length is 0
+  if (words.length === 0) {
+    // write a conditional to handle edge cases where array.length is 0
     return null; //if the array is empty, return null
   }
-  if (typeof words !== "object") { //write a conditional to handle edge cases wehre data type is not object[array]
+  if (typeof words !== "object") {
+    //write a conditional to handle edge cases wehre data type is not object[array]
     return null; //if data type is anything besides object, return null
   }
 
   let lw = []; //initialize a variable 'lw' to hold the words that meet the criteria
 
-  for (i = 0; i < words.length; i++) { //write a for loop that iterates through each element (word) of the array.
+  for (i = 0; i < words.length; i++) {
+    //write a for loop that iterates through each element (word) of the array.
     let el = words[i]; //initialize a new variable el to hold the element (word) located at the current index.
-    if (el.length > 5) { // write a conditional to check whether the element (word) at the curretn index is longer than 5 characters using .length
+    if (el.length > 5) {
+      // write a conditional to check whether the element (word) at the curretn index is longer than 5 characters using .length
       lw.push(el); //if the length of the word is greater than 5, use array.push method to add that element (word) to the 'lw' array
     }
   }
