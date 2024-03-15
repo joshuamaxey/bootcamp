@@ -187,3 +187,131 @@ let longWords = function (words) {
 
 console.log(longWords(["bike", "skateboard", "scooter", "moped"])); // [ 'skateboard', 'scooter' ]
 console.log(longWords(["couscous", "soup", "ceviche", "solyanka", "taco"])); // [ 'couscous', 'ceviche', 'solyanka' ]
+
+/*
+? REMOVE E WORDS: Write a function that accepts a sentence string as an argument.
+The function should return a new string, containing only the words that don't have the letter e in them.
+& .includes() method: word.includes(letter)
+& string.split method: sentence.split(" ")
+& array.join method: words.join(" ")
+& array.push method to add an element to the end of an array
+
+////- initialize a variable firstSentence to contain the input string
+////- use the sentence.split() method to split the words in firstSentence into an array of strings (words)
+////- initialize a new array nonE to hold the words that do not include E
+////- write a for loop that iterates through each element of the array.
+////- initialize another variable el to represent the element at the current index of the array
+////- write a conditional that uses .includes to check whether the element at the current index of the array (el) contains e.
+////- if it does NOT contain e, use the .push to add el (the element at the current index of the array) to the array 'nonE'
+////- once the loop has run to completion, use the array.join(" ") method to convert the array back into a string and store it in the variable 'finalSentence'
+////- return finalSentence
+
+let removeEWords = function (sentence) {
+  let sentenceArray = sentence.split(" ");
+  let nonE = [];
+
+  for (i = 0; i < sentenceArray.length; i++) {
+    let el = sentenceArray[i];
+    if (el.includes("e") || el.includes("E")) {
+      sentenceArray.slice(i);
+    }
+  }
+};
+
+console.log(removeEWords("What time is it"));
+*/
+
+/*
+- Split the sentence into an array of words using the string.split(" ") method.
+- initialize an empty array 'filtered' to store words that do not contain the letter e.
+- write a for loop to iterate over each word in the words array.
+- rwrite a conditional to see whether the element (word) at the current index contains e.
+- if a word does not contain the letter e, it is added to the filtered array using the push method.
+- once the loop is finished, use the array.join(" ") method to convert the array back into a string.
+- return the new string.
+*/
+
+let removeEWords = function (sentence) {
+  let words = sentence.split(" "); //use the string.split(" ") method to split the string into an array of words
+  let filtered = []; //initialize a new array to hold the filtered words
+
+  for (i = 0; i < words.length; i++) {
+    //write a for loop to iterate through the elements (words) of the array
+    let word = words[i]; //initialize a variable to hold the element (word) located at the current index.
+    if (!word.toLowerCase().includes("e")) {
+      //Write a conditional that uses toLowerCase and .includes to see if the element (word) at the current index contains e
+      filtered.push(word); //If the word does NOT (notice the use of the '!' operator in the line above) contain e, push the word to the filtered array
+    }
+  }
+  return filtered.join(" "); //once the loop has run to completion, use array.join(" ") method to convert the array back into a string and then return it.
+}; //you have effectively 'mutated' a string.
+
+console.log(removeEWords("What time is it everyone?")); // 'What is it'
+console.log(removeEWords("Enter the building")); // 'building'
+
+/*
+? MAX VALUE: Write a function maxValue(nums) that takes in an array of numbers as an argument.
+The function should return the largest nubmer of the array.
+If the array is empty, the function should return null.
+
+- Initialize a new variable max and set it equal to null.
+- write a for loop to iterate through every element of the nums array.
+- iniitalize a variable num to hold the element located at the current index of the array.
+- write a conditional to check if max is null or if num is greater than max
+- if it is, update max to num.
+- after the loop has finished iterating through all of the numbers, return max.
+*/
+
+let maxValue = function (nums) {
+  let max = null; //initialize a variable max and set it equal to null. Using null instead of 0 ensures that this function is compatible with all numbers, including negative numbers (if we used 0, the function would incorrectly return 0 as the higher number than the negative number) AND it also ensures that other programmers are made aware that max is intentionally left without a value at the beginninng of the function.
+
+  for (i = 0; i < nums.length; i++) {
+    //write a for loop that iterates through every element of the array.
+    let num = nums[i]; //initialize a variable num to hold the element located at teh current index of the nums array.
+
+    if (max === null || num > max) {
+      //write a conditional to check whether max is equal to null or num is greater than max.
+      max = num; //If either i true, then we update the value of max with the new, higher value number located at the current index.
+    }
+  }
+  return max; //after the loop is complete, return max.
+};
+
+console.log(maxValue([4, 6, 3, 5, 42, 4])); // 42
+console.log(maxValue([-2, -3, -7, 3])); // 3
+console.log(maxValue([])); // null
+
+/*
+? TWO SUM RECALL: Write a function twoSumm(arr, target) that accepts an array and a target number as arguments.
+The funciton should return a boolean indicating if two distinct umbers of the array add up to the target vlaue.
+assume that the input array contains only unique numbers.
+
+- Write a for loop to iterate through the array.
+- initialize a variable num1 to contain the element located at the current index of the array.
+- write a nested loop that startes with the variable j and iterates through the array beginning at the index following i (i + 1)
+- initialize a new variable num2 to hold the value of the element located at the current index of the array (j[i])
+- write a conditional to check if num1 + num2 are equal to the target number.
+- if so, return true.
+- if the loop completes without finding a pair that equals the target number, return false.
+*/
+
+let twoSUm = function (array, target) {
+  for (i = 0; i < array.length; i++) {
+    //write a for loop that iterates through the array.
+    let num1 = array[i]; //iniitalize a variable to hold the element located at the current index of the array.
+
+    for (j = i + 1; j < array.length; j++) { //write a nested loop to iterate through the array beginning at the index after i
+      let num2 = array[j]; //initialize a variable to hold the element located at the current index of the array[j]
+
+      if ( num1 + num2 === target) { //write a conditional to check whether the sum of num1 and num2 is the target value
+        return true; //return true if so
+      }
+    }
+  }
+  return false. //if the loop finishes without finding a pair that equals the target value, return false.
+}
+
+console.log(twoSum([1, 7, 3, 0, 2], 5)); // true
+console.log(twoSum([1, 7, 3, 0, 2], 6)); // false
+console.log(twoSum([4, 6, 2, 3], 8)); // true
+console.log(twoSum([4, 6, 2, 3], 11)); // false
