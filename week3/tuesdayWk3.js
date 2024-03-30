@@ -42,3 +42,29 @@ function printNames(array) {
 }
 
 printNames(users)
+
+//! ARRAY OF OBJECTS
+
+const users = [
+    {
+        name: "Gerald",
+        age: 23,
+        height: 68
+    },
+    {
+        name: "Winnie",
+        age: 35,
+        height: 62
+    },
+    {
+        name: "Peter",
+        age: 61,
+        height: 72
+    }
+]
+
+const printNames = users => {
+
+}
+
+printNames(users)                   // Gerald Winnie Peter
