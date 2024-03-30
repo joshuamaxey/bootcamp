@@ -124,7 +124,7 @@ console.log(resultArr)
 
 //!------------------------------------------------------------------------------------------------------------------------------------------------
 
-/*
+
 
 //& FOREACH DOES NOT RETURN ANYTHING, CALLBACK FUNCTION GETS CALLED FOR EACH ELEMET OF THE ARRAY.
 
@@ -136,11 +136,11 @@ strArr.forEach((string) => {
 
 //Returns each element of the array as a string
 
-*/
+
 
 //!------------------------------------------------------------------------------------------------------------------------------------------------
 
-/*
+
 //& FILTER RETURNS A NEW ARRAY CONTAINING ONLY THE ELEMENTS THAT PASSED THE CONDITION SET IN THE CALLBACK FUNCTION
 //PROBLEM: Iterate through the array and return every element that has a length under 3
 
@@ -150,7 +150,7 @@ const resultArr = strArr.filter((string) => {
 })
 
 console.log(resultArr) //returns only the elements of the string that match the condition (are less than 3 in length)
-*/
+
 
 //!----------------------------------------------------------------------------------------------------------------------------------------------
 
