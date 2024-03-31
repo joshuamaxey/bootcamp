@@ -75,6 +75,8 @@ console.log(valInObject(obj, "fork"));            // false
 
 //! Frequency Counter:
 
+/*
+
 //!Given a sentence string, sencence, write a function that returns the most common character within the sentence. IF there are multiple characters that appear the most, return the lexicographically smallest one (FOR EXAMPLE, if 'a' and 'b' are both most common, return a because it is closest to the beginning of the alphabet). Besure to exclude spaces when counting characters.
 
 const sentence = "What is the most common character in this sentence";
@@ -103,3 +105,34 @@ let mostCommonChar = sentence => { //First, we write an arrow function that take
 }
 
 console.log(mostCommonChar(sentence));           //  "t"
+
+*/
+
+//! Nested Array of Objects
+
+//! Given the nested array of objects below, write a function getSecondObjValues that prints the value of the second object within each nested sub-array. If there is no second object, print null.
+
+const nestedArr = [
+    [
+        { a: 1 },
+        { b: 2 }
+    ],
+    [
+        { c: 3 },
+        { d: 4 },
+        { e: 5 }
+    ],
+    [
+        { f: 6 }
+    ],
+    [
+        { g: 7 },
+        { h: 8 }
+    ]
+];
+
+const getSecondObjValues = arr => {
+    // Write your solution here.
+}
+
+getSecondObjValues(nestedArr);               // 2 4 null 8
