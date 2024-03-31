@@ -76,3 +76,30 @@ console.log(valInObject(obj, "fork"));            // false
 //! Frequency Counter:
 
 //!Given a sentence string, sencence, write a function that returns the most common character within the sentence. IF there are multiple characters that appear the most, return the lexicographically smallest one (FOR EXAMPLE, if 'a' and 'b' are both most common, return a because it is closest to the beginning of the alphabet). Besure to exclude spaces when counting characters.
+
+const sentence = "What is the most common character in this sentence";
+
+let mostCommonChar = sentence => { //First, we write an arrow function that takes in one sentence (string) as an argument.
+
+    const charFreq = {}; //Initialize an empty object to store the character frequencies
+
+
+    for (const char of sentence) { //write a for...of loop to iterate through every character in the sentence. We use a for...of loop because a string is an ITERABLE object.
+
+        if (char !== ' ') { //This conditional checks whether the current character is NOT a space. IF it is NOT, then the operation below is carreid out.
+
+            charFreq[char] = (charFreq[char] || 0) + 1; //IF the character is NOT a space, then the logical OR operation here checks to see whether or not the character has been encountered before (whether or not there is already an existing count for that character). IF there is already a count present (if it has already been encountered), it returns the current count and then increments it by 1 (adds 1 to the existing count). If it has NOT been encountered before (if there is no existing count for the current character), then the statement returns a 0 and increments the count by 1.
+        }
+    }
+
+    // Find the maximum frequency
+    const maxFreq = Math.max(...Object.values(charFreq)); //First, the Object.values(charFreq) returns an ARRAY of all of the values (frequency counts) stored in the charFreq object. Then the SPREAD OPERATOR ( ... ) converts the elements of the array into INDIVIDUAL ARGUMENTS and passes them into the Math.max() method. THe Math.max(...aray) method returns the MAXIMUM value from the arguments that were passed into it from the array that was created by the Object.values method and then spread out into individual elements by the spread (...) operator.
+
+    // Create an array of characters with the maximum frequency
+    const mostCommonChars = Object.keys(charFreq).filter(char => charFreq[char] === maxFreq); //First, Object.keys(charFreq) returns an array of the keys (characters) from the charFreq object. Each key corresponds to a specific character within the sentence. THEN the .filter(char => charFreq[char] === maxFreq) method filters the array of keys (characters) based on the condition that the frequency count of each character is equal to the maximum frequency. In OTHER WORDS, the .filter() method ONLY returns the characters whose frequency MATCHES the maxFrequency. So only the characters with the maximum frequency are returned.
+
+    // Return the lexicographically smallest character
+    return mostCommonChars.sort()[0]; //First, the mostCommonChars.sort() method sorts the array of most common characters in LEXICOGRAPHICAL ORDER (alphabetical order.) Then [0] accesses the element in the array that corresponds to index 0, which would be the first character. Because the array has been sorted in lexicographical order, the first character (at index 0) is the character that is FIRST in lexicographical order, which is what the problem asked us to return.
+}
+
+console.log(mostCommonChar(sentence));           //  "t"
