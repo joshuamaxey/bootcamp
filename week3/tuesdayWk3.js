@@ -1,5 +1,7 @@
 //! Declare Keys/Values: given the following object declaration, declare values.
 
+/*
+
 const obj = {};
 
 obj.firstKey = "firstValue"
@@ -12,8 +14,11 @@ console.log(obj['numeric']);        // 2
 console.log(obj['boolean']);        // false
 console.log(obj['object']);         // {}
 
+*/
 
 //! Declare Keys/Values-----------------------------------------------------
+
+/*
 
 //? There are two ways to declare object keys and values: bracket and dot notation:
 
@@ -35,7 +40,11 @@ delete obj2["key2"];
 
 console.log(obj2); //returns only key3: 3 because now both key1 and key2 have been deleted along with their values.
 
+*/
+
 //! Using Variables as Keys: Write a function that accepts an object and a string and then prints the value from the object at the key string
+
+/*
 
 const obj3 = {
     first: "1",
@@ -53,7 +62,11 @@ const variableAsKey = (obj3, str) => { //Note that this is an arrow function, an
 variableAsKey(obj3, str);                // "1" (looks like 1 in terminal)
 variableAsKey(obj3, "second");           // 2
 
+*/
+
 //! Dot vs Bracket Notation: Given an object, print out the values corresponding to each key individually. Try using both dot and bracket notation where appropriate.
+
+/*
 
 const obj4 = {
     "first key": "1",
@@ -82,7 +95,11 @@ cat.myKey = "orange";
 
 console.log(cat.myKey);
 
+*/
+
 //! Cat Builder: Write a function catBuilder(name, color, toys) that returns a cat object with the corresponding properties.
+
+/*
 
 function catBuilder(name, color, toys) {
     const cat = {
@@ -96,7 +113,11 @@ function catBuilder(name, color, toys) {
 console.log(catBuilder("Butthead", "white", "birds"));
 console.log(catBuilder("Leo", "orange", "rats"));
 
+*/
+
 //! Array of Objects: Given the below array, write a fuction printNames that prints the naes of every object in the array.
+
+/*
 
 const users = [
     {
@@ -123,3 +144,7 @@ const printNames = users => { //This function takes in one parameter, "users" wh
 }
 
 printNames(users)                   // Gerald Winnie Peter
+
+*/
+
+//! ARROW FUNCTIONS!
