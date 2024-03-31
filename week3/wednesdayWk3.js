@@ -110,7 +110,9 @@ console.log(mostCommonChar(sentence));           //  "t"
 
 //! Nested Array of Objects
 
-//! Given the nested array of objects below, write a function getSecondObjValues that prints the value of the second object within each nested sub-array. If there is no second object, print null.
+/*
+
+//! Given the array of objects nested within sub-arrays, write a function getSecondObjValues that prints the value of the second object within each nested sub-array. If there is no second object, print null.
 
 const nestedArr = [
     [
@@ -131,8 +133,65 @@ const nestedArr = [
     ]
 ];
 
-const getSecondObjValues = arr => {
-    // Write your solution here.
-}
+const getSecondObjValues = arr => { //we write an arrow function that takes a single parameter which is understood to be an ARRAY of OBJECTS.
+    for (const subArr of arr) { //This for...of loop iterates over every element (sub-array) of the array. In this scenario, each element is a sub-array that contains a nested object. The variable subARR represents the current sub-array being processed. Effectively, this for loop says, "for each sub-array in the array 'arr', the following code will be executed." NOTE that the for...of loop is used because array are ITERABLE OBJECTS (objects that are numbered by ordered indices. If we were iterating through an object, we might use a for...in loop instead.)
+        if (subArr.length >= 2) { //For each iteration of the for...of loop, this conditional checks to see whether the sub-array located at the current index of the array 'arr' has two or more elements (nested objects) within it. IF the nested array DOES contain two or more elements (nested objects), THEN the code below is executed.
+            console.log(Object.values(subArr[1])[0]); // IF the sub-array located at the current index of the array 'arr' DOES contain two or more elements (nested objects), the Object.values(subArr[1]) method retrieves an ARRAY of the values located within the SECOND OBJECT (at index 1) of the sub-array. Then the [0] accesses the FIRST value in the array of of the values located within the SECOND OBJECT of the sub-array located at the current index of the array 'arr'.
+        } else { //IF the nested sub-array does NOT contain two or more elements (nested objects) then the code below is executed.
+            console.log('null'); //IF the nested sub-array located at the current index of the array does NOT contain two or more elements (objects), then "null" is printed to the console per the specifications of the instructions in the problem.
+        }
+    }
+};
 
 getSecondObjValues(nestedArr);               // 2 4 null 8
+
+*/
+
+//! Nested Objects
+
+//! Given an object that has other objects nested inside of it, write a function that takes that object and returns all values that are at a depth of 2.
+
+//& NOTE: RECURSION is a programming technique wherein a function CALLS ITSELF to solve a problem.. It's similar to a loop, but instead of repeating a block of code, the function RE-INVOKES itself with a modified input. Here are some notes about recursion:
+
+//& 1. EVERY RECURSIVE FUNCTION needs a 'base case.' the function would keep calling itself indefinitely (leading to a STACK OVERFLOW)
+
+//^ Is the "base case" the implicit parameter (like depth = 0 in the [below] printDepthOfTwo function)?
+//? NO, the base case is depth === 2, that's when the recursion stops.
+//^ What is a "stack overflow," is it similar to an infinite loop?
+//? A stack overflow is an error related to memory usage that can cause issues that extend beyond the terminal or the program that is used to run the code. Be careful not to cause them.
+
+//& 2. In addition to the BASE CASE, a recursive function has a RECURSIVE CASE. This recursive case defines how the function modifies its input and calls itself again.
+
+//^ With respect to the [below] printDepthOfTwo function, is the recursive case the (depth + 1) parameter that the function takes as an argument upon its second iteration?
+
+const nestedObj = {
+    a: "aloe",
+    b: {
+        c: "cello",
+        d: "dello"
+    },
+    e: {
+        f: "fellow",
+        g: {
+            h: "hello",
+            i: "io"
+        },
+        j: "jello"
+    }
+}
+
+const printDepthOfTwo = (obj, depth = 0) => { //Write an arrow function that takes in an object as a parameter. Note that the second parameter here is implicit. So when the function is called, only the first parameter requires an argument as input. The second parameter is automatically set to 0 by default.
+    for (const key in obj) { // This for...in loop iterates through the object. Note that a for...in loop is used because objects are NOT ITERABLE, they are not numbered by ordered indices but by key-value pairs and their order is not guaranteed.
+        const value = obj[key]; //initialize a new variable "value" to hold the value corresponding to the key at this current iteration of the for...in loop.
+        if (typeof value === "object") { //Write a conditional statement to check whether the value corresponding to the key at the current iteration of the for...in loop is an OBJECT using typeof. IF the value corresponding to the key at the current iteration of the for...in loop IS an object, then the code below is executed.
+            // Recurse into nested object
+            printDepthOfTwo(value, depth + 1);
+        } else if (depth === 2) {
+            // Print value at depth 2
+            console.log(value);
+        }
+    }
+};
+
+
+printDepthOfTwo(nestedObj);               // cello dello fellow { h: "hello", i: "io" } jello
