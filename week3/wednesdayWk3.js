@@ -53,6 +53,8 @@ console.log(includedInObject(obj, 'fourth'));     // false
 
 //! Check if value is in Object
 
+/*
+
 const obj = {
     item1: "jar",
     item2: "pot",
@@ -68,3 +70,9 @@ console.log(valInObject(obj, "jar"));             // true
 console.log(valInObject(obj, "pot"));             // true
 console.log(valInObject(obj, "cup"));             // false
 console.log(valInObject(obj, "fork"));            // false
+
+*/
+
+//! Frequency Counter:
+
+//!Given a sentence string, sencence, write a function that returns the most common character within the sentence. IF there are multiple characters that appear the most, return the lexicographically smallest one (FOR EXAMPLE, if 'a' and 'b' are both most common, return a because it is closest to the beginning of the alphabet). Besure to exclude spaces when counting characters.
