@@ -110,7 +110,7 @@ console.log(mostCommonChar(sentence));           //  "t"
 
 //! Nested Array of Objects
 
-/*
+
 
 //! Given the array of objects nested within sub-arrays, write a function getSecondObjValues that prints the value of the second object within each nested sub-array. If there is no second object, print null.
 
