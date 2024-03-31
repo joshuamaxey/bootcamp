@@ -1,6 +1,8 @@
 
 //! Iterate Through Obj: Write a function pintObject(obj) that prints out all key-value pairs of an object. The format of the printing shouldbe key - value. USE A FOR LOOOP.
 
+/*
+
 let bootcamp = {
     name: "App Academy",
     color: "Red",
@@ -15,8 +17,12 @@ function printObject(obj) {
 }
 
 printObject(bootcamp);
+
 */
+
 //! Using Object.keys 1: Use Object.keys() to iterate through the objet and return an array of all its keys.
+
+/*
 
 const obj = {
     first: "1",
@@ -29,8 +35,9 @@ console.log(Object.keys(obj)); // use the Object.keys(obj) method which returns 
 
 */
 
-
 //! Using Object.keys 2:
+
+/*
 
 const keys = {
     red: "circle",
@@ -51,9 +58,11 @@ function printOwners(obj) {
     }
   }
 
-*/
+  */
 
 //! Using OBject.values: Write a function that accepts an object, obj, ad uses Object.values to pirnt all values in the object.
+
+/*
 
 const obj = {
     first: "1",
@@ -67,10 +76,12 @@ const printValues = obj => {
 }
 
 printValues(obj);       // "1", 2, "three" (not apparent in terminal, but the 1 would be a string)
+
 */
 
 //! Using Object.entries
 
+/*
 
 const obj = {
     red: "circle",
@@ -101,6 +112,8 @@ printOwners(obj);
 
 //! Using Object.entries
 
+/*
+
 const obj = {
     Jacky: "Honda",
     Ramon: "Kia",
@@ -126,7 +139,7 @@ printOwners(obj);               // Bradley
 
 //! Writing Object Methods
 
-
+/*
 
 const obj = {
     Jacky: "Honda",
@@ -152,6 +165,8 @@ obj.printUniqueValues();               // Honda Kia Mercedes BMW
 */
 
 //! Refactoring Iteration: Given the function below that iterates through an object adn prints a values asociated with keys that are vowels using Object.keys(), refactor the code to use the for...in pattern to iterate through the object instead.
+
+/*
 
 //& IN THIS PROBLEM NOTE THE DISTINCTION BETWEEN THE for...in AND for...of LOOPS!
 
@@ -194,3 +209,5 @@ const printValuesRefactored = obj => {
 
 printValues(obj);               // get values
 printValuesRefactored(obj);     // get values
+
+*/
