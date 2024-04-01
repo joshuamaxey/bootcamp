@@ -1,5 +1,7 @@
 //! SPREAD AND REST PARAMETER syntax
 
+/*
+
 //The SPREAD OPERATOR and REST PARAMETER allow us to take advantage of the dynamic nature of JavaScript that allows its functions to take FEWER or MORE ARGUMENTS than specified.
 
 //Using the REST PARAMETER syntax allows a function to accept an arbitrary umber of arguments.
@@ -12,8 +14,8 @@
 //! JavaScript Functions Recap.
 
 /*
-All JavaScript functions can take FEWER arguments than expected. If a parameter has NOT been declared when the function was defined, then the default value for that parameter is UNDEFINED.
-*/
+//All JavaScript functions can take FEWER arguments than expected. If a parameter has NOT been declared when the function was defined, then the default value for that parameter is UNDEFINED.
+
 
 function tester(arg) {
     return arg;
@@ -22,25 +24,27 @@ function tester(arg) {
 console.log(tester(5)); // 5
 console.log(tester()); // undefined
 
-/*
-A function will still run, even if no arguments are passed into it at all.
-Both functions above will print regardless of whether any arguments are passed in. When no arguments are passed, the parameter is asigned the value UNDEFINED by default.
+
+//A function will still run, even if no arguments are passed into it at all.
+//Both functions above will print regardless of whether any arguments are passed in. When no arguments are passed, the parameter is asigned the value UNDEFINED by default.
 
 Additionally, the function will run when there are too MANY arguments passed into it.
-*/
+
 
 console.log(tester(5, 6, 7)); // prints 5, takes the first argument and ignores the rest.
 console.log(tester(2, 3, 4, 5, 6)); //prints 2, takes the first argument and ignores the rest.
 
-/*
-Let's take a function that is slightly more coplicated:
-*/
+
+//Let's take a function that is slightly more coplicated:
+
 
 let adder = (num1, num2) => {return num1 + num2};
 
 console.log(adder(1)); // returns NaN because the second parameter is not specified and is therefore assigned the default value (UNDEFINED) and any number + undefined = NaN (not a number)
 console.log(adder(3, 5)); // returns the sum 8. Two arguments are given, as the function specifies, so it runs normally.
 console.log(adder(5, 6, 7, 8)); //returns 11. This function also runs normally. Extra arguments were given, so the function takes the first two (since two parameters were specified within the original function definition) and ignores the rest.
+
+*/
 
 //! Utilizing Rest parameters
 
@@ -85,6 +89,8 @@ colorPicker("red", "blue", "green", "yellow")
 */
 
 //! Using Spread Syntax
+
+/*
 
 //The Spread operator enables you to BREAK DOWN a data structure into the elements that comprise it. It has two basic behaviors:
 
@@ -131,3 +137,145 @@ console.log(speak("running", "Jett"));
 console.log(speak(...words));
 
 //^ Here you can see that we use the SPREAD OPERATOR SYNTAX to "spread" the elements of an ITERABLE DATA TYPE (an array) into the speak() function call as arguments.
+
+*/
+
+//! Destructuring
+
+//! Destructuring arrays and objects allows us to more easily access their individual elements. With destructuring, you can:
+
+//^ Destructure an array to reference specific elements
+//^ Destruture an object to reference specific values
+//^ Destructure incoming parameters into a function
+
+//?Destructuring ASSIGNMENT SYNTAX allows you to extract parts of an array or object into distinct variables. For example:
+
+let numArray = [10, 20];
+
+let [firstEl, secondEl] = numArray; //Here, we deconstruct an array into two elements, each assigned to its own variable. Notice that the syntax for this kind of destructuring is effectively the INVERSE or BACKWARDS version of variable declaration syntax.
+
+console.log(firstEl); // 10
+console.log(secondEl); //20
+
+//?You can alternatively declare variables BEFORE destructuring as well:
+
+let animalArray = ["tiger", "hippo"];
+
+let animal1, animal2
+
+[animal1, animal2] = animalArray;
+
+console.log(animal1); // tiger
+console.log(animal2); // hippo
+
+//? Destructuring ALSO allows you to SWAP the VALUES of two VARIABLES.
+
+let num1 = 17;
+
+let num2 = 3;
+
+[num1, num2] = [num2, num1] //THIS SYNTAX allows you to take two variables that are stored as elements of an array and SWAP their values.
+
+console.log(num1); // = 3
+console.log(num2); // = 17;
+
+//? Destructuring also enables us to TAKE APART and assigne PARTS of LARGE OBJECTS to VARIABLES. In this way, we are effectively breaking objects down into variables that represent the values corresponding to the keys that were included in the specified PART of the object.
+
+let obj = {name: "Butthead", breed: ["unknown", "mixed"]}; //An object containing two keys, one which corresponds to a string value and another which corresponds to an array of strings.
+let {name, breed} = obj; //What parts do we want to break the object down into?
+
+console.log(name); // "Butthead"
+console.log(breed); // ["unknown", "mixed"]
+
+//^ This syntax works by matching object PROPERTIES, so we can choose which KEYS we want. If we only want to save CERTAIN properties in new variables, we can do something like this:
+
+let letterObj = {a: 1, b: 2, c: 3};
+
+let {a, c} = letterObj;
+
+console.log(a); // 1
+console.log(c); // 3
+//console.log(b); //This code throws an error because we chose NOT to store "b" as a new variable when we destructured the letterObj object.
+
+
+//? In the examples thus far, our variable names shared the same name as the keys of our object. If this was NOT the case, if the new variable we create does NOT possess the same name as the key(s) within the object we're destructuring, we need to use diferent syntax.
+
+//? This kind of destructuring is called ALIASED object destructuring.
+
+let fruitObj = {apple: "red", banana: "yellow"};
+
+let {apple: altApple, banana: altBanana} = fruitObj; // With respect to ALIASED object destructuring, we refer to the key within the object that we want to destructure, then provide the name of the new variable that is different from the name of the key.
+
+console.log(altApple); // red
+console.log(altBanana); // yellow
+
+//? Object destructuring becomes more useful when working with LARGER and NESTED objects. This is how we would destructure a nested object:
+
+let objNest = {animal: {name: "Fiona", species: "Hippo"}};
+
+let {animal: {species}} = objNest;
+
+console.log(species); // Hippo
+
+//^ In the example BELOW, we show how object destructuring can make your code mor readable in more coplex situations:
+
+let user = {
+    userId: 1,
+    favoriteAnimal: "hippo",
+    fullName: {
+      fname: "Joshua",
+      lname: "Maxey"
+    }
+  };
+
+  // accessing values *with* destructuring
+
+  let {
+    userId,
+    fullName: { fname, lname }
+  } = user;
+
+  console.log(userId, fname, lname); // 1 Joshua Maxey
+
+//* RULE: ONLY DESTRUCTURE VALUES FROM OBJECTS THAT ARE TWO OR LESS LEVELS DEEP TO MAINTAIN THE CLARITY AND READABILITY OF YOUR CODE.
+
+//? Destructuring using the REST pattern.
+
+//Rest parameter syntax allows us to prefix a function's last parameter with "..." in order to capture all of the remaining arguments into an array:
+
+let logArguments = (firstArgument, ...restOfArguments) => {console.log(firstArgument); console.log(restOfArguments)};
+
+logArguments("Joshua", 5, 10, 17, false) // returns "Joshua" [ 5, 10, 17, false]
+
+//^ This coding pattern that says "give me the REST of" can also be used when we destructure an array. We do this by prefixing the last variable with "...". In the following example, the "otherFoods" variable is prefixed with "..." to initialze the variable to an array containing the remaining array elements that weren't explicitly destructured:
+
+let foods = ["pizza", "ramen", "sushi", "kale", "tacos"];
+
+let [firstFood, secondFood, ...otherFoods] = foods;
+
+console.log(firstFood); // "pizza"
+console.log(secondFood); // "ramen"
+console.log(otherFoods); // ["sushi", "kale", "tacos"]
+
+//* The rest pattern ^^^ is only officially supported by JavaScript when destructuring ARRAYS, it's not for use with objects.
+
+
+//? Destructuring Parameters
+
+// Thus far, we have talked about dstructuring things into variables. But the other main use for dsetructuring is destructuring INCOMING PARAMETERS into a function. This is particularly useful when we are passing objects around to different functions.
+
+// This allows for each function to be responsible for pulling the parameters it needs from an incoming objects, making it much easier to work with.
+
+// Look at the following simple example:
+
+let cat = {name: "Butthead", owner: "Joshua", weight: 15};
+
+function ownerName({owner}) {
+    console.log("This cat is owned by " + owner);
+}
+
+ownerName(cat); // This cat is owned by Joshua
+
+//^ In the abov example, we destructured any incoming arguments to the ownerName function to assign the value at the key "owner" to the parameter name of owner. This syntax might seem a little excessive for getting ONE parameter, but this syntax is very useful when it comes to nested objects.
+
+//Now lets look at a slightly more complex example to see the power of destrucuring parameters. In the example BELOW, we wat to find and return an array of the toys that belong to all cats.
