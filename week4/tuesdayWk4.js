@@ -262,3 +262,34 @@
 //   foo("Hey Programmers", bar, function(s) {
 //     return s.toUpperCase() + "!";
 //   });
+
+//! Learning Boost
+
+//! 1. Which will return this string? // 'Wimbledon || Roland Garros || US Open || Australian Open'
+
+let titles = ["Wimbledon", "Roland Garros", "US Open", "Australian Open"];
+
+// console.log(titles.join('||'));
+// titles.split(' || ');
+console.log(titles.join(' || '));
+// titles.split('||');
+
+//! 2. How would you concatenate arr1 and arr2 using spread sytax?
+
+// let arr1 = [3, 25, 32];
+// let arr2 = [65, 5, 1003];
+
+
+// // arr1 = ...arr1, ...arr2
+
+// // arr1 = arr1 + arr2
+
+// // arr1 = [...arr1 + ...arr2]
+
+// arr1 = [...arr1, ...arr2] //This one
+
+// console.log(arr1)
+
+//! 3. What does the action attribute on an <form> element describe?
+
+// The location (URL) where the form's data should be sent when submitted.
