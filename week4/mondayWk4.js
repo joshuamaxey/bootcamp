@@ -11,8 +11,9 @@
 //^ 5. Write a function, myFilter, that akes in an array and a callback as arguments. The functio nshould mimic the behavior of Array.filter.
 //^ 6. Write a function, myEver, that takes in an array and a callback as arguments. The function shoudl mimic the behavior of Array.every.
 
-//Defining a function that accepts another functio nas an argument is no different than specifying a regular parameter.
+//!Defining a function that accepts another functio nas an argument is no different than specifying a regular parameter.
 
+/*
 
 let foobar = function(callback) {
     console.log("foo");
@@ -33,7 +34,11 @@ foobar(function() {
 
 //^ In this case the function definition is written directly into the function as a parameter. Use anonymous callbacks for single-use functions.
 
+*/
+
 //! Callback funcitons, like any othe function, can accept its own arguments and return values:
+
+/*
 
 let add = function(num1, num2, cb) {
     let sum = num1 + num2;
@@ -82,3 +87,5 @@ let addRefactored = function(num1, num2, cb) {
 console.log(add(9, 40));
 
 //^ In this function, we specifically account for the edge case wherein the callback function (cb) is not specified. When that is the case, the function returns the regular sum. This way, the callback function is optional and is only applied when specified.
+
+*/
