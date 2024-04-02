@@ -121,31 +121,144 @@
 
 //! My Every
 
-//^ The array.every(function()) callback method checeks tosee whether EVERY element of an array meets a certain condition, then returns a boolean statement.
+// //^ The array.every(function()) callback method checeks tosee whether EVERY element of an array meets a certain condition, then returns a boolean statement.
 
-let veggies = ["lettuce", "celery", "cabbage", "watercress"];
+// let veggies = ["lettuce", "celery", "cabbage", "watercress"];
 
-// let result = veggies.every(function(el) {
-//     return el.includes('e');
+// // let result = veggies.every(function(el) {
+// //     return el.includes('e');
+// // });
+
+// // //^ In this case, the array.every(function()) method checks to see whether EVERY element of the array contains the letter 'e'. If it does, it will return the boolean value 'true.' If EVERY element does not contain the letter 'e,' then it will return the boolean value 'false.'
+// // //^ The callback function passed into the array.every(function()) method can be a named function or a built-in function, it does not have to be anonymous.
+
+// // console.log(result);
+
+// myEvery = function(array, cb) { //first, we define a function that takes in an array and a callback function, emulating the array.every(function()) callback method.
+
+//     for (i = 0; i < array.length; i++) { // Write a for loop that will iterate through each element at each index of the array
+//         if(cb(array[i]) === false) { //& Here, we call the callback function on the element located at the current index of the array. Because our purpose is to CHECK whether each element of the array meets a certain condition, we use a conditional statement in conjunction with an equality or inequality operator to check whether the callback function returns a value of true or false for the element located at the current index of the array.
+//             return false; //In this case, IF the callback function returns a value of FALSE for the element located at the current index of the array, we return "false."" //^ To clarify, THIS return means that AT LEAST ONE of the elements in the array failed to meet the condition checked for within the callback function.
+//         }
+//     }
+//     return true; // If the entire loop runs to completion without a single element failing to meet the condition that the callback function is checking for, we know that every element has returned true and the function returns a boolean value of "true". //^To clarify, THIS return means that EVERY element of the array meets a certain condition.
+// }
+
+// function containsA(el) {
+//     return el.includes("a");
+// }
+
+// console.log(myEvery(veggies, containsA)) // false
+
+//! Callbacks Quiz
+
+//! 2.
+
+// let foo = function(n, cb) {
+//     console.log("vroom");
+//     for (let i = 0; i < n; i++) {
+//         cb();
+//     }
+//     console.log("skrrt");
+// };
+
+// foo(2, function() {
+//     console.log("swoosh");
 // });
 
-// //^ In this case, the array.every(function()) method checks to see whether EVERY element of the array contains the letter 'e'. If it does, it will return the boolean value 'true.' If EVERY element does not contain the letter 'e,' then it will return the boolean value 'false.'
-// //^ The callback function passed into the array.every(function()) method can be a named function or a built-in function, it does not have to be anonymous.
+//! 3.
 
-// console.log(result);
+// let bar = function() {
+//     console.log("Ramen");
+// };
 
-myEvery = function(array, cb) { //first, we define a function that takes in an array and a callback function, emulating the array.every(function()) callback method.
+// let foo = function(cb) {
+//     console.log("Gaazpacho");
+//     cb();
+//     console.log("Egusi");
+// };
 
-    for (i = 0; i < array.length; i++) { // Write a for loop that will iterate through each element at each index of the array
-        if(cb(array[i]) === false) { //& Here, we call the callback function on the element located at the current index of the array. Because our purpose is to CHECK whether each element of the array meets a certain condition, we use a conditional statement in conjunction with an equality or inequality operator to check whether the callback function returns a value of true or false for the element located at the current index of the array.
-            return false; //In this case, IF the callback function returns a value of FALSE for the element located at the current index of the array, we return "false."" //^ To clarify, THIS return means that AT LEAST ONE of the elements in the array failed to meet the condition checked for within the callback function.
-        }
-    }
-    return true; // If the entire loop runs to completion without a single element failing to meet the condition that the callback function is checking for, we know that every element has returned true and the function returns a boolean value of "true". //^To clarify, THIS return means that EVERY element of the array meets a certain condition.
-}
+// console.log("Bisque");
+// foo(bar);
+// console.log("Pho");
 
-function containsA(el) {
-    return el.includes("a");
-}
+//! 4.
 
-console.log(myEvery(veggies, containsA)) // false
+// let foo = function() {
+//     console.log("hello");
+//     return 42;
+// };
+
+// foo; //Prints nothing
+
+//! 5.
+
+// let foo = function() {
+//     console.log("Everglades");
+//     console.log("Sequoia");
+// };
+
+// console.log("Zion");
+// foo();
+// console.log("Acadia");
+
+//! 6.
+
+// let foo = function() {
+//     console.log("hello");
+//     return 42;
+// };
+
+// console.log(foo);
+
+//! 7.
+
+// let bar = function() {
+//     console.log("Arches");
+// };
+
+// let foo = function() {
+//     console.log("Everglades");
+//     bar();
+//     console.log("Sequoia");
+// };
+
+// console.log("Zion");
+// foo();
+// console.log("Acadia");
+
+
+//! 9.
+
+// function foo() {
+//     console.log("fizz");
+// }
+
+// function bar() {
+//     console.log("buzz");
+// }
+
+// function boom(cb1, cb2) {
+//     console.log("zip");
+//     cb1();
+//     console.log("zap");
+//     cb2();
+//     console.log("zoop");
+// }
+
+// boom(bar, foo);
+
+//! 11.
+
+// let bar = function(s) {
+//     return s.toLowerCase() + "...";
+//   };
+
+//   let foo = function(message, cb1, cb2) {
+//     console.log(cb1(message));
+//     console.log(cb2(message));
+//   };
+
+//   foo("Hey Programmers", bar, function(s) {
+//     return s.toUpperCase() + "!";
+//   });
