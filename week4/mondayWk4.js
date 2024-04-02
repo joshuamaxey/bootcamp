@@ -32,3 +32,53 @@ foobar(function() {
 })
 
 //^ In this case the function definition is written directly into the function as a parameter. Use anonymous callbacks for single-use functions.
+
+//! Callback funcitons, like any othe function, can accept its own arguments and return values:
+
+let add = function(num1, num2, cb) {
+    let sum = num1 + num2;
+    let result = cb(sum); // Call a callback function that takes 'sum' as an argument
+    return result;
+}
+
+let double = function(num) { //Here, we define a regular function.
+    return num * 2;
+}
+
+let negate = function(num) { //Here, we define another regular function.
+    return num * -1;
+}
+
+console.log(add(2, 3, double)); //Here, we call the add function and use the DOUBLE function as input for the callback.
+console.log(add(4, 5, negate)); //Here, we call the add function and use the NEGATE function as input for the callback.
+
+//! We are also able to pass in built-in functions as callbacks. For instance, "Math.sqrt" is a built-in function that takes in a number and returns its square root.
+
+console.log(Math.sqrt(9)); // 3
+console.log(Math.sqrt(25)); // 5
+console.log(Math.sqrt(64)); // 8
+
+console.log(add(60, 4, Math.sqrt)); //8
+
+//! Refactoring for an OPTIONAL CALLBACK
+
+let greet = function(firstName, lastName) {
+    console.log("Hey " + firstName + "! Your last name is " + lastName + ".");
+}
+
+greet("Joshua", "Maxey"); // Hey, Joshua! Your last name is Maxey
+greet("Joshua"); // Hey, Joshua! Your last name is undefined
+
+//^ Notice (This is just a regular function) that JavaScript is not strict when it comes to passing too few arguments into a function. With this fact in mind, lets refactor our "add" function to optionally accept a callback:
+
+let addRefactored = function(num1, num2, cb) {
+    if (cb === undefined) {
+        return num1 + num2;
+    } else {
+        return cb(num1 + num2);
+    }
+};
+
+console.log(add(9, 40));
+
+//^ In this function, we specifically account for the edge case wherein the callback function (cb) is not specified. When that is the case, the function returns the regular sum. This way, the callback function is optional and is only applied when specified.
