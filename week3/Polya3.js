@@ -527,3 +527,40 @@ const printNames = users => { //This function takes in one parameter, "users" wh
 printNames(users)                   // Gerald Winnie Peter
 
 */
+
+//! Destructure Array
+
+/*
+
+//Given the following array, Practice destructuring by asigning variables to every value in the array below all in ONE line of code. Check your work using console.log.
+
+let bigArray = ["apple", 14, 32, 100, { name: "party" }, ["pineapple"]];
+
+// Example:
+// let [firstEl] = bigArray;
+// console.log(firstEl) // prints "apple"
+let [E1Apple, E2Num, E3Num, E4Num, E5Object, E6Array] = bigArray;
+
+console.log(E1Apple); //"apple"
+console.log(E2Num); // 14
+console.log(E3Num); // 32
+console.log(E4Num); // 100
+console.log(E5Object); // {name: "party"}
+console.log(E6Array); // ["pineappe"]
+
+*/
+
+//! Rest sum
+
+//Write a function called restSum that accepts all incoming parameters and sums them.
+
+//^Use rest parameter syntax.
+
+let restSum = (...numbers) => { //use the REST PARAMETER so that the function can take an indefinite number of arguments as input.
+    return numbers.reduce((sum, num) => sum + num, 0); // The .reduce() method is used to collect values into an array. In this scenario, it collects the values within the array that is produced by the REST PARAMETER in the function definition. //^ Then a CALLBACK FUNCTION is executed within the .reduce method for each element of the array. This callback function adds the current NUM to the accumulated SUM. IN OTHER WORDS: The reduce method iterates through each number in the numbers array. It accumulates the sum by adding each numer to the previous sum. The final result, once the .reduce method is complete, will be the sum of all of the numbers in the numbers array.
+    //The RETURN STATEMENT then returns the final accumulated sum as the result of the restSum function.
+}
+
+console.log(restSum(3,5,6)); // => 14
+console.log(restSum(1, 2, 3, 4, 5, 6, 7, 8, 9)); // => 45
+console.log(restSum(0)); // => 0

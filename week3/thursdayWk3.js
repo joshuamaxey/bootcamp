@@ -142,6 +142,8 @@ console.log(speak(...words));
 
 //! Destructuring
 
+
+
 //! Destructuring arrays and objects allows us to more easily access their individual elements. With destructuring, you can:
 
 //^ Destructure an array to reference specific elements
@@ -279,3 +281,96 @@ ownerName(cat); // This cat is owned by Joshua
 //^ In the abov example, we destructured any incoming arguments to the ownerName function to assign the value at the key "owner" to the parameter name of owner. This syntax might seem a little excessive for getting ONE parameter, but this syntax is very useful when it comes to nested objects.
 
 //Now lets look at a slightly more complex example to see the power of destrucuring parameters. In the example BELOW, we wat to find and return an array of the toys that belong to all cats.
+
+let bigCat = {
+    name: "Jett",
+    owner: {name: "Nobody"},
+    toys: ["ribbon"],
+    siblings: {name: "Freya", color: "orange", toys: ["mouse", "string"]}
+};
+
+//Here we use ALIASED object destructuring to create a siblingToys variable
+function toyFinder({toys, siblings: {toys: siblingToys}}) {
+    let allTOys = toys.concat(siblingToys);
+    return allTOys;
+}
+
+console.log(toyFinder(bigCat));
+
+//^ Pay attention to the PARAMETERS of the toyFinder function. We CANNOT declare the same variable twice, so in the above toyFinder we rani nto a situation wehre two objects had th esamek ey name: toy. We solved this using ALIASED object destructuring-- we alias the toys key within the siblings object as siblingToys. This is one possible use case for the ALIASED DESTRUCTURING that we covered earlier in these notes.
+
+//^ Thanks to object destructuring parameters, all we had to do when we invoked toyFinder was pass in the whole object! This makes our code easier to write and our object easier to work with.
+
+*/
+
+//? DESTRUCTURING LECTURE
+
+//? DESTRUCTURING ARRAYS
+
+let array = ["blue", "red", "yellow", "green", "pink"] //Here we have a simple array.
+
+let firstColor = array[0]; //Here, we initialze a new variable and set it equal to the element of the array located at index 0 (the first color).
+let secondColor = array[1]; //Here, we initialize another variable and set it equal to the element of the array located at index 1 (the second color).
+
+console.log(firstColor); // "blue"
+console.log(secondColor); // "red"
+
+//^ Tradtionally, this is how we might access the elements located at the different indices of our "array".
+
+let [firstColorD, secondColorD, thirdColorD] = array; //Here, we define a new array containing the variables that we want to destructure the "array" down into. We do not need to explicitly state which variables correspond to which elements of the "array" because destructuring an array in this way will AUTOMATICALLY assign our new variables to the elements of the "array" in order of their indices starting at 0. In other words, The first variable corresponds to the first element of the array, the second variable will correspond to the second element of the array, etc.
+
+console.log(firstColorD); // "blue"
+console.log(secondColorD); // "red"
+console.log(thirdColorD); // "yellow"
+
+//^ Using destructuring allows us to accomplish EXACTLY the same thing as the initial code, except that we are able to do it in one line instead of two.
+//^Imagine that we wanted to assign variables to every element of the initial array.
+//^IF that was the case, using the first method would require us to use FIVE lines of code while DESTRUCTURING would enable us to achieve the same output in ONE line.
+
+//? DESTRUCTURING OBJECTS
+
+let obj = {name: "Sandy", instruments: ["guitar", "uke"]};
+
+let {name, instruments} = obj; // Here, we initialize two new variables. Each corresponds to a KEY within the object "obj." This destructures the "obj" into the two new variables we specified. Name now contains the value corresponding to the name KEY within the object. Instruments now contains the value corresponding to the instruments KEY within the object.
+
+console.log(name); // Sandy
+console.log(instruments); // ["guitar", "uke"]
+
+let {name: firstName, instruments: music} = obj; // What if we want to destructure an object down into new variables that do NOT have the same names as the keys within the object? This is called ALIASED DESTRUCTURING, wherein we destructure an object down into variables with names that are different than the names of the keys.
+
+console.log(firstName); // Sandy
+console.log(music); // ["guitar", "uke"]
+
+//^ You can see here that we can destructure an object down into variables that DO or DON'T possess the same names as the keys of the object we are destructuring.
+
+//? NESTED DESTRUCTURING
+
+let zooAnimals = {
+    animalId: 12,
+    species: "hippo",
+    favoriteFood: "watermelon",
+    fullName: {
+        fName: "Fiona",
+        lName: "theCuteHippo"
+    }
+};
+
+//Lets say that we want to access the NAME of this hippo.
+
+let {fullName: {fName}} = zooAnimals; //In this line of code, we first say, "Ok, I want to access the 'fullName' key of the object,' THEN we say, within that object, I want to access the 'fName' key, ALL within the "zooAnimals" object.
+
+//^Overall, this function says:
+
+//^ Go into the zooAnimals object. Look for the fullName key. Within that object, look for the fName key. Take the value associated with that and assign it to a variable called fName.
+
+console.log(fName);
+
+//? DESTRUCTURING INTO PARAMETERS OF A FUNCTION
+
+let parrot = {name: "Layla", likes: "pets", toys: 1000};
+
+function sayHelloName({name}) {
+    console.log("Hello to " + name)
+}
+
+sayHelloName(parrot)
