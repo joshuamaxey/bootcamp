@@ -64,16 +64,16 @@ console.log("global yName: " + myName); // global myName: global
 //^ Examples of block statements in JavaScript are IF conditionals and FOR or WHILE loops.
 //^ When we use the keywords LET or CONST within curly braces, those variables are BLOCK SCOPED.
 
-//global scope
-let dog = "woof";
+// //global scope
+// let dog = "woof";
 
-//block scope
-if (true) {
-    let dog = "bowow";
-    console.log(dog); // prints "bowow"
-}
+// //block scope
+// if (true) {
+//     let dog = "bowow";
+//     console.log(dog); // prints "bowow"
+// }
 
-console.log(dog); //prints "woof"
+// console.log(dog); //prints "woof"
 
 //! SCOPE CHAINING takes advantage of the fact that IN JAVASCRIPT, an INNER SCOPE has access to variables in the OUTER SCOPE.
 
@@ -314,3 +314,107 @@ function appleTree() {
 console.log(appleTree()); // {type: "apple", grown: "true"}
 
 //^ So when we run this function, the inner function growTree CAPTURES (CLOSES OVER) the variable "tree" in the outer function and then changes it by assigning the key "grown" to the value "true" instead of "false".
+
+//?------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//! JavaScript Variables Quiz
+
+//^ 1. Will the code below throw an error?
+
+console.log(party);
+var party = "Party!"; // No, it will not because of HOISTING. Variables created with the "var" keyword are HOISTED to the top of their scope (in this case, the global scope) before the code is executed. //! It came back undfined? it did not throw an error. But why wasn't the variable hoisted?
+
+//^ 2. Will the code below throw an error?
+
+var zoo = "panda";
+
+// if (true) {
+//     console.log(zoo);
+//     let zoo = "lion";
+// }
+
+// No, it will not throw an error. I think it will print "panda" ?
+//! Wrong! it does throw an error. It looked for "zoo" within the current scope and found it, but the variable was declared after the console.log so it did throw the error, "ReferenceError: Cannot access 'zoo' before initialization."
+
+//^ 3. What is the return of the following function?
+
+// function dogParty() {
+//     var dog = "Rupert";
+
+//     if (true) {
+//         var dog = "Fluffy";
+//     }
+
+//     return dog;
+// }
+
+// console.log(dogParty()); // will return "Rupert," since "Fluffy" is declared within the block scope? But "var" variables exist within the local/function scope. They cannot be locked into a block scope. So maybe it will return fluffy instead.
+//! Bingo, returns fluffy since both var variables exist within the function scope. THIS is an example of the issues that could arise when we use the "var" keyword to declare variables. This woudl not have happened if we'd used let or const.
+
+//^ 4. What will happen when the code snippet below is evaluated?
+
+let kitty = "Mittens";
+kitty = "Apples";
+
+//It will return "apples" if I console.log(kitty) because the LET keyword creates variables that can be reassigned in this way without any issues.
+
+console.log(kitty); //! Correct, it returned "Apples".
+
+
+//^ 5. What will happen when the code snippet below is evaluated?
+
+// const puppy = "Spot";
+// puppy = "Rover";
+
+// It will throw an error. JavaScript ENFORCES the constant nature of constants (variables declared with the "const" keyword) by throwing an error if we try to re-assign the value of a constant.
+
+// console.log(puppy); //! Correct, JavaScript threw the error "TypeError: Assignment to contant variable."
+
+//^ 6. When we declare a variable without a keyword, which scope is it attached to?
+
+//! Global scope. DO NOT DO THIS.
+
+//^ 7. What is the value of the "puppy" variable in the code snippet below?
+
+let puppy;
+let newPuppy = "apples";
+
+// The value of "puppy" is undefined because it was never assigned a value. the "newPuppy" variable is irrelevant.
+
+console.log(puppy) //! Correct, it returned undefined.
+
+//^ 8. Will the code below throw an error?
+
+// console.log(parrot);
+// let parrot = "Hello!";
+
+// YES, JavaScript will always throw an error whenever we try to access CONST or LET variables before they have been defined.
+//! Correct, JavaScript threw 'ReferenceError: Cannot access 'parrot' before initialization'
+
+//^ 9. What is the return value of the dogParty function below?
+
+function dogParty() {
+    let dog = "Rupert";
+
+    if (true) {
+        let dog = "Fluffy";
+    }
+
+    return dog;
+}
+
+dogParty(); //returns "Rupert"
+
+//^ 10. What is the return value of the dogParty function below?
+
+// function dogParty() {
+//     if (true) {
+//         let dog = "Rupert";
+//         const dog = "Fluffy";
+//         var dog = "Poodle";
+//     }
+
+//     return dog;
+// }
+
+// console.log(dogParty()) // This will throw an error.
