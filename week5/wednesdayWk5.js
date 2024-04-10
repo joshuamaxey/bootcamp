@@ -105,7 +105,7 @@ function multiply4(num1, num2) {
     }
 
     if (num2 < 0) {
-        return num1 + multiply4(num1, num2 + 1); // WE change our recursive step here so that if num2 is negative, we ADD one each step in order to come closer to our base case (num2 ===0) instead of SUBTRACTING.
+        return num1 + multiply4(num1, num2 + 1); // WE change our recursive step here so that if num2 is negative, we ADD one each step in order to come closer to our base case (num2 === 0) instead of SUBTRACTING.
     }
 
 }
