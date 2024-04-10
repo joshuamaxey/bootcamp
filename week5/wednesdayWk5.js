@@ -227,4 +227,20 @@ const allFactorials = (n, factorials = [1]) => {
     return factorials;
 }
 
-//^ Honestly, this one is kinda beyond me. Still a little bit unclear about what exactly a "factorial" is. Is it when a number is multiplied by every number up to itself in descending order..?
+//^ This one is kinda beyond me. Still a little bit unclear about what exactly a "factorial" is. Is it when a number is multiplied by every number up to itself in descending order..?
+
+//! Recursion vs Iteration=======================================================================================================
+
+//^ Learning Objectives
+
+//^ 1. Describe how recursive function calls are added and removed from the call stack
+
+// Each function in JavaScript pushes a new STACK FRAME to the top of the CALL STACK, and the last frame that was pushed gets POPPED OFF as it is executed. Think of it as //! LAST IN, FIRST OUT (LIFO).
+
+// Recursive functions risk placing an extra load on the call stack.
+
+//^ 2. Differentiate between recursive and iterative functions
+
+//^ 3. Start to learn how to select a recursive or iterative approach to problems
+
+//^ 4. Debug a broken recursive algorithm by identifying and adding a base case
