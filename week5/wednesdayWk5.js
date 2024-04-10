@@ -1,4 +1,4 @@
-//! Recursion tips
+//! Recursion tips================================================================================================================
 
 //^ There are THREE steps that define a recursive function:
 
@@ -112,7 +112,7 @@ function multiply4(num1, num2) {
 
 console.log(multiply4(4, -8)) // 32;
 
-//! Faith-------------------------------------------------------------------------------------------------------------------
+//! Faith======================================================================================================================
 
 // The logic of recursive functions appears circular, it may not entirely make sense HOW or WHY your recursive functions work. So just write your code the right way, test it out, and don't worry about how it does what it does. Have faith in your code! It'll do hwat it's supposed to do. Here are some final notes:
 
@@ -126,7 +126,7 @@ console.log(multiply4(4, -8)) // 32;
 
 //^ When you're writing recursve functions, make sure that you have these steps.
 
-//! DEBUGGING WALKTHROUGH (video lecture)
+//! DEBUGGING WALKTHROUGH (video lecture)========================================================================================
 
 function doForAll(arr, action) {
     return [action(arr[0]), ...doForAll(arr.slice(1), action)];
@@ -158,3 +158,19 @@ const halve = x => x/2;
 console.log(doForAll2([1, 2], halve)); //returns [0.5, 1], which is the correct answer!
 
 //^ Even though the code above is written in a single line, which appears confusing and isn't as intuitive as the way we typically write functions, we were able to identify what the problem was by running the code and making a judgment according to the error. If we have a STACK OVERFLOW error, it is likely that we are missing our base case, which causes the function to run in an infinite loop without stopping. Since we already had our recursive step, all we needed to do was add that base case into the function in order for it to work correctly.
+
+//! Default Parameters=========================================================================================================
+
+// Sometimes, we write functions that need to start with different inputs based on the use-case. Instead of writing entire separate functions when this is the case, we can use DEFAULT PARAMETERS.
+
+// A DEFAULT PARAMETER is declared like a regular parameter except that it is assigned a a DEFAULT VALUE using the ASSIGNMENT OPERATOR, "=". Like this:
+
+function growNumber(num, amount = 1) {
+    return num + amount;
+}
+
+const growNumberArrow = (num, amount = 1) => num + amount; // Here is the same function but with a fat arrow.
+
+//^ In this example, the growNumber function has a regular parameter "num" and a DEFAULT PARAMETER, "amount". You can pass in a single number argument, and it will increment that number by the DEFAULT amount that we declared.
+
+console.log(growNumberArrow(5)); // = 6, which makes sense. The argument we provided (5) was incremented by the amount that we set as a default parameter within the function definition (1).
