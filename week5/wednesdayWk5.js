@@ -174,3 +174,44 @@ const growNumberArrow = (num, amount = 1) => num + amount; // Here is the same f
 //^ In this example, the growNumber function has a regular parameter "num" and a DEFAULT PARAMETER, "amount". You can pass in a single number argument, and it will increment that number by the DEFAULT amount that we declared.
 
 console.log(growNumberArrow(5)); // = 6, which makes sense. The argument we provided (5) was incremented by the amount that we set as a default parameter within the function definition (1).
+
+//^ If we want to, we can also pass in an optional second argument when we call the function, which will overwrite the default value for AMOUNT.
+
+console.log(growNumberArrow(5, 10)); // = 15.
+
+//^ The cool part about this use of default parameters is that we can PREVENT the value of "amount" from being undefined EVEN when we don't provide an argument!
+
+console.log(growNumberArrow(8)); // = 9
+
+//& Using default parameters to ADD FLAGS TO FUNCTIONS and to PASS DATA BETWEEN FUNCTIONS
+
+//& Using default parameters as FLAGS:
+
+const sum = (nums, verbose = false) => {
+    let total = 0
+
+    for (let i = 0; i < nums.length; i++) {
+
+        if (verbose === true) {
+            console.log(total + " + " + nums[i] + " = " + (total + nums[i]));
+        }
+
+        total += nums[i];
+    }
+
+    return total;
+}
+
+//^ In the function above, the "flag" is the "verbose" parameter that we set to a default value of FALSE.
+
+const nums = [1, 2, 3, 4];
+
+console.log(sum(nums));
+
+//^ If we run the function and provide only an array as an argument, the function will give you the total of every element in that array added together. That part is simple.
+
+console.log(sum(nums, true));
+
+//^ BUT if we include TRUE as an extra parameter when we call the function (like the function call above), we are setting the "verbose" FLAG to TRUE, at which point the function ALSO prints out all of the operations that occurred in order to calculate the sum of the elements in the array!
+
+//& Using default parameters to PASS DATA BETWEEN FUNCTIONS:
