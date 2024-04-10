@@ -111,3 +111,17 @@ function multiply4(num1, num2) {
 }
 
 console.log(multiply4(4, -8)) // 32;
+
+//! Faith-------------------------------------------------------------------------------------------------------------------
+
+// The logic of recursive functions appears circular, it may not entirely make sense HOW or WHY your recursive functions work. So just write your code the right way, test it out, and don't worry about how it does what it does. Have faith in your code! It'll do hwat it's supposed to do. Here are some final notes:
+
+//^ Try writing your code iterably AND recursively, then comparing the way that each method words. There are a lot of similarities.
+
+//^ Remember that there are usually THREE steps to any recursive code:
+
+//^ 1. The BASE CASE, which ends the function. Usually returns a vaue.
+//^ 2. The EXPRESSION (Sometimes included in the recursive case and step) that performs a specific function.
+//^ 3. The RECURSIVE CASE and STEP, which call the function within itself AND move the function toward the base case.
+
+//^ When you're writing recursve functions, make sure that you have these steps.
