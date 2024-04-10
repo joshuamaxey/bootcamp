@@ -31,7 +31,13 @@ function printArray(arr, i = 0) { //! Notice that i = 0 is a DEFAULT PARAMETER, 
 
     console.log(arr[i]); // Until we reach the base case, this function will console log the element located at the current index of the array.
 
-    printArray(arr, i + 1); //^ Here is the tricky part. It may be the case (like it is here) that our RECURSIVE CASE and our RECURSIVE STEP occur together in a single expression. Here, the function calls itself. Thi is the RECURSIVE CASE. At the same time, we call this function on itself at the NEXT index of the array. This change (i + 1) is the RECURSIVE STEP that moves us closer to the BASE CASE.
+    printArray(arr, i + 1); //^ Here is the tricky part. It may be the case (like it is here) that our RECURSIVE CASE and our RECURSIVE STEP occur together in a single expression. Here, the function calls itself. This is the RECURSIVE CASE. At the same time, we call this function on itself at the NEXT index of the array. This change (i + 1) is the RECURSIVE STEP that moves us closer to the BASE CASE.
 }
 
 printArray([1, 2, 3, 4, 5]); // Now we can see that when we call this function, we get the same outcome whether we use the for loop OR recursion.
+
+//^ I am noticing a pattern when it comes to recursion. It appears that this is often the structure of these simple recursive functions:
+
+//^ 1. base case (a conditional with a return that stops the function);
+//^ 2. expression (code that performs a specific task [such as logging to the console, performing mathematical operations, etc])
+//^ 3. recursive case AND step (function calls itself with incremented/updated arguments)
