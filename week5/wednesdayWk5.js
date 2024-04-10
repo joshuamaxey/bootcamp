@@ -215,3 +215,16 @@ console.log(sum(nums, true));
 //^ BUT if we include TRUE as an extra parameter when we call the function (like the function call above), we are setting the "verbose" FLAG to TRUE, at which point the function ALSO prints out all of the operations that occurred in order to calculate the sum of the elements in the array!
 
 //& Using default parameters to PASS DATA BETWEEN FUNCTIONS:
+
+const allFactorials = (n, factorials = [1]) => {
+
+    if (n > factorials.length) {
+        factorials = allFactorials(n - 1, factorials)
+    }
+
+    factorials.push(n * factorials[n - 1]);
+
+    return factorials;
+}
+
+//^ Honestly, this one is kinda beyond me. Still a little bit unclear about what exactly a "factorial" is. Is it when a number is multiplied by every number up to itself in descending order..?
