@@ -10,10 +10,23 @@ sumToN(1)  // returns 1
 sumToN(9)  // returns 45
 sumToN(-8)  // returns null
 ***********************************************************************/
+debugger
 
 
 function sumToN(n) {
-  // Your code here 
+
+  let sum = 0;
+
+    if(n <= 0) {
+
+      return null;
+
+    }
+
+    sum += n;
+
+    return sumToN((n - 1))
+
 }
 
 
