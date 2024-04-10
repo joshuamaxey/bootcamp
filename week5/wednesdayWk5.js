@@ -125,3 +125,36 @@ console.log(multiply4(4, -8)) // 32;
 //^ 3. The RECURSIVE CASE and STEP, which call the function within itself AND move the function toward the base case.
 
 //^ When you're writing recursve functions, make sure that you have these steps.
+
+//! DEBUGGING WALKTHROUGH (video lecture)
+
+function doForAll(arr, action) {
+    return [action(arr[0]), ...doForAll(arr.slice(1), action)];
+}
+
+//^ This code produces a STACK OVERFLOW error. Let's break the code down so that it's more readable while we check to make sure that this recursive function has all THREE of the necessary components.
+
+// What's our BASE CASE? In this scenario, since we're recursing through an array, //! our base case is an EMPTY ARRAY. That is the point at which we no longer need to recurse and can stop the function with a return.
+
+// Next, let's determine our RECURSIVE STEP. That is the step that we take within the function which takes us CLOSER to the BASE CASE. We invoke the callback function, then //!RECALL our array (RECURSIVE CASE) with a SMALLER ARRAY (Our RECURSIVE STEP will be the operation that makes our array smaller, as that will bring us closer to the BASE CASE where the array is empty.)
+
+//In summary:
+
+// 1. BASE CASE is an EMPTY ARRAY: //^ THERE IS NO BASE CASE IN THE CODE ABOVE (this is what causes the stack overflow error!)
+
+// 2. RECURSIVE STEP is what removes elements from the array: //^(the arr.slice(1) method)
+
+//^ This is what the code looks like WITH a base case included:
+
+function doForAll2(arr, action) {
+
+    if (arr.length == 0) return []; // Here, we add a BASE CASE to this function
+
+    return [action(arr[0]), ...doForAll2(arr.slice(1), action)]; // SIne we know that this code DOES include a recursive step ( the arr.slice(1) method), we can just copy it from the original function into our new code.
+}
+
+const halve = x => x/2;
+
+console.log(doForAll2([1, 2], halve)); //returns [0.5, 1], which is the correct answer!
+
+//^ Even though the code above is written in a single line, which appears confusing and isn't as intuitive as the way we typically write functions, we were able to identify what the problem was by running the code and making a judgment according to the error. If we have a STACK OVERFLOW error, it is likely that we are missing our base case, which causes the function to run in an infinite loop without stopping. Since we already had our recursive step, all we needed to do was add that base case into the function in order for it to work correctly.
