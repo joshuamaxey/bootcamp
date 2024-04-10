@@ -91,3 +91,23 @@ function multiply3(num1, num2) {
 console.log(multiply3(6, 5)); // 30
 
 //^ Run the debugger on this function too. Every time that we recursively call this function, that function call is added to the call stack AND the value of num2 decreases by 1. One we reach the BASE CASE, the function returns 0 and then JavaScript begins popping those function calls off of the callstack ONE BY ONE, adding num1 to itself with each pop until the callstack is empty. Once there is nothing left in the call stack, the function returns the value (which is the multiplied value that we want).
+
+//& Now that we've refactored our code and have a solid recursive function for mutliplying numbers without using any loops or the multiplication operator, lets consider an edge case: What if num2 is negative?
+
+// If num2 is negative, we break the function (as it is written above). But we can adjust our recursive step to consider fix this problem. Since the goal of the recursive step (in THIS function) is ALWAYS to bring us closer to 0, we can INCREASE num2 by 1 each time instead of DECREASING it by 1 IF num2 is negative:
+
+function multiply4(num1, num2) {
+
+    if (num2 === 0) return 0; // Our base case remains the same
+
+    if (num2 > 0) {
+        return num1 + multiply4(num1, num2 - 1); // We add a conditional that includes our CURRENT RECURSIVE CASE and STEP.
+    }
+
+    if (num2 < 0) {
+        return num1 + multiply4(num1, num2 + 1); // WE change our recursive step here so that if num2 is negative, we ADD one each step in order to come closer to our base case (num2 ===0) instead of SUBTRACTING.
+    }
+
+}
+
+console.log(multiply4(4, -8)) // 32;
