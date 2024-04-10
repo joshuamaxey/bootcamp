@@ -82,7 +82,7 @@ console.log(multiply2(3, 7)); // 21
 //& Let's refactor this code ONE more time! If we realize that (num2 === 1) return num1 IS THE SAME AS if (num2 ===1) return 0 + num1, we see that our second conditional is actualy unnecessary because it follows the recursive pattern and will be covered by our "return num1 + multiply2(num1, num2 - 1)" pattern.
 
 function multiply3(num1, num2) {
-    debugger
+
     if (num2 === 0) return 0; // BASE CASE
 
     return num1 + multiply3(num1, num2 - 1); //RECURSIVE CASE and RECURSIVE STEP
