@@ -1,4 +1,4 @@
-/*
+
 
 //Today, we'll start with some new operators. Today is about doing things WITHOUT for loops, less syntax/easier.
 
@@ -120,7 +120,7 @@ console.log(resultArr)
 
 //^ Callback functions can be used with ANYTHING, it's a helper function that is passed to another function.
 
-*/
+
 
 //!------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -155,7 +155,7 @@ console.log(resultArr) //returns only the elements of the string that match the 
 //!----------------------------------------------------------------------------------------------------------------------------------------------
 
 
-/*
+
 //& FIND RETURNS THE ELEMENT THAT MATCHES THE SEARCH CRITERIA
 
 const nums = [1,2,4,6,7,3]
@@ -166,20 +166,20 @@ const result = nums.find((num) => {
 })
 
 console.log(result)
-*/
 
-/*
+
+
 const myFilterFunc = (nums, value) => {
     const result = nums.find((num) => {
         if(num === 6) return num
     })
 }
-*/
+
 
 //!----------------------------------------------------------------------------------------------------------------------------------------------
 
 
-/*
+
 //& REDUCE LITERALLY REDUCES AN ARRAY INTO A SINGLE VALUE, THEN RETURNS THAT VALUE
 
 //problem: iterate through nums and add get the sum of all nums
@@ -192,7 +192,7 @@ const value = nums.reduce((initialValue, num) => {
 })
 
 console.log(value)
-*/
+
 
 //!----------------------------------------------------------------------------------------------------------------------------------------------
 
