@@ -237,7 +237,11 @@ const allFactorials = (n, factorials = [1]) => {
 
 // Each function in JavaScript pushes a new STACK FRAME to the top of the CALL STACK, and the last frame that was pushed gets POPPED OFF as it is executed. Think of it as //! LAST IN, FIRST OUT (LIFO).
 
-// Recursive functions risk placing an extra load on the CALL STACK. Remember that each function in JavaScript PUSHES a new STACK FRAME onto the top of the CALL STACK, and the last pushed frame POPPED OFFas it gets executed
+// Recursive functions risk placing an extra load on the CALL STACK. Remember that each function in JavaScript PUSHES a new STACK FRAME onto the top of the CALL STACK, and the last pushed frame POPPED OFFas it gets executed. Each recursive funtion call depends on the call BEFORE it, so you cannot execue a recursive function's STACK FRAMES until you reach the BASE CASE.
+
+// So if you NEVER reach the base case, you'll continue to stack those function calls on top of one another until you reach the size limit of your call stack, at which point you have a STACK OVERFLOW.
+
+
 
 //^ 2. Differentiate between recursive and iterative functions
 
