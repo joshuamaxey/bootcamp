@@ -14,13 +14,28 @@ iceCreamShop([], 'honey lavender'); // false
 
 
 function iceCreamShop(flavors, favorite) {
-  for (i = 0; i < flavors.length; i++) {
-    if (flavors[i] == favorite) {
-      return true;
-    }
-  }
-  return false;
+  // for (i = 0; i < flavors.length; i++) {
+  //   if (flavors[i] == favorite) {
+  //     return true;
+  //   }
+  // }
+  // return false;
 
+  if(flavors.length === 0) {
+
+    return false;
+
+  }
+
+  let currFlavor = flavors[flavors.length - 1];
+
+  if(currFlavor === favorite) {
+
+    return true;
+
+  }
+  flavors.pop();
+    return iceCreamShop(flavors, favorite);
 
 }
 
