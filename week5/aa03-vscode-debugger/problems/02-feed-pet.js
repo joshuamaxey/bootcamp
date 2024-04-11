@@ -11,7 +11,9 @@ function feedPet(name) {
   debugger
   const foods = [];
   return (food) => {
-    return "Fed " + name + " " + foods.push(food) + ".";
+    foods.push(food);
+    let foodMessage = "Fed " + name + " " + foods.join(", ") + ".";
+    return foodMessage;
   }
 }
 
