@@ -49,7 +49,7 @@ function advancedExponent(b, n) {
 
 if(n > 0) {
 
-     return advancedExponent(b (n / 2)) * advancedExponent(b, (n / 2));
+     return advancedExponent(b, (n / 2)) * advancedExponent(b, (n / 2));
 
 }
 if(n < 0) {

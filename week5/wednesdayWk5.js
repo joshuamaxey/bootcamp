@@ -241,8 +241,6 @@ const allFactorials = (n, factorials = [1]) => {
 
 // So if you NEVER reach the base case, you'll continue to stack those function calls on top of one another until you reach the size limit of your call stack, at which point you have a STACK OVERFLOW.
 
-
-
 //^ 2. Differentiate between recursive and iterative functions
 
 //^ 3. Start to learn how to select a recursive or iterative approach to problems
