@@ -45,18 +45,15 @@ function advancedExponent(b, n) {
 
     return 1;
 
-}
-
-if(n > 0) {
-
-     return advancedExponent(b, (n / 2)) * advancedExponent(b, (n / 2));
-
-}
-if(n < 0) {
-
-    return  exponent(b, (n - 1) / 2) * exponent(b, (n - 1) / 2);
-
-}
+  } else if (n === 1) {
+  return b;
+  } else if ((n % 2 === 0)) {
+  let halfPower = advancedExponent(b, Math.floor(n / 2));
+  return halfPower * halfPower;
+  } else {
+  let halfPower = advancedExponent(b, Math.floor(n - 1) / 2);
+  return  halfPower * halfPower;
+  }
 }
 
 console.log(advancedExponent(2, 0)); // 1
