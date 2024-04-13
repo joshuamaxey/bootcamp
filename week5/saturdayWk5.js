@@ -182,3 +182,61 @@ console.log(str2); // prints "APPLE"
 //^ Notice that using the str.toUpperCase method does NOT mutate the original string, it prints a NEW string using the STRING OBJECT WRAPPER and then tells the variable str2 to point to THAT place in the computer's memory. This is why the original string remains unchanged even after we use string object methods on it- BEcause we cannot mutate the original string, since it is a primitive data type.
 
 //& The most important takeaway here is that primitive data types are NOT objects in JavaScript and therefore cannot have methods.
+
+//! Falsey Values in JavaScript
+
+console.log({} == false); // false, NOT FALSEY
+console.log([] == false); // true, //! FALSEY (MUST BE THIS ONE, ALWAYS RETURNS FALSE WITH ===)
+console.log("" === false); // true, //! FALSEY (This one returns true with ===, so not it? )
+console.log(17 == false); // false, NOT FALSEY
+
+console.log("" == true)
+console.log([] == true)
+
+if (!"0") {
+    console.log("Hello!");
+} else if (!-42) {
+    console.log("Goodbye!");
+} else if (!-Infinity) {
+    console.log("Have a nice day!");
+} else {
+    console.log("We meet again");
+}
+
+if ("false") {
+    console.log("Hello!");
+} else if ([]) {
+    console.log("Goodbye!");
+} else if ("") {
+    console.log("Have a nice day!");
+} else {
+    console.log("party time is over");
+}
+
+console.log(!0n);
+console.log(!"")
+console.log(!undefined);
+console.log(!0);
+console.log(!false);
+console.log(!NaN);
+console.log(!null);
+
+console.log(![])
+console.log(!17)
+console.log(!{})
+
+//! Variable Evaluations Quiz ==================================================================================================
+
+var hello;
+console.log(hello); //prints undefined
+
+let goodbye;
+console.log(goodbye); // undefined
+
+// const goodbye2;
+// console.log(goodbye); // throws an error "Missing initializer in const declaration"
+
+let func1 = () => {
+    let hello;
+    console.log(hello);
+};
