@@ -227,8 +227,8 @@ console.log(!{})
 
 //! Variable Evaluations Quiz ==================================================================================================
 
-var hello;
-console.log(hello); //prints undefined
+// var hello;
+// console.log(hello); //prints undefined
 
 let goodbye;
 console.log(goodbye); // undefined
@@ -240,3 +240,43 @@ let func1 = () => {
     let hello;
     console.log(hello);
 };
+
+//! Function Hoisting ======================================================================================================
+
+// FUNCTION DECLARATIONS are hoisted to the top of the scope they are defined within. This allows them to be accessible ANYWHERE in your code.
+
+// FUNCTION EXPRESSIONS WITH VAR are NOT hoisted within their scope! They behave as if they are variables, since they are functions assigned to variables.
+
+// FUNCTION EXPRESSIONS WITH LET are NOT hoisted within their scope. They will throw an error if you try to invoke them before they are assigned to a variable.
+
+console.log(shoutWord("apple")); // This prints APPLE even though the function is defined later because regular function definitions are HOISTED in JavaScript.
+
+function shoutWord(word) {
+    return word.toUpperCase();
+};
+
+// console.log(goodNight()); // This will throw a reference error because in JavaScript, functions declared with function definition syntax are treated as variables, since they are defined as variables. This means that these functions are NOT hoisted. //! Correct: "ReferenceError: Cannot access 'goodNight" before initialization.
+
+// let goodNight = function goodNight() {
+//     return "Good Night!";
+// }
+
+// console.log(goodNight()); // prints "TypeError: goodNight is not a function," indicating that functions declared using "var" (function expression syntax with var instead of let) have the same behavior as other functions declared using function expression syntax with different keywords- They are treated like variables, and are not hoisted to the top of their scope. Cannot be run before they have been declared.
+
+// var goodNight = function() {
+//     return "Good Night!";
+// };
+
+// hello(); //! See above
+
+// var hello = function() {
+//     console.log("hello!");
+// };
+
+let hello = "hello";
+
+function hello(num) {
+    console.log("hello!");
+}
+
+console.log(hello); // "SyntaxError: Identifier 'hello' has already been declared". Variable and function declarations cannot have the same name in the same scope.
