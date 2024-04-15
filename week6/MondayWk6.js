@@ -23,6 +23,8 @@
 
 // 2. The other part of the EVENT LOOP is called the MESSAGE QUEUE. The message queue keeps track of tasks taht cannot be executed at this moment but will be executed once the current task is finished. Remember that JavaScript is SINGLE-THREADED, which means taht it can only perform one task at a time. This means that ONE TASK will NEVER be interupted by ANOTHER TASK.
 
+//^ Effectively, the EVENT LOOP is what cycles MESSAGES from the MESSAGE QUEUE onto the CALL STACK, where they are handled as tasks. SYNCHRONOUS tasks (like functions called by other functions) are executed together by the call stack before the next ASYNCHRONOUS message can be added to the callstack for execution.
+
 //& In summary:
 
 // 1. CALL STACK: The current task and all SYNCHRONOUS tasks are performed on the stack.
@@ -190,6 +192,7 @@ setInterval(foo, 1000, "pancakes", "couscous");
 // If WRITING the code is the birth of a program, then its EXECUTION is the lifetime of that program. Instead of the word 'lifetime', programmers use the word 'runtime" to refer to the execution (lifetime) of a program.
 
 //^ Explain the difference between single-threaded and multi-threaded execution
+//^ Identify JavaScript as a single-threaded language
 
 // In single-threaded execution, only ONE command can be processed at a time. There is only "one cook in the kitchen". In JavaScript, we may run into situations where we are currently in the process of carrying out a command when an "important" event (like a user clicking a button or hitting a key) happens. In JavaScript, its single-threaded runtime dicatates that the user will just have to wait. If a command is in progress and some event occurs, the current command will run to full completion before the vent is handled.
 
@@ -212,6 +215,6 @@ while (true) {
 // HOWEVER, JavaScript's runtime policy for handling new events is to ONLY handle the next event after the current comand is complete. That means that it will only execute the callback in our setTimeout function after it is finished handling the loop, since it began executing the loop while we were waiting for the timeout of 1000ms to complete.
 // Unfortunately, the infinite loop never ends, so we are never able to execute the callback within our setTimeout function.
 
-//! This ^^^ is one of the PRIMARY causes of slow, unresponsive pages.
+//^ This ^^^ is one of the PRIMARY causes of slow, unresponsive pages.
 
-//^ Identify JavaScript as a single-threaded language
+//! The Call Stack
