@@ -180,3 +180,38 @@ function foo(food1, food2) {
 }
 
 setInterval(foo, 1000, "pancakes", "couscous");
+
+//^ When you run the program just above this line of pseudocode, you will find that it repeats infinitely at the specified time interval (every second it prints "pancakes and couscous!")
+
+//& To stop it, use the hotkey "ctrl + c," which kills the program without killing the terminal.
+
+//! Threading
+
+// If WRITING the code is the birth of a program, then its EXECUTION is the lifetime of that program. Instead of the word 'lifetime', programmers use the word 'runtime" to refer to the execution (lifetime) of a program.
+
+//^ Explain the difference between single-threaded and multi-threaded execution
+
+// In single-threaded execution, only ONE command can be processed at a time. There is only "one cook in the kitchen". In JavaScript, we may run into situations where we are currently in the process of carrying out a command when an "important" event (like a user clicking a button or hitting a key) happens. In JavaScript, its single-threaded runtime dicatates that the user will just have to wait. If a command is in progress and some event occurs, the current command will run to full completion before the vent is handled.
+
+// Consider the follow code:
+
+setTimeout(function() {
+    console.log("time's up!");
+}, 1000);
+
+//^ In the code above, we set a timeout for one second...
+
+let i = 0;
+while (true) {
+    i++;
+}
+
+//^ Then we write and execute this infinite loop.
+
+// While the infinite loop is running, the timer on our setTimeout function expires and JavaScript recognizes that it is time to run our callback, which would print "time's up!" to the console.
+// HOWEVER, JavaScript's runtime policy for handling new events is to ONLY handle the next event after the current comand is complete. That means that it will only execute the callback in our setTimeout function after it is finished handling the loop, since it began executing the loop while we were waiting for the timeout of 1000ms to complete.
+// Unfortunately, the infinite loop never ends, so we are never able to execute the callback within our setTimeout function.
+
+//! This ^^^ is one of the PRIMARY causes of slow, unresponsive pages.
+
+//^ Identify JavaScript as a single-threaded language
