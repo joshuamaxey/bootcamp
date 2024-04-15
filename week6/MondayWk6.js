@@ -36,11 +36,69 @@
 
 //^ 3. Describe the difference between ASYNCHRONOUS and SYNCHRONOUS code
 
+//& Synchronous code
 
+// Synchronous code has an inherent order of execution that is GUARANTEED. Like this:
+
+console.log("one");
+console.log("two");
+console.log("three");
+
+// In the code above, it is guaranteed that "one" will print first, that "two" will print second, and that "three" will print third.
+
+// Synchronous code only guarantees that three is an ORDER OF EXECUTION and that it is GUARANTEED. It //! does not mean that the order of execution will always be in the same order as the positional order of the lines of code. Consier the following:
+
+// let foo = function() {
+//     console.log("two")
+// };
+
+// console.log("one")
+// foo();
+// console.log("three");
+
+// Even though this code ^^^ may jump around from line to line, the code is synchronous because we can predict with total certainty the relative order of the statements that will be printed (order of execution);
+
+//& Asynchronous code
+
+// When code is ASYNCHRONOUS, it means that there is no guarantee as to the order in which the commands are executed.
+// The setTimeout method enables us to execute a callback after a given amount of time:
+
+console.log("start");
+
+setTimeout(function() {
+    console.log("time is up!");
+}, 1500);
+
+console.log("end");
+
+// Because the setTimeout function is ASYNCHRONOUS, it does NOT prevent the execution of lines 6 AND 72 while we are waiting for the 1.5 seconds (1500 milliseconds) to pass. Thus, "start" and "end" can both be printed while the computer waits to execute the callback that we've called within the setTimeout method.
+
+//! Note that setTimeout can NEVER be treated as synchronous under ANY circumstances because the time that we specify within the method is not exact. RATHER it is the MINIMUM time that will elapse before executing the callback. If we set the timeout for three seconds, we could in practice actually wait three seconds, or five, or ten before the callback is invoked. If there is no guaranteed timing, then it is asynchronous.
+
+// Consider the following:
+
+console.log("first");
+
+setTimeout(function() {
+    console.log("second");
+}, 0);
+
+console.log("third")
+
+// When we execute the code above ^^^ we find that "first" and "third" are still printed before "second" because EVEN THOUGH we set a timeout of 0 milliseconds within our execution of the setTimeout method, it still takes longer to execute the setTimeout method than it takes to execute the other two console.logs. This is because that "0 milliseconds" is not EXACTLY how long the function will wait before executing the code- It is the MINIMUM time that the method must wait before executing the code. Therefore in practice, the setTimeout method here actually took longer than 0 milliseconds which is why "second" was the last thing to print to the console despite that this function call was written BEFORE the "third" console.log.
+
+//& Note also that in addition to the setTimeout(function()) method, there is also a setInterval(function()) method which continually executes a callback after a number of milliseconds, repeatedly!
 
 //^ 4. Execute the ASYNCHRONOUS function setTimeout with a callback.
 
+setTimeout(function(x = 5, y = 10) {
+    let sum = x + y;
+    console.log(sum);
+}, 3000);
 
+setTimeout(function() {
+    console.log("Timeout 2");
+}, 2000);
 
 //^ 5. Given the function, "function asyncy(cb) { setTimeout(cb, 1000); console.log("async") }"
 //^ and the function, "function callback(" {console.log("callback"); }" predict the output of "asyncy(callback);"
@@ -52,3 +110,73 @@
 
 
 //^ 7. Write a program that accepts user input using Node's readline module.
+
+//! Timeouts and Intervals
+
+//^ Name the arguments that can be passed into setTimeout and setInterval
+//^ Predict the asynchronous nature of code snippets that utilize setTimeout and setInterval
+
+// In its most basic form, setTimeout accepts a callback and an amount of time in milliseconds:
+
+// const foo = () => console.log("food");
+
+// setTimeout(foo, 2000);
+
+// Remember that because setTimeout is asynchronous, any commands that come AFTER the setTimeout may be executed BEFORE the callback is complete.
+
+console.log("drink");
+
+// When we run all of the code on this page, "drink" is printed BEFORaE the five functions that precede it. This is because the setTimeout method is asynchronous so it does NOT block the execution of further lines of code.
+
+// In addition to the CALLBACK and DELAY, an unlmited number of ADDITIONAL ARGUMENTS can be provided to the setTimeout method:
+
+// function foo(food1, food2) {
+//     console.log(food1 + " for breakfast");
+//     console.log(food2 + " for lunch");
+// }
+
+// setTimeout(foo, 2000, "pancakes", "couscous"); // prints:
+// //pancakes for breakfast
+// //couscous for lunch
+
+//& Cancelling Timeouts
+
+// Now we have complete knowledge of all possible arguments we can use for setTimeout (CALLBACK, DELAY, ARGUMENTS)
+// setTimeout(functionRef, delay, param1, param2)
+
+// But what does the setTimeout function actually RETURN?
+
+const val = setTimeout(foo, 2000);
+console.log(val);
+
+/*
+Timeout {
+  _idleTimeout: 2000,
+  _idlePrev: [TimersList],
+  _idleNext: [Timeout],
+  _idleStart: 38,
+  _onTimeout: [Function: foo],
+  _timerArgs: undefined,
+  _repeat: null,
+  _destroyed: false,
+  [Symbol(refed)]: true,
+  [Symbol(kHasPrimitive)]: false,
+  [Symbol(asyncId)]: 11,
+  [Symbol(triggerId)]: 1
+}
+*/
+
+//^ This "Timeout object" can be passed into the "clearTimeout" function tto CLEAR the setTimeout before the timer expires, preventing the code within the method from running!
+
+clearTimeout(val);
+
+//& Running Intervals
+
+// The setInterval function executes a callback repeatedly at the specified delay.
+//^ setInterval accepts the SAME ARGUMENTS as setTimeout.
+
+function foo(food1, food2) {
+    console.log(food1 + " and " + food2 + "!");
+}
+
+setInterval(foo, 1000, "pancakes", "couscous");
