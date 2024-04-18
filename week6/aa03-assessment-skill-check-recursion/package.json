@@ -1,0 +1,24 @@
+{
+    "name": "week-3-skill-check-recursion",
+    "version": "1.0.0",
+    "description": "Mid-week skill check for week 3",
+    "main": "problems/find-duplicates.js",
+    "directories": {
+      "test": "test"
+    },
+    "scripts": {
+      "test": "mocha",
+      "test-with-json": "mocha --reporter json"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "mocha": "^7.0.0",
+      "chai": "^4.2.0",
+      "sinon": "^14.0.0",
+      "babel-core": "^6.11.4",
+      "babel-preset-env": "^1.7.0",
+      "jsdom": "^9.0.0"
+    }
+  }
