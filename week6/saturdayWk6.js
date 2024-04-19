@@ -53,14 +53,23 @@
 
 // JavaScript was developed to be used intside the browser.
 
-//& Chrome Developoer tools
+//& Developoer tools
 
-// In Google Chrome, open the developer tools.
+// Node.js has a "global" objects named 'global', node-specific objects like 'process', and a 'require' function to import another .js file.
 
-// Node.js has a "global" objects named 'global'.
-// The web browser has a "global" object named 'window'.
+// The web browser has a "global" object named 'window', browser-specific objects like 'location' and 'document', and NO 'require' function.
 
+//*=============================
 
+// In Google Chrome, open the developer tools. //! Navigate to "Console." This is a browser REPL.
+
+// In Node.js //! TO OPEN A NODE.js REPL IN THE TERMINAL, USE THE COMMAND 'NODE' WITH NO OTHER PARAMETERS. THIS OPENS A NEW REPL WITHIN THE TERMINAL ITSELF SIMILAR TO THE DEVELOPER TOOLS TERMINAL IN CHROME. TRY IT. JUST "node" IN THE TERMINAL.
+
+//! While in the node REPL, use command "ctrl + c" twice, or "ctrl + d" once, or enter command ".exit" to exit the REPL and return to the console.
+
+// While in the Node.js REPL, type the command "global". This prints a global object that includes built-in JavaScript functions.
+
+// While in the browser Console (Repl), type the command "window." This prints a similar object. Next, type "window.location". Then try clicking on the object that is returned. NEXT, type the command "document". Then try clicking the object that is returned. This gives you access to the HTML document corresponding to the current webpage.
 
 //^ Given a diagram of the different parts of the browser, identify each part.
 
