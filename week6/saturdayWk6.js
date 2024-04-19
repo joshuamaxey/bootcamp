@@ -49,6 +49,19 @@
 
 // Node.js has a REQUIRE function that we can use to importa installed NODE MODULES such as readline. We can also importa and export across our own files. We are able to reference and use other files in our file system.
 
+//* Node vs Browser lecture.
+
+// JavaScript was developed to be used intside the browser.
+
+//& Chrome Developoer tools
+
+// In Google Chrome, open the developer tools.
+
+// Node.js has a "global" objects named 'global'.
+// The web browser has a "global" object named 'window'.
+
+
+
 //^ Given a diagram of the different parts of the browser, identify each part.
 
 //^ Use the Window API to change the innerHeight of a user's window.
