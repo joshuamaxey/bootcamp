@@ -1,7 +1,5 @@
 //! Browser Basics
 
-//^ Explain the difference between the BOM (Browser Object Model) and the DOM (Document Object Model).
-
 //* Node.js vs. Browser
 
 // The Node.js and browser are DISTINCT coding environments
@@ -70,6 +68,10 @@
 // While in the Node.js REPL, type the command "global". This prints a global object that includes built-in JavaScript functions.
 
 // While in the browser Console (Repl), type the command "window." This prints a similar object. Next, type "window.location". Then try clicking on the object that is returned. NEXT, type the command "document". Then try clicking the object that is returned. This gives you access to the HTML document corresponding to the current webpage.
+
+//^ Explain the difference between the BOM (Browser Object Model) and the DOM (Document Object Model).
+
+
 
 //^ Given a diagram of the different parts of the browser, identify each part.
 
