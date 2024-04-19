@@ -108,13 +108,69 @@
 
 // In the code above, we saw that the asynchronous behavior of the rl.question(question, callback) method can lead to issues if we want to perform a command directly AFTER the user has entered their response. The fix for this is very simple: //^ Just put the command you want to perform following the user's answer at the END of the callback. Like this... (see the rl.question above)
 
-// In general, when we want a command to occur directly AFTER a callback is invoked asynchronously, we'll have to place that command INSIDE of the callback. This is a simple but effective method of ordering commands called //^ CHAINING.
+// In general, when we want a command to occur directly AFTER a callback is invoked asynchronously, we'll have to place that command INSIDE of the callback. This is a simple but effective method of ordering commands.
 
 // For instance, imagine that we want to ask the user two questions in succession. That is, we want to ask question one, get their response to that question, then ask another question directly after, and finally get their response to the second question. If you try to code another "rl.question(question, cb)", your code will break. //! When you run it, you will find that the second question is never asked.
 
 // This is because the rl.question(question, cb) method is ASYNCHRONOUS. specifically, the first question will occur and before the user can enter their response, the second call occurs as well while the program is still trying to finish the first question. //^ Just like when we want to print something directly after the user responds to question one, we'll have to ask the second question WITHIN the response callback for question one. like this:
 
-const { Console } = require("console");
+// const { Console } = require("console");
+// const readline = require("readline");  // THIS imports the readline module into our file.
+
+// // Next, we create an infterface wehre we can talk to the user.
+
+// const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
+
+// // Don't worry aobut the details of what 'createInterface' does. Just know that it allows us to read and print information from the terminal.
+
+// rl.question("What's up, doc? ", answer => {
+//     console.log(answer + " is up.");
+
+//     rl.question("What's down, clown? ", secondAnswer => {
+//         console.log(secondAnswer + " is down.");
+//         rl.close();
+//         console.log("Ok.")
+//     })
+
+// });
+
+//^ So what if we want to ask ANOTHER question following the second? Lets comment this code ^^ out and add another one below...
+
+// const { Console } = require("console");
+// const readline = require("readline");  // THIS imports the readline module into our file.
+
+// // Next, we create an infterface wehre we can talk to the user.
+
+// const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
+
+// // Don't worry aobut the details of what 'createInterface' does. Just know that it allows us to read and print information from the terminal.
+
+rl.question("What's up, doc? ", answer => {
+    console.log(answer + " is up.");
+
+    rl.question("What's down, clown? ", secondAnswer => {
+        console.log(secondAnswer + " is down.");
+
+        rl.question("What's left, Jeff? ", thirdAnswer => {
+            console.log(thirdAnswer + " is left.");
+            rl.close;
+            console.log("Ok.")
+        })
+
+    })
+
+});
+
+// This ^^^ Is referred to as //! CALLBACK HELL in the JavaScript community. There is a much better way to refactor this kind of code for better readability.
+
+// We do this by using NAMED FUNCTIONS instead of passing anonymous functions. ONE more time, let's comment out the code above and try again. Here's an example:
+
 const readline = require("readline");  // THIS imports the readline module into our file.
 
 // Next, we create an infterface wehre we can talk to the user.
@@ -124,17 +180,22 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-// Don't worry aobut the details of what 'createInterface' does. Just know that it allows us to read and print information from the terminal.
+rl.question("What's up, doc? ", handleResponseOne);
 
-rl.question("What's up, doc? ", answer => {
-    console.log(answer + " is up.");
+function handleResponseOne(firstAnswer) {
+    console.log(firstAnswer + " is up.");
+    rl.question("What's down, clown? ", handleResponseTwo);
+};
 
-    rl.question("What's down, clown? ", secondAnswer => {
-        console.log(secondAnswer + " is down.");
-        rl.close();
-        console.log("Ok.")
-    })
+function handleResponseTwo(secondAnswer) {
+    console.log(secondAnswer + " is down.");
+    rl.question("what's left, Jeff? ", handleResponseThree);
+};
 
-});
+function handleResponseThree(thirdAnswer) {
+    console.log(thirdAnswer + " is left.");
+    console.log("Ok.")
+    rl.close();
+};
 
-//^ THIS is CALLBACK CHAINING. So what if we want to ask ANOTHER question following the second? Lets comment this code ^^ out and add another one below...
+//^ THIS is CALLBACK CHAINING. As a general rule, use named functions like this for any callback chain longer than two. Also note that callback chaining is used to serialize multiple asynchronous functions, which doesn't limit it to the rl.question(question, callback) method only. I'm gonna commint this ^^^ out for the next section.
