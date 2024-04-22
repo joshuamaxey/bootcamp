@@ -43,25 +43,25 @@ solution code must meet the following constraints:
 
 ***********************************************************************/
 
-/* PROBLEM 1. findDuplicatesIterative: Must solve with iteration, not recursion */
+/* //! PROBLEM 1. findDuplicatesIterative: Must solve with iteration, not recursion */
 
 // 1. iterate through the array
 // 2. initialize a variable "count"
 
 
-const findDuplicatesIterative = arr => {
-  let newArr = [];
-  let obj = {};
+function findDuplicatesIterative(array) {
 
-  for (const el of arr) {
-    obj[el] = (obj[el] || 0) + 1;
+  const countMap = new Map();
+  const result = [];
+
+  for (const el of array) {
+    countMap.set(el, (countMap.get(el) || 0) + 1);
+
+    if (countMap.get(el) === 2) {
+      result.push(el);
+    }
   }
-
-  let duplicates = arr.filter(el => obj[el] > 1);
-
-  newArr.push(duplicates);
-
-  return newArr;
+  return result;
 }
 
 console.log(findDuplicatesIterative([ 5, 8, 8, 2, 3 ]));
@@ -71,19 +71,35 @@ console.log(findDuplicatesIterative([ 5, 8, 8, 8, 2, 3, 3 ]));
 console.log(findDuplicatesIterative([ 'a', 'word', 'a', 'another', 'word' ]));
 // [ 'word', 'a' ] (order of elements does not matter)
 
-/* PROBLEM 2. findDuplicatesRecursive: Must solve with recursion */
+/* //! PROBLEM 2. findDuplicatesRecursive: Must solve with recursion */
+
+function findDuplicatesRecursive(array, countMap = new Map(), index = 0) {
+
+  if (index === array.length) {
+    return Array.from(countMap.keys()).filter(el => countMap.get(el) > 1);
+  }
+
+  const currentEl = array[index];
+
+  countMap.set(currentEl, (countMap.get(currentEl) || 0) + 1);
+
+  return findDuplicatesRecursive(array, countMap, index + 1);
+}
+
+console.log(findDuplicatesRecursive([ 5, 8, 8, 2, 3 ]));
+// [ 8 ]
+console.log(findDuplicatesRecursive([ 5, 8, 8, 8, 2, 3, 3 ]));
+// [ 8, 3 ] (only one 8; order of elements does not matter)
+console.log(findDuplicatesRecursive([ 'a', 'word', 'a', 'another', 'word' ]));
+// [ 'word', 'a' ] (order of elements does not matter)
+
+/* //! PROBLEM 3. findDuplicatesNoDefault: Must use recursion with no default parameters */
 
 // Your code here
 
 
 
-/* PROBLEM 3. findDuplicatesNoDefault: Must use recursion with no default parameters */
-
-// Your code here
-
-
-
-/* PROBLEM 4. findDuplicatesChallenge: No for/while loops OR array looping methods */
+/* //! PROBLEM 4. findDuplicatesChallenge: No for/while loops OR array looping methods */
 
 // Your code here
 
