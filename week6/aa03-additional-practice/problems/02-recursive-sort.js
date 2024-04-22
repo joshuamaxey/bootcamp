@@ -18,41 +18,41 @@
 
 // }
 
-//! =========================================================================
+//! ==================================RECURSIVE=======================================
 
-// function merge(left, right) {
-//     const result = [];
+function merge(left, right) {
+    const result = [];
 
-//     let leftIndex = 0;
-//     let rightIndex = 0;
+    let leftIndex = 0;
+    let rightIndex = 0;
 
-//     while (leftIndex < left.length && rightIndex < right.length) {
-//         if (left[leftIndex] < right[rightIndex]) {
-//             result.push(left[leftIndex]);
-//             leftIndex++;
-//         } else {
-//             result.push(right[rightIndex]);
-//             rightIndex++;
-//         }
-//     }
-//     return result.concat(left.slice(leftIndex), right.slice(rightIndex));
-// };
+    while (leftIndex < left.length && rightIndex < right.length) {
+        if (left[leftIndex] < right[rightIndex]) {
+            result.push(left[leftIndex]);
+            leftIndex++;
+        } else {
+            result.push(right[rightIndex]);
+            rightIndex++;
+        }
+    }
+    return result.concat(left.slice(leftIndex), right.slice(rightIndex));
+};
 
-// function mergeSort(arr) {
-//     if (arr.length <= 1) { //base case
-//         return arr;
-//     }
+function mergeSort(arr) {
+    if (arr.length <= 1) { //base case
+        return arr;
+    }
 
-//     const middle = Math.floor(arr.length / 2);
-//     const left = arr.slice(0, middle);
-//     const right = arr.slice(middle);
+    const middle = Math.floor(arr.length / 2);
+    const left = arr.slice(0, middle);
+    const right = arr.slice(middle);
 
-//     return merge(mergeSort(left), mergeSort(right));
-// };
+    return merge(mergeSort(left), mergeSort(right));
+};
 
-// function sort(arr) {
-//     return mergeSort(arr);
-// }
+function sort(arr) {
+    return mergeSort(arr);
+}
 
 //! ===========================================================================
 
@@ -62,7 +62,7 @@
 //     // Then we use the .sort() method with a compare function to sort the elements in ascending order.
 // }
 
-//! ===========================================================================
+//! ==============================ITERATIVE=============================================
 
 function sort(arr) {
     // debugger
