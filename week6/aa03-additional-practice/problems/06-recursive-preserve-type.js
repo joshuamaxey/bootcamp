@@ -27,8 +27,30 @@ However, for bonus points try to solve it both with recursion and iteration.
 */
 
 function recursivePreserveType(array) {
-    // Your code here 
+    return function filterByType(type) {
+        if (array.length === 0) { // base case
+            return [];
+        }
+
+        const currentElement = array[0];
+        const restOfArray = recursivePreserveType(array.slice(1)) (type);
+
+        if (typeof currentElement === type) {
+            return [currentElement, ...restOfArray];
+        } else {
+            return restOfArray;
+        }
+    };
 }
+
+const preserveFunc = recursivePreserveType([1, 'one', 2, 'two', 3, 'three']);
+console.log(preserveFunc('number')); // prints [1, 2, 3]
+console.log(preserveFunc('string')); // prints ['one', 'two', 'three']
+
+const preserveFunc2 = recursivePreserveType([2, undefined, 'world', { color: 'red' }, true, 3, [4, 5], 'hello', false]);
+console.log(preserveFunc2('number')); // prints [2, 3]
+console.log(preserveFunc2('object')); // prints [ { color: 'red' }, [4, 5] ]
+console.log(preserveFunc2('boolean')); // prints [ true, false ]
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
