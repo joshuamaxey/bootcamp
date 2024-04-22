@@ -97,8 +97,6 @@ console.log(findDuplicatesRecursive([ 'a', 'word', 'a', 'another', 'word' ]));
 
 // Your code here
 
-
-
 /* //! PROBLEM 4. findDuplicatesChallenge: No for/while loops OR array looping methods */
 
 // Your code here
