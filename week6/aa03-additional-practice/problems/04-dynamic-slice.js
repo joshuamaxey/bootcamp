@@ -26,6 +26,8 @@
 // if the start index is less than 0, the returned function should slice from the beginning of the array.
 // if the end index is greater than the length of the array, return functio should slice up to the end of the array.
 
+//!===============================ITERATIVE========================================
+
 function dynamicSlice(start, end) {
 
   return function(arr) {
@@ -55,6 +57,23 @@ function dynamicSlice(start, end) {
     return result; // finally, we return the new 'result' array.
   };
 }
+
+//! ==============================RECURSIVE=======================================
+
+// function dynamicSlice(start, end) {
+//   return function sliceArray(arr) {
+//     if (start >= arr.length || start >= end) {
+//       return []; // Base case: empty array when start is out of bounds
+//     }
+
+//     const currentElement = arr[start];
+//     const restOfArray = sliceArray(arr)(start + 1, end); // Recursive call
+
+//     return [currentElement, ...restOfArray];
+//   };
+// }
+
+//! ==========================================================================
 
 // function dynamicSlice(start, end) {
 //   return function (arr) {
