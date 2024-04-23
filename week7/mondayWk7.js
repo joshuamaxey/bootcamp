@@ -101,4 +101,7 @@
 
 //! Reading Tests
 
-// The most important things about a test are that it is READABLE and UNDERSTANDABLE
+// The most important things about a test are that it is READABLE and UNDERSTANDABLE.
+// Good tests use DESCRIPTIVE STRINGS to enumerate what they are testing as well as how they are testing it.
+
+// You should be able to tell a few things about a test WITHOUT knowing the specfiic syntax of what is being tested. You should be able to tell what is being tested (name, description). And as a software engineer, you should be able to parse the descriptions of tests to understand what is being tested.
