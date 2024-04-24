@@ -379,30 +379,30 @@ const dishes = new Task('dishes');
 
 //! Class Inheritance Quiz
 
-class Fruit {
-    constructor(color, taste) {
-        this.color = color;
-        this.taste = taste;
-    }
+// class Fruit {
+//     constructor(color, taste) {
+//         this.color = color;
+//         this.taste = taste;
+//     }
 
-    eat() {
-        console.log(`You ate a(n) ${this.constructor.name}.`);
-    }
-}
+//     eat() {
+//         console.log(`You ate a(n) ${this.constructor.name}.`);
+//     }
+// }
 
-class Apple extends Fruit {
-    constructor() {
-        super('red', 'sweet');
-    }
-}
+// class Apple extends Fruit {
+//     constructor() {
+//         super('red', 'sweet');
+//     }
+// }
 
-const apple = new Apple();
-const orange = new Fruit ('orange', 'tangy');
+// const apple = new Apple();
+// const orange = new Fruit ('orange', 'tangy');
 
-console.log(apple.color);
+// console.log(apple.color);
 
-apple.eat();
-orange.eat();
+// apple.eat();
+// orange.eat();
 
 //! ===================================== Polymorphism ======================================
 
@@ -448,3 +448,78 @@ orange.eat();
 // Write the new method.
 
 //! Polymorphism Quiz
+
+class Fruit {
+    constructor(color, taste) {
+        this.color = color;
+        this.taste = taste;
+    }
+
+    eat() {
+        console.log(`You ate a ${this.constructor.name}`);
+    }
+}
+
+class Apple extends Fruit {
+    constructor() {
+        super('red', 'sweet');
+    }
+
+    eat() {
+        console.log(`You ate a ${this.taste}, ${this.color} apple!`);
+    }
+};
+
+const apple = new Apple();
+
+apple.eat();
+
+const orange = new Fruit('orange', 'tangy');
+
+orange.eat();
+
+//! ========================== Overriding a method in a parent class ===================================
+
+class Charity {};
+
+class Business {
+    toString() {return `Give us your money.`;}
+}
+
+class Restaurant extends Business {
+    toString() {return `Eat at Joe\'s`}
+};
+
+class AutoRepairShop extends Business {};
+
+class Retail extends Business {
+    toString() {return `Buy some stuff!`;}
+}
+
+class ClothingStore extends Retail {};
+
+class PhoneStore extends Retail {
+    toString() {return `Upgrade your perfectly good phone, now!`;}
+}
+
+console.log(new PhoneStore().toString()); // "Upgrade your perfectly good phone, now!"
+console.log(new ClothingStore().toString()); // "Buy some stuff!" (inherited from 'retail')
+console.log(new Restaurant().toString()); // Eat at Joe's!
+console.log(new AutoRepairShop().toString()); // "Give us your money!" (inhrited from 'business')
+console.log(new Charity().toString()); // nothing //! WRONG! prints "object Object," Which makes sense as this is what happened earlier when we used the toString() method on an object with no properties or methods.
+
+//! Super Demo
+
+class ExampleParent {
+    print(arg) {
+        console.log(arg);
+    }
+}
+
+class ExampleChild extends ExampleParent {
+    print(args) { // Here we OVERRIDE the parent's 'print' method using the same method name
+        args.foreach((arg) => super.print(arg)); // Here, we call the parent's 'print' method as part of the child'd NEW print method using the 'super' keyword.
+    }
+}
+
+//^ The point here is that we STILL have access to the parents' method by using the 'super' keyword EVEN IF we override that method.
