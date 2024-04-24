@@ -1,4 +1,4 @@
-/******************************** CONSTANTS *********************************/ 
+/******************************** CONSTANTS *********************************/
 const applePieRecipe = [
   { name: "pie crust", cost: 10.00, quantity: 1 },
   { name: "sugar", cost: 3.00, quantity: 0.5 },
@@ -32,7 +32,9 @@ const recipes = {
 };
 /* DO NOT CHANGE THE CODE ABOVE */
 
-/*************************** FUNCTION TO REFACTOR ****************************/ 
+/*************************** FUNCTION TO REFACTOR ****************************/
+
+
 function bakeAndSellPies(pieType, pieQuantity, profitMargin) {
   // Find the recipe for the pieType specified
   const recipe = recipes[pieType];
