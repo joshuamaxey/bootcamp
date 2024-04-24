@@ -166,3 +166,39 @@
 // console.log(module.paths);
 
 //! Assigning an object to the 'module.exports' property.
+
+//^ SEE CALCULATOR FILES.
+
+//! Importing using 'require'
+
+// When a module needs something from another module, it is said to be DEPENDENT on that module. A module's dependencies are the other modules that are required for it to run correctly.
+
+// Think of dependencies as REQUIREMENTS.
+
+// The built-in 'require' function allows you to import items from a module. It takes a relative path from the module in which it is called to the module you want to import.
+
+const calculator = require("./calculator");
+
+//^ In order to USE the items exported from another module, you need to know that they are eported as properties of the exported object. In order to access them, you can import the object and access its properties. Like this:
+
+const add = calculator.add;
+
+console.log(add(1, 2)); // When we run this code, we get '3' even though the 'add' function is in another file.
+
+//^You can also use object destructuring to extract the properties of the object like this:
+
+const {subtract, multiply, divide, } = require('./calculator');
+
+console.log(subtract(10, 5)); // prints 5
+console.log(multiply(3, 6)); // prints 18
+console.log(divide(80, 10)); // prints 8
+
+// Note that the destructuring approach enables us to import MULTIPLE items at one time.
+
+//^ Finally, if you want to import a single item from am odule with a single export, you can use the require function without any object destruturing. Remember how we assigned module.exports to a single item for export in calculator 4? We can import that item using the require function without any object destructuring.
+
+const modulo = require('./calculator4');
+
+console.log(modulo(9, 2)); // prints 1.
+
+//^ We can also load a folder as a module in Node.js if that folder has an index.js file. When we try to import a folder, Node will look for an index.js file and import that folder with the index.js file inside of it.
