@@ -105,3 +105,64 @@
 // Good tests use DESCRIPTIVE STRINGS to enumerate what they are testing as well as how they are testing it.
 
 // You should be able to tell a few things about a test WITHOUT knowing the specfiic syntax of what is being tested. You should be able to tell what is being tested (name, description). And as a software engineer, you should be able to parse the descriptions of tests to understand what is being tested.
+
+//! Refactoring Code
+
+// REFACTORING is when you restructure or improve working code to make it more maintainable and easier to read.
+// You are not finished with a problem unless you have attempted to refactor it at LEASE ONCE. Most working code can still be improved.
+
+// The first step in refactoring is to have working code. Code is WORKING when it fits all of the specifications for the implementation of the problem that the code is solving. Efficincy is irrelevant.
+
+// After the code is working and solves the problem, go through and see if there is anything that you can improve to make it easier for other developers to read or use your code.
+
+// There are guidelines and principles to help you refactor code.
+
+//! The DRY Principle
+
+//^ The Operational Definition of DRY is: A PRINCIPLE OF SOFTWARE DEVELOPMENT AIMED AT REDUCING REPETITION OF SOFTWARE PATTERNS BY USING ABSTRACTION OR DATA NORMALIZATION TO AVOID REDUNDANCY.
+
+//DRY code is:
+
+// Clear
+// concise
+// Efficient
+
+// To refactor your code to be DRY:
+
+//^ 1. Identify patterns in code that occur at least twice.
+//^ 2. Extract the pattern to its own function or set of code and then use that function or set of code wherever the pattern was used.
+
+//! Single-Responsibility Principle
+
+//^ The Operational Definition of the Single-Responsibility Principle is: EVERY ODULE, CLASS, OR FUNCTION IN A COMPUTER PROGRAM SHOULD HAVE RESPONSIBILTY OVER A SINGLE PART OF THAT PROGRAM'S FUNCTIONALITY.
+
+// Your JavaScript function should do ONE thing and do it well. If your function is doing too many things, you should refactor your code to create one or more helper functions that follow SRP.
+
+//! JavaScript Modules
+
+// Thus far, we have used Node to run a single JavaScript file that contains all of the code we want to run. For very small applications, this approach is effective. But for most applications, a different approach is required.
+
+// Your code will usually be organized into multiple files that work together, each of which contains a logical unit of code.
+
+// To write programs, you will need to know how to:
+
+//^ Add a local module to a Node.js application
+//^ Use the module.exports property to export from a module
+//^ export multiple items or a single item from a module
+//^ use the require() function to import from a module
+
+// In Node.js, each JavaScript file defines a MODULE.
+
+// Modules defined within your project are known as LOCAL MODULES. Each local module has a single purpose and implements a single function.
+
+//* In order to make variables and funcitons defined in a module (file) accessible to other modules (files), you need to EXPORT them.
+
+// Each module in NOde has access to a 'module' object that represents the current module.
+// This module object contains a number of properties that provide information about the current module.
+// "module.exports" is one of these properties, and is used to export items from the module.
+
+// console.log(module);
+// console.log(module.exports);
+// console.log(module.paths);
+
+//! Assigning an object to the 'module.exports' property.
