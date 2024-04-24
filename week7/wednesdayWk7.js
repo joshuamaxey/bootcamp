@@ -45,3 +45,31 @@
 //* "npm init --y"
 
 //! Finding Packages in the npm Registry
+
+// Go to the npm registry to find code that you can explore and incorporate into your projects and applications: //! https://www.npmjs.com/
+
+//^ When selecting packages from the npm registry, ask yourself:
+
+// 1. Does the package do what I need?
+// 2. How popular is the package?
+// 3. Is the package being maintained?
+
+// Lets use the npm registry to search for a package that will allow you to add color to the messages that are logged to the console.
+// Go to the npm website and use the "search packages" filed to search for the keywords "console colors".
+
+//^ Since you have initialized your project (npmTestProject) usig npm init (generating a 'package.json' file), you can use npm install to install an npm package locally into your project.
+
+// To install the 'chalk' npm package, run the command: //! npm install chalk
+
+// I couldn't figure out how to get that one to work. Then I realize that the lesson uses 'colors' so installed that one using //! npm install colors
+
+// Then we use //! const colors = require('colors') to import the package into the index.js file within the npmTestProject folder.\
+
+// See the index.js file.
+
+//! Dependency Types
+
+// 1. dependencies: Thse are the packages that your project needs in order to successfully run when in production.
+// 2. Development dependencies (devDependencies): These are the packages that are needed locally when doing development worko n the project. Thse usualy include tools that are used to build and test your application.
+
+//! Installing a development dependency
