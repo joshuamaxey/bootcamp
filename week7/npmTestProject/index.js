@@ -33,3 +33,17 @@ const aNewHope = new Movie (
 
 console.log(theGrapesOfWrath.getInformation()); // prints "The Grapes of Wrath [written by John Steinbeck]";
 console.log(aNewHope.getInformation()); // prints "Episode 4: A New Hope (Star Wars) [directed by George Lucas]"
+
+//! Now let's look at how we can simplify the import process by using destructuring. Instead of commenting out the code above, lets create a new, simple file with a few items to import. // I actually fucked this up. Due to the fact that i only created one class and severa functions, it looks like I can't use destructuring to import them. But you get the point.
+
+const greet = require("./greet")
+
+const Greeting = greet.Greeting;
+
+const howsItGoingFriend = new Greeting (
+    "How's it going",
+    "friend",
+    "?"
+)
+
+console.log(howsItGoingFriend.sayGreeting());
