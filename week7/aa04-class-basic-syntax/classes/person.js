@@ -18,12 +18,14 @@ class Person { //class
       if (!(el instanceof Person)) {
         throw new Error("All items in array must be Person class instances.")
       } else {
-        el.introduce();
+        el.introduce(); //each 'el' represents a differen't 'this', as each element in the array IS an instance of the Person class.
       }
     }
 
   }
 }
+
+
 
 /****************************************************************************/
 /******************* DO NOT EDIT CODE BELOW THIS LINE ***********************/
