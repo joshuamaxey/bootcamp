@@ -159,3 +159,9 @@
 // When that's the case, you can pass the '--force' flag to the npm audit fix command like this: //^ npm audit fix --force
 
 //! Writing and Running npm Scripts
+
+// npm gives you a way to define and run scripts which execute terminal commands.
+
+//~ Added command: "start": "node index.js" (see the package.json file, comments are not permitted there. Line 8 as of this moment.)
+
+//^ try "npm start" and watch it run the inde.js file.
