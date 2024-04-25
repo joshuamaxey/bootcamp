@@ -165,3 +165,46 @@
 //~ Added command: "start": "node index.js" (see the package.json file, comments are not permitted there. Line 8 as of this moment.)
 
 //^ try "npm start" and watch it run the inde.js file.
+
+//! SUMMARY
+
+// Install an existing project's dependencies
+// Use npm to uninstall a package
+// Use npm to update a package
+// Find adn fix npm package security vulnerabilities.
+// Write and run npm scripts.
+
+//! =================================== USING MODULES IN NODE.js ============================================
+
+//^ Add a local module to a Node.js application
+//^ Use the 'module.exports' property to export from a module
+//^ Use the 'require()' method to import from a module
+
+// Each JavaScript file is a MODULE in Node.js
+
+// Modules defined within your project are known as LOCAL MODULES. Every local module has a single purpose and performs a single function.
+
+// CORE MODULES are native to Node.js and can perform tasks or add functions to your application. These core modules include those that work with file paths 'path', read data from a stream one line at a time 'readline', read and write files to the local file system 'fs', and create HTTP servers 'http'.
+
+// Developers, companies, and organizations create ad publish node modules that you can use in your applications. These third-party modules are distributed adn managed using npm (https://www.npmjs.com/)
+
+// Local modules, core modules, and third-party modules all work together to create your application.
+
+//! The CommonJS module system
+
+// Recent versions of Node.js contain two different module systems.
+
+// 1. The original CommonJS module system
+// 2. THe new ECMAScript modules (ES Modules)
+
+// ES modules will eventually replace CommonJS, but there is a lot of legacy Node.js code out there so we see CommonJS modules often.
+
+//^ For now, we will use CommonJS modules. ES Modules will come later.
+
+//! Adding a Local Module to a Node application
+
+// To add a local module, just add a new JavaScript file.
+
+//~ Lets create a classes.js module to our npmTestProject directory.
+
+// see classes.js
