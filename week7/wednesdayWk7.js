@@ -132,3 +132,30 @@
 //~ For instance, lets do this with 'chalk' since we decided to use 'colors' instead.
 
 // Done. We ran 'npm uninstall chalk' and it worked. The package is no longer located in our node_modules.
+
+//! Updating a dependency
+
+// Run the following command: //^ npm update <package name>
+
+// In this case, lets try it with mocha.
+
+// Results are that it is up to date. Good to go.
+
+//^ You can also update ALL of your dependencies at one time using the 'npm update' command. Try it.
+
+// Result: "added 2 packages, removed 2 packages, and audited 74 packages in 4s" //^ Done.
+
+//^ To make sure that you have the latest version of a package, you can use the 'latest' keyword: 'npm install <packageName>@latest' try it with mocha again.
+
+// up to date. Good to go.
+
+//! Finding and Fixing Package Security Vulnerabilities
+
+// run this command to check for security vulnerabilities among your npm packages: //^ npm audit
+
+// If you find any vulnerabilities, use this command to attempt to fix them: //^ npm audit fix
+// Note that this ^^ only works if a fix is available in a minor patch version of the package. When a fix requires updating to a new major version of a package, that's considered to be a 'BREAKING CHANGE'.
+
+// When that's the case, you can pass the '--force' flag to the npm audit fix command like this: //^ npm audit fix --force
+
+//! Writing and Running npm Scripts
