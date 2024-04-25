@@ -73,3 +73,62 @@
 // 2. Development dependencies (devDependencies): These are the packages that are needed locally when doing development worko n the project. Thse usualy include tools that are used to build and test your application.
 
 //! Installing a development dependency
+
+// To install a development dependency, use the --save-dev flag: //! "npm istall mocha --save-dev", etc
+
+//Separating the development dependencies from the 'regular' dependencies keeps package installation process clean and simple.
+// This allows npm to install just the packages that are actually needed for the package or application to run successfully.
+
+//! Summary:
+
+// Verify what version of npm is installed and use npm to update itself to the latest version
+// Use npm to initailze a new package or project
+// Use the npm registry to find a package
+// Use npm to install a package
+// Use an npm package in code
+// unerstand the difference between a dependency and development dependency.
+
+//! =================== Using npm Part 2 ===========================
+
+//! Using npm to Perform Common Tasks
+
+//^ Install an existing project's dependencies
+//^ Use npm to uninstall a package
+//^ use npm to update a package
+//^ find and fix npm package security vulnerabilities
+//^ write and run npm scripts
+
+//! ============================================================ WEDNESDAY LECTURE ====================================================================
+//~ =====================================================================================================================================================
+// OOP: 4 Main PIllars
+
+// Encapsulation (organization)
+// Abstraction
+// Inheritance
+// Polymorphism
+
+// A CLASS is a blueprint (factory) for creating objects. Classes are a clean way to enclose our data, provide an API that hides the internal complexity and manages the data in our object, and allows us to model real world entities in an organized way.
+
+// An INSTANCE of a class is an object with the properties and methods defined in the CLASS. Many data types (Array, Object) are classes.
+
+// For instance, the Array.forEach() method is callable this way because it is an instance method defined on the class Array.
+
+// Static/class methods are invoked on the class, ot on the instance.
+
+// Instance methods are invoked on the individual instance of the class, not on the class itself.
+
+//~====================================================================================================================================================
+
+//! Installing an Existing Project's Dependencies
+
+// When you're working with an existing project which already has 'package.json' and 'package-lock.json' files, you need to use npm to install its dependencies. If you don't install a project's dependencies, you'll thorw errors when you try to run the application.
+
+// To install an existint project's dependencies, just run the //^ npm install command without providing any package names or other parameters. This will prompt npm to install the dependencies listed in the package-lock.json file.
+
+//! Uninstalling a dependency.
+
+// To uninstall a package, run the following command: //^ npm uninstall <package name>
+
+//~ For instance, lets do this with 'chalk' since we decided to use 'colors' instead.
+
+// Done. We ran 'npm uninstall chalk' and it worked. The package is no longer located in our node_modules.
