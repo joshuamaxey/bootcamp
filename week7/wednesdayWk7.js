@@ -201,10 +201,10 @@
 
 //^ For now, we will use CommonJS modules. ES Modules will come later.
 
-//! Adding a Local Module to a Node application
+// ! Adding a Local Module to a Node application
 
 // To add a local module, just add a new JavaScript file.
 
-//~ Lets create a classes.js module to our npmTestProject directory.
+// ~ Lets create a classes.js module to our npmTestProject directory.
 
 // see classes.js
