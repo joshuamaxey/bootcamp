@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 //! JavaScript Context
 
@@ -89,33 +89,33 @@
 
 //^ But what is 'this' when we use normal FUNCTION-STYLE INVOCATION?
 
-function testMe() {
-    console.log(this);
-}
+// function testMe() {
+//     console.log(this);
+// }
 
-testMe(); // prints "Object [global] { etc..."
+// testMe(); // prints "Object [global] { etc..."
 
 //^ In the function above, 'this' is set to the 'global' object.
 // Functions that you invoke will always have both a CONTEXT and a SCOPE.
 
 // Functions in node that are not defined on an object (as a method on a class, etc) have the global object as their 'this' (their context)
 
-class Dog {
-    constructor(name) {
-        this.name = name;
-    }
+// class Dog {
+//     constructor(name) {
+//         this.name = name;
+//     }
 
-    changeName() {
-        return this.name = "Layla";
-    }
-}
+//     changeName() {
+//         return this.name = "Layla";
+//     }
+// }
 
-let dog = new Dog("Bowser");
+// let dog = new Dog("Bowser");
 
-let change = dog.changeName();
-console.log(change);
+// let change = dog.changeName();
+// console.log(change);
 
-console.log(dog);
+// console.log(dog);
 
 // =======================================================
 
@@ -166,29 +166,102 @@ console.log(dog);
 
 //! Context in Regular Functions Quiz
 
-class Person {
-    constructor(firstName) {
-        this.firstName = firstName;
-    }
+// class Person {
+//     constructor(firstName) {
+//         this.firstName = firstName;
+//     }
 
-    printName() {
-        console.log(this.firstName);
-    }
-}
+//     printName() {
+//         console.log(this.firstName);
+//     }
+// }
 
-const johnny = new Person("Johnny");
+// const johnny = new Person("Johnny");
 
-function hello() {
-    console.log(`Hello ${this.firstName}`)
-}
+// function hello() {
+//     console.log(`Hello ${this.firstName}`)
+// }
 
-const greeting = new hello();
+// const greeting = new hello();
 
-const brian = new Person("Brian");
-brian.printName();
+// const brian = new Person("Brian");
+// brian.printName();
 
-const adrian = new Person('Adrian');
+// const adrian = new Person('Adrian');
 
-printName();
+// printName();
 
 //! ======================================= Bind ============================================
+
+// We have established that there are places where context is lost.
+
+//^ Binding a context to a function solves this problem.
+
+// As a programmer, you will need to know how to:
+
+//* Bind the context of a method to an object
+//* Understand what the 'bind' function returns and the functionality of the results
+
+// The operational definition of "function.prototype.bind" is:
+
+//& "The simplest use of 'bind()' is to make a function that no matter how it is called, retains a specific context ('this' value)"
+
+// let boundFunc = func.bind(context);
+
+// when bind() is called, it returns what is called an //^ exotic function.
+
+//* An exotic function is a function that retains its context ('this' value) no matter where/how it is invoked.
+
+// class Cat {
+//     purr() {
+//       console.log("meow");
+//     }
+
+//     purrMore() {
+//       this.purr();
+//     }
+//   }
+//   let cat = new Cat();
+
+//   let sayMeow = cat.purrMore;
+//   sayMeow(); // TypeError: this.purr is not a function
+
+//   // You can now use the built in Function.bind to ensure your context, `this`,
+//   // is the cat object
+//   let boundCat = sayMeow.bind(cat);
+
+//   // You still *need* to invoke the function
+//   boundCat(); // prints "meow"
+
+  //! I literally copied this from the notes and it still prints an error that is never mentioned in the notes. This does not work the way that they say that it does. I don't understand the purpose of this 'bind' bullshit. Skipping this shit. It doesn't work.
+
+  class Cat {
+    constructor(name) {
+      this.name = name;
+    }
+    sayName() {
+        console.log(this.name);
+    }
+  }
+
+  let cat = new Cat("Meowser");
+
+  class Dog {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+
+  let dog = new Dog("Fido");
+
+  let sayNameFunc = cat.sayName;
+
+  let sayHelloCat = sayNameFunc.bind(cat);
+  sayHelloCat(); // prints Meowser
+
+  let sayHelloDog = sayNameFunc.bind(dog);
+  sayHelloDog(); // prints Fido
+
+  //! Ok, this copied code works for reasons that I don't understand. Skip.
+
+  //! Nope. Just gonna come back when I"m less irritated, since apparently this half-broken 'bind' function is important.
