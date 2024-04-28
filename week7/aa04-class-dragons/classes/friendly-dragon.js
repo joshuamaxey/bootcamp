@@ -3,7 +3,7 @@ const Dragon = require("./dragon")
 class FriendlyDragon extends Dragon {
     constructor(name, color, lifeGoals, friend) {
         super(name, color);
-        this.lifeGoals = [...lifeGoals];
+        this.lifeGoals = lifeGoals;
         this.friend = friend;
     }
 
@@ -47,8 +47,4 @@ const puff = new FriendlyDragon(
   console.log(toothless.helpsPeople());
   console.log(toothless.breathesFire());
 
-  try {
-    module.exports = FriendlyDragon;
-  } catch {
-    module.exports = null;
-  }
+ module.exports = FriendlyDragon

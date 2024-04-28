@@ -3,7 +3,7 @@ const Dragon = require("./dragon")
 class EvilDragon extends Dragon {
     constructor (name, color, evilDoings, nemesis) {
         super(name, color);
-        this.evilDoings = [...evilDoings];
+        this.evilDoings = evilDoings;
         this.nemesis = nemesis;
     }
 
@@ -33,8 +33,4 @@ const enderDragon = new EvilDragon(
   console.log(enderDragon.burnsNemesis());
 
 
-  try {
-    module.exports = EvilDragon;
-  } catch {
-    module.exports = null;
-  }
+module.exports = EvilDragon;
