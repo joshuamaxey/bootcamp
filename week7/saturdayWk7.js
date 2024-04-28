@@ -278,7 +278,7 @@
 
 //& "The simplest use of bind() is to produce a function that retains a particular context ('this' value) no matter where or how it is called"
 
-//From MDN (Function.prototype.bind()):
+//* From MDN (Function.prototype.bind()):
 
 const module1 = { // initialize an object called 'module1'
     x: 42, // create a key-value pair key: x, value: 42
@@ -294,3 +294,169 @@ console.log(unboundGetX()); // Here, we try to invoke the function at the global
 const boundGetX = unboundGetX.bind(module1); // Here, we invoke the function with the 'bind' method with the argument 'module1'. This binds the context of the function to 'module1,' which is the context in which the key-value pair exists and within which the function was initially declared.
 
 console.log(boundGetX()); //Because we bound the context to the module1 object, it retains this context even when we call the function in the global scope. Thus, we are able to invoke the function in the global scope using the bind() method to return the intended value of 42.
+
+//* The syntax for the 'bind()' method is: bind(thisArg) and may include other arguments: bind(thisArg, arg1, arg2), etc
+
+// Or, as described in the reading: //* let boundFunc = func.bind(context)
+
+// class Cat {
+//     purr() {
+//         console.log("meow");
+//     }
+
+//     purrMore() {
+//         this.purr();
+//     }
+// }
+
+// let cat = new Cat();
+
+// let sayMeow = cat.purrMore;
+
+// sayMeow();
+
+// I am still NOT getting the error message that the reading says I should be getting here. My console reads:
+
+//^ TypeError: Cannot read properties of undefined (reading 'purr')
+
+// The reading says my console should read:
+
+//^ TypeError: this.purr is not a function
+
+//so ?
+
+// let boundCat = sayMeow.bind(cat);
+
+// boundCat();
+
+// The reading says that 'boundCat()' above should print 'meow' as expected. It does not. Instead, it throws the error:
+
+//^ ReferenceError: sayMeow is not defined
+
+// MDN's example worked correctly, so I'm gonna stick with that definition and example of how 'bind()' is supposed to work. This is my second time through these examples, my code is exactly the same as the code in the reading, but none of the results match.
+
+// I'm gonna comment out the code above and move on to the next example to see if it functions correctly.
+
+class Cat {
+    constructor(name) {
+        this.name = name;
+    }
+
+    sayName() {
+        console.log(this.name);
+    }
+}
+
+let cat = new Cat("Meowser")
+
+class Dog {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+let dog = new Dog("Fido");
+
+let sayNameFunc = cat.sayName;
+
+let sayHelloCat = sayNameFunc.bind(cat);
+sayHelloCat(); //prints "Meowser"
+
+let sayHelloDog = sayNameFunc.bind(dog);
+sayHelloDog(); //prints "Fido"
+
+// Ok, these are working correctly. Maybe the previous functions are an anomaly or somehow I keyed the code wrong TWICE (though I doubt it because the first time, I copied/pasted it to verify that my coding was correct and still printed the wrong errors/never printed the correct result. I dunno.)
+
+//^ What's really cool here is that we are able to invoke a method of the Cat class on an instance of the Dog class by binding the context of that method to the dog object (instance of the Dog class). That means that the bind() method enables us to access methods that are unique to classes (bound to certain objects) from OTHER places by binding the context of that method to the object we intend to use it on.
+
+class Cow {
+    moo() {
+        console.log("mooo");
+    }
+
+    mooMore() {
+        this.moo();
+    }
+}
+
+let cow = new Cow();
+
+const boundMoo = cow.mooMore.bind(cow);
+
+globalThis.setTimeout(boundMoo, 5000)
+
+// HERE'S ANOTHER COOL THING: remember earlier, when we said, "There is a very complicated eplanation for why this function call results in a TypeError. For now, just know that you cannot call an instance method from within ANOTHER instance method using the setTimeout function. If you try, JavaScript throws an error." //! SEE LINE 140 ^^
+
+//^ Well, here, you can obviously see that using the bind() method allows us to successfully call an instance method from within another instance method using the setTimeout function! This was impossible (as shown in the example preceeding line 140 earlier in these notes) without the .bind() method.
+
+//& So here, we have seen that using the .bind() method allows us to do two really cool things:
+
+// 1. invoke instance methods of one class on instances of A DIFFERENT class by binding the context of that method to the instance of the other class that we intend to invoke it on.
+
+// 2. Successfully call an instance method from within a nother instance method asynchronously using the setTimeout function without throwing an error.
+
+//! In summary, per this reading, we have learned to:
+
+//^ bind the contet of a method to an object
+//^ understand that the 'bind' method returns a function with a fixed context ('this' value/object) which does not change regardless of where/how that function is invoked.
+
+//! =========================== BIND QUIZ ================================
+
+//^ 1. Calling bind on a function does not automaticaly invoke that function.
+
+//^ 2. When bind is called, it returns a new function.
+
+//^ 3. You cannot change the context of a function once it has been bound to that function.
+
+//^ 4. Bind can accept an indefinite number of arguments in addition to the context argument.
+
+//^ 5. What will be printed to the console by the code below?
+
+function hello() {
+    return `Hello ${this.firstName}`
+}
+
+const derek = {
+    firstName: 'Derek'
+}
+
+console.log(hello.bind(derek)); // returns [Function: bound hello]
+
+// The closest of the provided answers to the result that I see in the console is:
+
+// "The hello function bound to derek"
+
+//^ 6. What will be printed to the cons0le by the code below?
+
+console.log(hello.bind(derek)()); // prints "Hello Derek"
+
+// Interesting. So the code on line 423 returns a function bound to derek.
+// But the code on line 431 above prints 'Hello Derek', which means that the hello function was actually invoked with its context bound to 'derek'. I understand what has happened but am not exactly sure why the difference in syntax has caused this difference in the way that the code functions.
+
+//^ 7. What will be printed to the console by the code below?
+
+const helloDerek = hello.bind(derek);
+console.log(helloDerek()); // prints "Hello Derek" again.
+
+// Ok. I'm starting to understand. THe bind() method does not automatically invoke the function that it creates, that's the point of these questions. I think.
+// So 'hello.bind(derek)' creates a new 'hello' function with its context bound to 'derek'
+// And 'console.log(heloDerek())' invokes that new function with its context bound to the 'derek' object, printing:
+// "Hello Derek"
+
+//^ 8. What will be printed to the console by the code below?
+
+function greeting(...messages) {
+    const that = this;
+    return messages.map(function(message) {
+        return `${that.firstName} says ${message}`;
+    });
+}
+
+// recall the 'derek' object declared on line 419 above!
+
+const derekMessages = greeting.bind(derek, "Hello class!");
+console.log(derekMessages("Goodbye, class!"));
+
+// Prints [ 'Derek says Hello Class!', 'Derek says Goobye, class!' ]
+
+// Gonnan need to look through this one more carefully later. Hard to track hwat is happening to 'this' throughout the code because of the way that it's written.
