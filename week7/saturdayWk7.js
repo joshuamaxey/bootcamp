@@ -191,77 +191,106 @@
 
 // printName();
 
-//! ======================================= Bind ============================================
+// //! ======================================= Bind ============================================
 
-// We have established that there are places where context is lost.
+// // We have established that there are places where context is lost.
 
-//^ Binding a context to a function solves this problem.
+// //^ Binding a context to a function solves this problem.
 
-// As a programmer, you will need to know how to:
+// // As a programmer, you will need to know how to:
 
-//* Bind the context of a method to an object
-//* Understand what the 'bind' function returns and the functionality of the results
+// //* Bind the context of a method to an object
+// //* Understand what the 'bind' function returns and the functionality of the results
 
-// The operational definition of "function.prototype.bind" is:
+// // The operational definition of "function.prototype.bind" is:
 
-//& "The simplest use of 'bind()' is to make a function that no matter how it is called, retains a specific context ('this' value)"
+// //& "The simplest use of 'bind()' is to make a function that no matter how it is called, retains a specific context ('this' value)"
 
-// let boundFunc = func.bind(context);
+// // let boundFunc = func.bind(context);
 
-// when bind() is called, it returns what is called an //^ exotic function.
+// // when bind() is called, it returns what is called an //^ exotic function.
 
-//* An exotic function is a function that retains its context ('this' value) no matter where/how it is invoked.
+// //* An exotic function is a function that retains its context ('this' value) no matter where/how it is invoked.
 
-// class Cat {
-//     purr() {
-//       console.log("meow");
+// // class Cat {
+// //     purr() {
+// //       console.log("meow");
+// //     }
+
+// //     purrMore() {
+// //       this.purr();
+// //     }
+// //   }
+// //   let cat = new Cat();
+
+// //   let sayMeow = cat.purrMore;
+// //   sayMeow(); // TypeError: this.purr is not a function
+
+// //   // You can now use the built in Function.bind to ensure your context, `this`,
+// //   // is the cat object
+// //   let boundCat = sayMeow.bind(cat);
+
+// //   // You still *need* to invoke the function
+// //   boundCat(); // prints "meow"
+
+//   //! I literally copied this from the notes and it still prints an error that is never mentioned in the notes. This does not work the way that they say that it does. I don't understand the purpose of this 'bind' bullshit. Skipping this shit. It doesn't work.
+
+//   class Cat {
+//     constructor(name) {
+//       this.name = name;
 //     }
-
-//     purrMore() {
-//       this.purr();
+//     sayName() {
+//         console.log(this.name);
 //     }
 //   }
-//   let cat = new Cat();
 
-//   let sayMeow = cat.purrMore;
-//   sayMeow(); // TypeError: this.purr is not a function
+//   let cat = new Cat("Meowser");
 
-//   // You can now use the built in Function.bind to ensure your context, `this`,
-//   // is the cat object
-//   let boundCat = sayMeow.bind(cat);
+//   class Dog {
+//     constructor(name) {
+//       this.name = name;
+//     }
+//   }
 
-//   // You still *need* to invoke the function
-//   boundCat(); // prints "meow"
+//   let dog = new Dog("Fido");
 
-  //! I literally copied this from the notes and it still prints an error that is never mentioned in the notes. This does not work the way that they say that it does. I don't understand the purpose of this 'bind' bullshit. Skipping this shit. It doesn't work.
+//   let sayNameFunc = cat.sayName;
 
-  class Cat {
-    constructor(name) {
-      this.name = name;
-    }
-    sayName() {
-        console.log(this.name);
-    }
-  }
+//   let sayHelloCat = sayNameFunc.bind(cat);
+//   sayHelloCat(); // prints Meowser
 
-  let cat = new Cat("Meowser");
-
-  class Dog {
-    constructor(name) {
-      this.name = name;
-    }
-  }
-
-  let dog = new Dog("Fido");
-
-  let sayNameFunc = cat.sayName;
-
-  let sayHelloCat = sayNameFunc.bind(cat);
-  sayHelloCat(); // prints Meowser
-
-  let sayHelloDog = sayNameFunc.bind(dog);
-  sayHelloDog(); // prints Fido
+//   let sayHelloDog = sayNameFunc.bind(dog);
+//   sayHelloDog(); // prints Fido
 
   //! Ok, this copied code works for reasons that I don't understand. Skip.
 
   //! Nope. Just gonna come back when I"m less irritated, since apparently this half-broken 'bind' function is important.
+
+  //! ALRIGHT, let's try this again.
+
+  //! ============================== BIND =====================================
+
+  // As a programmer, you will need to know how to:
+
+  //^ Bind the conte a method to an object.
+
+//^ Understand what the 'bind()' function returns and how its result functions
+
+//& "The simplest use of bind() is to produce a function that retains a particular context ('this' value) no matter where or how it is called"
+
+//From MDN (Function.prototype.bind()):
+
+const module1 = { // initialize an object called 'module1'
+    x: 42, // create a key-value pair key: x, value: 42
+    getX: function () { // write a function that returns the value of 'this' for 'x'
+        return this.x;
+    },
+}
+
+const unboundGetX = module1.getX;
+
+console.log(unboundGetX()); // Here, we try to invoke the function at the global scope. This means that the 'context' ('this' value) of 'x' would be the global object. But x is not defined in the global scope. Thus, we return 'undefined'.
+
+const boundGetX = unboundGetX.bind(module1); // Here, we invoke the function with the 'bind' method with the argument 'module1'. This binds the context of the function to 'module1,' which is the context in which the key-value pair exists and within which the function was initially declared.
+
+console.log(boundGetX()); //Because we bound the context to the module1 object, it retains this context even when we call the function in the global scope. Thus, we are able to invoke the function in the global scope using the bind() method to return the intended value of 42.
