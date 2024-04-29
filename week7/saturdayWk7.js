@@ -771,7 +771,117 @@ class Fish {
         this.name = name;
     }
 
-    bloop() {
-
+    bloop = () => {
+        console.log(`${this.name} made a bubble, bloop`);
     }
 }
+
+const nemo = new Fish("Nemo")
+nemo.bloop(); // Nemo made a bubble, bloop
+
+const nemoBloop = nemo.bloop;
+
+nemoBloop() // Nemo made a bubble, bloop
+
+// Note that you should ONLY define a class method as an arrow function if you will be binding the class method when using it more times than you are creating new instances of that class. or you can use it if you don't care about application memory and won't be creating very many instances of the class.
+
+//! SUMMARY
+
+//^ Learned the context of an arrow function
+//^ Learned how to define a class methodu sing an arrow function
+//^ Learned when to use arrow functions to define a class method
+
+//! ================== Arrow Functions Review and Context Quiz ================
+
+//^ 1. You CANNOT use bind, call, or apply to chagne the context of an arrow function
+
+//^ 2. The context of an arrow function does NOT depend on how it is invoked.
+
+// The context of an arrow function is determined by the context in which it is CREATED, NOT how it is INVOKED.
+
+//^ 3. What will be printed to the console by the code below?
+
+const sum = (...nums) => {
+    nums.reduce((acc, num) => acc + num);
+}
+
+console.log(sum(1, 2, 3));
+
+// returns undefined because the 'return' keyword is not used. This is the case because implicit returns in arrow functions ONLY work for single-expression arrow functions. Because there is a second function nested within the reduce method, this is not a single-expression arrow function and thus requires the use of the 'return' keyword.
+
+//^ 4. What will be printed to the console by the code below?
+
+const sum2 = (...nums) => {
+    return nums.reduce((acc, num) => {
+        acc + num;
+    });
+}
+
+console.log(sum2(1, 2, 3))
+
+// ALSO returns undefined even though the nums.reduce method is returned because there is no return value within the reduce method! In order for this function to correctly return the sum, it would need to look like this:
+
+const sum3 = (...nums) => {
+    return nums.reduce((acc, num) => {
+    return acc + num;
+    });
+}
+
+console.log(sum3(1, 2, 3)) // returns 6 as expected!
+
+//^ 5. What will be printed to the console by the code below?
+
+const sum4 = (...nums) => {
+    return nums.reduce((acc, num) => acc + num);
+}
+
+console.log(sum(1, 2, 3)); // undefined. Similarly to the previous function, the callback never returns its value. In order for the code to work correctly, it would need to look like this:
+
+const sum5 = (...nums) => {
+    return nums.reduce((acc, num) => {
+        return acc + num;
+    });
+};
+
+console.log(sum5(1, 2, 3)); // returns 6 as expected.
+
+//^ 6. What will be printed to the console by the code below?
+
+class Vegetable {
+    constructor(name) {
+        this.name = name;
+    }
+
+    eat = () => {
+        console.log(`${this.name} has a bite mark`);
+    }
+}
+
+const bellPepper = new Vegetable("Bell Pepper");
+const eat = bellPepper.eat;
+setTimeout(eat, 5000);
+
+// Prints 'Bell Pepper has a bite mark' after 5 seconds
+
+//^ 7. What will be printed to the console by the code below?
+
+eat(); // prints 'Bell Pepper has a bite mark
+
+//^ 8. What will be printed to the console by the code below?
+
+function greeter(...messages) {
+    return messages.map(message => {
+        return `${this.firstName} says ${message}`;
+    });
+}
+
+const derek = {
+    firstName: 'Derek'
+};
+
+const derekMessages = greeter.bind(derek, "Hello class!");
+console.log(derekMessages("Goodbye class!"));
+
+// I don't think this will work. If I remember correctly, we cannot use the bind(), call(), or apply() methods on arrow functions.
+
+// I was wrong! It prints this to the console: [ 'Derek says Hello class!', 'Derek says Goodbye class!'];
