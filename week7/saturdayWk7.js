@@ -369,21 +369,21 @@ sayHelloDog(); //prints "Fido"
 
 //^ What's really cool here is that we are able to invoke a method of the Cat class on an instance of the Dog class by binding the context of that method to the dog object (instance of the Dog class). That means that the bind() method enables us to access methods that are unique to classes (bound to certain objects) from OTHER places by binding the context of that method to the object we intend to use it on.
 
-class Cow {
-    moo() {
-        console.log("mooo");
-    }
+// class Cow {
+//     moo() {
+//         console.log("mooo");
+//     }
 
-    mooMore() {
-        this.moo();
-    }
-}
+//     mooMore() {
+//         this.moo();
+//     }
+// }
 
-let cow = new Cow();
+// let cow = new Cow();
 
-const boundMoo = cow.mooMore.bind(cow);
+// const boundMoo = cow.mooMore.bind(cow);
 
-globalThis.setTimeout(boundMoo, 5000)
+// globalThis.setTimeout(boundMoo, 5000)
 
 // HERE'S ANOTHER COOL THING: remember earlier, when we said, "There is a very complicated eplanation for why this function call results in a TypeError. For now, just know that you cannot call an instance method from within ANOTHER instance method using the setTimeout function. If you try, JavaScript throws an error." //! SEE LINE 140 ^^
 
@@ -412,15 +412,15 @@ globalThis.setTimeout(boundMoo, 5000)
 
 //^ 5. What will be printed to the console by the code below?
 
-function hello() {
-    return `Hello ${this.firstName}`
-}
+// function hello() {
+//     return `Hello ${this.firstName}`
+// }
 
-const derek = {
-    firstName: 'Derek'
-}
+// const derek = {
+//     firstName: 'Derek'
+// }
 
-console.log(hello.bind(derek)); // returns [Function: bound hello]
+// console.log(hello.bind(derek)); // returns [Function: bound hello]
 
 // The closest of the provided answers to the result that I see in the console is:
 
@@ -428,15 +428,15 @@ console.log(hello.bind(derek)); // returns [Function: bound hello]
 
 //^ 6. What will be printed to the cons0le by the code below?
 
-console.log(hello.bind(derek)()); // prints "Hello Derek"
+// console.log(hello.bind(derek)()); // prints "Hello Derek"
 
 // Interesting. So the code on line 423 returns a function bound to derek.
 // But the code on line 431 above prints 'Hello Derek', which means that the hello function was actually invoked with its context bound to 'derek'. I understand what has happened but am not exactly sure why the difference in syntax has caused this difference in the way that the code functions.
 
 //^ 7. What will be printed to the console by the code below?
 
-const helloDerek = hello.bind(derek);
-console.log(helloDerek()); // prints "Hello Derek" again.
+// const helloDerek = hello.bind(derek);
+// console.log(helloDerek()); // prints "Hello Derek" again.
 
 // Ok. I'm starting to understand. THe bind() method does not automatically invoke the function that it creates, that's the point of these questions. I think.
 // So 'hello.bind(derek)' creates a new 'hello' function with its context bound to 'derek'
@@ -445,17 +445,17 @@ console.log(helloDerek()); // prints "Hello Derek" again.
 
 //^ 8. What will be printed to the console by the code below?
 
-function greeting(...messages) {
-    const that = this;
-    return messages.map(function(message) {
-        return `${that.firstName} says ${message}`;
-    });
-}
+// function greeting(...messages) {
+//     const that = this;
+//     return messages.map(function(message) {
+//         return `${that.firstName} says ${message}`;
+//     });
+// }
 
-// recall the 'derek' object declared on line 419 above!
+// // recall the 'derek' object declared on line 419 above!
 
-const derekMessages = greeting.bind(derek, "Hello class!");
-console.log(derekMessages("Goodbye, class!"));
+// const derekMessages = greeting.bind(derek, "Hello class!");
+// console.log(derekMessages("Goodbye, class!"));
 
 // Prints [ 'Derek says Hello Class!', 'Derek says Goobye, class!' ]
 
@@ -537,8 +537,241 @@ lion.roarNTimes.apply(pig, [5]); // Fido says: ROAR (x5)
 
 //! ================== Call and Apply Quiz ==========================
 
-//^  1. Calling 'call' on a function WILL invoke it immediately.
+//^ 1. Calling 'call' on a function WILL invoke it immediately.
 
-//^  2. Calling 'apply' on a function WILL invoke it immediately.
+//^ 2. Calling 'apply' on a function WILL invoke it immediately.
 
-//^ 3.
+//^ 3. Calling 'call' does NOT return a new function, but invokes the function it is called on.
+
+//^ 4. Calling 'apply' does NOT return a new function, but invokes the function it is called on.
+
+//^ 5. 'call' can accept an indefinite number of arguments.
+
+//^ 6. 'apply' can only accept TWO arguments (the context and an array)
+
+//^ 7. What will be printed to the console by the code below?
+
+function eatFruits(...fruits) { // spread synax takes an indefinite number of 'fruits' (string arguments)
+    return `${this.firstName} ate ${fruits.join(' and ')}` // Here, the .join() method concatenates all of the string arguments into a single string with each element separated by ' and '
+}
+
+class Person {
+    constructor(firstName) {
+        this.firstName = firstName;
+    }
+}
+
+const mylo = new Person('Mylo');
+console.log(eatFruits.call(mylo, 'apple', 'orange', 'banana')); // Here, we call the eatsFruits function using the call() method with the object (new instance of the Person class) 'mylo' as the context.
+
+// This code returns 'Mylo ate apple and orange and banana'
+
+//^ 8. What will be printed to the console by the code below?
+
+// console.log(eatFruits.apply(mylo, 'apple', 'orange', 'banana'));
+
+// Before I run this code I anticipate that it will throw an error because the apply() method can only take 2 arguments at most (context [in this case, 'mylo']) and an array of arguments. There is no array provided as an argument here and there are four arguments provided total, so I think the apply() method will break here.
+
+// Yep, on line 571 (where we call the apply() method incorrectly above), this error is thrown:
+
+// TypeError: CreateListFromArrayLike called on non-object.
+
+//^ 9. What will be printed to the console by the code below?
+
+console.log(eatFruits.call(mylo, ['apple', 'orange', 'banana']));
+
+// Here, I can see that the syntax is correct for the 'call' function (there are only two arguments provided: the context 'mylo' and an array of fuits [strings]) AND based on what I know about the spread syntax, the eatFruits function should be able to spread the elements of the array into its string interpolation without any issues. So this function should (i think) return:
+
+// "Mylo ate apple and orange and banana"
+
+// Interesting. This is what printed to the console: "Mylo ate apple,orange,banana"
+
+// So for some reason, the join(' and ') method didn't work correctly to concatenate the elements into an array of fruits separated by 'and', but the spread syntax DID spread the elements of the array into the string interpolation.
+
+// AHH! This is because the 'call' method isn't supposed to take an array. I think that's the problem. See next question.
+
+//^ 10. What will be printed to the console by the code below?
+
+console.log(eatFruits.apply(mylo, ['apple', 'orange', 'banana']));
+
+// Yep. The apply method is supposed to take a context and an array as arguments. When we use the apply() method instead of the call() method (which is not supposed to take an array) with these arguments, the eatFruits() function prints this message to the console as intended:
+
+// Mylo ate apple and organce and banana
+
+//^ 11. What will be printed to the console by the code below?
+
+// See line 448 above for the 'greeting' function.
+
+// function greeting(...messages) {
+//     const that = this; // set 'this' = the constant 'that' just to add confusion
+//     return messages.map(function(message) { // call the map method with a 'message' parameter
+//         return `${that.firstName} says ${message}`; // return one instance of this interpolation for every 'message' as an element in the new array returned by the map method.
+//     });
+// }
+
+// const derek = { // initialize a new object, 'derek'
+//     firstName: 'Derek'
+// };
+
+// const derekMessages = greeting.call(derek, "Hello class") // initialize a new variable which creates a new function 'greeting' with 'derek' as the context and 'Hello class" as a parameter.
+// console.log(derekMessages("Goodbye, class!")) // Call the function within the derekMessages variable with an additional parameter "Goobye, class!"
+
+// If we were using the "bind" method (which returns a new function that can be invoked again and again), this would work. But because we are using teh 'call' method, the function that we call is invoked immediately and no new function is returned.d Thus, when we try to invoke 'derekMessages' (which has already been invoked because call invokes immediately), we throw an error:
+
+//derekMessages is not a function.
+
+//! ===================== Arrow Functions Review ===========================
+
+// Arrow functions (Fat Arrows) are a concise way of declaring functions.
+
+// From MDN: //^ An arrow function expression is a compact alternative to traditional function expression syntax, with some semantic differences and deliberate limitations in usage:
+
+//^ Arrow function don't have thier own bindings to 'this', arguments, or 'super', and should NOT be used as methods.
+//^ Arrow functions cannot be used as constructors. Calling them with 'new' throws a TypeError.
+//^ Arrow functions cannot use 'yield' within their body and cannot be reated as generator functions.
+
+//^ Syntax for arrow functions:
+
+// () => expression
+
+// param => expression
+
+// (param) => expression
+
+// (param1, param2, paramN) => expression
+
+// () => {
+//     statements
+// }
+
+// param => {
+//     statements
+// }
+
+// (param1, param2, paramN) => {
+//     statements
+// }
+
+//^ As a programmer, you should be able to:
+
+// 1. Define an arrow function
+// 2. Use implicit return with an arrow function
+// 3. Use arrow functions as callbacks //^ This seems to be their most common use
+
+//! Arrow functions for Solving Problems
+
+// regular function (expression) declaration syntax
+
+let doubleNum = function(num) {
+    return num * 2;
+};
+
+// fat arrow function
+
+let doubleNumArrow = num => num * 2;
+
+//! Anatomy of an Arrow Function
+
+// Below is the syntax for a multiple-statement arrow function:
+
+// (parameter1, parameter2, parameterN) => {
+//     statement1;
+//     statement2;
+//     return <value>;
+// }
+
+let average = (x, y, z) => {
+    let sum = x + y + z;
+    let avg = sum / 3
+    return avg;
+}
+
+console.log(average(5, 10, 15))
+
+// Remember that arrow functions use IMPLIED RETURNS and IMPLIED FUNCTION KEYWORD, meaning neither is necessary to explicitly state for single-expression arrow functions.
+
+// Additionally, arrow functions are anonymous by default. Assign them to a variable if you want to keep them for later use.
+
+//! Review Summary:
+
+//^ how to define an arrow function
+//^ How to implicitly return in a single-expression arrow function
+
+// Here's an example of the single-expression arrow function using an implicit return:
+
+let add5 = x => x + 5;
+
+console.log(add5(10)); // 15
+
+//! ====================== Context in Arrow Functions ========================
+
+// Arrow functions apply context differently than other methods of function definition.
+
+// Arrow functions are NOT inherently bound to any 'this' value. They have no inherent context.
+
+// Their context ('this' value) is lexically bound.
+
+// ^^ This means that arrow functions' context ('this' value) is bound to the code that CONTAINS it, not the code that CALLS it. In other words, the context of an arrow function is based on its scope.
+
+// This makes arrow functions more flexible for use in method callbacks than normal anonymous functions.
+
+class Mouse {
+    constructor(name) {
+        this.name = name;
+    }
+
+    squeak() {
+        console.log(this.name);
+    }
+
+    delayedSqueak() {
+        setTimeout(function() {
+            console.log(this.name)
+        }.bind(this), 5000)
+    }
+}
+
+let mouse = new Mouse("Jerry")
+mouse.squeak(); // Jerry
+mouse.delayedSqueak(); // undefined because 'this' refers to the Timeout object, which has no 'name' property (there is no Timeout.name). So we can use the bind() method to bind the Dog object to the setTimeout function. When we do that, this delayedSqueak() method correctly prints 'Jerry'
+
+// BUT the code is ugly. Lets take a look at how we could refactor similar code using arrow function syntax;
+
+class Bird {
+    constructor(name) {
+        this.name = name;
+    }
+
+    chirp() {
+        console.log(this.name);
+    }
+
+    arrowBoundChirp() {
+        setTimeout(() => {
+            console.log(this.name);
+        }, 5000)
+    }
+}
+
+let bird = new Bird("Tweety")
+bird.arrowBoundChirp(); // "Tweety" after 5 seconds.
+
+// Fucked up somewhere, running this code throws an error. FOUND THE ERROR. I had 'this.name' on line 742 written incorrectly like this: 'name.this'
+
+// In the code above, we do not have to bind the Bird object to the callback because the context ('this' value) of the arrow function automatically refers to the code block it was written inside of, which is the Bird blass object. Thus we cut back on keywords AND shorten the syntax, making the code cleaner and easier to read.
+
+//! Defining a Class Method as an Arrow Function
+
+//* Before I continue, recall that MDN specifically says, "Arrow methods should not be used as methods"
+
+// You can also define class methods using arrow function syntax. This automatically binds the context of that method to the class or an instance of the class.
+
+class Fish {
+    constructor(name) {
+        this.name = name;
+    }
+
+    bloop() {
+
+    }
+}
