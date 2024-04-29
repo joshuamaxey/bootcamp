@@ -460,3 +460,85 @@ console.log(derekMessages("Goodbye, class!"));
 // Prints [ 'Derek says Hello Class!', 'Derek says Goobye, class!' ]
 
 // Gonnan need to look through this one more carefully later. Hard to track hwat is happening to 'this' throughout the code because of the way that it's written.
+
+//! ================= Call and Apply: Other Ways to Bind Context ========================
+
+// As a programmer, you will also need to know how to:
+
+//^ Use 'call' and 'applyo' to directly attach a context to a function call
+//^ Understand the difference between 'call' and 'apply'
+
+// Function.prototype.call() (MDN): //& The call() method (of function instances) calls a function with a specific 'this' value and arguments that are provided individually.
+
+function Product(name, price) {
+    this.name = name;
+    this.price = price;
+}
+
+function food(name, price) {
+    Product.call(this, name, price); //We call the "Product" class as the context of this function
+    this.category = 'food';
+}
+
+console.log(new food('cheese', 5).name); // "cheese";
+
+//Function.prototype.apply() (MDN): //& The apply() method (of function instances) calls a function with a specific 'this' value and arguments provided as an array (or an array-like object).
+
+//^ Note the distinction here between the call() and apply() methods- Call takes individual arguments as parameters following the initial 'thisArg' parameter, while Apply takes (potentially) an array as a second parameter
+
+const numbers = [5, 6, 2, 3, 7];
+
+const max = Math.max.apply(null, numbers);
+
+console.log(max); // prints 7
+
+const min = Math.min.apply(null, numbers);
+
+console.log(min); // prints 2
+
+//^ Also note that if thi9s function is not called in STRICT MODE, null and undefined will be replaced with the global object (when a context is not specified), and primitives will be converted to objects.
+
+//! Other Ways to Bind Context
+
+// Bind returns a function that can be called multiple times with the specified context
+// Call and Apply invoke the bound function immediately, returning the return value from that function.
+
+//* See below for call/apply syntax
+
+// let callReturn = func.call(context, ...args) //^ takes a context and an indefinite number of arguments, then returns immediately
+
+// let applyReturn = func.apply(context, [...args]); //^ takes a context and an array as an argument, then returns immediately
+
+class Pig {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class Lion {
+    constructor(name) {
+        this.name = name;
+    }
+
+    roarNTimes(n) {
+        for(let i = 0; i < n; i++) {
+            console.log(`${this.name} says: ROAR`);
+        }
+    }
+}
+
+let pig = new Pig('Fido');
+let lion = new Lion("Meowser")
+
+lion.roarNTimes.call(pig, 5); // Fido says: ROAR (x5)
+lion.roarNTimes.apply(pig, [5]); // Fido says: ROAR (x5)
+
+// Note that call and apply are interchangeable and follow the same rules as bind EXCEPT for the arguments they take as parameters and the fact that call and apply invoke the function immediately while bind returns a function with a fixed context.
+
+//! ================== Call and Apply Quiz ==========================
+
+//^  1. Calling 'call' on a function WILL invoke it immediately.
+
+//^  2. Calling 'apply' on a function WILL invoke it immediately.
+
+//^ 3.
