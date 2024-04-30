@@ -390,6 +390,97 @@ try {
 
 // Testing critical parts of your code also ensures that anyone who modifies your code in the future does not break anything that matters.
 
-//^ When you are writing AUTOMATED TESTS for an application, you are writing the SPECIFICATIONS for how that application should behave. In the software industry, automated tests are often caled 'specs,' which is short for 'specifications.'
+//* When you are writing AUTOMATED TESTS for an application, you are writing the SPECIFICATIONS for how that application should behave. In the software industry, automated tests are often caled 'specs,' which is short for 'specifications.'
 
 //* This sounds very similar to the way that we write code and then test it using 'test specs' for our projects and assessments here at AppAcademy.
+
+//^ To make collaboration easier
+
+// Complex applications are built by teams of developers. It is not always the case that developers will directly interact with one another.
+
+// Specs allow teams to be confident that each module performs a specific task and reduces the need for direct coordination (which is expensive). The specs themselves function as an effective method of communication between developers.
+
+//^ Produce documentation
+
+// If tests are written well, they can serve as documentation for the codebase. You should be able to understand what a module does by checking its specs. This also improves ease of collaboration between developers.
+
+//! What Do We Test?
+
+// What should you test for?
+
+//^ Test the public interface
+
+// What is the public interface of the module or class that we are writing? What functions will the outside world rely on and be able to access?
+
+// https://kentcdodds.com/blog/how-to-know-what-to-test
+
+//* When you look at code that has no tests, think: "What use cases are these lines of code supporting, and what tests can I add to support those use cases?"
+
+//* "The more your tests resemble the way your software is used (the more your tests resemble the use cases), the more confidence they can give you."
+
+//* "Think less about the code you are testing and more about the use cases that code supports."
+
+//* "Test use cases, not code."
+
+//* Ask these questions:
+
+//& Which part of this application would make me most upset if it were broken?
+
+// Or, more generally:
+
+//& What would be the worst thing to break in this app?
+
+//^ The Testing Pyramid
+
+// There are THREE levels to the testing Pyramid:
+
+//&                   === E2E ===
+
+//&         ========= Integration ===========
+
+//&===================== Unit ============================
+
+
+// UNIT TESTS test pieces of your application in isolation. Tehir goal is to ensure that each piece works independently. Each unit test should focus on ONE thing. These are the fastest tests to write and run.
+
+// INTEGRATION TESTS test the interactions between pieces of your application. Their goal is to ensure that the elements of your application work together coherently.
+
+// END-TO-END (E2E) TESTS test the whole of your application. They should test uses cases for your application and simulate the user experience. THese are the slowest tests to write and run.
+
+//* For an Example, consider writing a Chess Game:
+
+// Unit tests would test each class you wrote in isolation.
+// Integration tests would ensure that each piece instance interacts correctly with the Board class.
+// End-to-End tests would test a round of chess and whether the Board, Game, and Piece classes all work together as expected.
+
+//* Think of the pyramid like this:
+
+// You want a solid foundation of unit tests, a moderate number of integration tests build upon that foundation, and then a small number of End-to-End tests.
+
+// https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html
+
+//! SUMMARY
+
+//^ The WHY, WHAT, and HOW of testing
+//^ How to read a test regardless of the syntax of the code
+
+//! Testing Pyramid Quiz
+
+//^ 1. We write tests because:
+
+// To make sure the code works
+// Test are like documentation
+// For easier collaboration
+// To modify code with confidence
+// To refactor code with confidence
+
+//^ 2. Test specs cover every part of the code that can change(?)
+//! INCORRECT ^^
+
+//^ 3. According to the testing pyramid, most of your test specs should be unit tests.
+
+//^ 4. Integration test specs test the way that parts of your code work together.
+
+//^ 5. End-to-End tests are the slowest tests to run.
+
+//! =================== TEST-DRIVEN DEVELOPMENT (TDD) =====================
