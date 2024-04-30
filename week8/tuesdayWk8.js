@@ -211,3 +211,24 @@ try {
 console.log("hello")
 
 //^ Here we can see that even if the error is thrown within the try...catch block, the error message is logged using the console.error() method and the program continues to run. After the error message is printed to the console, the console.log("hello") on line 211 still runs as expected. In this way, the error was 'caught' and instead of being thrown, printed an error message to the console and allowed the program to keep running.
+
+//! Catching Known Errors
+
+// You can combine try...catch with JavaScript's built-in errors to catch specific types of errors using instanceof:
+
+function callThatArg(arg) {
+    arg(); //This will throw a TypeError because callThatArg is being passed a number
+}
+
+try {
+    callThatArg(42);
+    console.log("call successful"); // this line will not execute
+} catch (error) {
+    if (error instanceof TypeError) {
+        console.error(`Wrong Type: ${error.message}`); // prints: Wrong Type: arg is not a function
+    } else {
+        console.error(error.message); // prints any errors that are NOT TypeErrors;
+    }
+}
+
+console.log("done"); // prints done
