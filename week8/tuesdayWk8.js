@@ -232,3 +232,164 @@ try {
 }
 
 console.log("done"); // prints done
+
+//^ NOTE: Many SyntaxErrors can't be caught using try..catch blocks.
+
+//! ...finally
+
+// The try..catch block can have one additional element- the //^ finally block
+// The finally block runs whether an error occurs or not. It ALWAYS runs.
+
+function trySafeDivide(n) {
+    try {
+        console.log(safeDivide(30, n));
+    } catch (error) {
+        console.error(error.name + ": " + error.message); // Error: cannot divide by zero
+        return;
+    } finally {
+        console.log("This will ALWAYS run");
+    }
+}
+
+trySafeDivide(1);
+trySafeDivide(0);
+
+//! How to Use Errors
+
+// try-catch blocks slow down your code.
+// try-catch blocks also clutter your code.
+// When possible, write DEFENSIVE CODE that checks for bad values/handles edge cases BEFORE errors are thrown in your code.
+
+// That being said, error messages are effective for telling you exactly where the flaws in your code are located and (often) how to fix them.
+// Code that fails silently leads to greater problems downstream.
+
+// Learning to read and use error messages will help yo uwrite better code and debug much faster.
+
+//! SUMMARY
+
+//^ Create, throw, and catch errors in JavaScript.
+
+//! Error Handling Quiz
+
+//^ 1. In JavaScript, errors that are thrown and NOT caught will stop code execution and exit the program.
+
+//^ 2. You should use try...catch blocks sparingly as necessary. Try to write DEFENSIVE CODE that catches errors and handles edge cases before errors are thrown.
+
+//^ 3. What happens when you run the code below?
+
+const hello = "Hello World";
+
+try {
+    hello();
+} catch {
+    console.log("Invoking 'Hello World' failed");
+}
+
+// Prints 'Invoking 'Hello World' failed. I believe that this would have been a ReferenceError, lets see:
+
+// hello();
+
+// WRONG. Throws TypeError: hello is not a function (which makes sense).
+
+//^ 4. What happens when you run the code below?
+
+try {
+    const hello = 'Hello World';
+    if (typeof hello !== 'string') {
+        throw new Error("Hello?");
+    }
+} catch(e) {
+    console.log(e.message);
+}
+
+// Nothing happened. I think this is because 'Hello World' IS a string, which is what this conditional expects. In this case, 'hello' being a string does not cause an error to be thrown. What happens if we copy this code and change the condtiional to throw the error if 'hello' IS a string (which it is)? See below:
+
+try {
+    const hello = 'Hello World';
+    if (typeof hello === 'string') {
+        throw new Error("Hello?");
+    }
+} catch(e) {
+    console.log(e.message);
+}
+
+// Prints 'Hello?' to the console. '
+
+//^ 5. What happens when you run the code below?
+
+function errorThrown(message) {
+    console.log(message);
+}
+
+try {
+    const num = 10;
+    if (typeof num !== 'string') {
+        throw new Error('Need a string');
+    }
+} catch(e) {
+    errorThrown(e.message) // Ok, Im starting to see that 'e' stands for 'error' when used in this context?
+}
+
+// In this case, the code will throw the error since 'num' is not a string. But because of the try...catch block, this error will not stop code execution and exit the program. Rather, it will log the error message to the console and then allow the program to keep running.
+
+// Yep. When run, the try...catch block prints 'Need a string' to the console (as the error message) but does not stop code execution. As far as I'm aware. To be sure, I'll add an extra console.log to the code below (following the try..catch block)
+
+console.log("test");
+
+// Yep. "test" still prints, which means the try...catch block allowed us to print the error without stopping code execution or exiting the program.
+
+//^ 6. What happens when you run the code below?
+
+try {
+    const num = 10;
+    if (num !== 0) {
+        console.log("Not zero!");
+    }
+} catch (e) {
+    if (e instanceof SyntaxError) {
+        console.log("There was a SyntaxError");
+    }
+} finally {
+    console.log("Was it zero?");
+}
+
+// First, this code will print "Not zero!" because 'num' is not zero (per the first conditional);
+// Because the error is not a SyntaxError, the second console.log never executes.
+// The finally statement runs no matter what, printing "Was it zero?" to the console.
+
+// Yep, prints:
+
+"Not Zero!"
+"Was it zero?"
+
+// I was wrong! When copying this code, I failed to copy over a SynaxError that was intentionally left in the code. THe ending parenthesis around the (num !== 0 in the first part of the code was left out. IF this is the case, then the code inside of the block throws a SyntaxError. Since SyntaxErrors CANNOT be caught, this Error stops code execution.
+
+// BUT if we fix the syntax error (which I did but didn't realize it), the code executes as expected and as I explained in lines 356 - 358. Be aware that test questions may do this-- intentionally write small, easy-to-miss syntax errors and expect us to catch them.
+
+//! ====================== Testing Pyramid ===========================
+
+// Testing individual functions is tedious, repetetive, and leaves your code vulnerable to false positives or negatives.
+
+// Automated testing allows developers to write code that will specify the behavior of a function, module, or class.
+
+// As a programmer, you will need to understand how and why we test as well as how to read automated tests without necessarily knowing the syntax of the code in question.
+
+//! Why Do We Test?
+
+//^ To make sure our code works
+
+//^ To increase flexibility and reduce fear (of code[??])
+
+// Imagine that you're a developer. You have written a lot of functional code, there are other developers working on your code, and you're deep into the project.
+
+// Suddenly, you realize you have to refactor big chunks of it.
+
+// Testing allows you to aggressively refactor with confidence that if anything breaks, you will know. You'll know what the expectations are for the module you're working on.
+
+// As long as your code meets your test's specs, you're good.
+
+// Testing critical parts of your code also ensures that anyone who modifies your code in the future does not break anything that matters.
+
+//^ When you are writing AUTOMATED TESTS for an application, you are writing the SPECIFICATIONS for how that application should behave. In the software industry, automated tests are often caled 'specs,' which is short for 'specifications.'
+
+//* This sounds very similar to the way that we write code and then test it using 'test specs' for our projects and assessments here at AppAcademy.
