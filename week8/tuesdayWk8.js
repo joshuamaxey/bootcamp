@@ -525,3 +525,27 @@ try {
 
 //^ TDD stands for Test-Driven Development
 //^ TDD is a repetitive process that revolves around three steps: Red, Green, Refactor
+
+//! ================== Unit Testing with Mocha and Chai ===================
+
+// https://appacademy.instructure.com/courses/332/pages/unit-testing-w-slash-mocha-and-chai-2?module_item_id=57818
+
+//^ Note that Mocha is a TEST FRAMEWORK that specializes in running tests and presenting them in an organized, user-friendly way.
+
+//^ Chai is an ASSERTION LIBRARY that performs the actual test comparisons.
+
+// 'describe' is a group of tests for the 'User' class
+
+// 'it' tests a single spec, and checks if a User can be created successfully. It does this by reating a new user.
+
+// 'expect' is an assertion that checks to see if the new user exists.
+
+//^ 'describe' and 'it' come from the testing framework ( Mocha ), while 'expect' comes from the assertion library ( Chai ). Note that Mocha functions literally FRAME the test assertions.
+
+// See the Chai docs (https://www.chaijs.com/api/bdd/) for all of the ways to test code assertions with 'expect'.
+
+//& Open the link on line 531, then look at the 'testing-demo' directory in week8 here to follow along with the unit testing process.
+
+//! SUMMARY
+
+//^ How to use Mocha TESTING FRAMEWORK and Chai ASSERTION LIBRARY to write unit tests for a class.
