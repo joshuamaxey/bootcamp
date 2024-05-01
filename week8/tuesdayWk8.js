@@ -549,3 +549,19 @@ try {
 //! SUMMARY
 
 //^ How to use Mocha TESTING FRAMEWORK and Chai ASSERTION LIBRARY to write unit tests for a class.
+
+//! ==================== Mocha and Chai Quiz =========================
+
+//^ 1. Mocha is a testing framework
+
+//^ 2. Chai is an assertion library
+
+//^ 3. Mocha will look in the 'test' directory by default for test Specs
+
+//^ 4. If you want to test a file (file.js), your test spec for that file should look like this: (file-spec.js)
+
+//^ 5. 'describe' is used to group test specs in Mocha
+
+//^ 6. 'it' tests a single spec in Mocha
+
+//^ 7. 'expect' is used to define when a test spec passes or fails in Chai
