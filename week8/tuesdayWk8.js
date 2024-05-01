@@ -484,3 +484,44 @@ try {
 //^ 5. End-to-End tests are the slowest tests to run.
 
 //! =================== TEST-DRIVEN DEVELOPMENT (TDD) =====================
+
+//^ The practice of writing tests BEFORE writing code is called Test-Driven Development.
+
+//! Motivations for Test-Driven-Development(TDD)
+
+//^ 1. Writing tests before code nsures that the code WORKS.
+
+// Code written to pass specs is guaranteed to be testable.
+// Code with pre-written tests easily allows other developers to add and test new code with confidence that nothing else will break as a consequence.
+
+//^ 2. The only code that is written is REQUIRED code.
+
+// Helps reduce bloaded code and unnecessary functionality.
+// TDD supports single-responsibility and DRY
+
+//^ 3. TDD supports and promotes code modularity.
+
+// Code is written in small, testable chunks. Chunks are modular and can be tested individually.
+
+//^ 4. Provides an understanding of the FUNCTIONALITY of the code.
+
+// Ensures that developers writing the code know what they are trying to achieve in writing the code.
+
+//! The Three Steps of Test-Driven-Development: Red, Green, Refactor
+
+// Test-Driven-Development can be broken down into three steps: Red, Green, and Refactor.
+
+//^ 1. Red: Write the tests and verify that they fail (failing tests are red ). Initial failure is important so that there are no false positives.
+//^ 2. Green: Write the code that is required in order to pass the tests ( passing tests are green ).
+//^ 3. Refactor: Evaluate and refactor your code to ensure maximum readability and maintainability.
+
+// The TDD workflow is usually quick. Developers write small tests, ensure each part of their application works, then move on. This makes for a short evelopment cycle.
+
+// The Red, Green, Refactor method of TDD is a form of Polya's Problem Solving framework.
+
+// https://appacademy.instructure.com/courses/332/pages/how-to-solve-any-problem-polya
+
+//! SUMMARY
+
+//^ TDD stands for Test-Driven Development
+//^ TDD is a repetitive process that revolves around three steps: Red, Green, Refactor
