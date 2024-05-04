@@ -569,3 +569,9 @@ try {
 //^ 8.
 
 //! ================ Determining Common Test Cases =====================
+
+// There are two main reasons for test specs.
+
+// The first is to SPECIFY WHAT SHOULD BE BUILT.
+
+// The second is to PREVENT FUTURE MODIFICATIONS OR ADDITIONS FROM BREAKING YOUR CODE.
