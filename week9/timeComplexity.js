@@ -261,11 +261,3 @@ function printLettersNTimes(n) {
 // How to identify constant, linear, and quadratic growth
 // How to reduce insignificant (constant) factors
 // How to evaluate the overall coplexity of composite functions
-
-//! ======================= Space Complexity ============================
-
-// Space and time complexity both describe the performance of code in relation to the input size and both are expressed using big-O notation.
-
-// Space complexity describes how much memory a function requires.
-
-//! Constant Space Complexity
