@@ -57,3 +57,32 @@ function addManyNums10(increment) {
     return result;
 
 }
+
+function addNums10Timing(increment) {
+    const result = [];
+
+    let currIncrement = 0;
+
+    for(let i = 0; i < 10; i++) {
+        currIncrement += increment;
+        const startTime = Date.now()
+        let total = addNums(currIncrement);
+        result.push(total)
+    }
+
+    return result;
+}
+
+function addManyNums10Timing(increment) {
+    const result = [];
+
+    let currIncrement = 0;
+
+    for (let i = 0; i < 10; i++) {
+        currIncrement += increment;
+        const startTime = Date.now();
+        let total = addManyNums(currIncrement);
+        const endTime = Date.now();
+        result.push(total);
+    }
+}
