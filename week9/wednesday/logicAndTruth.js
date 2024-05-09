@@ -6,3 +6,52 @@
 //^ Define bits, bytes, kilobytes, megabytes, and gigabytes
 
 //! Logic and truth
+
+// A       B        A && B
+// ------------------------
+// false   false    false
+// false   true     false
+// true    false    false
+// true    true     true
+
+// A    B    A && B
+// ----------------
+// 0    0      0
+// 0    1      0
+// 1    0      0
+// 1    1      1
+
+// A    B    A || B
+// ----------------
+// 0    0      0
+// 0    1      1
+// 1    0      1
+// 1    1      1
+
+// A   !A
+// ---------
+// 0    1
+// 1    0
+
+// A    B    A && B    !(A && B)
+// -----------------------------
+// 0    0      0           1
+// 0    1      0           1
+// 1    0      0           1
+// 1    1      1           0
+
+// A    B   !A   !B    !A || !B
+// -----------------------------
+// 0    0    1    1       1
+// 0    1    1    0       1
+// 1    0    0    1       1
+// 1    1    0    0       0
+
+// A    B    A ^ B
+// ----------------
+// 0    0      0
+// 0    1      1
+// 1    0      1
+// 1    1      0
+
+//! Also I CAN be happy and hungry at the same time. They are not mutually exclusive. Stop it.
