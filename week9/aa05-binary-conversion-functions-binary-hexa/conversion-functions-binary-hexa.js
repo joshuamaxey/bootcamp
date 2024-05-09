@@ -12,17 +12,17 @@ function decimalToBinary(blob) {
 
 /* Base 10 to base 16 */
 function decimalToHexadecimal(blob) {
-  // Your code here
+  return blob.toString(16)
 }
 
 /* Base 2 to base 10 */
 function binaryToDecimal(blob) {
-  // Your code here
+  return parseInt(blob.substring(2), 2)
 }
 
 /* Base 16 to base 10 */
 function hexadecimalToDecimal(blob) {
-  // Your code here
+  return parseInt(blob)
 }
 
 // console.log('Decimal to binary:')

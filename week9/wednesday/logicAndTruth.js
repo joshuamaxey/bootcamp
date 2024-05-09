@@ -54,7 +54,7 @@
 // 1    0      1
 // 1    1      0
 
-// // Also I can be happy and hungry at the same time. They are not mutually exclusive. Stop it.
+// Also I can be happy and hungry at the same time. They are not mutually exclusive. Stop it.
 // // Maybe this is only because I'm an addict though. Today I definitely feel like I can't be happy since I'm not doing meth. I fucking miss meth sometimes.
 // // Last night I had this using dream that was so real, I woke up JUST before I was able to get high. Those are the hardest ones to shake. Definitely laid in bed for like an hour contemplating whether or not I want to enact this scheme that could enable me to smuggle some meth in here.
 // // But I won't ever do that.
@@ -162,3 +162,28 @@ function countToZero(n) {
         console.log(0)
     }
 }
+
+//^ This code works but is excessive.
+
+// Note that each conditional block starts with a console.log.
+
+// Note that modulo returns a negative value for negative numbers and 0 for integers. Whether negative or positive, the amoutn to decrement for a non-integer will always be n % 1.
+
+// Note that if modulo is exactly 0, n is an integer which means the decrement should be 1 for a positive number or -1 for a negative number. You can find that by dividng the number by its absolute value.
+
+function countToZero() {
+
+    console.log(n);
+
+    if (n === 0) return;
+
+    let decrement = n % 1;
+
+    if (decrement === 0) {
+        decrement = n / Math.abs(n);
+    }
+
+    countToZero(n - decrement);
+}
+
+// This is how we simplify code logic.
