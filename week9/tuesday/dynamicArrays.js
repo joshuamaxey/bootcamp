@@ -80,3 +80,58 @@ console.log(arr); // [ 255, 256, 43690, 1431655765, 1 ]
 // Because of this, and since big-O only matters for large values of n:
 
 //^ array.push() is considered to be an operation with O of 1 time complexity.
+
+//! Testing Overallocation
+
+function addToBack(n) {
+
+    const arr = [];
+
+    for (let i = 0; i < n; i++) {
+        arr.push(i + 1)
+    }
+
+    return arr;
+}
+
+function addToFrontPreallocated(n) {
+    //preallocate n slots of memory in an array //^ (??)
+
+    const arr = new Array(n);
+
+    for (let i = 0; i < n; i++) {
+        arr[i] = i + 1;
+    }
+
+    return arr;
+}
+
+//^ Both of these functions do the same thing:
+
+// Given a number, n, fill an array with integers 1 through n.
+
+// addToBack(n) does this with arr.push()
+
+// addToFrontPreallocated(n) preallocates the memory and fills it in using indexing.
+
+//^ Lets compare the performance
+
+n = 10000000
+
+startTimeBack = Date.now();
+arr = addToBack(n);
+endTimeBack = Date.now();
+
+startTimePre = Date.now();
+arr = addToFrontPreallocated(n);
+endTimePre = Date.now();
+
+console.log("addToBack(" + n + ") = " + (endTimeBack - startTimeBack) + "ms"); // 355ms
+
+console.log("addToFrontPreallocated(" + n + ") = " + (endTimePre - startTimePre) + "ms"); // 88ms
+
+// So this means that addToFrontPreallocated(n) is four times faster (or 400% the speed) of addToBack. Pre-allocating space saves a considerable amount of time.
+
+// Also note that this difference occurs for (n) = 10,000,000. For smaller values, the difference is hardly noticeable.
+
+//! push() VS unshift() VS splice()
