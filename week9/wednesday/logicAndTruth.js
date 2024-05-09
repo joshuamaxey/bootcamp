@@ -68,3 +68,73 @@
 // We can use logical equivalence to simplify and condense our code.
 
 //! Counting to Zero
+
+// Consider a function that takes a number and then counts from that number to 0.
+
+// The number can be positive or negative.
+// It can be an integer or non-integer.
+// If its not an integer, the first count removes the decimal.
+
+countToZero(5);
+5
+4
+3
+2
+1
+0
+
+countToZero(-5);
+-5
+-4
+-3
+-2
+-1
+0
+
+countToZero(5.5);
+5.5
+5
+4
+3
+2
+1
+0
+
+// If the number is a positive non-integer, print the number. Then subtract the non-integer part. Then continue the countdown.
+
+// If the number is a negative non-integer, print the number. Then add the negative non-integer part. Then continue the countdown.
+
+// If the number is a positive integer, print the number. Then subtract 1. Then continue the countdown.
+
+// If the number is a negative integer, print the number. Then add 1. Then continue the countdown.
+
+// If the number is 0, print 0.
+
+//^ To test these conditions, you need to determine whether the number is an integer or not. You can perform this test using the modulo operator. (integer) % 1 === 0. (non-integer) % 1 !== 0
+
+function isInt(n) {
+    if (n % 1 === 0) return true;
+    if (n % 1 !== 0) return false;
+}
+
+//^ We can use isInt to express the above logic (lines 103 - 111) in code.
+
+function countToZero(n) {
+    if (n > 0 && !isInt(n)) {
+        console.log(n)
+
+        let nextN = n - n % 1
+
+        countToZero(nextN)
+    }
+
+    //! Sometimes it really feels like I'm drowning. Right now it's alost 6pm and I still can't shake that dream. How can I love and miss something so much when it wreacked so much havoc on my life? It feels like my feelingns aren't my own, they don't correspond to any of my reasonable thoughts.
+
+    if (n < 0 && !isInt(n)) {
+        console.log(n);
+
+        let nextN = n + -(n % 1)
+
+        countToZero(nextN)
+    }
+}
