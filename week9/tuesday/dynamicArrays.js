@@ -26,3 +26,57 @@ console.log(arr); // [ 255, 256, 43690, 1431655765, 1 ]
 
 // Starting with byte 104
 // Ending with byte 119
+
+// If you try to write the 'new' value (the one you're pushing) into the next four bytes of memory (120 - 123), you will violate memory permissions and throw a SEGMENTATION FAULT ERROR.
+
+// It's possible to requrest access to those bytes, but there's no way to guarantee they'll be free. The OS may have assigned that memory to another function already.
+
+//^ So in order to accomodate the new element, the array needs to resize.
+
+// This means that the program requests 20 new bytes of memory.
+// Then it copies the old values into the new slots.
+// Then it writes the NEW value into the last slot.
+// Then frees the old memory back to the OS, ready to be reassigned to something else.
+
+//^ The new memory would look something like this:
+
+//  200      201      202      203
+//* 00000000 00000000 00000000 11111111 (255)
+
+//  204      205      206      207
+//* 00000000 00000000 00000001 00000000 (256)
+
+//  208      209      212      211
+//* 00000000 00000000 10101010 10101010 (43690)
+
+//  212      213      214      215
+//* 01010101 01010101 01010101 01010101 (1431655765)
+
+//  216      217      218      219
+//* 00000000 00000000 00000000 00000001 (1)
+
+//^ Because each value must be copied from the old spot in memory to the new spots one at a time, which means that resizing is an O of n operation (runtime increases linearly to the input size). So if the array is very large, this is a fairly slow process.
+
+//! Overallocation to Speed Up Resizing
+
+// Overallocating memory in array creation enables us to trade space (memory) for time (speed). In other words, we save time by allocating extra space to arrays when we create them. That way we can assign new values without resizing.
+
+// Most of the time, a program will request more memory than is neede to store an array.
+
+// For instance, with respect to our array:
+
+//^ We perceive that the array looks like this:
+
+[ 255, 256, 43690, 1431655765, 1 ]
+
+//^ but the space it occupies in memory looks like this:
+
+[ 255, 256, 43690, 1431655765, 1, "empty", "empty", "empty" ]
+
+// So now, we can push three more values without resizing the array. All we have to do is write over the mpty slots, which is an operation that carries O of 1 time complexity. Thus, we save time by using additional space.
+
+// Due to overallocation, resizing becomes less frequent as an array grows in size.
+
+// Because of this, and since big-O only matters for large values of n:
+
+//^ array.push() is considered to be an operation with O of 1 time complexity.

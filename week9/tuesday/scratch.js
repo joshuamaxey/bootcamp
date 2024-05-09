@@ -86,5 +86,5 @@ for (let i = increment; i < 10 * increment; i += increment) {
 
     // nestedPush(arr);
     // addFive(arr);
-    addNums(arr)
+    // addNums(arr)
 }
