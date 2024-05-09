@@ -135,3 +135,106 @@ console.log("addToFrontPreallocated(" + n + ") = " + (endTimePre - startTimePre)
 // Also note that this difference occurs for (n) = 10,000,000. For smaller values, the difference is hardly noticeable.
 
 //! push() VS unshift() VS splice()
+
+// array.push() adds an element to the back of an array with O of 1 time complexity.
+
+// Now lets take our array arr and add a 0 to the front.
+
+// Assume we have 8 blocks of allocated memory starting from byte 200 - 231
+
+arr = [255, 256, 43690, 1431655765, 1]
+
+arr.unshift(0);
+
+console.log(arr) // [ 0, 255, 256, 43690, 1431655765, 1 ]
+
+//^ Right now, we have extra space at the end of the array because of overallocation. That space at the end of the array doesn't help us add an element to the beginning of the array. To do this, we need to shift all of the values in the array to the right by 1 and THEN add the new value to the front.
+
+// So arr.unshift(0), the operation we performed on line 147 above, looks something like this under the hood:
+
+//* [255, 256, 43690, 1431655765, 1, <empty>, <empty>, <empty>]    // Start
+//* [255, 256, 43690, 1431655765, 1, 1, <empty>, <empty>]          // Shift 1
+//* [255, 256, 43690, 1431655765, 1431655765, 1, <empty>, <empty>] // Shift 1431655765
+//* [255, 256, 43690, 43690, 1431655765, 1, <empty>, <empty>]      // Shift 43690
+//* [255, 256, 256, 43690, 1431655765, 1, <empty>, <empty>]        // Shift 256
+//* [255, 255, 256, 43690, 1431655765, 1, <empty>, <empty>]        // Shift 255
+//* [0, 255, 256, 43690, 1431655765, 1, <empty>, <empty>]          // Overwrite first element to 0
+
+// This particular operation requires 5 shifting steps for the array of length 5.
+
+// So it takes (n) steps for any array of length (n).
+
+//^ This means that unshift() is an operation that has O of n time complexity.
+
+//^ The same is true for shift(), which removes the first value and then shifts each other element to the left by one (O of n).
+
+// What about splice()?
+
+// Splicing an element at the end of an array is the same as push(), and splicing at the beginning is the same as unshift()
+
+// Splicing exactly in the middle requires shifting every element after the midpoint for n/2 steps.
+
+//^ Because big-O ignores constant coefficients like 1/2, splice() is considered to be an operation that has O of n time complexity as well.
+
+//! Testing push() VS unshift()
+
+// push() has O of 1 time complexity.
+
+// unshift() has O of n time complexity.
+
+function addToBack2(n) {
+
+    const arr = [];
+
+    for (let i = 0; i < n; i++) {
+        arr.push(i + 1);
+    }
+
+    return arr;
+}
+
+function addToFront(n) {
+
+    const arr = [];
+
+    for (let i = 0; i < n; i++) {
+        arr.unshift(n - i);
+    }
+
+    return arr;
+}
+
+//^ Both of these functions serve the same purpose: Fill an array with integers 1 through n.
+
+// addToBack2() calls array.push(), which has O of 1 time complexity, inside of a for-loop which means that the function has a time complexity of O(n).
+
+// addToFront() calls array.unshift(), which has O of n time complexity, inside of a for loop which means that the function has a time complexity of O(n^2).
+
+//* The time complexity of both functions is increased (relative to the time complexity of the methods [push() and unshfit()] used within) because the methods we're using are nested within for loops. This means that these methods are called on every single element in an array as the loop iterates over that array.
+
+// Now we run a test:
+
+// n = 50000
+n = 100000
+
+startTimeBack = Date.now();
+arr = addToBack2(n);
+endTimeBack = Date.now();
+
+startTimeFront = Date.now();
+arr = addToFront(n);
+endTimeFront = Date.now();
+
+console.log("addToBack2(" + n + ") = " + (endTimeBack - startTimeBack) + "ms"); // 3ms
+console.log("addToFront(" + n + ") = " + (endTimeFront - startTimeFront) + "ms"); // 273ms
+
+// addToBack2 (3ms) is approximately 91 times faster than addToFront (273ms) when n = 50k, which is actually a fairly small number. Lets try it again when n is 100k (comment out the 50k on line 217 above, use 100k instead)
+
+// addToBack2 (8ms) is approximately 171 times faster than addToFront (1369ms).
+
+//^ Here we can see the difference in runtime between a function with O of n time complexity (addToBack2) and a function with O of n^2 time complexity (addToFront).
+
+//! Summary
+
+// Learned how dynamic arrays work to overcome the contiguous memory limitation of standard arrays with dynamic resizing and overallocation.
+// Learned how the array functions array.shift() and array.unshift() compare to array.push() and array.pop()
