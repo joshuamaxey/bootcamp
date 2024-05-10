@@ -8,33 +8,35 @@ Consult documentation on how to utilize the following methods:
 */
 
 /* Base 2 to base 16 */
-function binaryToHexadecimal(blob) {
-  // Your code here 
+function binaryToHexadecimal(blob) { // 0b1000 --> 8 --> 0x8
+  const base10 = parseInt(blob.substring(2), 2);
+  // console.log(base10)
+  return base10.toString(16);
 }
 
 /* Base 16 to base 2 */
 function hexadecimalToBinary(blob) {
-  // Your code here 
+  // Your code here
 }
 
 /* Base 10 to ASCII */
 function decimalToAscii(blob) {
-  // Your code here 
+  return String.fromCharCode(blob)
 }
 
 /* Base 2 to ASCII */
 function binaryToAscii(blob) {
-  // Your code here 
+  // Your code here
 }
 
 /* Base 16 to ASCII */
 function hexadecimalToAscii(blob) {
-  // Your code here 
+  // Your code here
 }
 
 /* ASCII to base 10 */
 function asciiToDecimal(blob) {
-  // Your code here 
+  // Your code here
 }
 
 // console.log('Binary to hexadecimal:')
