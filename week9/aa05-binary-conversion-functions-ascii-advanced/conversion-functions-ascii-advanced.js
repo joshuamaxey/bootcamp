@@ -11,12 +11,13 @@ Consult documentation on how to utilize the following methods:
 function binaryToHexadecimal(blob) { // 0b1000 --> 8 --> 0x8
   const base10 = parseInt(blob.substring(2), 2);
   // console.log(base10)
-  return base10.toString(16);
+  return "0x" + base10.toString(16);
 }
 
 /* Base 16 to base 2 */
 function hexadecimalToBinary(blob) {
-  // Your code here
+  let base10 = parseInt(blob)
+  return "0x" + base10.toString(2)
 }
 
 /* Base 10 to ASCII */
@@ -26,17 +27,27 @@ function decimalToAscii(blob) {
 
 /* Base 2 to ASCII */
 function binaryToAscii(blob) {
-  // Your code here
+  return String.fromCharCode(blob)
 }
 
 /* Base 16 to ASCII */
 function hexadecimalToAscii(blob) {
-  // Your code here
+  // return String.fromCharCode(blob)
+  let base10 = parseInt(blob)
+  return String.fromCharCode(base10)
 }
 
 /* ASCII to base 10 */
 function asciiToDecimal(blob) {
-  // Your code here
+  // let result = [];
+
+  // for(let index in blob) {
+  //   result.push(blob.charCodeAt(index))
+  // }
+
+  // return result;
+
+  return blob.split('').map(ele => ele.charCodeAt(ele))
 }
 
 // console.log('Binary to hexadecimal:')

@@ -177,6 +177,34 @@ console.log((0 * 2 ** 0) + (1 * 2 ** 1) + (0 * 2 ** 2) + (1 * 2 ** 3) + (0 * 2 *
 
 // Hexadecimal numbers are prepended with an 0x to identify them as base-16 values.
 
-0 = 0b0000 = 0x0
-1 = 0b0001
-2 = 0b
+ 0 = 0b0000 = 0x0
+ 1 = 0b0001 = 0x1
+ 2 = 0b0010 = 0x2
+ 3 = 0b0011 = 0x3
+ 4 = 0b0100 = 0x4
+ 5 = 0b0101 = 0x5
+ 6 = 0b0110 = 0x6
+ 7 = 0b0111 = 0x7
+ 8 = 0b1000 = 0x8
+ 9 = 0b1001 = 0x9
+10 = 0b1010 = 0xA
+11 = 0b1011 = 0xB
+12 = 0b1100 = 0xC
+13 = 0b1101 = 0xD
+14 = 0b1110 = 0xE
+15 = 0b1111 = 0xF
+
+// We can use the same formula to translate from hexadecimal to decimal as from binary.
+
+// Take the hex number:       0xF23C
+// Remove the identifier 0x:    F23C
+
+// Formula: // (d) x (b) ^ (n)
+//^ (digit) x (base) ^ (positionFromTheRight)
+
+0xF = 15
+0x2 = 2
+0x3 = 3
+0xC = 12
+
+(15 * 16 ** 3)
