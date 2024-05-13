@@ -208,3 +208,48 @@ console.log((0 * 2 ** 0) + (1 * 2 ** 1) + (0 * 2 ** 2) + (1 * 2 ** 3) + (0 * 2 *
 0xC = 12
 
 (15 * 16 ** 3)
+
+//! ASCII Table
+
+// https://appacademy.instructure.com/courses/332/pages/intro-to-binary-2?module_item_id=57868
+
+//! Built-In JavaScript Conversion Methods
+
+//^ String.fromCharCode(num)
+
+// return a string from the specified sequence of UTF-16 values.(converts from UTF-16 number to corresponding character)
+
+console.log(String.fromCharCode(65)); // A;
+console.log(String.fromCharCode(66)); // B;
+console.log(String.fromCharCode(67)); // C;
+
+//^ String.charCodeAt(index)
+
+// returns an integer between 0 and 65536 representing the UTF-16 code corresponding to the character at a given index. (converts from character back to UTF-16 number)
+
+const str = "ABC";
+
+str.charCodeAt(0); // 65 [for character A, which is at index 0 of str]
+str.charCodeAt(1); // 66 [for character B, which is at index 1 of str]
+str.charCodeAt(2); // 67 [for character C, which is at index 2 of str]
+
+//! Convert Binary and Hexadecimal to Base 10 and Back
+
+//^ The ParseInt() function parses a string argument and returns a base-10 (decimal) integer
+
+console.log(parseInt('a1', 16)); // 161
+console.log(parseInt('1011', 2)); // 11
+
+//^ The toString() method converts a base-10 number to it respective binary or hexadecimal value.
+
+const decimal = parseInt('a1', 16); // 161
+const hexadecimal = decimal.toString(16); // 'a1'
+const binary = decimal.toString(2); // '10100001'
+
+//! Summary
+
+// Numbers can be represented in different bases including base-10 (decimal), base-2 (binary), and base-16 (hexadecimal).
+
+// Different values can be represented in binary
+
+// How to use built-in JavaScript conversion methods to manipulate those binary values.
