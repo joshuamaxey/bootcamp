@@ -69,7 +69,7 @@ class LinkedList {
         this.head = null; // leave only one node in the list
     }
     this.length--;
-    return current.data; // This returns the value of the removed tail node.
+    return current.value; // This returns the value of the removed tail node.
 
   }
 
