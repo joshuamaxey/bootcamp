@@ -80,7 +80,26 @@ class SinglyLinkedList {
     removeFromTail() {
         // Remove node at tail
 
-        // Your code here
+        if (!this.head) { // If the linked list is empty...
+            return undefined; // ...return undefined per spec
+        }
+
+        let curr = this.head; // store the current head value
+        let prev = null; // initialize a variable for the 'previous' node to the current node in focus and set it to null by defualt.
+
+        while (curr.next) { // While the current node still has a '.next' value that is not null (until we reach the tail node)
+            prev = curr; // Point our 'prev' variable to the current node
+            curr = curr.next; // Point our current pointer to the node after the current node
+        }
+
+        if (prev) { // if there is more than one node i the linkedList
+            prev.next = null; // set the '.next' value of the previous node to null
+        } else { // ...otherwise, if there is only one node...
+            this.head = null; // ...set the .next value of that node to null, since it is both the head and tail node of this linkedList
+        }
+
+        this.length--; // decrement the length of the linkedList
+        return curr;
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -88,7 +107,10 @@ class SinglyLinkedList {
     peekAtHead() {
         // Return the value of head node
 
-        // Your code here
+        if (this.head) { // IF the linkedList is not empty
+            return this.head.value; // return the value stored in the head node
+        }
+        return undefined; // otherwise, return undefined per spec.
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -96,7 +118,12 @@ class SinglyLinkedList {
     print() {
         // Print out the linked list
 
-        // Your code here
+        let curr = this.head;
+
+        while(curr) { // while the linked list is not empty;
+            console.log(curr.value); // iterate through the linkedList and print the value located at each node
+            curr = curr.next; // continue until we reach the end of the list
+        }
 
         // Write your hypothesis on the time complexity of this method here
     }
