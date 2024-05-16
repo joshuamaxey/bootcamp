@@ -44,7 +44,7 @@ class HashTable {
         let dataCheck = this.data[hashedIndex]; // Check to see if there is already data present at the hashed index.
 
         if (dataCheck !== null) { // IF there is data present at the hashed index...
-            throw new Error("hash collision or same key/value pair already exists") // ... throw an error and stop code execution
+            throw new Error("hash collision or same key/value pair already exists!") // ... throw an error and stop code execution
         }
 
         this.data[hashedIndex] = new KeyValuePair(key, value); // OTHERWISE, if there is no data present at the hashed index (if dataCheck returns null), then assign this key-value pair to this hashed index.
