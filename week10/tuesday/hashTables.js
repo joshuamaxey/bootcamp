@@ -120,3 +120,9 @@ class KeyValuePair {
 //! Summary
 
 // How a hash table works
+
+// combining fast hash function with an underlying array structure to provide flexible and efficient key/value data storage
+
+// How to implement a hash table in JavaScript
+
+// performed big-O analysis to verify the stime an space complexity of key functions
