@@ -44,6 +44,10 @@ function hexadecimalToDecimal(blob) {
 // console.log(hexadecimalToDecimal('0x51'))    // 81
 // console.log(hexadecimalToDecimal('0x10ff'))  // 4351
 
+console.log(hexadecimalToDecimal('0xC9'))
+console.log(decimalToBinary(201));
+console.log(decimalToHexadecimal(201));
+console.log(hexadecimalToDecimal('0x00C9'))
 
 module.exports = {
   decimalToBinary,
