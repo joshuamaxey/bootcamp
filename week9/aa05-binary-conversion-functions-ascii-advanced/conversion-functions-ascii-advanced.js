@@ -1,10 +1,19 @@
 /*
 Implement these functions to convert values into the appropriate number base.
 Consult documentation on how to utilize the following methods:
-  parseInt()
-  toString()
-  String.fromCharCode()
-  charCodeAt()
+
+//* parseInt()
+parses a string argument and returns an integer of the specified radix [ parseInt(string, radix) ]
+
+//* toString()
+
+
+//* String.fromCharCode()
+returns a string created from the specified sequence of UTF-16 code units.
+
+//* charCodeAt()
+
+
 */
 
 /* Base 2 to base 16 */
