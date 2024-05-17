@@ -22,7 +22,19 @@ const binaryStringToArray = str => {
 };
 
 const binaryToAscii = str => {
-  // Your code here 
+  const binaryArray = binaryStringToArray(str); // convert a binary string to an array of 8-bit strings using the binaryToArray(str) method
+
+  let result = ''; // initialie an empty string to hold the ASCII result.
+
+  for (let i = 0; i < binaryArray.length; i++) { // iterate through the array of 8-bit strings
+    let decimal = parseInt(binaryArray[i], 2); // convert binary to decimal
+
+    let asciiChar = String.fromCharCode(decimal); // convert decimal to ASCII character
+
+    result += asciiChar; // add each ASCII character to the 'result' string (concatenate)
+  }
+
+  return result;
 };
 
 /******************************************************************************/
