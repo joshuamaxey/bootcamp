@@ -81,3 +81,41 @@ endTimeSet = Date.now();
 
 console.log(`Array: ${endTimeArray - startTimeArray}ms`);
 console.log(`Set: ${endTimeSet - startTimeSet}ms`);
+
+// Arr.includes(i) is O(n) time complexity. Since it is contained within a loop, it's overall time complexity as used here is O(n^2).
+
+// set.has(i), on the other hand, has an O(1) time complexity. Because it is used here within a loop, it's real time complexity for this application is O(n).
+
+//! Implementation of a Set
+
+// A set is an abstract data type.
+
+// Generally speaking, sets are implemented using hash tables to achieve blazing-fast O(1) has() functionality.
+
+// A set is like an object that stores only keys, no values.
+
+// Sets have an underlying array structure with a preallocated number of buckets.
+
+// When a value is added to the set, it is hashed an drun through the modulo of the number of buckets to produce the array index where it will be stored.
+
+// Upon collision, the set will execute some collision handling with worse-case O(n) time complexity, where (n) is the number of values stored in taht particular bucket.
+
+// When the set exceeds a load factor of 0.7, a new. larger array is allocated and the values are rehashed and copied to the new array.
+
+// This produces the desired O(1) search time complexity.
+
+// This also keeps elements unordered and ensures that they are unique.
+
+// The order in which the values are stored in the underlying array is arbitrary and depends on the hash value.
+
+// Uniqueness is also enforced. Trying to add duplicate keys to an object would only overwrite the old key.
+
+// Like the hash table implementation of an object, sets have some wasted space from empty bucekts but still maintain a space complexity of O(n)
+
+// Sets are situationalbut can result in massive performance gains if you can recognize where they are appropriate.
+
+//! Summary
+
+//^ Learned the three properties of a set
+//^ Learned how to test and verify the performance of sets compared to an array
+//^ Learned how has hvalues can be useddt oimplement a set's O(1) search functionality.
