@@ -123,7 +123,7 @@ function timesThreePlusTen(n) {
 
 // Regularly hash tables provide a constant O(1) lookup time. BUT they can be reduced to a worst-cas lookup time of O(n). This is because of collision handling (if multiple elements hash to the same key, looking inside that key may take O(n) time because we'll have to traverse a linked list) and Load balancing rehashing (if the hash table exceeds its load balance, it needs to rehash, which invovles creating a new, larger table and then re-inserting each element. THis is an O(n) operation).
 
-//^ The closest option to this answer is: "O(n), if every key in the hash tabl happens to collide in the same bucket." but because of this scenario is an extreme, I think it might be the wrong answer.
+//^ The closest option to this answer is: "O(n), if every key in the hash table happens to collide in the same bucket." but because of this scenario is an extreme, I think it might be the wrong answer.
 
 //& 14. What happens when you add two different values with the same key into a hash table?
 

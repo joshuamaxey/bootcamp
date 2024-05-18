@@ -12,7 +12,7 @@ function decimalToBinary(blob) {
 
 /* Base 10 to base 16 */
 function decimalToHexadecimal(blob) {
-  return blob.toString(16)
+  return "0x" + blob.toString(16)
 }
 
 /* Base 2 to base 10 */

@@ -63,7 +63,7 @@ for (let i = 0 ; i < n ; i++) {
 }
 
 // Fill a set with integers
-const set = new Set(arr);
+let set = new Set(arr);
 
 // Search the array for integers, half of which are included
 startTimeArray = Date.now();
@@ -119,3 +119,33 @@ console.log(`Set: ${endTimeSet - startTimeSet}ms`);
 //^ Learned the three properties of a set
 //^ Learned how to test and verify the performance of sets compared to an array
 //^ Learned how has hvalues can be useddt oimplement a set's O(1) search functionality.
+
+//! CLASS NOTES
+
+//^ Set methods
+
+// set.add()
+// set.delete()
+// set.size()
+// set.has()
+// set.clear()
+
+set = new Set([1, 1, 2, 3, 4, 5])
+
+console.log(set);
+
+set.add(6);
+
+console.log(set); // Set(6) { 1, 2, 3, 4, 5, 6 }
+
+set.delete(5)
+
+console.log(set); // Set(5) { 1, 2, 3, 4, 6 }
+
+console.log(set.size); // 5
+
+console.log(set.has(3)); // true
+
+set.clear();
+
+console.log(set); // Set(0) {}
