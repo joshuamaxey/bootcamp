@@ -3,7 +3,13 @@
 /******************************************************************************/
 
 const convertToBase10 = str => {
-  // Your code here 
+  if (str.includes("0b")) { // Check to see if 'str' contains the 0b prefix which corresponds to base-2 (binary) values
+    return parseInt(str.substring(2), 2); // if it does, use parseInt with substring(2) to cut the prefix off of the binary value and then return the base10 (decimal) value that corresponds to the binary value
+  }
+
+  if (str.includes("0x")) { // Check to see if 'str' contains the 0x prefix that corresponds to base-16 (hexaxecimal) values
+    return parseInt(str); // If str is a hexadecimal value, use parseInt(str) to convert the hexadecimal value to its decimal equivalent
+  }
 };
 
 /******************************************************************************/
