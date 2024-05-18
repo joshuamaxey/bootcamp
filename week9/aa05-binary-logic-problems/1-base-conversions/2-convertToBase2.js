@@ -3,7 +3,12 @@
 /******************************************************************************/
 
 const convertToBase2 = element => {
-  // Your code here 
+  if (typeof element === "number") { // check if 'element' is a number
+    return '0b' + element.toString(2); // if it is a number, use the toString(2) method to convert the number to its base-2 (binary) equivalent and then prefix it with the '0b' binary prefix
+  } else {
+    let base10 = parseInt(element); // If 'element' is not a number, we use an else statement under the assumption that it must be a string containing a hexadecimal number
+    return "0b" + base10.toString(2); // we use the base10.toString(2) method to convert the hexadecimal number to its (base-2) binary equivalent and then prefix it with the "0b" binary prefix
+  }
 };
 
 /******************************************************************************/
