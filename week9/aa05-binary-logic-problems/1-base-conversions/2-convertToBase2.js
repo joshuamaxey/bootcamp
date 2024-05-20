@@ -26,3 +26,5 @@ console.log(convertToBase2('0xfa')); // 0b11111010
 console.log(convertToBase2('0x1234')); // 0b1001000110100
 console.log(convertToBase2('0xc9a1')); // 0b1100100110100001
 console.log(convertToBase2('0xbf12')); // 0b1011111100010010
+
+console.log(convertToBase2("0xA5"))

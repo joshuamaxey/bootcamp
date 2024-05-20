@@ -33,3 +33,5 @@ console.log(convertToBase10('0xfa')); // 250
 console.log(convertToBase10('0x1234')); // 4660
 console.log(convertToBase10('0xc9a1')); // 51617
 console.log(convertToBase10('0xbf12')); // 48914
+
+console.log(convertToBase10("0xA5"))
