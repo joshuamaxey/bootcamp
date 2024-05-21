@@ -101,3 +101,106 @@
 // A binary tree is a tree where nodes have AT MOST 2 CHILDREN.
 
 //^ This means that graphs 1, 2, and 3 above are all Binary Trees.
+
+// Ternary trees have at most three trees, and (n)-ary trees have at most (n) children.
+
+// We will likely encounter binary trees in the job hunt. They are the focus of this course.
+
+// Consider the following:
+
+//^ 1. An empty graph of 0 nodes and 0 edges is a binary tree
+
+//^ 2. A graph of 1 node and 0 edges is a binary tree
+
+//^ 3. A linked list is a binary tree
+
+//! Representing a Binary Tree with Node Instances
+
+// Binary trees are commonly represented using object-orienteddesigns.
+
+// A tree is a collection of nodes, so we will implement a TreeNode class
+
+// Traditionally, the properties of LEFT and RIGHT are used to reference the child nodes of a TreeNode.
+
+// Left and Right will reference other TreeNodes
+
+class TreeNode {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+};
+
+// Constructing a tree is a matter of creating the nodes and setting LEFT and RIGHT.
+
+let a = new TreeNode('a');
+let b = new TreeNode('b');
+let c = new TreeNode('c');
+let d = new TreeNode('d');
+let e = new TreeNode('e');
+let f = new TreeNode('f');
+
+a.left = b;
+a.right = c;
+b.left = d;
+b.right = e;
+c.right = f;
+
+// Ok, I'm gonna attempt to build the visual representation of this tree according to the code in lines 137 - 148 ( WITHOUT looking at the visualization in the reading ):
+
+//*                        a
+//*                      /   \
+//*                    b       c
+//*                  /   \       \
+//*                d       e       f
+
+//^ Correct!
+
+// For simplification, arrowheads are not shown when we depict graphs.
+
+// The one-directional nature of the connectiosn in a tree is implied when we label a diagram a "tree"
+
+//^ In other words, we don't need arrowheads to explicitly state that the flow of the connections begins at the top and then moves downward. This is implied in all trees.
+
+// Moving forward, it's safe to assume that the topmost node is the root and that the direction of the edges is downward.
+
+//^ Summarily, node 'a' above is the root.
+
+//^ Node (a) can access node (b) through (a).left
+
+//^ Node (b) cannot access node (a).
+
+// This is the data structure that we will use to explore Binary Tree Algorithms!
+
+// Creating a tree in this way can be tedious and repetitive, but it allows you to decide EXACTLY which nodes are connected and in what direction.
+
+// This design is therefore very useful when accounting for edge cases in our designs.
+
+//! Basic Tree Terminology Review
+
+//^ 1. tree (a graph with no cycles)
+
+//^ 2. binary tree (a tree where TreeNodes have at MOST 2 child nodes each)
+
+//^ 3. root (the ultimate parent- the single node of a tree that can access every other node through descending edges. By definition, the root has no parent nodes)
+
+//^ 4. internal node (a node with child nodes)
+
+//^ 5. leaf (a node with no child nodes)
+
+//^ 6. path (a series of nodes that can be traversed through descending edges [for example, "A, B, E" is a path through the tree graph above {on lines 152 - 156}])
+
+//! Summary
+
+// The definition of trees
+
+// The fact that trees are a sub-class of graphs which follow specific rules
+
+// The fact that nodes are organized with one-way connectiosn from parent to child
+
+// The fact that trees contain NO cycles
+
+// That a binary tree is a tree which has a maximum of TWO child notes per TreeNode
+
+// The fact that the root of the tree is often used to prepresent or pass the tree itself into functions.
