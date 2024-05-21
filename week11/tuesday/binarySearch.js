@@ -173,3 +173,71 @@ function binarySearch(arr, target) {
   console.log(binarySearch(arr, target));
 
 //   console.log(Math.floor(20 / 3));
+
+//! Time and Space Complexity of Binary Search
+
+// Recall the logarithm table is the inverse of the powers of 2:
+
+//*      log2( 1 )    = 0
+//*      log2( 2 )    = 1
+//*      log2( 4 )    = 2
+//*      log2( 8 )    = 3
+//*      log2( 16 )   = 4
+//*      log2( 32 )   = 5
+//*      log2( 64 )   = 6
+//*      log2( 128 )  = 7
+//*      log2( 256 )  = 8
+//*      log2( 512 )  = 9
+//*      log2( 1024 ) = 10
+
+// Our binary search of the array (32 element length) took 5 comparisons, which is equal to log2(32).
+
+// If the input size doubled to length 64, the binary search would only require one more comparison.
+
+// Since range of possibility is divided by 2 on each comparison, the time complexity of binary search can be described as O(log n).
+
+// To reiterate the point, for large values of n, logarithmic runtime is vastly superior to linear: A database can search through 1 billion users in 30 comparisons, rather than 1 billion comparisons.
+
+// Binary search also does not require any extra money, besides the three high, low, and midpoint integers.
+
+// Thus it also has a space complexity of O(1).
+
+//! Performance Testing Binary Search
+
+// Here's an experiment you can run to test the performance of your binary search vs a linear search //!(OR it would be, if I could get the fuckin binary search to work)
+
+// Fill an array with 1 million integers
+
+n = 1000000;
+
+arr = [];
+
+for (let i = 0; i < n; i++) {
+    arr.push(i);
+}
+
+// Pick 10 thousand random values to search for, from -n to n
+
+valuesToSearch = [];
+
+for (let i = 0; i < 10000; i++) {
+    valuesToSearch.push(Math.floor(Math.random() * 2 * n) - n);
+}
+
+startTime = Date.now();
+
+for (let i = 0; i < valuesToSearch.length; i++) {
+    arr.includes(valuesToSearch[i]);
+}
+
+endTime = Date.now();
+
+console.log(`Linear Search: ${endTime - startTime}ms`);
+
+//! Summary
+
+// Learned how binary search works
+
+// Learned the pre-conditions to execute a binary search
+
+// Learned about the performance of binary search
