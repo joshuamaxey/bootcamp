@@ -57,18 +57,44 @@ class BinarySearchTree {
 
 
   preOrderTraversal(currentNode = this.root) {
-    // Your code here
+    // A pre-order traversal is defined by the fact that the operation (in this case, printing the values) is performed prior to the traversal step of the function
+
+    if (!currentNode) return; // Base case, we check to see if the currentNode has no children left
+
+    console.log(currentNode.val); // print the value stored within the currentNode
+
+    this.preOrderTraversal(currentNode.left); // traverse left from the currentNode by calling the function recursively on the node to the left of the currentNode
+
+    this.preOrderTraversal(currentNode.right); // traverse right from the current node by calling the function recursively on the node to the right of the currentNode
   }
 
 
   inOrderTraversal(currentNode = this.root) {
-    // Your code here
+    // An in-order traversal is defined by the fact that the operation (in this case, printing the value) is performed between the traversal steps of the function
+
+    if (!currentNode) return; // Check to see if this is the base case (If currentNode has no children left)
+
+    this.inOrderTraversal(currentNode.left); // traverse left from the currentNode by calling the function recursively on the node to the left of the currentNode
+
+    console.log(currentNode.val); // print the value stored within the currentNode
+
+    this.inOrderTraversal(currentNode.right); // traverse right from the currentNode by calling the function recursively on the node to the right of the currentNode
   }
 
 
   postOrderTraversal(currentNode = this.root) {
-    // Your code here
+    // A post-order traversal is defined by the fact that the operation (in this case, printing the value) is performed after the traversal steps of the function
+
+    if (!currentNode) return; // Check for the base case, to see if currentNode has no children left
+
+    this.postOrderTraversal(currentNode.left); // traverse left from the currentNode by recursively calling the function on the node to the left of the currentNode
+
+    this.postOrderTraversal(currentNode.right); // traverse right from the currentNode by recursively calling the function on the node to the right of the currentNode
+
+    console.log(currentNode.val); // print the value stored within the currentNode;
   }
+
+  //^ Note that the only distinction between pre, in, and post-order methods is the point at which we perform the operation (print to the console). The tree is always traversed in the same order using the same recursive calls.
 
     // Breadth First Traversal - Iterative
   breadthFirstTraversal() {
