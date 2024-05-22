@@ -137,38 +137,37 @@ function binarySearch(arr, target) {
     let lo = 0;
     let hi = (arr.length - 1);
 
-    // While high and low indices do not overlap...
-    while (lo <= hi) {
+    while (hi >= lo) {
 
-      // Find the midpoint between high and low indices
-        mid = Math.floor((hi + lo) / 2);
+        let mid = Math.floor((hi + lo) / 2);
 
-      // Compare the target value to the midpoint value
+        if (arr[mid] === target) return arr[mid];
 
-      // If the target equals the midpoint...
-        if (target === mid) {
-        // Return the midpoint index
-            return mid;
-        }
-      // If the target is higher than the midpoint...
-        if (target > mid) {
-            // Move the low pointer to midpoint + 1
-            lo = mid + 1;
-        }
-      // If the target is less than the midpoint...
-        if (target < mid) {
-            // Move the high pointer to midpoint - 1
-            hi = mid - 1;
-        }
-    // Return -1 if the loop exits with overlapping pointers
-    } if (lo > hi) {
+        if (arr[mid] < target) lo = mid + 1;
+
+        if (arr[mid] > target) hi = mid - 1;
+    }
+
+    if (hi < lo) {
         return -1;
     }
+
+    // While high and low indices do not overlap...
+    // Find the midpoint between high and low indices
+    // Compare the target value to the midpoint value
+    // If the target equals the midpoint...
+    // Return the midpoint index
+    // If the target is higher than the midpoint...
+    // Move the low pointer to midpoint + 1
+    // If the target is less than the midpoint...
+    // Move the high pointer to midpoint - 1
+    // Return -1 if the loop exits with overlapping pointers
+
   }
 
   arr = [1, 5, 8, 10, 14, 26, 27, 32, 37, 51, 52, 53, 57, 63, 66, 67, 68, 69, 74, 76, 79, 82, 83, 84, 86, 88, 89, 92, 94, 95, 99, 100];
 
-  target = 89;
+  target = 10;
 
   console.log(binarySearch(arr, target));
 
@@ -208,31 +207,31 @@ function binarySearch(arr, target) {
 
 // Fill an array with 1 million integers
 
-n = 1000000;
+// n = 1000000;
 
-arr = [];
+// arr = [];
 
-for (let i = 0; i < n; i++) {
-    arr.push(i);
-}
+// for (let i = 0; i < n; i++) {
+//     arr.push(i);
+// }
 
-// Pick 10 thousand random values to search for, from -n to n
+// // Pick 10 thousand random values to search for, from -n to n
 
-valuesToSearch = [];
+// valuesToSearch = [];
 
-for (let i = 0; i < 10000; i++) {
-    valuesToSearch.push(Math.floor(Math.random() * 2 * n) - n);
-}
+// for (let i = 0; i < 10000; i++) {
+//     valuesToSearch.push(Math.floor(Math.random() * 2 * n) - n);
+// }
 
-startTime = Date.now();
+// startTime = Date.now();
 
-for (let i = 0; i < valuesToSearch.length; i++) {
-    arr.includes(valuesToSearch[i]);
-}
+// for (let i = 0; i < valuesToSearch.length; i++) {
+//     arr.includes(valuesToSearch[i]);
+// }
 
-endTime = Date.now();
+// endTime = Date.now();
 
-console.log(`Linear Search: ${endTime - startTime}ms`);
+// console.log(`Linear Search: ${endTime - startTime}ms`);
 
 //! Summary
 
