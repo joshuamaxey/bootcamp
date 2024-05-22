@@ -87,10 +87,40 @@ class BinarySearchTree{
     }
 
     breadthFirstTraversal() {
+        const values = []; // initialize empty array to hold values
 
-    }
+        values.push(this.root); // push the root node to the values array
+
+        while (values.length) {
+            let curr = values.shift();
+            console.log(vurr.val);
+
+            if (curr.left) {
+                values.push(curr.left);
+            }
+
+            if (curr.right) {
+                values.push(curr.right);
+            }
+        }
+    };
 
     depthFirstTraversal() {
+        const values = [];
 
+        values.push(this.root);
+
+        while (values.length) {
+            let curr = values.pop();
+            console.log(curr.value);
+
+            if (curr.left) {
+                values.push(curr.left);
+            }
+
+            if (curr.right) {
+                values.push(curr.right);
+            }
+        }
     }
-}
+};
