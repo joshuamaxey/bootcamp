@@ -57,7 +57,25 @@ function findMinBT (rootNode) { //^ Because a binary tree is not sorted, we have
 }
 
 function findMaxBT (rootNode) { //^ Because a binary tree is not sorted, we need to traverse every node to find the maximum value
-  // Your code here
+
+  let max = rootNode.val; // Set the initial maximum value to the value stored at the root node of the tree.
+
+  const queue = []; // inititalize an empty array to function as a queue
+
+  queue.push(rootNode); // push the rootNode to the queue to start
+
+  while (queue.length) { // while the queue is not empty
+
+    let currNode = queue.shift(); // remove the front node and store it in the variable 'currNode'
+
+    if (currNode.val > max) max = currNode.val; // If the value located at the current node is greater than the current maximum, set 'max' equal to that value
+
+    if (currNode.left) queue.push(currNode.left); // If the currentNode has a left child, push that child to the queue (enqueue that child)
+
+    if (currNode.right) queue.push(currNode.right); // If the currentNode has a right child, push that child to the queue (enqueue that child)
+  }
+
+  return max; // return the maximum value in the tree
 }
 
 function getHeight (rootNode) {
