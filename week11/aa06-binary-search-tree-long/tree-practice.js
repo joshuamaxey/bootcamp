@@ -4,7 +4,7 @@ const { BinarySearchTree, TreeNode } = require('./binary-search-tree.js');
 
 // Practice problems on binary trees
 
-function findMinBST (rootNode) {
+function findMinBST (rootNode) { //^ Since a binary search tree is sorted, we only need to traverse down the left side to find the minimum value in the tree
 
   let currentNode = rootNode; // begin at the root node
 
@@ -17,9 +17,11 @@ function findMinBST (rootNode) {
   }
 }
 
-function findMaxBST (rootNode) {
+function findMaxBST (rootNode) { //^ Since a binary search tree is sorted, we only need to traverse down the right side to find the maximum value
 
   let currentNode = rootNode; // begin at the root node
+
+
 
   while (currentNode) { // While the currentNode has child nodes
     if (currentNode.right) { // If there is a node to the right of the currentNode...
@@ -30,11 +32,31 @@ function findMaxBST (rootNode) {
   }
 }
 
-function findMinBT (rootNode) {
-  // Your code here
+function findMinBT (rootNode) { //^ Because a binary tree is not sorted, we have to traverse every node
+
+  let min = rootNode.val; // set the minimum value to the value stored at the root node of the tree
+
+  const queue = []; // establish a queue using an array
+
+  queue.push(rootNode); // push the rootNode to the queue first
+
+  while (queue.length) { // While the queue is not empty
+
+    let currNode = queue.shift(); // removes the front node and stores the node in currNode (dequeue())
+
+    if (currNode.val < min) min = currNode.val; // If the value stored at the currentNode is less than the minimum, set the minimum value equal to that value
+
+    if (currNode.left) queue.push(currNode.left); // If the currentNode has a left child, push that child to the queue (enqueue)
+
+    if (currNode.right) queue.push(currNode.right) // If the currentNode has a right child, push that child to the queue (enqueue)
+
+  }
+
+  return min; // return the minimum value
+
 }
 
-function findMaxBT (rootNode) {
+function findMaxBT (rootNode) { //^ Because a binary tree is not sorted, we need to traverse every node to find the maximum value
   // Your code here
 }
 
