@@ -79,7 +79,11 @@ function findMaxBT (rootNode) { //^ Because a binary tree is not sorted, we need
 }
 
 function getHeight (rootNode) {
-  // Your code here
+
+  if (!rootNode) return -1;
+
+  if (!rootNode.left && !rootNode.right) return 0;
+
 }
 
 function balancedTree (rootNode) {
