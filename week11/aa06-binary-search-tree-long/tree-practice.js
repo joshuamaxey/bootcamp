@@ -5,39 +5,57 @@ const { BinarySearchTree, TreeNode } = require('./binary-search-tree.js');
 // Practice problems on binary trees
 
 function findMinBST (rootNode) {
-  // Your code here 
+
+  let currentNode = rootNode; // begin at the root node
+
+  while (currentNode) { // While the node has children
+    if (currentNode.left) { // if there is a node to the left of the currentNode...
+      currentNode = currentNode.left; // ...traverse left
+    } else { // If there's NOT a node to the left (if we're at the bottom of the tree)...
+      return currentNode.val; // ...return the value stored at the currentNode, because it should be the smallest value (stored at the bottom-left-most node of the tree)
+    }
+  }
 }
 
 function findMaxBST (rootNode) {
-  // Your code here 
+
+  let currentNode = rootNode; // begin at the root node
+
+  while (currentNode) { // While the currentNode has child nodes
+    if (currentNode.right) { // If there is a node to the right of the currentNode...
+      currentNode = currentNode.right; // ...traverse right
+    } else { // Otherwise if there's NOT a node to the right...
+      return currentNode.val; // ...return the value stored at the current node because it should be the largest (stored at the bottom-right-most node of the tree)
+    }
+  }
 }
 
 function findMinBT (rootNode) {
-  // Your code here 
+  // Your code here
 }
 
 function findMaxBT (rootNode) {
-  // Your code here 
+  // Your code here
 }
 
 function getHeight (rootNode) {
-  // Your code here 
+  // Your code here
 }
 
 function balancedTree (rootNode) {
-  // Your code here 
+  // Your code here
 }
 
 function countNodes (rootNode) {
-  // Your code here 
+  // Your code here
 }
 
 function getParentNode (rootNode, target) {
-  // Your code here 
+  // Your code here
 }
 
 function inOrderPredecessor (rootNode, target) {
-  // Your code here 
+  // Your code here
 }
 
 function deleteNodeBST(rootNode, target) {
@@ -55,7 +73,7 @@ function deleteNodeBST(rootNode, target) {
 
   // Case 2: Two children:
   //  Set the value to its in-order predecessor, then delete the predecessor
-  //  Replace target node with the left most child on its right side, 
+  //  Replace target node with the left most child on its right side,
   //  or the right most child on its left side.
   //  Then delete the child that it was replaced with.
 
