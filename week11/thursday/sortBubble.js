@@ -20,30 +20,36 @@
 
 //! Pseudocode
 
-function bubbleSort(arr) {
+// Optimized Bubble Sort implementation
+function bubbleSort(array) {
+    const arrayLength = array.length; // store the length of the array in a variable arrayLength
 
-    let swapped;
+    let isSwapped; // initialize a variable to state whether or not we have swapped any of the elements in the array
 
-    while (swapped) {
-        swapped = false;
+    for (let i = 0; i < arrayLength; i++) { // iterate through the array
 
-        for (let i = 0; i < arr.length - 1; i++) {
+        isSwapped = false; // set the isSwapped variable to false by default
 
-            if (arr[i] > arr[i + 1]) {
+        for (let j = 0; j < arrayLength - i - 1; j++) { // iterate through the array, comparing each element to the element ahead.
 
-                let temp = arr[i];
+            if (array[j] > array[j + 1]) { // check if the element located at the current index of the array is greater than the element located at the next index
 
-                arr[i] = arr[i + 1];
+                [array[j], array[j + 1]] = [array[j + 1], array[j]]; // if so, swap the elements
 
-                arr[i + 1] = temp;
-
-                swapped = true;
+                isSwapped = true; // After performing the swap, set the 'isSwapped' variable to true to mark that a swap has occurred
             }
         }
+
+        if (!isSwapped) break; // If we iterate through the entire array and no swaps occurred, then the array is sorted and we can terminate the loop
     }
 
-    return arr;
+    return array; // finally, return the array.
 }
+
+// Example usage:
+const unsortedArray2 = [45, 23, 3, 5346, 5, 356, 243, 35];
+const sortedArray2 = bubbleSort(unsortedArray2);
+console.log("Optimized sorted array:", sortedArray2);
 
 
 arrTest = [1, 2, 3]
