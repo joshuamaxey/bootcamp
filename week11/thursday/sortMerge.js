@@ -12,79 +12,79 @@
 
 //! Merge Sort Example
 
-// Let's say that we want to sort the following array:
+// // Let's say that we want to sort the following array:
 
-arr = [10, 1, 7, 2];
+// arr = [10, 1, 7, 2];
 
-// Begin by dividing the array in half
+// // Begin by dividing the array in half
 
-arr1 = [10, 1];
+// arr1 = [10, 1];
 
-arr2 = [7, 2];
+// arr2 = [7, 2];
 
-// Now sort Each half
+// // Now sort Each half
 
-arr1 = [1, 10];
+// arr1 = [1, 10];
 
-arr2 = [2, 7];
+// arr2 = [2, 7];
 
-// Merge them back together
+// // Merge them back together
 
-arr = [1, 2, 7, 10]
+// arr = [1, 2, 7, 10]
 
-//! Merge
+// //! Merge
 
-// How does merge work?
+// // How does merge work?
 
-// It takes two sorted arrays ad combines them into a single sorted array containing all elements
+// // It takes two sorted arrays ad combines them into a single sorted array containing all elements
 
-// It does this by comparing the first element of each array and moving the smaller value into the return array.
+// // It does this by comparing the first element of each array and moving the smaller value into the return array.
 
-// For the arrays [1, 10] and [2, 7], the first elements are 1 and 2, so you move 1 into the return array
+// // For the arrays [1, 10] and [2, 7], the first elements are 1 and 2, so you move 1 into the return array
 
-[10, 1] [2, 7]
+// [10, 1] [2, 7]
 
-[10] [2, 7]
+// [10] [2, 7]
 
-"return" [1]
+// "return" [1]
 
-// Now the first elemetns are 2 and 10, so you move the 2 into the return array
+// // Now the first elemetns are 2 and 10, so you move the 2 into the return array
 
-[10] [7]
+// [10] [7]
 
-"return" [1, 2];
+// "return" [1, 2];
 
-// Next is the 7
+// // Next is the 7
 
-// Since array 2 is empty, you can add the remaining elements in array1, giving you...
+// // Since array 2 is empty, you can add the remaining elements in array1, giving you...
 
-[1, 2, 7, 10]
+// [1, 2, 7, 10]
 
-//! Time Complexity of merge
+// //! Time Complexity of merge
 
-// The time complexity of merge is O(n^2). Adding or removing values from the front of an array is O(n), and we do this for each value in the arrays
+// // The time complexity of merge is O(n^2). Adding or removing values from the front of an array is O(n), and we do this for each value in the arrays
 
-// You don't actually need to remove values to perform a merge. Instead, kyou can set a pointer to the first value, comparing the values at that index.
+// // You don't actually need to remove values to perform a merge. Instead, kyou can set a pointer to the first value, comparing the values at that index.
 
-// When you move avalue to the return array, just increment the poitner
+// // When you move avalue to the return array, just increment the poitner
 
-arr1 = [1, 10], index1 = 0;
+// arr1 = [1, 10], index1 = 0;
 
-arr2 = [2, 7], index2 = 0;
+// arr2 = [2, 7], index2 = 0;
 
-res = [];
+// res = [];
 
-arr1 = [1, 10], index1 = 1;
+// arr1 = [1, 10], index1 = 1;
 
-arr2 = [2, 7], index2 = 0;
+// arr2 = [2, 7], index2 = 0;
 
-res = [1];
+// res = [1];
 
-arr1 = [1, 10], index1 = 1;
+// arr1 = [1, 10], index1 = 1;
 
-arr2 = [2, 7], index2 = 1;
+// arr2 = [2, 7], index2 = 1;
 
-res = [1, 2];
+// res = [1, 2];
 
 // ETC. This performs the merge without mutating the original array and results in a time complexity of O(n) for merge instead of O(n^2)
 
@@ -119,3 +119,35 @@ res = [1, 2];
 // For example, you will see some out-of-place recursive implementations that free up that space, resulting in a space complexity of O(n).
 
 //! Pseudocode for App Academy Implementation
+
+function merge(left, right) {
+    let arr = [];
+
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            arr.push(left.shift());
+        } else {
+            arr.push(right.shift());
+        }
+    }
+
+    // Concatenate any leftover elements (if not all elements were used)
+    return [...arr, ...left, ...right];
+}
+
+function mergeSort(arr) {
+    if (arr.length <= 1) {
+        return arr; // Base case: already sorted or single-element array
+    }
+
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+
+    return merge(mergeSort(left), mergeSort(right));
+}
+
+// Example usage:
+const unsortedArray = [4, 8, 7, 2, 11, 1, 3];
+const sortedArray = mergeSort(unsortedArray);
+console.log("Sorted array:", sortedArray); // [1, 2, 3, 4, 7, 8, 11]
