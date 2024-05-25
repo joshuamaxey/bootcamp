@@ -69,19 +69,19 @@ class BinarySearchTree{
     inOrderTraversal(currentNode = this.root) { // perform operation BETWEEN traversals
         if (!currentNode) return; // base case, check if currentNode has children
 
-        this.preOrderTraversal(currentNode.left); // traverse left
+        this.inOrderTraversal(currentNode.left); // traverse left
 
         console.log(currentNode.val); // perform operation
 
-        this.preOrderTraversal(currentNode.right); // traverse right
+        this.inOrderTraversal(currentNode.right); // traverse right
     }
 
     postOrderTraversal(currentNode = this.root) { // perform operation AFTER traversing
         if (!currentNode) return; // base case, check if currentNode has children
 
-        this.preOrderTraversal(currentNode.left); // traverse left
+        this.postOrderTraversal(currentNode.left); // traverse left
 
-        this.preOrderTraversal(currentNode.right); // traverse right
+        this.postOrderTraversal(currentNode.right); // traverse right
 
         console.log(currentNode.val); // perform operation
     }

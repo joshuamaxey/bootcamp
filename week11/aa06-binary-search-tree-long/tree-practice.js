@@ -80,50 +80,115 @@ function findMaxBT (rootNode) { //^ Because a binary tree is not sorted, we need
 
 function getHeight (rootNode) {
 
-  if (!rootNode) return -1;
+  if (!rootNode) return -1; // If there's no rootNode, return -1
 
-  if (!rootNode.left && !rootNode.right) return 0;
+  if (!rootNode.left && !rootNode.right) return 0; // If the rootNode has no child nodes (right or left), return 0;
+
+  let leftHeight = getHeight(rootNode.left);
+
+  let rightHeight = getHeight(rootNode.right);
+
+  return 1 + Math.max(leftHeight, rightHeight);
 
 }
 
 function balancedTree (rootNode) {
-  // Your code here
+
+  if (!rootNode) return true;
+
+  let currentNode = rootNode
+
+  let leftHeight = getHeight(currentNode.left)
+
+  let rightHeight = getHeight(currentNode.right)
+
+  if (leftHeight === rightHeight
+    || leftHeight === rightHeight + 1
+    || leftHeight + 1 === rightHeight) {
+
+    return balancedTree(currentNode.left)
+    && balancedTree(currentNode.right);
+  }
+
+  return false;
 }
 
-function countNodes (rootNode) {
-  // Your code here
+function countNodes (rootNode, count = 0) {
+
+  if (!rootNode) return count;
+
+  count++;
+
+  count = countNodes(rootNode.left, count);
+
+  count = countNodes(rootNode.right, count);
+
+  return count;
+
 }
 
 function getParentNode (rootNode, target) {
-  // Your code here
+
+  if (rootNode.val === target) return null;
+
+  const stack = [rootNode];
+
+  while (stack.length) {
+
+    let currentNode = stack.pop();
+
+    if (currentNode.right && currentNode.right.val === target
+      || currentNode.left && currentNode.left.val === target) return currentNode;
+
+    if (currentNode.left) {
+      stack.push(currentNode.left);
+    }
+
+    if (currentNode.right) {
+      stack.push(currentNode.right);
+    }
+  }
+
+  return;
 }
 
 function inOrderPredecessor (rootNode, target) {
-  // Your code here
+
+  if (!rootNode) return null;
+
+  if (target <= rootNode.val) {
+
+    return inOrderPredecessor(rootNode.left, target)
+
+  } else {
+
+    const node = inOrderPredecessor(rootNode.right, target)
+
+    if (node) return node
+
+    else return rootNode.val
+  }
+
 }
 
 function deleteNodeBST(rootNode, target) {
-  // Do a traversal to find the node. Keep track of the parent
+  let parentNode = getParentNode(rootNode, target);
 
-  // Undefined if the target cannot be found
+  if (parentNode === undefined) return undefined;
 
-  // Set target based on parent
+  if (target < rootNode.val) {
+    rootNode.left = deleteNodeBST(rootNode.left, target)
+  } else if (target > rootNode.val) {
+    rootNode.right = deleteNodeBST(rootNode.right, target)
+  } else {
+    if (!rootNode.left) return rootNode.right
+    else if (!rootNode.right) return rootNode.left
 
-  // Case 0: Zero children and no parent:
-  //   return null
+    rootNode.val = findMinBST(rootNode.right)
 
-  // Case 1: Zero children:
-  //   Set the parent that points to it to null
-
-  // Case 2: Two children:
-  //  Set the value to its in-order predecessor, then delete the predecessor
-  //  Replace target node with the left most child on its right side,
-  //  or the right most child on its left side.
-  //  Then delete the child that it was replaced with.
-
-  // Case 3: One child:
-  //   Make the parent point to the child
-
+    rootNode.right = deleteNodeBST(rootNode.right, rootNode.val)
+  }
+  return rootNode;
 }
 
 module.exports = {
