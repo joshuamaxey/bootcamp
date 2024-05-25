@@ -21,24 +21,28 @@
 //! Pseudocode
 
 function bubbleSort(arr) {
-    // Iterate through the array
 
-    for (let i = 0; i < arr.length; i++) {
+    let swapped;
 
-        // If the current value is greater than its neighbor to the right, swap those values
-        if (arr[i] > arr[i + 1]) {
+    while (swapped) {
+        swapped = false;
 
-            let val = arr[i];
+        for (let i = 0; i < arr.length - 1; i++) {
 
-            arr[i] = arr[i + 1]
+            if (arr[i] > arr[i + 1]) {
 
-            arr[i + 1] = val;
+                let temp = arr[i];
+
+                arr[i] = arr[i + 1];
+
+                arr[i + 1] = temp;
+
+                swapped = true;
+            }
         }
-        // If you get to the end of the array and no swaps have occurred, return
-
-        // Otherwise, repeat from the beginning
     }
-    return;
+
+    return arr;
 }
 
 
