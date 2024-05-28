@@ -130,3 +130,7 @@ function quickSort(arr) {
 const unsortedArray = [5, 2, 9, 3, 6, 1];
 const sortedArray = quickSort(unsortedArray);
 console.log(sortedArray); // [1, 2, 3, 5, 6, 9]
+
+//! Summary
+
+// Learned how quickSort() uses a recursive divide and conquer approach to sort an array in O(n log n) time
