@@ -47,3 +47,27 @@ const undirected = { // keys are nodes, values are neighbors
 // Many fundamental algorithms in computer sience are based on graph theory, including search algorithms, shortest path algorithms, and network flow algorithms
 
 // Directed graphs and related data structures are crucial in computer seience beause they provie a versatile and powerful way to model relationships and solve complex problems across various domains.
+
+//! Graph Algorithms for Technical Interviews (freeCodeCamp.org)
+
+const graph = {
+    a: ['b', 'c'],
+    b: ['d']
+}
+
+const depthFirstPrint = (graph, source) => {
+    
+    const stack = [source]; // initialize a new stack using an array, and put the source node in the stack by default
+    
+    while (stack.length > 0) { // While the stack is not empty...
+        
+        const current = stack.pop(); // .pop() the top node off of the stack and store it in a variable 'current'
+        
+        console.log(current); // Print the current node (or do THE THING with the node)
+        
+        for (let neighbor of graph[current]) { // iterate through the neighbors of the current node...
+            
+            stack.push(neighbor); //... and push all of those neighbors to the stack
+        }
+    }
+};
