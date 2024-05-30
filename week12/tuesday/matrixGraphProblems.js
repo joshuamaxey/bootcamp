@@ -61,7 +61,7 @@ const adjacencyList = {
 
 //^ Matrix - represents relationships using a 2-D array
 
-const matrix = [
+const matrix0 = [
     [0, 1, 0, 0, 1],
     [1, 0, 0, 0, 1],
     [1, 1, 0, 1, 1],
@@ -76,4 +76,42 @@ const matrix = [
 
 // Now that you understand the structure of a matrix graph relative to an adjacency list, we can use our three steps to solve matrix graph problems.
 
-//! 1.
+//! 1. Identify and Define the Type of Graph
+
+// What is the problem asking you to do?
+// What does the matrix represent?
+// What does each node represent?
+// What relationship do the edges represent?
+// What is considered a valid neighbor, in the context of this problem?
+// Is this a search or traversal problem?
+// Does this require a depth-first or breadth-firt approach?
+
+//! 2. Implement the getNeighbors Function
+
+// This function should return all of the valid neighbors for a given node in a narray.
+
+// In the case of a matrix graph, the function will take a matrix and the current node in [row, column] coordinate format
+
+// Make sure to account for edge cases. Like when an input node is located in the corner or on the edge of the matrix.
+
+// In this example, your solution should return an array of the valid neighbors.
+
+const matrix = [
+    [0, 1, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+    [1, 1, 0, 1, 1],
+    [0, 1, 1, 0, 0],
+    [0, 0, 0, 0 ,0]
+];
+
+function getNeighbors(node, matrix) {
+    // Create an array to hold valid neighbors
+
+    // UP:
+        // Identify the node above the current node, if it exists
+        // Push taht node into the new array
+
+    // DOWN:
+        // Identify the node below the current node, if it exists
+        // Push that node into the new array
+}
