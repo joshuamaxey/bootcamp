@@ -333,3 +333,5 @@ function buildGraph(edges) {
 let example6 = undirectedPath(edges, 'i', 'm');
 
 console.log(example6); // true
+
+//! Class Notes Thursday 5/30 Week12
