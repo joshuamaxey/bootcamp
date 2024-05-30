@@ -265,24 +265,71 @@ const graph3 = {
 
 // In order to avoid infinite loops, we need to mark our nodes as 'visited' as we traverse the graph. We will usually use a set to do this, since the set automatically eliminates duplicates.
 
+const edges = [
+    ['i', 'j'],
+    ['k', 'i'],
+    ['m', 'k'],
+    ['k', 'l'],
+    ['o', 'n']
+];
+
 function undirectedPath(edges, nodeA, nodeB) {
 
-    const graph = buildGraph(edges);
+    const graph = buildGraph(edges); // First, we build a graph from the 'edges' 2-D array using our buildGraph() helper function...
+
+    return hasPath(graph, nodeA, nodeB, new Set()); // ...then we pass that graph, along with our nodeA and nodeB, into our hasPath() helper function which will determine whether there is a path from nodeA to nodeB in our graph.
+
+    // Notice that we also pass in a new Set() as the fourth parameter in our hasPath() function. This is important because it keeps us from getting caught in an infinite loop in the case that our graph is cyclical.
+
+    //Remember that Sets enable us not only to store elements without duplicates, but also to CHECK for something and to ADD something, both in O(1) runtime
 }
 
+function hasPath(graph, source, destination, visited) {
+    // The purpose of hasPath() is to determine if there is a path within our graph from the source node to the destination node
+
+    if (source === destination) { // if our source node is also our destination...
+
+        return true; // ...return true. Otherwise...
+    }
+
+    if (visited.has(source)) { // if our visited set already includes the source node...
+
+        return false; // ...return false. This keeps us from getting caught in an infinite loop
+    }
+
+    visited.add(source); // Otherwise, if our visited set does NOT include our source node, we add it before continuing. Then...
+
+
+    for (let neighbor of graph[source]) { // ...for each neighbor of our source node within our graph...
+
+        if (hasPath(graph, neighbor, destination, visited)) { // ...if ther is a path within our graph from the neighbor of the source node to the destination...
+
+            return true; // ...return true, since we know that IF there is a path from the neighbor to the destination, there must also be a path from the source node to our destination
+        }
+    }
+
+    return false; // Otherwise, if we traverse the whole graph and never find the destination, we return false because there is currently no path from the source node to the destination node.
+};
+
 function buildGraph(edges) {
-    const graph = {}
+    // The purpose of this function is to build an adjacency list (which represents a graph) from the 'edges' 2-D array.
 
-    for (let edge of edges) {
+    const graph = {}; // So the firs thing we do is initialie an empty object, since we use an object to represent a graph as an adjacency list.
 
-        const [a, b] = edge;
+    for (let edge of edges) { // ...for each edge within the edges array...
 
-        if (!(a in graph)) graph[a] = [];
-        if (!(b in graph)) graph[b] = [];
+        const [a, b] = edge; // ...an edge represents the connection from one node to the other within each set of nodes
+
+        if (!(a in graph)) graph[a] = []; // If the graph does not already include a, then add it to the graph
+        if (!(b in graph)) graph[b] = []; // If the graph does not already include b, then add it to the graph
 
         graph[a].push(b);
         graph[b].push(a);
     }
 
-    return graph;
+    return graph; // ...then we return the graph
 }
+
+let example6 = undirectedPath(edges, 'i', 'm');
+
+console.log(example6); // true
