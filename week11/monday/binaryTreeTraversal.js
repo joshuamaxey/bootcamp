@@ -270,7 +270,7 @@ function breadthFirstTraversal(root) { //! Queue
 
 // The two methods used to add and remove the nodes would be shift() for dequeuing and push() for enqueuing. The code will look like this:
 
-function breadthFirstTraversal(root) { //! Array
+function depthFirstTraversal(root) { //! Array
     // Put the starting node in a queue
     const queue = [];
     queue.push(root);
