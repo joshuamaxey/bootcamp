@@ -242,3 +242,47 @@ let example5 = hasPathBreadth(graph2, 'f', 'k');
 console.log(example5); // true
 
 //! Undirected Path
+
+// Note that for an undirected graph, connections go both ways.
+
+// This means that when we represent the graph as an adjacency list, we make sure to write BOTH directions for reach connection. In other words..
+
+// If we have a path from i to j, we also have to have a path from j to i. And so on.
+
+// This graph is also cyclic, there is a cicle from i to k to j and back to i, etc.
+
+// Also note that on an undirected graph, every connection between two nodes is technically a trivial cycle because we can go from one to the other and back and so on.
+
+const graph3 = {
+    i: ['j', 'k'],
+    j: ['i', 'k'],
+    k: ['i', 'k', 'm', 'l'],
+    m: ['k'],
+    l: ['k'],
+    o: ['n'],
+    n: ['o']
+};
+
+// In order to avoid infinite loops, we need to mark our nodes as 'visited' as we traverse the graph. We will usually use a set to do this, since the set automatically eliminates duplicates.
+
+function undirectedPath(edges, nodeA, nodeB) {
+
+    const graph = buildGraph(edges);
+}
+
+function buildGraph(edges) {
+    const graph = {}
+
+    for (let edge of edges) {
+
+        const [a, b] = edge;
+
+        if (!(a in graph)) graph[a] = [];
+        if (!(b in graph)) graph[b] = [];
+
+        graph[a].push(b);
+        graph[b].push(a);
+    }
+
+    return graph;
+}
