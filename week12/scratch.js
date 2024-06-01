@@ -334,4 +334,27 @@ let example6 = undirectedPath(edges, 'i', 'm');
 
 console.log(example6); // true
 
-//! Class Notes Thursday 5/30 Week12
+//! Island count
+
+let position = [r, c] // a position on a grid (2-D array, matrix) id just a set of coordinates: row, and column.
+
+let up = [r - 1, c] // So to move UP one space, we decrement the row by 1
+
+let down = [r + 1, c] // To move DOWN one space, we increment the row by 1
+
+let right = [r, c + 1] // To move RIGHT one space, we increment the column by 1
+
+let left = [r, c - 1] // To move LEFT one space, we decrement the column by 1
+
+
+
+function islandCount(grid) {
+
+    for (let r = 0; r < grid.length; r += 1) {
+
+        for (let c = 0; c < grid[0].length; c += 1) {
+
+
+        }
+    }
+};

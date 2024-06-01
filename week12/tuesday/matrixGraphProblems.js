@@ -106,6 +106,21 @@ const matrix = [
 
 function getNeighbors(node, matrix) {
     // Create an array to hold valid neighbors
+    let neighbors = [];
+
+    const [row, col] = node;
+
+    let [maxRows, maxCols] = [matrix.length, matrix[0].length];
+
+    let up = [row - 1, col];
+
+    let down = [row + 1, col];
+
+    let left = [row, col - 1];
+
+    let right = [row, col + 1];
+
+    let nativation = [up, down, left, right]
 
     // UP:
         // Identify the node above the current node, if it exists
