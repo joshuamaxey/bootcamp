@@ -46,4 +46,4 @@
 
 //! Summary
 
-// We have learned to use the 15-minute rule to come up with great coding questions that get great answers
+// We have learned to use the 15-minute rule to come up with great coding questions that get great answers.
