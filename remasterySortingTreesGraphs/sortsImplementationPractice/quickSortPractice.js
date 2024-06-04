@@ -1,18 +1,3 @@
-//! Quick Sort
-
-// Like mergeSort(), quickSort() also uses a divide and conquer strategy.
-
-//^ The logic underlying quickSort() is:
-
-    // It is easy to sort elements of an array relative to a particular target value
-    // An array of length 1 or 0 is already (trivially) sorted
-
-//^ What is the time complexity of quickSort();
-
-    // The best and average case runtime for quickSort() is O(n log n)
-
-    // The worst-case runtime for quickSort() when the partitioning is very unbalanced
-
 function quickSort(arr, low, high) {
 
     // choose an element called 'pivot'
@@ -65,3 +50,9 @@ function partition(arr, low, high) {
 
     return i + 1; // return the position from the partition location
 }
+
+let array = [42, 39, 63, 19, 16, 20, 15]
+
+let quickTest = quickSort(array, 0, array.length - 1);
+
+console.log(quickTest); // [ 15, 16, 19, 20, 39, 42, 63 ]
