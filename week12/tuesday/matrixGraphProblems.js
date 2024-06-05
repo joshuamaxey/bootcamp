@@ -120,7 +120,7 @@ function getNeighbors(node, matrix) {
 
     let right = [row, col + 1];
 
-    let nativation = [up, down, left, right]
+    let navigation = [up, down, left, right]
 
     // UP:
         // Identify the node above the current node, if it exists
