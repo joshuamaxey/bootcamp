@@ -1,4 +1,5 @@
 const { Food } = require('./food');
+const { Room } = require('./room');
 
 class Player {
   constructor(name, startingRoom) {
@@ -32,23 +33,24 @@ class Player {
 
   takeItem(itemName) {
     // Picks up an item from the current room into the player's inventory
-    // Your code here 
+    // Your code here
+
   }
 
   dropItem(itemName) {
     // Drops an item the player is holding into their current room
-    // Your code here 
+    // Your code here
   }
 
   eatItem(itemName) {
     // Allow the player to eat food items, but not non-food items
-    // Your code here 
+    // Your code here
   }
 
   getItemByName(name) {
     // Retrieves an item from a player's inventory by item name
 
-    // Your code here 
+    // Your code here
   }
 }
 
