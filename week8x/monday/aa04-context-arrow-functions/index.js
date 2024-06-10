@@ -10,3 +10,5 @@ function greetAfterNameChange(changeName, newName) {
 
 greetAfterNameChange(michelle.changeName, 'Elle');
   // should print out: Hi my name is Elle
+
+//^ For the solution that we implemented to prevent the error that was originally thrown when we run the code in this file, see the 'users.js' file within the 'classes' folder of this practice.
