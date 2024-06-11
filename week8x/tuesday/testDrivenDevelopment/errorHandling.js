@@ -67,7 +67,7 @@ function printNumber(num) {
 
 printNumber(25); // prints "The number is 25"
 
-printNumber("string");
+// printNumber("string");
 
 // Error: Input must be a number
 //     at printNumber (/home/joshuamaxey/aA/bootcamp/gitBootcamp/week8x/tuesday/testDrivenDevelopment/errorHandling.js:64:15)
@@ -78,3 +78,84 @@ printNumber("string");
 //     at Module._load (node:internal/modules/cjs/loader:1019:12)
 //     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:128:12)
 //     at node:internal/main/run_main_module:28:49
+
+//^ Regularly, throwing an error stops program execution. If we want to throw an error WITHOUT stopping program execution, we can use a try...catch block:
+
+function safeDivide(a, b) {
+
+    if (b === 0) {
+        throw new Error("Cannot divide by 0");
+    } else {
+        return a / b;
+    }
+};
+
+try {
+    console.log(safeDivide(30, 5)); // prints 6
+} catch (error) {
+    console.error(error.name + ": " + error.message);
+}
+
+//^ Here, our function ran correctly because we provided two valid arguments for (a) and (b) within the try/catch block. Next, lets see what happens when we provide an invalid argument:
+
+try {
+    console.log(safeDivide(30, 0));
+} catch (error) {
+    console.error(error.name + ": " + error.message); // prints "Error: Cannot divide by 0"
+}
+
+//^ If we add another console.log after the error is caught, we can see that catching this error prevents the program from terminating and allows us to continue program execution:
+
+console.log("Program is still running after error is caught.") // prints the message correctly
+
+//! Catching Known Errors
+
+//^ You can combine try...catch blocks with JavaScript's built-in errors and the instanceof operator to catch specific types of errors:
+
+function callThatArg(arg) {
+    arg(); // This throws a typeError becaus the function is expecting another function as an argument, which is why we try to invoke the argument as if it were a function in line 116. We're gonna pass it a number instead of a function. Since we can't 'call' a number the same way we might call a function, we'll throw a TypeError
+}
+
+try {
+    callThatArg(42);
+    console.log("call successful"); // this line won't execute because we cann't 'call' a number
+} catch (error) {
+
+    if (error instanceof TypeError) {
+        console.error(`Wrong Type: ${error.message}`); // Since our error will be a TypeError, we print this error message to the console
+    } else {
+
+        console.error(error.mesage); // this line will execute if our error is not a TypeError
+    }
+}
+
+console.log("Code is still executing."); // Because we used a try...catch block, our code never stopped executing and this message is printed to the console.
+
+//^ Note that SyntaxErrors cannot be caught with a try...catch blocks because SyntaxErrors occur at COMPILE TIME, not RUNTIME. Errors that happen at COMPILE TIME cannot be caught using try...catch blocks.
+
+//! Finally
+
+//^ Our 'finally' block can be added to the end of our try...catch statement and will run whether an error occurs or not. It always runs:
+
+function trySafeDivide(n) {
+
+    try {
+        console.log(safeDivide(30, n));
+    } catch (error) {
+        console.error(error.name + ": " + error.message);
+        return;
+    } finally {
+        console.log("The finally block ALWAYS runs");
+    }
+}
+
+trySafeDivide(1);
+// 30
+// The finally block ALWAYS runs
+
+trySafeDivide(0);
+// Error:
+// Cannot divide by 0
+// The finally block ALWAYS runs
+
+//^ Here, we can see that the FINALLY block runs even though the function returns after the error is caught.
