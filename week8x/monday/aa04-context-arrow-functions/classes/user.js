@@ -14,7 +14,7 @@ class User {
   }
 }
 
-// To fix the TypeError that was thrown when we ran the index.js file, we can convert the changeName method to an arrow function. This effectively prevents the loss of context that caused the error to be thrown. //& Note that MDN advises against ever using arrow functions as class methods.
+// To fix the TypeError that was thrown when we ran the index.js file, we can convert the changeName method to an arrow function. This effectively prevents the loss of context that caused the error to be thrown.
 
 // Arrow functions as instance methods work, but are not memory efficient
 

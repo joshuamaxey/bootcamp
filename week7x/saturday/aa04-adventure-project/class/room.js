@@ -1,3 +1,5 @@
+const Item = require('./item')
+
 class Room {
   constructor(name, description) {
     this.name = name;
@@ -43,7 +45,13 @@ class Room {
 
   getItemByName(name) {
     // Retrieves an item from a room by item name
-    // Your code here 
+    for (let i = 0; i < this.items.length; i++) {
+
+      if (this.items[i].name === name) {
+
+        return this.items[i];
+      }
+    }
   }
 }
 

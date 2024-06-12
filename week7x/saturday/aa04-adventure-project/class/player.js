@@ -1,5 +1,6 @@
 const { Food } = require('./food');
 const { Room } = require('./room');
+const { Item } = require('./item')
 
 class Player {
   constructor(name, startingRoom) {
@@ -34,7 +35,8 @@ class Player {
   takeItem(itemName) {
     // Picks up an item from the current room into the player's inventory
     // Your code here
-
+    this.items.push(itemName);
+    return this.items;
   }
 
   dropItem(itemName) {
