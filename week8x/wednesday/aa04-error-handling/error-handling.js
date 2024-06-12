@@ -14,7 +14,7 @@ console.log(res);
 // tests
 sayName("Alex");
 sayName(1);
-// Your code here 
+// Your code here
 
 // 3.
 function greet(greeting) {
@@ -24,4 +24,3 @@ function greet(greeting) {
 
   console.log(greeting);
 }
-
