@@ -45,11 +45,11 @@ class Room {
 
   getItemByName(name) {
     // Retrieves an item from a room by item name
-    for (let i = 0; i < this.items.length; i++) {
+    for (let i = 0; i < this.items.length; i++) { // iterate through the room's items list, which is an array
 
-      if (this.items[i].name === name) {
+      if (this.items[i].name === name) { // The element located at the current index of the array should be an object. Check to see that object has a .name property, and if it does, if that name matches the name that was provided as an argument
 
-        return this.items[i];
+        return this.items[i]; // if the name of the object located at the current index of the array matches the name that was provided as an argument, then we have found the item and can return it.
       }
     }
   }
