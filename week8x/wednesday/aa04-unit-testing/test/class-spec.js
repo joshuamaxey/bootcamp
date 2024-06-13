@@ -7,17 +7,19 @@ describe("Word", function () {
   describe("Word constructor function", function () {
     it('should have a "word" property', function () {
 
-      let word = new Word("test")
+      let word = new Word("test") // create a new instance of the Word class, word, with the '.word' property "test"
 
-      expect(word.word).to.equal("test")
+      expect(word.word).to.equal("test") // Check to see if the '.word' property of 'word' is "test"
+
       // expect.fail("replace with your code");
     });
 
     it('should set the "word" property when a new word is created', function () {
 
-      let word = new Word("word")
+      let word = new Word("word") // Create a new instance of the Word class, word, with the .word property "word"
 
-      expect(word.word).to.equal("word")
+      expect(word.word).to.equal("word") // Check to see if the word.word property is "word"
+
       // expect.fail("replace with your code");
     });
   });
@@ -25,9 +27,9 @@ describe("Word", function () {
   describe("removeVowels function", function () {
     it("should return a the word with all vowels removed", function () {
 
-      let word1 = new Word("Apple");
-      let word2 = new Word("Test");
-      let word3 = new Word("Orange");
+      let word1 = new Word("Apple"); // try word that begins with an Uppercase vowel and has anothr vowel at the end
+      let word2 = new Word("Test"); // create a new Word that begins with an uppercase Consonant and has one vowel
+      let word3 = new Word("Orange"); // create new Word that begins with an uppercase vowel and has several more vowels throughout
 
       expect(word1.removeVowels()).to.equal("ppl");
       expect(word2.removeVowels()).to.equal("Tst");
@@ -53,9 +55,9 @@ describe("Word", function () {
   describe("pigLatin function", function () {
     it("should return the word converted to pig latin", function () {
 
-      let word1 = new Word("Test");
-      let word2 = new Word("JavaScript");
-      let word3 = new Word("Apple");
+      let word1 = new Word("Test"); // create new Word taht begins with an uppercase consonant
+      let word2 = new Word("JavaScript"); // create new Word that begins with an uppercase consonant, has another uppercase consonant in the middle, and vowels throughout
+      let word3 = new Word("Apple"); // create new Word that begins with an uppercase Vowel
 
       expect(word1.pigLatin()).to.equal("estTay");
       expect(word2.pigLatin()).to.equal("avaScriptJay");
