@@ -6,6 +6,10 @@ function isFive(num) {
 
   else return false;
 
+  //^ alternatively:
+
+  return num === 5;
+
 }
 
 function isOdd(number) {
@@ -19,6 +23,10 @@ function isOdd(number) {
 
   // should return false if num is even
   if (number % 2 === 0) return false;
+
+  //^ alternatively:
+
+  return number % 2 !== 0; // handles first two conditions
 }
 
 function myRange(min, max, step = 1) {

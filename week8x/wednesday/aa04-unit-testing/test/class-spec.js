@@ -9,18 +9,14 @@ describe("Word", function () {
 
       let word = new Word("test") // create a new instance of the Word class, word, with the '.word' property "test"
 
-      expect(word.word).to.equal("test") // Check to see if the '.word' property of 'word' is "test"
-
-      // expect.fail("replace with your code");
+      expect(word).to.have.property("word") // Check to see if our new word has a .word property
     });
 
     it('should set the "word" property when a new word is created', function () {
 
-      let word = new Word("word") // Create a new instance of the Word class, word, with the .word property "word"
+      let word = new Word("test") // Create a new instance of the Word class, word, with the .word property "test"
 
-      expect(word.word).to.equal("word") // Check to see if the word.word property is "word"
-
-      // expect.fail("replace with your code");
+      expect(word.word).to.equal("test") // Check to see if the word.word property is "test"
     });
   });
 
@@ -34,7 +30,6 @@ describe("Word", function () {
       expect(word1.removeVowels()).to.equal("ppl");
       expect(word2.removeVowels()).to.equal("Tst");
       expect(word3.removeVowels()).to.equal("rng");
-      // expect.fail("replace with your code");
     });
   });
 
@@ -48,7 +43,6 @@ describe("Word", function () {
       expect(word1.removeConsonants()).to.equal("ui");
       expect(word2.removeConsonants()).to.equal("iae");
       expect(word3.removeConsonants()).to.equal("aai");
-      // expect.fail("replace with your code");
     });
   });
 
@@ -62,7 +56,6 @@ describe("Word", function () {
       expect(word1.pigLatin()).to.equal("estTay");
       expect(word2.pigLatin()).to.equal("avaScriptJay");
       expect(word3.pigLatin()).to.equal("Appleyay");
-      // expect.fail("replace with your code");
     });
   });
 });
