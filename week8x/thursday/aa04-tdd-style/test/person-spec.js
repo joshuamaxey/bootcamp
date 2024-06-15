@@ -94,12 +94,17 @@ describe('Person class', function() {
 
     it ("update(obj) should update name and age properties with correct input", function() {
 
-        expect(person1.update(person2)).to.equal(person2);
+        expect(person1.update(person2)).to.eql(person2); // Here we need to check for DEEP equality (using eql, to check if the properties of the objects are the same) instead of STRICT equality (using equal, to check if person1 and person2 are the same object) because the properties of these objects should be identical but they are still two distinct and independent objects.
     })
 
     it ('should have tryUpdate(obj) method', function() {
 
         expect(person1.tryUpdate).to.be.a("function");
+    })
+
+    it ("tryUpdate(obj) should return true if update is successful and false if unsuccessful", function() {
+
+
     })
 
     it ('should have greetAll(obj) static method', function() {

@@ -19,24 +19,23 @@ class Person {
   update(obj) {
 
     if (typeof obj !== "object") {
-      throw new TypeError("input must be an object")
+      throw new TypeError("input must be an object");
     } else if (Array.isArray(obj)) {
-      throw new TypeError("input must be an object")
+      throw new TypeError("input must be an object");
     } else if (!obj.name || !obj.age) {
-      throw new TypeError("input must have .name and .age properties")
+      throw new TypeError("input must have .name and .age properties");
     }
 
     this.name = obj.name;
     this.age = obj.age;
-
-    console.log(this)
-    console.log(obj);
 
     return this;
   };
 
   tryUpdate(obj) {
 
+    if(this.update(obj)) return true;
+    if(!this.update(obj)) return false;
   };
 
   static greetAll(obj) {
