@@ -63,3 +63,55 @@ let arr = [255, 256, 43690, 1431655765]
 
 //* 116      117      118      119
 //* 01010101 01010101 01010101 01010101
+
+//^ This is what our memory slots (the same as line 30 - 40 above) look like after we've translated our numbers to base-2 and then copied them over.
+
+//! Array Indexing
+
+// Arrays are the most space-efficient way to store data
+
+//^ Arrays also allow the fasted access to data through indexing.
+
+// Lets look at our array again:
+
+arr = [255, 256, 43690, 1431655765];
+
+// What do we do if we want to access the third element in this array?
+
+// Indexes start at 0, so we would call arr[2]:
+
+console.log(arr[2]); // prints our value: 43690
+
+//^ Whenever we access any certain element of an array at a given index, our code runs this equation:
+
+//& valueAddress = startAddress + index * sizeof(dataType)
+
+//^ In our example:
+
+    //& The array starts at memory address 104
+    //& The index is 2
+    //& the dataType size is 4 bytes (32-bit)
+
+// So when we plug into our equation, we get...
+
+//& valueAddress = 104 + 2 * 4
+
+//^ 104 + 2 * 4 simplifies to 112, which is the 'valueAddress' (the memory address) where our third value, 43690, is located (in its binary form)
+
+// Because indices are located in this way (based on the startAddress), the entire array must be located in a contiguous block of memory in order for our formula to work.
+
+// Similarly, since the offset is calculated based on (multiplying) the data size, all items in the array must be of the same data type.
+
+// And finally, sice indices are numerical, the array must be stored in an ordered sequence.
+
+// Thus, we have our definition:
+
+//^ An array is a sequence of elements of the same type stored in a contiguous block of memory
+
+// All characteristics of this definition are necessary in order to achieve the O(1) indexing speed of our equation.
+
+//^ In summary:
+
+// Since indices are located based on the offset, the entire array must occupy a contiguous block of memory. Since the offset is calculated based on data size, all items in the array must be of the same data type. And since the indices are numerical, the array must be stored in an ordered sequence.
+
+//! Arrays in Different Programming Languages
