@@ -115,3 +115,5 @@ console.log(arr[2]); // prints our value: 43690
 // Since indices are located based on the offset, the entire array must occupy a contiguous block of memory. Since the offset is calculated based on data size, all items in the array must be of the same data type. And since the indices are numerical, the array must be stored in an ordered sequence.
 
 //! Arrays in Different Programming Languages
+
+// In JavaScript, elements in an array are stored as generic data objects and their type and value is interpreted at runtime. The array itself contains only a sequence of pointers (memory addresses), which all have the same data size. This is how JavaScript is able to store multiple data types in arrays.
