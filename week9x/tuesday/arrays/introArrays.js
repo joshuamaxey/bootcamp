@@ -21,7 +21,9 @@
 
 let arr = [255, 256, 43690, 1431655765]
 
-// Since these are '32-bit integers' (whatever the fuck that means), each number requires FOUR bytes of storage space. All numbers take up the same amount of space (FOUR BYTES) regardless of the size of the integer.
+//^ Since these are '32-bit integers,' each number requires FOUR bytes of storage space. Each byte (memory address, such as 104, 105, etc below) is made of 8 'bits' so every 4 'bytes' is 32 'bits' which is where "32-bit" comes from. Each number requires 4 bytes, or 32 bits, of space to store in its binary form.
+
+// All numbers take up the same amount of space (FOUR BYTES) regardless of the size of the integer.
 
 // Therefore storing these four integers requires 16 BYTES of memory.
 
@@ -53,16 +55,16 @@ let arr = [255, 256, 43690, 1431655765]
 // After translation, our values can be written into the memory that has been allocated to the array:
 
 //* 104      105      106      107
-//* 00000000 00000000 00000000 11111111
+//* 00000000 00000000 00000000 11111111 (255)
 
 //* 108      109      110      111
-//* 00000000 00000000 00000001 00000000
+//* 00000000 00000000 00000001 00000000 (256)
 
 //* 112      113      114      115
-//* 00000000 00000000 10101010 10101010
+//* 00000000 00000000 10101010 10101010 (43690)
 
 //* 116      117      118      119
-//* 01010101 01010101 01010101 01010101
+//* 01010101 01010101 01010101 01010101 (1431655765)
 
 //^ This is what our memory slots (the same as line 30 - 40 above) look like after we've translated our numbers to base-2 and then copied them over.
 
