@@ -113,7 +113,7 @@ function linkedListSearch(linkedListNode, target) {
     return linkedListSearch(linkedListNode.next, target); // Otherwise, recursively call our function on the next node;
 }
 
-let llSearch1 = linkedListSearch(ll.head, 3);
+let llSearch1 = linkedListSearch(node1, 3);
 
 console.log(llSearch1);
 
@@ -122,6 +122,8 @@ console.log(llSearch1);
 //& Right now, the function only works if I pass in the head node of a linked list [ linkedListSearch(linkedList.head, target) ]. If I try to pass in a linkedList itself directly, I throw a TypeError: Cannot Read properties of undefined (reading 'value' )
 
 //& I want to be able to pass in a linked list itself instead of having to pass in the head node of that linkedList directly. How might I change my code so that I'm able to do that?
+
+//^ QUESTION ANSWERED: We often use the 'head' node in a linked list to represent the list itself. So instead of creating a 'linked list' class the way that I did and then trying to pass an instance of that class into the function (now seems like an unnecessary step), I can just pass in the head node (node1). When I do this, the function works correctly. This is also standard procedure, as the head node is regularly used to represent/pass in a whole linked list.
 
 // Sometimes we want to visit each node in a tree without searching for a target. The following algorithm sums up the values in a binary tree:
 
