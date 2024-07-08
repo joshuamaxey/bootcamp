@@ -68,9 +68,9 @@ class HashTable {
       // }
 
       // current.next = kvp;
+      this.count++
     }
 
-    this.count++
   }
 
   insert(key, value) {
