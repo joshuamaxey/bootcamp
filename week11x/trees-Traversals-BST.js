@@ -513,7 +513,7 @@ depthFirstTraversal(tN4);
 
 //^ If we compare the order of our printed values on lines 506 - 512 with the visualization of our tree on lines 475 - 479 above, we can see that our depth-first traversal printed 4, then 6, then 7 first (the entire right side of the tree), then printed 5 as we pop our way back up the stack. Then it prints 2, then 3, the entire right-most path of our tree's left branch. Then, we finally print 1 as we pop our way back up the left branch of the tree. This is exactly what we expect from a depth-first traversal, that we would travel all the way down each branch of the tree, printing values as we go, and then pop back up the tree.
 
-//& What are some of the use cases for depth-first and breadth-first traversal? When would we favor one over the other? Are there any cases where using one over the other would significantly affect the effectiveness of our code?
+//& What are some of the use cases for depth-first and breadth-first traversal? When would we favor one over the other? Are there any cases where using one over the other would significantly affect the effectiveness of our code? I'm looking to find a way to distinguish these different traversal methods from one another a little bit based on their functionality.
 
 //! Binary Search Trees
 
@@ -560,3 +560,109 @@ depthFirstTraversal(tN4);
 // The data in the tree above is NOT sorted. For instance, the value 4 is greater than 2, so it should NOT be the left sub-tree of 2 since each node to the left of any node must be LESS in value than that node.
 
 //! Searching a Binary Search Tree
+
+//^ Before we construct a Binary Search Tree, here's a copy of our TreeNode constructor for reference:
+
+// * class TreeNode {
+// *     constructor(value) {
+// *         this.value = value;
+// *         this.left = null;
+// *         this.right = null;
+// *     }
+// * }
+
+let bstNode8 = new TreeNode(8);
+
+let bstNode3 = new TreeNode(3);
+let bstNode10 = new TreeNode(10);
+
+let bstNode1 = new TreeNode(1);
+let bstNode6 = new TreeNode(6);
+let bstNode14 = new TreeNode(14);
+
+let bstNode4 = new TreeNode(4);
+let bstNode7 = new TreeNode(7);
+let bstNode13 = new TreeNode(13);
+
+bstNode8.left = bstNode3;
+bstNode8.right = bstNode10;
+
+bstNode3.left = bstNode1;
+bstNode3.right = bstNode6;
+
+bstNode6.left = bstNode4;
+bstNode6.right = bstNode7;
+
+bstNode10.right = bstNode14;
+
+bstNode14.left = bstNode13;
+
+//^ Here is the visualization of our Binary Search Tree:
+
+//*              8
+//*            /   \
+//*           3     10
+//*         /  \      \
+//*       1     6      14
+//*           /  \     /
+//*          4    7   13
+
+//^ Here's a recursive implementation of a search algorithm for searching a binary search tree
+
+function searchBSTr(root, target) {
+
+    // if the root is null, return false
+    if (root === null) return false;
+
+    // if the root node's value is the target, return true;
+    if (root.value === target) return true;
+
+    // if the target is LESS than the root node's value, recursively search the node's LEFT child
+    if (target < root.value) {
+        return searchBSTr(root.left, target);
+    }
+
+    // if the target is GREATER than the root node's value, recursively search the node's RIGHT child
+    if (target > root.value) {
+        return searchBSTr(root.right, target);
+    }
+};
+
+console.log(searchBSTr(bstNode8, 6)); // true
+console.log(searchBSTr(bstNode8, 14)); // true
+console.log(searchBSTr(bstNode8, 10)); // true
+console.log(searchBSTr(bstNode8, 4)); // true
+
+console.log(searchBSTr(bstNode8, 28)); // false
+console.log(searchBSTr(bstNode8, 17)); // false
+
+//^ We can also use an iterative implementation
+
+function searchBSTi(root, target) {
+
+    // store the root node in a variable 'currentNode'
+    let currentNode = root;
+
+    // While the currentNode is NOT null (while the tree is not empty and while we have not yet reached the end)...
+    while (currentNode !== null) {
+
+        // If the value of the current node is our target, return true;
+        if (target === currentNode.value) return true;
+
+        // If the target is LESS than the value of the currentNode...
+        else if (target < currentNode.value) {
+            // ...Traverse to the left
+            currentNode = currentNode.left;
+        }
+
+        // Otherwise (if the target is GREATER than the value of currentNode), traverse to the right.
+        else currentNode = currentNode.right;
+    }
+
+    // If we traverse the entire tree without finding the target, return false
+    return false;
+}
+
+//^ Note that our search algorithms for a Binary Search Trees have an AVERAGE time complexity of O(log n)
+
+//^ Also note that they have a WORST-CASE time complexity of O(n), if a tree is very unbalanced
