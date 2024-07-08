@@ -516,3 +516,47 @@ depthFirstTraversal(tN4);
 //& What are some of the use cases for depth-first and breadth-first traversal? When would we favor one over the other? Are there any cases where using one over the other would significantly affect the effectiveness of our code?
 
 //! Binary Search Trees
+
+//^ A Binary Search Tree is distinguished from regular Binary Trees by the fact that data must be SORTED in a binary search tree before we can perform a binary search.
+
+//^ Lets review our terminology again:
+
+// Node: Contains a value and pointers to other nodes
+
+// Edge: The 'pointer' that acts as a connection betwen nodes
+
+// Root Node: The 'topmost' node in a tree. Root nodes have no parent node.
+
+// Neighbor: A child node OR a parent node
+
+// Subtree: A tree whose root is the child node of another node in the tree
+
+// Branch: A node with at LEAST one child
+
+// Leaf: A node with no children (usually points to null)
+
+// Level: The number of edges between a certain node and the root
+
+// Width: The number of nodes on a given level
+
+// Height: The number of edges between the root node and the bottom-most node
+
+//^ Properties of a Binary Search Tree
+
+// Consists of nodes which each contain a value and two pointers: one left, one right. In a BST, these pointers always point downward (can move from 1 --> 2, but not from 1 <--- 2)
+
+// A binary Search Tree must be SORTED, which means that every node contained in the left branch of any node will be LESS than the value of that node while every node in the RIGHT branch will be GREATER than that node's value.
+
+// All binary search trees are binary trees, but all binary trees are NOT binary search trees.
+
+//^ This is a binary tree, but NOT a binary search tree:
+
+//*           1
+//*         /   \
+//*        2     3
+//*       / \   / \
+//*      4   5 6   7
+
+// The data in the tree above is NOT sorted. For instance, the value 4 is greater than 2, so it should NOT be the left sub-tree of 2 since each node to the left of any node must be LESS in value than that node.
+
+//! Searching a Binary Search Tree
