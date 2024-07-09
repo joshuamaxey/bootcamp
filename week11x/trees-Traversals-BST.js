@@ -491,13 +491,17 @@ function depthFirstTraversal(root) {
         let currentNode = stack.pop(); // pop the currentNode from the stack
         console.log(currentNode.value); // print the value of the currentNode
 
+        if (currentNode.right !== null) { // If the currentNode has a right child...
+            stack.push(currentNode.right); // ...push that child to the top of the stack;
+        }
+
         if (currentNode.left !== null) { // If the currentNode has a left child...
             stack.push(currentNode.left); // ...push that child to the stack
         }
 
-        if (currentNode.right !== null) { // If the currentNode has a right child...
-            stack.push(currentNode.right); // ...push that child to the top of the stack;
-        }
+        // if (currentNode.right !== null) { // If the currentNode has a right child...
+        //     stack.push(currentNode.right); // ...push that child to the top of the stack;
+        // }
     }
 };
 
