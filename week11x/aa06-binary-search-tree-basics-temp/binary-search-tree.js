@@ -15,41 +15,43 @@ class BinarySearchTree {
 
   insert(val, currentNode=this.root) {
 
-    let newNode = new TreeNode(val);
+    let newNode = new TreeNode(val); // create a newNode using the value provided as input
 
-    if (this.root === null) {
+    if (this.root === null) { // If the tree is empty...
 
-      this.root = newNode;
+      this.root = newNode; // Make our newNode the new root
       return;
     }
 
-    while (currentNode) {
+    //!==================================iterative
 
-      if (newNode.val < currentNode.val) {
+    while (currentNode) { // While the tree is not empty...
 
-        if (!currentNode.left) {
+      if (newNode.val < currentNode.val) { // if the value of our newNode is LESS Than the value of the currentNode...
 
-          currentNode.left = newNode;
-          return
-        }
+        if (!currentNode.left) { // ...and if the currentNode has no left child...
 
-        currentNode = currentNode.left
-      }
-
-      if (newNode.val > currentNode.val) {
-
-        if (!currentNode.right) {
-
-          currentNode.right = newNode;
+          currentNode.left = newNode; // add our newNode to the left of the currentNode
           return;
         }
 
-        currentNode = currentNode.right
+        currentNode = currentNode.left // Otherwise, if the currentNode does have a left child, move to that child
+      }
+
+      if (newNode.val > currentNode.val) { // If the value of our newNode is GREATER than the value of our currentNode...
+
+        if (!currentNode.right) { // ...and if our currentNode has no right child...
+
+          currentNode.right = newNode; // then add our newNode to the right of the currentNode
+          return;
+        }
+
+        currentNode = currentNode.right // Otherwise, if the currentNode does have a right child, move to that child
       }
 
     }
 
-    //!==================================
+    //!==================================Recursive if() blocks
 
     // if (newNode.val < currentNode.val) {
 
@@ -71,7 +73,7 @@ class BinarySearchTree {
     //   }
     // }
 
-    //!==============================
+    //!==============================Recursive if()/else() block
 
     // if (val < currentNode.val) {
 
@@ -164,12 +166,50 @@ class BinarySearchTree {
 
     // Breadth First Traversal - Iterative
   breadthFirstTraversal() {
-    // Your code here
+
+    let queue = [];
+
+    queue.push(this.root);
+
+    while (queue.length > 0) {
+
+      let currentNode = queue.shift();
+      console.log(currentNode.val);
+
+      if (currentNode.left) {
+
+        queue.push(currentNode.left);
+      }
+
+      if (currentNode.right) {
+
+        queue.push(currentNode.right);
+      }
+    }
   }
 
   // Depth First Traversal - Iterative
   depthFirstTraversal() {
-    // Your code here
+
+    let stack = [];
+
+    stack.push(this.root);
+
+    while (stack.length > 0) {
+
+      let currentNode = stack.pop();
+      console.log(currentNode.val);
+
+      if (currentNode.left) {
+
+        stack.push(currentNode.left);
+      }
+
+      if (currentNode.right) {
+
+        stack.push(currentNode.right);
+      }
+    }
   }
 }
 
