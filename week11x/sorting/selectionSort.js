@@ -36,6 +36,10 @@ function selectionSortI(arr) {
     return arr; // return the sorted potion of the array
 }
 
+//* Time Complexity: O(n^2)
+
+//* Space Complexity: O(1)
+
 console.log(selectionSortI(array)); // [0, 1, 2, 3, 4]
 
 //! Out-of-Place
@@ -64,5 +68,9 @@ function selectionSortO(arr) {
     }
     return sorted; // Finally, return the sorted version of the array
 }
+
+//* Time Complexity: O(n^2)
+
+//* Space Complexity: O(n)
 
 console.log(selectionSortO(array)); // [0, 1, 2, 3, 4]

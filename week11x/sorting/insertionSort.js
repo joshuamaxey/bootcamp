@@ -34,6 +34,10 @@ function insertionSortI(arr) {
 
 console.log(insertionSortI(array)); //
 
+//* Time Complexity: O(n^2)
+
+//* Space Complexity: O(1)
+
 //! Out-of-Place
 
 array = [3, 2, 0, 4, 1]; // [0, 1, 2, 3, 4]
@@ -67,3 +71,7 @@ function insertionSortO(arr) {
 }
 
 console.log(insertionSortO(array)); // [0, 1, 2, 3, 4]
+
+//* Time Complexity: O(n^2)
+
+//* Space Complexity: O(n)

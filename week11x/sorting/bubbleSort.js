@@ -35,6 +35,10 @@ function bubbleSort(arr) {
 console.log(bubbleSort(array));
 console.log(bubbleSort(array2));
 
+//* Time Complexity: O(n^2)
+
+//* Space Complexity: O(1)
+
 // console.log(array); //// If we choose NOT to return the mutated array on line 26, this step is necessary to view our mutated array after we invoke bubbleSort()
 
 //* Below is my initial, incorrect implementation of bubbleSort(). Because I set 'swapped' to false at the beginning of the loop, it is immediately reset to 'false' when the loop restarts even if a swap WAS made. The result is that line 41 runs after a single pass through the array, which means that we can only make one swap before the function returns.
