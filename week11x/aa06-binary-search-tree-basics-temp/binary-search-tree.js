@@ -25,53 +25,53 @@ class BinarySearchTree {
 
     //!==================================iterative
 
-    while (currentNode) { // While the tree is not empty...
+    // while (currentNode) { // While the tree is not empty...
 
-      if (newNode.val < currentNode.val) { // if the value of our newNode is LESS Than the value of the currentNode...
+    //   if (newNode.val < currentNode.val) { // if the value of our newNode is LESS Than the value of the currentNode...
 
-        if (!currentNode.left) { // ...and if the currentNode has no left child...
+    //     if (!currentNode.left) { // ...and if the currentNode has no left child...
 
-          currentNode.left = newNode; // add our newNode to the left of the currentNode
-          return;
-        }
+    //       currentNode.left = newNode; // add our newNode to the left of the currentNode
+    //       return;
+    //     }
 
-        currentNode = currentNode.left // Otherwise, if the currentNode does have a left child, move to that child
+    //     currentNode = currentNode.left // Otherwise, if the currentNode does have a left child, move to that child
+    //   }
+
+    //   if (newNode.val > currentNode.val) { // If the value of our newNode is GREATER than the value of our currentNode...
+
+    //     if (!currentNode.right) { // ...and if our currentNode has no right child...
+
+    //       currentNode.right = newNode; // then add our newNode to the right of the currentNode
+    //       return;
+    //     }
+
+    //     currentNode = currentNode.right // Otherwise, if the currentNode does have a right child, move to that child
+    //   }
+
+    // }
+
+    //!==================================Recursive explicit if() blocks
+
+    if (newNode.val < currentNode.val) {
+
+      if (currentNode.left === null) {
+        currentNode.left = newNode;
+        return;
+      } else {
+        this.insert(val, currentNode.left);
       }
-
-      if (newNode.val > currentNode.val) { // If the value of our newNode is GREATER than the value of our currentNode...
-
-        if (!currentNode.right) { // ...and if our currentNode has no right child...
-
-          currentNode.right = newNode; // then add our newNode to the right of the currentNode
-          return;
-        }
-
-        currentNode = currentNode.right // Otherwise, if the currentNode does have a right child, move to that child
-      }
-
     }
 
-    //!==================================Recursive if() blocks
+    if (newNode.val > currentNode.val) {
 
-    // if (newNode.val < currentNode.val) {
-
-    //   if (currentNode.left === null) {
-    //     currentNode.left = newNode;
-    //     return;
-    //   } else {
-    //     this.insert(val, currentNode.left);
-    //   }
-    // }
-
-    // if (newNode.val > currentNode.val) {
-
-    //   if (currentNode.right === null) {
-    //     currentNode.right = newNode;
-    //     return;
-    //   } else {
-    //     this.insert(val, currentNode.right);
-    //   }
-    // }
+      if (currentNode.right === null) {
+        currentNode.right = newNode;
+        return;
+      } else {
+        this.insert(val, currentNode.right);
+      }
+    }
 
     //!==============================Recursive if()/else() block
 
