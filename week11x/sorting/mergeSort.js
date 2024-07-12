@@ -71,4 +71,8 @@ function mergeSort(arr) {
     return result;
   }
 
-  console.log(mergeSort(array))
+  console.log(mergeSort(array)); // [0, 1, 2, 3, 4]
+
+  //* Time Complexity: O(n log n)
+
+  //* Space Complexity: O(n log n)
