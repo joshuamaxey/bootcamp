@@ -2,6 +2,8 @@
 
 let array = [3, 2, 0, 4, 1];
 
+let array2 = [5, 7, 9, 23, 16]
+
 function bubbleSort(arr) {
 
     let swapped; // initialize a 'swapped' variable to act as a flag which will indicate whether or not a swap has been performed within the current iteration of our loop
@@ -25,6 +27,7 @@ function bubbleSort(arr) {
 }
 
 console.log(bubbleSort(array));
+console.log(bubbleSort(array2));
 
 // console.log(array); //// If we choose NOT to return the mutated array on line 26, this step is necessary to view our mutated array after we invoke bubbleSort()
 
