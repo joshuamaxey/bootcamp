@@ -1,5 +1,11 @@
 //! Bubble Sort
 
+//^ 1. Iterate through the array
+//^ 2. If the value located at the current index is greater than its neighbor to the right, swap their values
+//^ 3. If we reach the end of our array and no swaps have occurred, return;
+//^ 4. Otherwise, repeat from the beginning
+//* 5. Additional step for simplicity when debugging, return the mutated array at the end of the function.
+
 let array = [3, 2, 0, 4, 1];
 
 let array2 = [5, 7, 9, 23, 16]
