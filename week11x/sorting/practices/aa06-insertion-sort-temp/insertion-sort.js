@@ -18,7 +18,37 @@ function insertionSort(arr) {
   Return the sorted array
   */
 
-  // Your code here 
+  let divider = 1;
+
+  while (divider < arr.length) {
+
+    console.log(arr.join(","));
+
+    let val = arr[divider];
+
+    let i = divider;
+
+    while (i > 0) {
+
+      if (arr[i - 1] < val) {
+
+        break; // insertion point found
+      }
+
+      else {
+
+        arr[i] = arr[i - 1];
+
+        i--;
+      }
+    }
+
+    arr[i] = val;
+
+    divider++;
+  }
+
+  return arr;
 }
 
 // In-place Insertion Sort
@@ -40,7 +70,7 @@ function insertionSortInPlace(arr) {
   Return the mutated array
   */
 
-  // Your code here 
+  // Your code here
 }
 
 module.exports = [insertionSort, insertionSortInPlace];
