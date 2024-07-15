@@ -2,7 +2,7 @@
 
 // Breadth-first GRAPH traversal is very similar to TREE traversal. The difference is that when we perform a breadth-first traversal of a GRAPH, we must also keep track of our visited nodes. Keeping track of visited nodes prevents us from becoming caught infinite loops while working with cyclical graphs.
 
-//! Breadth-First Traversal Algorithm
+//! Breadth-First Graph Traversal Algorithm
 
 //^ 1. Create a queue and enqueue the starting node
 //^ 2. Create a SET to store visited nodes
@@ -11,11 +11,15 @@
 //^ 5. DO THE THING with the 'currentNode' (dequeued node)
 //^ 6. For each unvisited neighbor, add it to the 'visited nodes' AND to the back of the queue
 
-// As we can see from the steps outlined here, this algorithm for depth-first traversal of a GRAPH is the same as traversal of a TREE except that we add an extra step at the end. When we add the unvisited neighbors to the queue, we ALSO add those nodes to the 'visited' set
+// As we can see from the steps outlined here, this algorithm for depth-first traversal of a GRAPH is the same as traversal of a TREE except that we add an extra step at the end. When we add the unvisited neighbors to the queue, we ALSO add those nodes to the 'visited' set.
 
 //* Recall that a queue works like a line at the grocery store- First In, First Out. We push to the back of the queue, then we shift from the front of the queue
 
 //! Setting Up the Graph
+
+// We use an adjacency list (object, normally) to represent our graph. This distinguishes our graphs (and corresponding traversal algorithms) from trees, which are usually implemented using a linked list.
+
+// Additionally, note that our GRAPH traversal functions take two parameters: A graph, and the starting node of that graph. This distinguishes our graph traversal functions from our tree traversal functions, which only take one parameter: the head node.
 
 //^ The following adjacency list represents a graph:
 
