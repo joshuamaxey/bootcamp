@@ -24,7 +24,11 @@ console.log(nums.sort(compareNumbers)); // [2, 4, 8, 16, 32, 64, 128, 256, 512, 
 
 nums = [1024, 128, 16, 2, 256, 32, 4, 512, 64, 8];
 
+//* Ascending:
 console.log(nums.sort((a, b) => a - b)); // [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024];
+
+//* Descending:
+console.log(nums.sort((a, b) => b - a ));
 
 //! Funky Sorting with JavaScript's sort
 
