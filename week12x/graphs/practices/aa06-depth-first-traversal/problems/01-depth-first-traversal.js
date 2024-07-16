@@ -16,18 +16,38 @@ const adjList = {
 }
 
 function printDepthFirst(start) {
-  // Your code here 
+
+  let stack = []; // intitialize a stack for our depth-first traversal
+  let visited = new Set(); // initialize a new set to track which nodes we have visited
+
+  stack.push(start); // push the start node to our stack
+  visited.add(start); // add the start node to our 'visited' set
+
+  while (stack.length > 0) { // While the stack is not empty...
+
+    let currentNode = stack.pop(); // pop the current node from the top of the stack and save it in a variable 'currentNode'
+    console.log(currentNode); // print the currentNode to the console
+
+    for (let neighbor of adjList[currentNode]) { // For each neighbor of our currentNode
+
+      if (!visited.has(neighbor)) { // If the neighbor is NOT already present in our 'visited' set
+
+        stack.push(neighbor); // push the neighbor to our stack
+        visited.add(neighbor); // and add the neighbor to our visited set
+      }
+    }
+  }
 }
 
-// console.log("First Test:")
-// printDepthFirst(3); // Prints 1 through 6 in Depth-first order, starting with 3
-//                     // One possible solution:  3, 4, 6, 5, 2, 1
-// console.log("Second Test:")
-// printDepthFirst(6); // Prints 1 through 6 in Depth-first order, starting with 6
-//                     // One possible solution:  6, 4, 5, 2, 3, 1
-// console.log("Third Test:")
-// printDepthFirst(4); // Prints 1 through 6 in Depth-first order, starting with 4
-//                     // One possible solution:  4, 6, 5, 2, 3, 1
+console.log("First Test:")
+printDepthFirst(3); // Prints 1 through 6 in Depth-first order, starting with 3
+                    // One possible solution:  3, 4, 6, 5, 2, 1
+console.log("Second Test:")
+printDepthFirst(6); // Prints 1 through 6 in Depth-first order, starting with 6
+                    // One possible solution:  6, 4, 5, 2, 3, 1
+console.log("Third Test:")
+printDepthFirst(4); // Prints 1 through 6 in Depth-first order, starting with 4
+                    // One possible solution:  4, 6, 5, 2, 3, 1
 
 
 /******************** DO NOT MODIFY ANY CODE BELOW THIS LINE *****************/
