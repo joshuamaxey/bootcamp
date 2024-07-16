@@ -13,7 +13,27 @@ const adjList = {
 }
 
 function printBreadthFirst(start) {
-  // Your code here 
+
+  let queue = []; // initialize a queue to perform our breadth-first search
+  let visited = new Set(); // initialize a new set to track which nodes we have visited
+
+  queue.push(start); // enqueue the start node
+  visited.add(start); // add the start node to our 'visited' set
+
+  while (queue.length > 0) { // While the queue is not empty...
+
+    let currentNode = queue.shift(); // shift the current node off the front of the queue and save it in a variable 'currentNode
+    console.log(currentNode); // print the currentNode to the console
+
+    for (let neighbor of adjList[currentNode]) { // For each neighbor of our currentNode...
+
+      if (!visited.has(neighbor)) { // ...IF the neighbor is not already present in our 'visited' set...
+
+        queue.push(neighbor); // ...push the neighbor to the queue, and...
+        visited.add(neighbor); // ...add the neighbor to our visited set
+      }
+    }
+  }
 }
 
 // console.log("First Test:")
