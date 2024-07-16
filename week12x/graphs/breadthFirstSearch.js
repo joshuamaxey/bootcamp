@@ -57,6 +57,10 @@ function breadthFirstSearchGraph(graph, startNode, target) {
     return false; // Finally, if we have traversed the entire graph and NOT found the thing that we are looking for, return false (or throw an error, or whatever we need to do per the specs)
 };
 
+//* Time Complexity: O(n)
+
+//* Space Complexity: O(n)
+
 console.log(breadthFirstSearchGraph(adjList, 1, 4)); // true
 console.log(breadthFirstSearchGraph(adjList, 1, 3)); // true
 console.log(breadthFirstSearchGraph(adjList, 1, 2)); // true

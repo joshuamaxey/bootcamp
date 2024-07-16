@@ -54,6 +54,10 @@ function depthFirstTraversalGraph(graph, startNode) {
     }
 };
 
+//* Time Complexity: O(n)
+
+//* Space Complexity: O(n)
+
 depthFirstTraversalGraph(adjList, 1); // Prints:
 
 // 1
