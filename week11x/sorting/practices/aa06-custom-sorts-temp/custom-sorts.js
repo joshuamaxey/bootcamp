@@ -63,10 +63,11 @@ function frequencySort(arr) {
 
   return arr.sort((a, b) => {
 
+    // case 1: a and b appear the s;ame number of times -> sort in descending order
     if (count[a] === count[b]) return b - a;
-
+    // case 2: a appears more than b -> a should be after b
     else if (count[a] > count[b]) return 1;
-
+    // case 3: b appears more than a -> b should be after a
     else return -1;
   })
 }
