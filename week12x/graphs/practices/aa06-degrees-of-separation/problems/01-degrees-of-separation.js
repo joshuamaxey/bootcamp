@@ -50,7 +50,7 @@ function degreesOfSeparation(start, end) {
     let currentPath = queue.shift(); // shift our current path out of our queue and save it in a variable 'currentPath'
     let currentNode = currentPath[currentPath.length - 1]; // save the LAST element in our current path to a variable 'currentNode' (Do NOT shift or pop it off of the path)
 
-    if (currentNode === end) return currentPath.length - 1; // If our currentNode is our 'end' node, that means we have found a path from our start node to our end node. Return the currentPath.
+    if (currentNode === end) return currentPath.length - 1; // If our currentNode is our 'end' node, that means we have found a path from our start node to our end node. Return the currentPath.length - 1 (to get the degrees of separation).
 
     for (let neighbor of adjList[currentNode]) { // (If our currentNode is NOT our end node) For every neighbor of our currentNode...
 
@@ -68,9 +68,9 @@ function degreesOfSeparation(start, end) {
   return null; // If we traverse the entire graph without ever finding our 'end' node, that means that there is no path from our start node to our end node. Return null
 }
 
-// console.log(degreesOfSeparation(1, 3)); // -> 2
-// console.log(degreesOfSeparation(5, 2)); // -> 1
-// console.log(degreesOfSeparation(6, 1)); // -> null
+console.log(degreesOfSeparation(1, 3)); // -> 2
+console.log(degreesOfSeparation(5, 2)); // -> 1
+console.log(degreesOfSeparation(6, 1)); // -> null
 
 
 /******************** DO NOT MODIFY ANY CODE BELOW THIS LINE *****************/

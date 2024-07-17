@@ -54,7 +54,7 @@ function printDepthFirst(start) {
       stack.push(neighbor);
     }
   }
-}
+};
 
 console.log("First Test:")
 printDepthFirst(3); // Prints 1 through 6 in Depth-first order, starting with 3
