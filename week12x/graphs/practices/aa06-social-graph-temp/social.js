@@ -59,7 +59,35 @@ class SocialNetwork {
   }
 
   getRecommendedFollows(userID, degrees) {
-    // Your code here
+
+    let queue = [[userID]]; // Initialize a queue for our breadth-first traversal and then enqueue the starting 'path' (an array containing only the userID, which is our startNode in this context)
+    let visited = new Set(); // Initialize a new Set to track which nodes (users) we have visited.
+    let recommended = new Set(); // Initialize a new set to hold to hold the recommendations as we traverse the graph and look for 'recommended follows' within the specified degrees of separation from the provided user
+
+    visited.add(userID); // Add our userID (starNode) to the visited set
+
+    while (queue.length > 0) { // While the queue is not empty
+
+      let currentPath = queue.shift(); // Shift the current path off of the queue and save it in a varaible 'currentPath'
+      let currentNode = currentPath[currentPath.length - 1]; // save the last node in our path to a variable 'currentNode'
+
+      if ((currentPath.length - 1) === degrees) recommended.add(currentNode); // Check if we are the correct 'degree of separation' from the userID start node. If we are, add the current node (current user) to our 'recommended' set.
+
+      if ((currentPath.length - 1) < degrees) { // If we have not yet reached the correct degree of separation from our userID (startNode)...
+
+        for (let neighbor of this.follows[currentNode]) { // ...For each neighbor of the currentNode (current user)
+
+          if (!visited.has(neighbor)) { // If the current neighbor is not already present in our visited set...
+
+            visited.add(neighbor); // Add our neighbor to the visited set
+
+            queue.push([...currentPath, neighbor]); // Then push the currentPath and the current neighbor to the queue
+          }
+        }
+      }
+    }
+    recommended.delete(userID); // Check to see if our userID (user provided as input) is present in our 'recommended' set. If so, delete them.
+    return Array.from(recommended); // Then return a new array containing the users present in our recommended set.
   }
 }
 
