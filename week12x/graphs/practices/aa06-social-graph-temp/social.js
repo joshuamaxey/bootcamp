@@ -23,11 +23,19 @@ class SocialNetwork {
   }
 
   getUser(userID) {
-    // Your code here
+
+    if (!this.users[userID]) return null; // We check the 'users' object of the social network to see if the user with the provided userID exists (check to see if there is a 'userID' key in the object). If there is not, return null because the user with this ID does not exist.
+
+    return this.users[userID]; // Otherwise, if we do find this user within the 'users' object of the socialNetwork, return that user. Note that the 'user' is actually an object with two properties: id and name. This user is the 'value' corresponding to the userID 'key' within the 'users' object of the social network.
   }
 
   follow(userID1, userID2) {
-    // Your code here
+
+    if (!this.users[userID1] || !this.users[userID2]) return false; // Check the 'users' object of the social network for user 1 and user 2 by searching for their 'userID' keys to verify that both users exist. If either one of the users does not exist, then our follow will fail. If that is the case, return false.
+
+    this.follows[userID1].add(userID2); // Otherwise, if both users exist, perform the 'follow' by adding user2 (by their user id (userID2)) to user 1's 'follows' set.
+
+    return this.follows[userID1].has(userID2); // Check to see if user 1's 'follows' set has user 2 in it. If so, then the follow was successful. Return true. Otherwise, if it is not present, thenn the follow has failed. Return false.
   }
 
   getFollows(userID) {
