@@ -17,24 +17,41 @@ const adjList = {
 
 function printDepthFirst(start) {
 
-  let stack = []; // intitialize a stack for our depth-first traversal
-  let visited = new Set(); // initialize a new set to track which nodes we have visited
+  // let stack = []; // intitialize a stack for our depth-first traversal
+  // let visited = new Set(); // initialize a new set to track which nodes we have visited
 
-  stack.push(start); // push the start node to our stack
-  visited.add(start); // add the start node to our 'visited' set
+  // stack.push(start); // push the start node to our stack
+  // visited.add(start); // add the start node to our 'visited' set
 
-  while (stack.length > 0) { // While the stack is not empty...
+  // while (stack.length > 0) { // While the stack is not empty...
 
-    let currentNode = stack.pop(); // pop the current node from the top of the stack and save it in a variable 'currentNode'
-    console.log(currentNode); // print the currentNode to the console
+  //   let currentNode = stack.pop(); // pop the current node from the top of the stack and save it in a variable 'currentNode'
+  //   console.log(currentNode); // print the currentNode to the console
 
-    for (let neighbor of adjList[currentNode]) { // For each neighbor of our currentNode
+  //   for (let neighbor of adjList[currentNode]) { // For each neighbor of our currentNode
 
-      if (!visited.has(neighbor)) { // If the neighbor is NOT already present in our 'visited' set
+  //     if (!visited.has(neighbor)) { // If the neighbor is NOT already present in our 'visited' set
 
-        stack.push(neighbor); // push the neighbor to our stack
-        visited.add(neighbor); // and add the neighbor to our visited set
-      }
+  //       stack.push(neighbor); // push the neighbor to our stack
+  //       visited.add(neighbor); // and add the neighbor to our visited set
+  //     }
+  //   }
+  // }
+
+  let stack = [start];
+  let visited = new Set();
+
+  while (stack.length) {
+
+    const num = stack.pop();
+    if (visited.has(num)) continue;
+
+    visited.add(num);
+    console.log(num);
+
+    for (let neighbor of adjList[num]) {
+
+      stack.push(neighbor);
     }
   }
 }
