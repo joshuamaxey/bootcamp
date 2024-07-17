@@ -35,15 +35,27 @@ class SocialNetwork {
 
     this.follows[userID1].add(userID2); // Otherwise, if both users exist, perform the 'follow' by adding user2 (by their user id (userID2)) to user 1's 'follows' set.
 
-    return this.follows[userID1].has(userID2); // Check to see if user 1's 'follows' set has user 2 in it. If so, then the follow was successful. Return true. Otherwise, if it is not present, thenn the follow has failed. Return false.
+    return this.follows[userID1].has(userID2); // Check to see if user 1's 'follows' set has user 2 in it. If so, then the follow was successful. Return true. Otherwise, if it is not present, then the follow has failed. Return false.
   }
 
   getFollows(userID) {
-    // Your code here
+
+    return this.follows[userID]; // The socialNetwork's 'follows' property is an object. It contains keys which represent users by their userID, and values which are sets that contain that user's follows. Here, we search for the 'userID' key within the social network's 'follows' object, then we return the set which contains that user's follows
   }
 
   getFollowers(userID) {
-    // Your code here
+
+    let followers = new Set(); // Initialize a new set to hold the followers of the provided user. This is necessary because there is no 'followers' property by default.
+
+    for (let user in this.follows) { // Iterate through every user in the socialNetwork's 'follows' object, one key at a time.
+
+      if (this.follows[user].has(userID)) { // Check if the current user in our loop has the user provided as input within their 'follows' set. If so, that means that they are following our user.
+
+        followers.add(parseInt(user)); // Convert the current user's 'key' (id number) from a string to an integer, then add them to our 'followers' set.
+        //^ This conversion is necessary because all 'keys' of an object in Javascript are strings, but we need to add the user by their numerical user id.
+      }
+    }
+    return followers; // Once we have iterated through the entire 'follows' object, found every follower of our user, and added them to our 'followers' set, return the set.
   }
 
   getRecommendedFollows(userID, degrees) {
