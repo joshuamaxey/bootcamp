@@ -10,7 +10,7 @@ function getNeighbors(row, col, graph) {
 
   // Return neighbors
 
-  // Your code here 
+  // Your code here
 }
 
 
@@ -37,7 +37,7 @@ function islandSize(row, col, graph) {
 
   // return size
 
-  // Your code here 
+  // Your code here
 }
 
 module.exports = [getNeighbors, islandSize];

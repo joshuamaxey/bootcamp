@@ -12,6 +12,10 @@ class SocialNetwork {
     this.currentID++ // We increment the socialNetwork's 'currentID' property for every new user, ensuring that we keep an accurate record of how many users there are within our social network.
     //^ (Ensures each new user gets a unique ID)
 
+    //! Alternatively (if you want to store 'this.currentID' in a variable for easier reference):
+    //* const userId = ++this.currentID;
+    //^ This will increment the userID BEFORE assigning it to the userId variable
+
     this.users[this.currentID] = {id: this.currentID, name: name} // Create a key-value pair within the 'users' object. The key will be the user's id (currentID). The value will be another object, which has two properties: the user's id and their name.
     //^ (Store's the user's ID and name)
 
@@ -27,6 +31,14 @@ class SocialNetwork {
     if (!this.users[userID]) return null; // We check the 'users' object of the social network to see if the user with the provided userID exists (check to see if there is a 'userID' key in the object). If there is not, return null because the user with this ID does not exist.
 
     return this.users[userID]; // Otherwise, if we do find this user within the 'users' object of the socialNetwork, return that user. Note that the 'user' is actually an object with two properties: id and name. This user is the 'value' corresponding to the userID 'key' within the 'users' object of the social network.
+
+    //! Alternatively
+
+    return this.users[userID] ? this.users[userID] : null
+
+    //! Alternatively
+
+    return this.users[userID] || null;
   }
 
   follow(userID1, userID2) {
@@ -53,6 +65,10 @@ class SocialNetwork {
 
         followers.add(parseInt(user)); // Convert the current user's 'key' (id number) from a string to an integer, then add them to our 'followers' set.
         //^ This conversion is necessary because all 'keys' of an object in Javascript are strings, but we need to add the user by their numerical user id.
+
+        //! Alternatively
+        //* followers.add(Number(user))
+        //^ Can use the Number constructor instead of parseInt
       }
     }
     return followers; // Once we have iterated through the entire 'follows' object, found every follower of our user, and added them to our 'followers' set, return the set.
