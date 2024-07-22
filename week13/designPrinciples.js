@@ -28,9 +28,7 @@
 
 // The change from skeumorphic to flat design in tech over the course of the last decade is called a SUBTRACTIVE APPROACH.
 
-//! Modern Web Design Principles
-
-//^ White Space
+//! White Space
 
 // (ctrl + click)
 
@@ -53,10 +51,41 @@
 
 // See Also: Design principles 3, 4, 5, and 10 above
 
-//^ Colors
+//! Colors
 
 //* https://m2.material.io/design/color/the-color-system.html
 
+// "Color themes are designed to be harmonious, ensure accessible text, and distinguish UI elements and surface from one another."
 
+//^ Color Principles:
 
-//^ Typography
+    // 1. Hierarchical: Colors indicate which elements are interactive, how they relate to other elements, and their level of prominence. Important elements should stand out the most.
+
+    // 2. Legible: Text and important elements, like icons, should meet legibility standards when appearing on colored backgrounds.
+
+    // 3. Expressive: Show brand colors at memorable moments that reinforce your brand's style.
+
+//^ Aesthetics
+
+// Colors should compliment each other, and there are tools to help you pick colors that look great:
+    //* https://color.adobe.com/create/color-wheel (will help you customize a set of matching colors)
+    //* https://material.io/design/color/the-color-system.html (guides you toward appropriate application of those colors in your project)
+
+//^ Accessibility
+
+// Color should be easily distinguishable, even for the color-blind (color-blindness affects 300 million people world-wide). We achieve this by ensuring that our colors are distinct in hue, saturation, and value. See the following link to see how an image looks from a color-blind perspective:
+    //* https://www.color-blindness.com/coblis-color-blindness-simulator/
+
+//! Typography
+
+//^ Serif vs. Sans-Serif
+
+// Serif Fonts have small strokes on the ends of letters for increased long-form readability on mobile or low-resolution devises. These applications are typically longer strings of words (paragraphs, etc) with smaller text sizes.
+    // Georgia
+    // New York
+    // Roboto Slab
+
+// Sans-Serif Fonts do NOT have those stroks, and instead are minimal and clean. These are ideal for short-form applications such as headlines, icons, and navigation. THse applications typically use shorter strings of works with larger text sizes.
+    // Verdana
+    // San Francisco
+    // Roboto
