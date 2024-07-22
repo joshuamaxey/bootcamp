@@ -89,3 +89,9 @@
     // Verdana
     // San Francisco
     // Roboto
+
+//! MDN Documentation for HTML and CSS
+
+//^ HTML Landing Page: https://developer.mozilla.org/en-US/docs/Web/HTML
+
+//^ CSS Landing Page: https://developer.mozilla.org/en-US/docs/Web/css
