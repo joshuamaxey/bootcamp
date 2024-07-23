@@ -1,0 +1,114 @@
+<!-- ! This file is an HTML reference sheet -->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>HTML Reference</title>
+    <!-- This title appears in the browser tab -->
+    <link rel="icon"
+        href="https://appacademy-open-assets.s3.us-west-1.amazonaws.com/Modular-Curriculum/content/week-07/sample-icon.png">
+    <!-- This is a favicon, it's an image that appears next to the title in the browser tab -->
+</head>
+
+<body>
+    <h1>HTML Reference</h1>
+
+    <h2>Headings</h2>
+    <p>
+        Headings from 'h1' to 'h6' identify blocks and sections. Every page must have one (and ONLY one) 'h1.' This is
+        important because web-crawlers search for the h1 on each page to label the search result. If they don't find
+        one, you will have lower search rankings. If there is more than one, it can confuse the web crawler
+    </p>
+
+    <h2>Paragraphs</h2>
+    <p>
+        Paragraphs of text go in 'p' tags.
+    </p>
+
+    <h2>Lists</h2>
+
+    <h3>Unordered Lists</h3>
+    <p>
+        Unordered lists are marked with bullet oints and go in 'ul' tags. Each individual list item goes in a 'li' tag.
+    </p>
+    <h4>Types of Lists</h4>
+    <ul>
+        <li>Unordered lists ('ul')</li>
+        <li>Ordered lists ('ol')</li>
+    </ul>
+
+    <h3>Ordered Lists</h3>
+    <p>
+        Ordered lists are numbered and go in 'ol' tags. Each list item goes in a 'li' tag.
+    </p>
+    <h4>Polya's Problem Solving Framework</h4>
+    <ol>
+        <li>Understand the problem</li>
+        <li>Come up with a plan</li>
+        <li>Carry out the plan</li>
+        <li>Go back and improve your solution</li>
+    </ol>
+
+    <h2>Anchors (links)</h2>
+    <p>
+        Anchor tags create links to other pages. The URL goes in the 'href' attribute.
+        Search for more information on <a href="https://www.google.com">Google.
+        </a>
+    </p>
+    <p>
+        Setting 'target="_blank"' will cause our link to open in a new window. See this <a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">MDN</a> page for more
+        details.
+    </p>
+
+    <h2>Images</h2>
+    <p>
+        You can use the img tag to add images to your page, like this:
+        <img src="http://images.freeimages.com/images/premium/large-thumbs/2582/25827620-itty-bitty-kitty.jpg"
+            alt="A cute kitty">
+    </p>
+    <p>
+        Note that the 'alt' text describes the image. This is important for accessibility, and will display if the image
+        cannot be displayed for any reason.
+    </p>
+
+    <h2>Tables</h2>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Insect</th>
+                <th scope="col">Family</th>
+                <th scope="col">Fact</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Ladybug</th>
+                <td>Coccinellidae</td>
+                <td>Can eat more than 5,000 insects!</td>
+            </tr>
+            <tr>
+                <th scope="row">Fruit flies</th>
+                <td>Drosophilidae</td>
+                <td>First living creatures in outer space!</td>
+            </tr>
+            <tr>
+                <th scope="row">Caterpillars</th>
+                <td>Heterobathmiidae</td>
+                <td>Have 12 eyes!</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td>I had no ideas!</td>
+                <td>Those are neat!</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>
