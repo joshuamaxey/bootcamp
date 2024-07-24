@@ -23,3 +23,12 @@ p[title] {
     font-size: 2em;
     /* Attribute selector here refers to all 'p' elements with attribute 'title' */
 }
+
+.boxy {
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    box-shadow: 0 2px black;
+    filter: blur(.75px);
+    background-color: #000000;
+    opacity: 0.2;
+}
