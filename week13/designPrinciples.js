@@ -20,6 +20,8 @@
 
 //^ 10. Minimal (characterized by the use of simple or primary forms or structures)
 
+//& Note that writing SEMANTIC HTML means USING HTML ELEMENTS FOR THE RIGHT PURPOSE
+
 //! Skeumorphic vs. Flat Design
 
 //^ Skeumorphic Design is when digital components resemble physical components (depth, gradients, etc to make digital buttons, etc appear like real, physical buttons) (pre-2013)
