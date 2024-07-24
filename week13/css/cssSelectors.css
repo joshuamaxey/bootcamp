@@ -1,0 +1,25 @@
+div {
+    background-color: #b30000;
+    /* "Type" selector here applies to all elements of type 'div' */
+}
+
+.testClass {
+    color: #5635ff;
+    font-style: oblique
+    /* class selector uses "." prefix */
+}
+
+#testId {
+    border: 1px solid black
+    /* id selector uses "#" prefix */
+}
+
+* {
+    padding: 20px;
+    /* Universally applies to ALL elements (universal selector) */
+}
+
+p[title] {
+    font-size: 2em;
+    /* Attribute selector here refers to all 'p' elements with attribute 'title' */
+}
