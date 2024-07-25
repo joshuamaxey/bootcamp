@@ -1,5 +1,40 @@
 /* Your code here */
 
+h1#page-title {
+    /* id selector, selecting the h1 element with the 'title' id */
+    font-weight: 700;
+}
+
+span.pagenum {
+    /* class selector, selecting all 'span' elements with the class 'pagenum' */
+    position: absolute;
+    right: 10px;
+    font-size: 13px
+}
+
+p {
+    text-align: justify;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+pre {
+    /* Here, we use width width: fit-content and margin: auto properties to center the introductory and closing 'pre' elements on the page */
+    width: fit-content;
+    margin: auto;
+    text-align: justify;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    /* Here we select ALL anchor elements in ANY state (or pseudo-class), then remove the text decoration from them. This means that the anchors will no longer have an underline no matter which state that they are in. */
+    text-decoration: none;
+}
+
 /* ===== DO NOT EDIT BELOW THIS COMMENT ===== */
 
 .noin {
