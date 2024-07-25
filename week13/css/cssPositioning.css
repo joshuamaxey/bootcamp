@@ -1,0 +1,84 @@
+.container {
+    background-color: #2b2d2f;
+    /* position: relative; */
+
+    /* Here we add a container position (relative) so that when we apply absolute positioning to the elements on the page, the browser will calculate the position of those elements relative to the container's top-left corner. */
+}
+
+.element {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100px;
+    height: 280px;
+    font-size: 36px;
+}
+
+#yellow-box {
+    background-color: #ffff00;
+}
+
+#pink-box {
+    background-color: #ff69b4;
+    /* ! */
+    /* position: static; */
+
+    /* Static is the default position value for page elements */
+
+    /* A static element is not considered to be 'positioned' because it will appear 'normally' according to the page flow. The properties of 'top' 'right' 'bottom' and 'left' do not affect static elements */
+
+    /* Typically the static position is not applied unless we are using it to override other values.*/
+
+    /* ! */
+    /* bottom: 0;
+    left: -20px;
+    position: relative;
+    right: 0;
+    top: 0; */
+
+    /* A relatively positioned element remains in its original position in the page flow (like a static element) and can then be offset from that position using the 'top' 'right' 'bottom' and 'left' properties. */
+
+    /* The element is positioned RELATIVE to its INITIAL PLACE in the page flow. */
+
+    /* Note that relative positioning creates a STACKING CONTEXT for elements whose order can be set by the z-index property. A larger z-index brings an element 'closer' to the user, overlapping other elements with a smaller z-index.*/
+
+    /* ! */
+    /* position: absolute;
+    top: 60px; */
+
+    /* An absolutely positioned element is removed from the page flow such that other elements on the page behave as if it does not exist. The elemnt is positioned relative to its closes POSITIONED ancestor or (if there is not one) to the <html> document itself. It can then be offset from that position using the top, right, bottom, and left properties.*/
+
+    /* In this scenario, setting the pink box's top value to 60px pushes the element down 60px from the top of the parent element's top. */
+
+    /* Note that a 'relative' position was added to the container on this page so that the position of this absolute element is determined based on its position relative to the top-left corner of the container. If we don't add the 'relative' position to the container, then the absolutely positioned element (the bink box, in this case) will be moved to 60px from the top of the document (vs from the top of the container) */
+
+    /* Also note that applying absolute positioning also creates a stacking context. */
+
+    /* ! */
+    /* bottom: 60px;
+    position: absolute; */
+
+    /* Recall that the container is given a position of 'relative' so that the position of absolutely-positioned elements is determined based on the position of the container element. In this scenario, setting the pink box's bottom value to 60px pushes the element up 60 pixels from the bottom of the parent element's bottom. If we do not add the 'relative' position to the container, then this element will be positioned 60px from the bottom of the document, vs from the bottom of the container element. */
+
+    /* ! */
+    /* left: 300px;
+    position: fixed;
+    top: 15%; */
+
+    /* A 'fixed' element is removed from the page flow like an absolutely positioned element. The difference between a fixed element and an absolute element is that a fixed element's position is determined based on its position relative to the HTML DOCUMENT ITSELF, not to any ancestor element. Its position is dictated by the top, right, bottom, and left properties. */
+
+    /* Note that using fixed positioning also creates a stacking context. */
+
+    /* Fixed positioning is useful for things like nav bars, buttons, links, videos, etc that we want to keep visible as the user scrolls. But we have to make sure that the fixed-positioned elements do not obscure other content when the page is zoomed to increase text size. */
+
+    /* ! */
+    position: sticky;
+    top: 60px;
+
+    /* Initially, a sticky element remains in its original position in the page flow. It is positioned relative to its closest block-level ancestory and any SCROLLING ancestors. Scrolling ancestors are created when 'overflow' is hidden, scroll, auto, or overlay. The 'sticky' element behaves like a relatively-positioned element until the point at which you would normally scross past it in the viewport. At that 'scrolling' point, the element 'sticks' to the page wherever it has been positioned by the top, left, bottom, and right properties. In order for sticky positioning to work, you have to set at least ONE threshold value using 'top' 'right' 'bottom' or 'left'. A sticky element will start off as relatively positioned until you scross past its original position, at which point it will be FIXED to the position you specified.  */
+}
+
+#blue-box {
+    background-color: #00eeee;
+    /* ! */
+    /* position: absolute; */
+}
