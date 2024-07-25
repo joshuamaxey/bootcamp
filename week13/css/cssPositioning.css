@@ -64,7 +64,7 @@
     position: fixed;
     top: 15%; */
 
-    /* A 'fixed' element is removed from the page flow like an absolutely positioned element. The difference between a fixed element and an absolute element is that a fixed element's position is determined based on its position relative to the HTML DOCUMENT ITSELF, not to any ancestor element. Its position is dictated by the top, right, bottom, and left properties. */
+    /* A 'fixed' element is removed from the page flow like an absolutely positioned element. The difference between a fixed element and an absolute element is that a fixed element's position is determined based on its position relative to the VIEWPORT, not to any ancestor element. Its position is dictated by the top, right, bottom, and left properties. So when we scroll, the element maintains its specified position relative to the viewport. */
 
     /* Note that using fixed positioning also creates a stacking context. */
 
@@ -74,7 +74,7 @@
     position: sticky;
     top: 60px;
 
-    /* Initially, a sticky element remains in its original position in the page flow. It is positioned relative to its closest block-level ancestory and any SCROLLING ancestors. Scrolling ancestors are created when 'overflow' is hidden, scroll, auto, or overlay. The 'sticky' element behaves like a relatively-positioned element until the point at which you would normally scross past it in the viewport. At that 'scrolling' point, the element 'sticks' to the page wherever it has been positioned by the top, left, bottom, and right properties. In order for sticky positioning to work, you have to set at least ONE threshold value using 'top' 'right' 'bottom' or 'left'. A sticky element will start off as relatively positioned until you scross past its original position, at which point it will be FIXED to the position you specified.  */
+    /* Initially, a sticky element remains in its original position in the page flow. It is positioned relative to its closest block-level ancestory and any SCROLLING ancestors. Scrolling ancestors are created when 'overflow' is hidden, scroll, auto, or overlay. The 'sticky' element behaves like a relatively-positioned element until the point at which you would normally scross past it in the viewport. At that 'scrolling' point, the element 'sticks' to the page wherever it has been positioned by the top, left, bottom, and right properties. In order for sticky positioning to work, you have to set at least ONE threshold value using 'top' 'right' 'bottom' or 'left'. A sticky element will start off as relatively positioned until you scross past its original position, at which point it will be FIXED to the position you specified. If our sticky element is fixed to a container, it will scroll with us UNTIL we reach the end of that container, at which point it stops moving with us. This is what distinguishes the 'sticky' position from the 'fixed' position.   */
 }
 
 #blue-box {
