@@ -9,7 +9,7 @@ span.pagenum {
     /* class selector, selecting all 'span' elements with the class 'pagenum' */
     position: absolute;
     right: 10px;
-    font-size: 13px
+    font-size: 13px;
 }
 
 p {
