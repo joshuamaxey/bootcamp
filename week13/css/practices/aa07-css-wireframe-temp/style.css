@@ -86,11 +86,16 @@ h2 {
     height: 20px;
 }
 
+.about {
+    font-style: italic;
+}
+
 .about,
 .help {
     padding: 5px;
     margin: 5px;
     font-size: small;
+    text-decoration: none;
 }
 
 /* Grid Styling */
@@ -111,4 +116,10 @@ h2 {
     align-items: center;
     justify-content: left;
     font-size: small;
+    text-decoration: none;
+    color: black;
+}
+
+li a {
+    color: blue;
 }
