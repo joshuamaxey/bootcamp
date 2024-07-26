@@ -1,0 +1,70 @@
+/* Upper Nav Bar Styling */
+
+.nav__upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: small;
+}
+
+.sign-in,
+.get-started {
+    color: green;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.get-started {
+    border: 1px solid green;
+}
+
+.upper__left {
+    width: 20px;
+    height: 20px;
+}
+
+/* Lower Nav Bar Styling */
+
+.nav__lower {
+    font-size: small;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.nav__lower a {
+    text-decoration: none;
+}
+
+/* Content Styling */
+
+.content {
+    justify-content: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 20pt;
+    text-align: left;
+    justify-content: center;
+    font-weight: bold
+}
+
+h2 {
+    font-family: sans-serif;
+    font-size: 15pt;
+}
+
+.main__img {
+    height: 500px;
+    width: 500px
+}
