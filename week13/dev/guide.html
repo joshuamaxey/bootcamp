@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+    <h1>CSS Guide</h1>
+
+    <div class="boxModel">
+        <h2>Box Model</h2>
+
+        <h3>Box Properties</h3>
+
+        <p>Every HTML element is contained within a box. This box includes the content (center), the padding around the box, the border around the padding, and the margin around the border. Based on the box type (box-sizing property), the width and height properties of the box may refer to the content, padding, border, and margin of the box together OR only to the content of the box.</p>
+
+        <div class="box-List-Image">
+            <ul>
+                <li>width</li>
+                <li>height</li>
+                <li>pading (top, right, bottom, left)</li>
+                <li>border (top, right, bottom, left)</li>
+                <li>margin (top, right, bottom, left)</li>
+            </ul>
+
+            <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/CSS-Box-Model.png" alt="depiction of the CSS 'box model'" id="boxImage">
+        </div>
+
+
+        <h3>Box Types</h3>
+
+        <p>The 'box-sizing' property determines whether the 'width' and 'height' properties of the box refer to the content, padding, border, and margin all together (border-box) OR just to the content of the box (content-box)</p>
+
+        <ul>
+            <li>box-sizing: content-box (default)</li>
+            <li>box-sizing: border-box</li>
+        </ul>
+
+        <h3>Display Types</h3>
+
+        <p>The 'display' property determines whether an element is treated as a block or an inline box, and also determines the layout of its children (inline, block, flex, grid, etc)</p>
+
+        <ul>
+            <li>display: block</li>
+            <li>display: inline</li>
+            <li>display: inline-block</li>
+            <li>display: flex</li>
+            <li>display: grid</li>
+        </ul>
+    </div>
+
+    <div class="positioning">
+        <h2>Positioning</h2>
+
+        <h3>Positions</h3>
+
+        <p>The 'position' property allows us to manipulate the location of an element on our page. Some positions align with the 'flow' of the page, while others cause an element to be removed from the 'flow' and allow it to be positioned independently of other elements. The 'flow' of a page refers to the relationship between block and inline elements before any changes are made to the layout of the page or the position of individual elements.</p>
+
+        <ul>
+            <li>position: static</li>
+            <ul>
+                <p>'static' is the default position. A static element will apear normally according to the page flow, so a static element is NOT considered a 'positioned' element. The top, right, bottom, left, and z-index 'properties' do not affect static elements</p>
+            </ul>
+            <li>position: relative</li>
+            <ul>
+                <p>Elements that have a 'relative' position will remain in their original position in the page flow by default (like a static element). However, relative elements can be offset from that position using the top, right, bottom, and left properties. The element is positioned RELATIVE to its ORIGINAL PLACE in the page flow according to these properties.</p>
+                <p>Note that using relative positioning creates a STACKING CONTEXT, potentially causing elements to overlap. The position of overlapped elemements is determined using the z-index property. A higher z-index (for example: 1) moves an element closer to the user, while a lower z-index (for example: -1) moves an element away from the user. The default z-index for all elements is 0.</p>
+            </ul>
+            <li>position: absolute</li>
+            <ul>
+                <p>An element with an 'absolute' position is removed from the page flow such taht other elements behave as if it does not exist. By default, the element is positioned in relation to its CLOSEST POSITIONED ANCESTOR. If there is no ancestor, it is positioned relative to the HTML DOCUMENT ITSELF. Absolutely positioned elements can be offset from their default position using the top, right, bottom, and left properties</p>
+                <p>Note that using absolute positioning also creates a STACKING CONTEXT</p>
+                <p>Note that it is common practice to set the position of an element's CONTAINER ELEMENT to 'relative' so that the position of absolutely-positioned child elements is determined based on the position of the container.</p>
+            </ul>
+            <li>position: fixed</li>
+                <ul>
+                    <p>A 'fixed' element is removed from the page flow, similarly to an absolutely positioned element. However, a fixed element's position is always determined relative to the HTML DOCUMENT ITSELF, and NOT to any ancestor element. A fixed element's position can be manipulated usign the top, right, bottom, and left properties.</p>
+                    <p>Note that fixed positioning also creates a STACKING CONTEXT.</p>
+                    <p>Note that a fixed element will remain in the same spot on the page REGARDLESS of the WINDOW SIZE or USER SCROLLING.</p>
+                </ul>
+            <li>position: sticky</li>
+            <ul>
+                <p>A 'sticky' element remains in its original position according to the page flow, and it is positioned relative to its closest block-level ancestor AND any scrolling ancestors. Essentially, it behaves like a relatively-positioned element until the point at which a user scrolls past it in the viewport. At that 'scrolling point', the element 'sticks' to the page at whatever location it has been positioned using the top, left, bottom, and right properties.</p>
+                <p>Note that 'sticky' elements also create a STACKING CONTEXT.</p>
+                <p>Note that at least ONE threshold value (top, right, bottom, or left) must be used in order for sticky positioning to work. A sticky element begins as a 'relative' element until at least one threshold value is applied and the user scrolls past its original position, at which point it 'sticks' to the position specified using the top, right, bottom, and left properties.</p>
+            </ul>
+        </ul>
+
+        <h3>Position Properties</h3>
+
+        <p>The top, right, bottom, left, and z-index 'properties' are used to manipulate the location of an element on the page based on that element's 'position' (static, relative, absolute, fixed, or sticky).</p>
+
+        <ul>
+            <li>top</li>
+            <li>right</li>
+            <li>bottom</li>
+            <li>left</li>
+            <li>z-index</li>
+        </ul>
+    </div>
+</body>
+</html>

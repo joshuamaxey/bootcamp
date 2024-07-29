@@ -1,0 +1,48 @@
+* {
+    margin: 5px;
+    padding: 2.5px;
+    font-family: sans-serif;
+}
+
+body {
+    border: 1px solid black;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+p,
+li {
+    font-size: small;
+}
+
+li {
+    font-weight: 700;
+}
+
+/* "Box Properties" section */
+
+#boxImage {
+    box-sizing: border-box;
+    height: 50%;
+    width: 45%;
+    max-height: 200px;
+    max-width: 250px
+}
+
+.box-List-Image ul {
+    box-sizing: border-box;
+    width: 45%;
+}
+
+.box-List-Image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
