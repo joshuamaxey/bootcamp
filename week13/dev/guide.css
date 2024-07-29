@@ -45,7 +45,8 @@ li {
 .box-List-Image {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+
 }
 
 /* Table of Contents */
