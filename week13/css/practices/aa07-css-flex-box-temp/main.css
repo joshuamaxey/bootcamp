@@ -1,0 +1,120 @@
+/* ! Phase 1 */
+
+.example1 {
+    width: 200px;
+    height: 200px;
+    background-color: palegoldenrod;
+    border: solid black 2px;
+    font-size: 42pt;
+
+    /* Phase 1 */
+
+    display: flex;
+    /* display: flex defines a flex container, enabling flex context for all its direct children. */
+    justify-content: center;
+    /* justify-content defines the alignment of items within the flex container along the main axis. When we use 'center' our items are centered a long the 'main axis' line. By default, the main axis is horizontal and left --> right. */
+    align-items: center;
+    /* align-items defines the alignment of items within the flex container along the cross axis (secondary axis). By default, the cross-axis is vertical and top --> bottom */
+}
+
+/* ! phase 2 */
+
+.example2 {
+    border: dashed grey 1px;
+    border-radius: 16px;
+    padding: 16px;
+
+    /* Phase 2 */
+
+    display: inline-flex;
+    align-items: center;
+}
+
+.example2 label {
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+div.example2 > button {
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.example2 > button {
+    padding: 6px;
+    font-size: 16px;
+}
+
+.example2 > input {
+    font-size: 24px;
+    background-color: teal;
+    color: lightcyan;
+}
+
+/* ! Phase 3 */
+
+.example3 {
+    min-width: 550px;
+    max-width: 1280px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: flex-start;
+    font-size: small;
+}
+
+.example3 > div {
+    border: solid black 2px;
+    background-color: #9999ff;
+    border-radius: 25px;
+    padding: 12px;
+
+    /* Phase 3 */
+
+    flex: 1;
+    position: relative;
+    width: 300px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.example3 blockquote {
+    margin: 10px;
+    padding: 10px;
+}
+
+.example3 blockquote + blockquote {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    margin: 0;
+}
+
+.example4 {
+    /* Phase 4 - Part 1 of 2 */
+
+    /* Your code here
+}
+
+.sidebar {
+    background-color: black;
+    padding: 8px;
+
+    /* Phase 4 - Part 2 of 2 */
+
+    /* Your code here
+}
+.content-area {
+    background-color: #E8EFF0;
+    padding: 8px;
+}
+
+blockquote {
+    font-family: sans-serif;
+}
+
+blockquote:first-letter {
+    font-size: 18pt;
+}

@@ -119,3 +119,13 @@ ul.clfooter > li {
   display: inline;
   padding-right: 5px;
 }
+
+/* Phase 5 */
+
+h4.ban::before {
+  content: '';
+  background: url("https://th.bing.com/th/id/R.3bc14d87757fc6179564f9f5af57b03c?rik=3nnsL7rdEkjakQ&riu=http%3a%2f%2fd2trtkcohkrm90.cloudfront.net%2fimages%2femoji%2fapple%2fios-10%2f256%2fpeace-symbol.png&ehk=FUy1uuYMBMgmPlxG2km1o3Uq%2b9gYjkbtEEB%2bazTaGmY%3d&risl=&pid=ImgRaw&r=0");
+  position: absolute;
+  top: 0;
+  left: 0;
+}
