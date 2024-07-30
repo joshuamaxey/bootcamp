@@ -28,16 +28,17 @@
 
     display: inline-flex;
     align-items: center;
+    gap: 8px;
 }
 
 .example2 label {
     font-weight: bold;
-    padding-right: 10px;
+    /* padding-right: 10px;  */
 }
 
 div.example2 > button {
     font-weight: 600;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .example2 > button {
@@ -59,8 +60,8 @@ div.example2 > button {
     display: flex;
     flex-direction: row;
     gap: 8px;
-    align-items: flex-start;
-    font-size: small;
+    /* align-items: flex-start;
+    font-size: small; */
 }
 
 .example3 > div {
@@ -71,16 +72,16 @@ div.example2 > button {
 
     /* Phase 3 */
 
-    flex: 1;
-    position: relative;
-    width: 300px;
-    height: 150px;
+    /* 'flex' for the width aspect (see 'flex' on MDN) flex-grow, flex-shrink, flex-basis */
+    flex: 0 1 33%;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     justify-content: space-between;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
-.example3 blockquote {
+/* .example3 blockquote {
     margin: 10px;
     padding: 10px;
 }
@@ -90,7 +91,7 @@ div.example2 > button {
     bottom: 12px;
     left: 12px;
     margin: 0;
-}
+} */
 
 .example4 {
     /* Phase 4 - Part 1 of 2 */
