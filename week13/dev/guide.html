@@ -107,7 +107,7 @@
 
         <h3>Basic Flexbox Properties</h3>
 
-        <p>By default, the flexbox container is automatically sized based on the size of the viewport. Elements within the container are resized and distributed to fill the available space.</p>
+        <p>By default, the flexbox container is automatically sized based on the size of the viewport. Elements within the container are resized and distributed to fill the available space. Flexbox is useful for creating dynamic page layouts that effectively adjust to different viewports. It also makes it very easy for developers to position elements within the flex container.</p>
 
         <h4>Flex Container Properties</h4>
 
@@ -173,6 +173,40 @@
     <div class="gridLayout">
 
         <h2>Grid Layout</h2>
+
+        <h3>Basic Grid Properties</h3>
+
+        <p>CSS Grid layout enables developers to control and customize the layout of an entire page or to create a specific container element. The grid layout applies styling to a grid container and its grid items.</p>
+
+        <h4>Grid Container Properties</h4>
+
+        <ul>
+            <li>display:</li>
+            <ul>
+                <li>grid</li>
+                <li>inline-grid</li>
+            </ul>
+            <li>grid-template-columns: px / auto / % / fr</li>
+                <ul>
+                    <li>px</li>
+                    <p>'px' are an absolute unit (use a set amount of space) that will not adjust when the browser is resized.</p>
+                    <li>auto</li>
+                    <p>'auto' items will expand or shrink to fill available space based on the contents of the row or column.</p>
+                    <li>%</li>
+                    <p>Percents are calculated to fill remaining space after exact measurements and 'auto' have been accounted for.</p>
+                    <li>fr</li>
+                    <p>'fr' fractional units are flexibly calculated after other measurements.</p>
+                </ul>
+            <li>grid-template-rows: px / auto / % / fr</li>
+                <ul>
+                    <p>(See grid-template-columns)</p>
+                </ul>
+            <li>grid-template-areas:</li>
+            <li>row-gap:</li>
+            <li>column-gap:</li>
+        </ul>
+
+        <h4>Grid Item Properties</h4>
     </div>
 </body>
 </html>
