@@ -1,0 +1,280 @@
+/* ! Desktop (viewport width 701px - 1024px) */
+
+/* universal */
+
+* {
+    background-color: #eeedf2;
+    text-decoration: none;
+    color: hsl(233, 10%, 48%);
+    font-family: "Neue Plak", sans-serif;
+}
+
+body {
+    max-width: 1024px;
+}
+
+/* header */
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header h1 {
+    color: #f05537;
+    font-size: 30pt;
+}
+
+a.menu {
+    color: #f05537;
+    font-size: medium;
+    font-weight: 550;
+}
+
+header div#searchBar {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    height: 50px;
+    width: 25%;
+
+    background-color: white;
+    border-radius: 1.5px;
+    box-shadow: 2px 2px 5px #6f7287;
+}
+
+header div input {
+    border: none;
+    background-color: white;
+    padding-left: 5px;
+    width: 50%;
+}
+
+header div i {
+    background-color: white;
+    padding-left: 10px;
+}
+
+input:focus {
+    outline: none;
+}
+
+header div#menu {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 701px) and (max-width: 800px) {
+    header div#menu {
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+/* nav */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: small;
+}
+
+nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+    width: 24%;
+
+    background-color: white;
+    font-size: small;
+    border: 1px solid #6f7287;
+    border-radius: 1.5px;
+    box-shadow: 2px 2px 5px #6f7287;
+}
+
+nav i {
+    background-color: white;
+    padding: 5px;
+}
+
+/* events */
+
+.events {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.event {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#event1 {
+    display: flex;
+    flex-direction: column;
+}
+
+#event1 img {
+    height: 200px;
+}
+
+#event2 {
+    display: flex;
+    flex-direction: column;
+}
+
+#event2 img {
+    height: 200px;
+}
+
+#event3 {
+    display: flex;
+    flex-direction: column;
+}
+
+#event3 img {
+    height: 200px;
+}
+
+.eventPrice {
+    align-self: flex-end;
+}
+
+.eventTitle {
+    color: purple;
+    font-weight: 750;
+    text-decoration: underline;
+    padding-top: 20px;
+}
+
+.eventDate,
+.eventPrice {
+    font-size: small;
+}
+
+/* 'See more' */
+
+#seeMore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 15px;
+}
+
+#seeMore a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #6f7287;
+    height: 50px;
+    width: 27.5%;
+
+    font-size: small;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px #6f7287;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+footer p {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    background-color: #1e0a3c;
+    padding-right: 15px;
+
+    color: white;
+}
+
+/* ! Mobile (viewport width <= 700px) */
+
+@media screen and (max-width: 700px) {
+
+    /* header */
+
+
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header div#searchBar {
+        width: 99%;
+        margin: 10px;
+    }
+
+    header div#menu {
+        width: 50%;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    i.fas.fa-search {
+        margin-left: 50px;
+    }
+
+    /* nav */
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        width: 99%;
+        height: 200px;
+        justify-content: space-between;
+    }
+
+    nav a {
+        width: 99%;
+    }
+
+    /* events */
+
+    .events {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    div#event1.event img {
+        height: 500px;
+    }
+
+    div#event2.event img {
+        height: 500px;
+    }
+
+    div#event3.event img {
+        height: 500px;
+    }
+
+    a.eventTitle,
+    p.eventDate {
+        text-align: center;
+    }
+
+    div#seeMore a {
+        width: 45%;
+    }
+}
