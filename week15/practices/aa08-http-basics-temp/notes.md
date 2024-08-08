@@ -80,4 +80,23 @@
     - Content-Type: text/html; charset=utf-8
 -Body: "Create a Product" page
 
+## Submit a New Product
 
+### Request
+
+- Method: POST
+- URL: http://localhost:5000/products
+- Headers:
+    - Content-Type: application/x-www-form-urlencoded
+- Body:
+    - name: TestProductFinal
+    - description: Test Product Final Description
+    - price: 100
+    - categories: beauty
+
+### Response
+
+- Status Code: 302 Found (redirects to new product page)
+- Headers:
+    - Content-Type: text/html;charset=utf-8
+- Body: New Product Page
