@@ -1,4 +1,4 @@
-import {Game} from "./game"
+import Game from "./game.js"
 
 window.onload = () => {
     const game = new Game();
