@@ -1,6 +1,6 @@
 export default () => {
   const bodyChildElements = document.body.children; // HTMLCollection [div]
-  // console.log(bodyChildElements);
+  console.log(bodyChildElements);
 
   const div = bodyChildElements[0];
 

@@ -2,6 +2,8 @@ import { mrPotatoHeadQuotes } from "./quotes/mrPotatoHead.js";
 import mrsPotatoHeadQuotes from "./quotes/mrsPotatoHead.js";
 import { getIndex } from "./utilities.js";
 
+//^ NOTE THAT FOR ES6 IMPORTS YOU MUST ADD FILE EXTENSION! (.js, etc)
+
 export default class Game {
 
   start() {
