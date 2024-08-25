@@ -50,10 +50,10 @@ add.addEventListener("click", async () => {
 const removeFirst = document.getElementById("remove-first");
 removeFirst.addEventListener("click", () => {
     /*-------------------- Select the first dog card --------------------- */
-    const firstCard = document.querySelector("li");
+    const firstCard = document.querySelectorAll("li")[0];
 
     /*-------------------- Remove the first dog card --------------------- */
-    firstCard.remove;
+    firstCard.remove();
 });
 
 /************************** REMOVE LAST DOG BUTTON ***************************/
@@ -63,7 +63,7 @@ removeLast.addEventListener("click", () => {
     // Your code here
     const allCards = document.querySelectorAll("li");
     const lastCards = allCards[allCards.length - 1]
-    lastCards.remove;
+    lastCards.remove();
 
     /*-------------------- Remove the last dog card ----------------------- */
     // Your code here

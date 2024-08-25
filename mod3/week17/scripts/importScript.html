@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importing Scripts</title>
+    <script src="importScript.js" type="module"></script>
+</head>
+<body>
+
+    <script src="importScript.js" type="module"></script>
+</body>
+</html>
+
+<!--! To import a JS script into an html file, use the <script> tag with the 'src' attribute set to the relative path to the script file. Use the 'type="module"' attribute so that ES6 imports/exports can be used. More on this later.-->
+
+<!--Additionally, note that the placement of the script tag matters. All of the elements in our HTML code are constructed from top to bottom incrementally. This means that if the script tag is in the head, it will be imported before the body is contructed.
+
+If the script is large, this could result in noticeable lag before the visible content is loaded.
+
+If there is more than one script and one is dependent on the other, the script that is dependent must be loaded AFTER the script that it is dependent on.
+
+Similarly, if the script is depedennt on (pertains to) any of the HTML elements in the body of the page, it will throw an error unless the script is imported AFTER the body has been constructed.
+
+These problems can be solved by placing the script element at the END of the body (as shown above on line 11) so that the script isn't imported until after the visible elements of the body have been constructed.-->
