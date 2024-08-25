@@ -29,6 +29,12 @@ export default function multiply(num1, num2) {
 
 //^ And we also have our ES6 import syntax:
 
+import { sayHello } from "./script1.js";
+
+sayHello();
+
+// Note that the {} around the import are necessary if the import is NAMED. This also means that the name of the imported function or class must be the same name that was used to export the function or class in the file that it was exported from.
+
 import add from "./script2.js"
 
 add();
