@@ -6,4 +6,5 @@ addition(2, 3); // prints "5"
 
 //* Note that I have no fucking idea WHY the greetings functions from script2 are also running when I run 'node script3.js' here.
 
-//& Apparently all of this import/export syntax also works with our HTML files, though I'm not sure how yet. 
+//& Apparently all of this import/export syntax also works with our HTML files, though I'm not sure how yet.
+
