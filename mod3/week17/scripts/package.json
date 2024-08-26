@@ -2,7 +2,7 @@
   "name": "scripts",
   "version": "1.0.0",
   "description": "test",
-  "main": "index.js",
+  "main": "index.html",
   "type": "module",
   "scripts": {
     "test": "run"

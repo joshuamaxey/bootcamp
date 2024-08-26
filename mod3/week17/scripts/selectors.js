@@ -33,8 +33,22 @@ const orderedItemsUpdate = () => {
     console.log(orderedItem1); // prints only the FIRST item in the 'ol' to the console.
 }
 
+const newSection = () => { // We can also create new elements, add new content, and manipulate them using JavaScript.
+
+    const newHeading = document.createElement("h2"); // Here, we use the document.createElement("elementType") method to create a new h2.
+
+    newHeading.setAttribute("id", "thirdHeading"); // Then we use the .setAttribute("attributeType", "attributeContent") method to give our new h2 an id of 'thirdHeading'
+
+    const newContent = document.createTextNode("This is the Third Heading"); // Here we create a text node containing the text "This is the Third Heading"
+
+    newHeading.appendChild(newContent); // Then we append our 'newContent' (the new text node) to our newHeading (the h2 we created). This means that our newHeading will now contain the text, "This is the Third Heading";
+
+    document.body.appendChild(newHeading); // Finally, we append our newHeading (the new h2 element we created which contains the text in the text node we created) to the body of the document. Now if we open our document in liveServer and scroll to the bottom of the page, we'll see a new h2 at the end with the corresponding text.
+}
+
 window.onload = () => { // Finally, we need to make sure that none of our code runs until the window (DOM, CSS, images, etc) has loaded. To do this, we invoke our functions below within the window.onload method.
 
     secondDivUpdate();
     orderedItemsUpdate();
+    newSection();
 }
