@@ -7,3 +7,7 @@
 }
 
 /* When an element in our document is assigned the class "show", it will display as a block element. When it is assigned the class "hide", it will not display at all. */
+
+* {
+    font-family: sans-serif;
+}

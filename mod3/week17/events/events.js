@@ -2,6 +2,9 @@
 
 window.addEventListener("DOMContentLoaded", event => { // The first thing we do is add an event listener to the window of type "DOMContentLoaded". None of the code inside this function will run until the entire DOM has loaded. This is different than using window.onload because when we use window.onload, our code doesn't run until the DOM, CSS, media, etc have all loaded. When we use DOMContentLoaded, our script will run after the DOM is loaded without waiting for the CSS, media, etc. This is useful when we have content in our script that is depdenent on the body of the document but not on the CSS, media, or other scripts because it allows us to begin executing our script after the body has been loaded without requiring us to wait for all of the other parts of the page to load.
 
+    document.body.className = "i-got-loaded" // Here, we wait for the DOM to load completely and then add the class "i-got-loaded" to the <body></body> tag of our document. The important thing to note here is that this didin't happen until after the DOM was loaded completely but happens BEFORE we load other parts of the window.
+    console.log(document.body.className); // prints "i-got-loaded" to the console
+
     const button = document.body.children[2]; // Here we slect the 'button' element based on its position in the document. NOTE that the button also has an id, so alternatively, we could select it like this:
     const buttonAlt = document.getElementById("button1"); // Both of these methods will work.
     console.log(button); // prints the button to the console
