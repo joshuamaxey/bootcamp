@@ -4,19 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Importing Scripts</title>
-    <script src="script4.js" type="module">
-    </script>
+    <script src="script4.js" type="module"></script>;
+    <!--Here we use the <script> tag to import our JS file as a script. The src attribute is set to the relative path to the .js file we're importing. And we use the type="module" tag to identify this script as a module so that we can utilize ES6 import/export syntax.-->
+    <script src="script5.js" type="module"></script>;
 </head>
 <body>
     <h1>Test Page</h1>
-    <div>
+    <div id="div1">
         <ul>
             <li>Item 1</li>
             <li>Item 2</li>
             <li>Item 3</li>
         </ul>
     </div>
+    <h2>Sub-Heading</h2>
+    <div id="div2">
+        <p>This is the second div.</p>
+    </div>
+    <div id = div3>
+        <ol>
+            <li class="ordered">First Ordered item</li>
+            <li class="ordered">Second Ordered item</li>
+            <li class="ordered">Third Ordered item</li>
+            <li class="ordered">Fourth Ordered itme</li>
+            <li class="ordered">Fifth Ordered item</li>
+        </ol>
+    </div>
     <script src="script1.js" type="module"></script>
+    <!--Alternativey, we can import out scripts at the bottom of the body to ensure that they do not run until the body of our document has been loaded-->
 </body>
 </html>
 

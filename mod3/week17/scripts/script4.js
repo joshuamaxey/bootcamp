@@ -1,6 +1,6 @@
 window.onload = () => { // When we use window.onload, we tell JavaScript NOT to run our script until the DOM and all other assets (including CSS, images, and other media) are loaded. The code in this script is dependent on the HTML elements in the body of our HTML file, so we will throw an error if we try to run this script before the body of the document has loaded. If we don't want to use window.onload, we could alternatively import our script at the BOTTOM of the body of our document so that the script will run after the body has been loaded.
 
-    window.document.title = "New Title"
+    window.document.title = "New Title" // Here we can change the title of the page directly by using JavaScript to target the 'title' element of our document. If we open our document with live server and look at the title displayed in the tab, we'll see that it has changed to reflect this new title.
 
     let bodyElements = document.body.children; // Here we grab ALL of the elements within the body of the HTML file and assign them to a variable called 'bodyElements', which is an HTMLCollection of all of the elements contained within the body element.
     console.log(bodyElements);
