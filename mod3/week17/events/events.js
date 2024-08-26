@@ -33,6 +33,8 @@ window.addEventListener("DOMContentLoaded", event => { // The first thing we do 
 
         if (checkbox.checked) { // If the checkbox is checked...
             checked.style.display = "block"; // Then we'll display the "checked" statement in block style
+            checked.style.backgroundColor = "black"
+            checked.style.color = "white"
         } else { // Otherwise, if the checkbox is not checked...
             checked.style.display = "none"; // The "checked" statement will not display at all.
         }
