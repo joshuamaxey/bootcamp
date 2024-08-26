@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listeners</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">;
+    <script src="click.js"></script> <!--In importing this script I don't think that I need the 'type-"module"' attribute because I've got "type": "module" in the package.json file already-->
+</head>
+<body>
+    <h1>Event Listeners</h1>
+
+    <h2>Click</h2>
+    <button id="button1">Click Me!</button>
+    <p>The Button has been clicked <span id="count">0</span> times</p>
+
+    <h2>CheckBox 1</h2>
+    <input type="checkbox" id="on-off">
+    <label for="on-off">Click Me Too!</label>
+    <div id="checked1">
+        <p>The first checkbox is checked</p>
+    </div>
+
+    <h2>Checkbox 2</h2>
+    <input type="checkbox" id="off-on">
+    <label for="off-on">Click Me Also!</label>
+    <div id="checked2">
+        <p>This checkbox is checked</p>
+    </div>
+</body>
+</html>

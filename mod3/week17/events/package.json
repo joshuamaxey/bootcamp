@@ -1,0 +1,12 @@
+{
+  "name": "listeners",
+  "version": "1.0.0",
+  "description": "Event listener practice",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "test": "run"
+  },
+  "author": "",
+  "license": "ISC"
+}
