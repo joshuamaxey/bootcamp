@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbling</title>
+    <script type="text/javascript"> // Here we add an inline script of type text/javascript
+        window.addEventListener("DOMContentLoaded", event => { // Our outer function is an event listener that waits until the DOM is finished loading before it runs the code within.
+
+            function handler(event) { // This handler function will print the tagName of the currentTarget of our event to the console.
+                console.log(event.currentTarget.tagName); // If we click the <p>, for instance, it will log "P" to the console.
+            };
+
+            document.querySelector('main').addEventListener('click', handler); // Here we add a listener that will listen for a click on the 'main' element of the document
+            document.querySelector('div').addEventListener('click', handler); // Here we add a listener that will listen for a click on the 'div' element of the document
+            document.querySelector('p').addEventListener('click', handler); // Here we add a listener that will listen for a slick on the 'p' element of the document
+        })
+    </script>
+</head>
+<body>
+    <h1>Bubbling</h1>
+    <main>
+        <div>
+            <p>
+                This is a (p) inside of a (div) inside of a (main) inside of a (body) inside of an (html)
+                <!--When we click the <p> element here, we will see that we print "P" to the console as a result of the handler function above and the listener on the 'p' element. But we also see "div" and "main" printed to the console as well. Even though we didn't click on those elements directly, bubbling causes our click to bubble up from the p element to the div element and then to the main element, triggering the event listeners on all three elements.-->
+            </p>
+        </div>
+    </main>
+</body>
+</html>

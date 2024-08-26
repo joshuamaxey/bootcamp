@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbling</title>
+    <script type="text/javascript"> // Here we write an inline script that will listen on the body of the document (AFTER the DOM is loaded) for a click.
+        window.addEventListener("DOMContentLoaded", event => {
+            document.body.addEventListener("click", event => {
+                console.log("This is the body click event!"); // Prints 'This is the body click event!' in the terminal when we click on the paragraph in the body below
+                console.log(event.target.id); // Prints "paragraph" in the terminal when we click the paragraph below. This is because the paragraph is the "target" when we click on it, then that click bubbles all the way up to the body and activates the event listener that is listening on the body tag.
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Bubbling</h1>
+    <div>
+        <div>
+            <p id="paragraph">
+                If you click this paragraph, then the function listening on the body will be called (because of bubbling).
+            </p>
+        </div>
+    </div>
+</body>
+</html>
