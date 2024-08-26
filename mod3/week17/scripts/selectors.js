@@ -39,7 +39,7 @@ const newSection = () => { // We can also create new elements, add new content, 
 
     newHeading.setAttribute("id", "thirdHeading"); // Then we use the .setAttribute("attributeType", "attributeContent") method to give our new h2 an id of 'thirdHeading'
 
-    const newContent = document.createTextNode("This is the Third Heading"); // Here we create a text node containing the text "This is the Third Heading"
+    const newContent = document.createTextNode("This is the Last Heading"); // Here we create a text node containing the text "This is the Third Heading"
 
     newHeading.appendChild(newContent); // Then we append our 'newContent' (the new text node) to our newHeading (the h2 we created). This means that our newHeading will now contain the text, "This is the Third Heading";
 

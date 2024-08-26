@@ -7,6 +7,8 @@
     <script src="dom.js" type="module"></script>;
     <!--Here we use the <script> tag to import our JS file as a script. The src attribute is set to the relative path to the .js file we're importing. And we use the type="module" tag to identify this script as a module so that we can utilize ES6 import/export syntax.-->
     <script src="selectors.js" type="module"></script>;
+    <script src="attributes.js" type="module"></script>;
+    <script src="inlineStyling.js" type="module"></script>;
 </head>
 <body>
     <h1>Test Page</h1>
@@ -17,11 +19,12 @@
             <li>Item 3</li>
         </ul>
     </div>
-    <h2>Sub-Heading</h2>
+    <h2>Heading 2</h2>
     <div id="div2">
         <p>This is the second div.</p>
     </div>
-    <div id = div3>
+    <h2>This is the Third Heading</h2>
+    <div id = "div3">
         <ol>
             <li class="ordered">First Ordered item</li>
             <li class="ordered">Second Ordered item</li>
@@ -29,6 +32,18 @@
             <li class="ordered">Fourth Ordered itme</li>
             <li class="ordered">Fifth Ordered item</li>
         </ol>
+    </div>
+    <h2>This is the Fourth Heading</h2>
+    <div id="div4">
+        <p>This paragraph is inside of div4</p>
+    </div>
+    <h2>Inline-Styling (Fifth Heading)</h2>
+    <div id="div5">
+        <ul id = fruits>
+            <li>Apple</li>
+            <li>Orange</li>
+            <li>Banana</li>
+        </ul>
     </div>
     <script src="export.js" type="module"></script>
     <!--Alternativey, we can import out scripts at the bottom of the body to ensure that they do not run until the body of our document has been loaded-->
