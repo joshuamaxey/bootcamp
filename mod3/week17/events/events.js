@@ -70,6 +70,16 @@ window.addEventListener("DOMContentLoaded", event => { // The first thing we do 
     original.addEventListener("input", event => { // Here we add an event listener to our "original" text input box of type "input". Input listeners fire whenever the value of the element changes. This means that every time we type into the box, this event fires.
         let text = original.value; // We take the current text inside of the "original" text box by keying into its "value" property, then save it to a variable "text"
         mirror.innerText = text; // Then we key into the .innerText property of the "mirror" div and set it equal to the "text" that is currently located in the input box.
-        mirror.style.color = "gray" // Finally, we also changed the color of the mirrored text to be gray. 
+        mirror.style.color = "gray" // Finally, we also changed the color of the mirrored text to be gray.
+    })
+
+    //! There is a slightly more concise way to achieve this same result with respect to the text input box.
+
+    const mirror2 = document.getElementById("mirrored2");
+
+    const original2 = document.getElementById("original2");
+
+    original2.addEventListener("input", event => {
+        mirror2.innerText = event.target.value; // Here, instead of explicitly setting a 'text' variable to capture the text inside of the original2 input box, we just reference the "target" of the event (which IS the original2 input box) and then set that as the value of mirror2's .innertext property
     })
 })
