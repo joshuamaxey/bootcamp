@@ -23,20 +23,24 @@ const {
 
 const express = require('express');
 const app = express();
-app.use(express.json());
+app.use(express.json()); // lets the server know that it should expect the request body to be in json format
+
+// Your code here
+
+//! Remember "npm run dev" to run with nodemon!
+
+//! 1
+
+app.get("/artists", (req, res) => {
+  res.status(200).send(getAllArtists()); // Here we return a status code of 200 (OK) and send the return value of our 'getAllArtists' function, which will give us an array with all of the names of the artists in JSON format.
+})
 
 app.use((req, res, next) => {
   console.log('Request Body:', req.body);
   next();
 })
 
-// Your code here
-
-//! Remember "npm run dev" to run with nodemon!
-
-app.get("/artists", (req, res) => {
-  res.status(200).send(getAllArtists()); // Here we return a status code of 200 (OK) and send the return value of our 'getAllArtists' function, which will give us an array with all of the names of the artists in JSON format.
-})
+//! 2
 
 app.post("/artists", (req, res) => {
 
@@ -46,7 +50,7 @@ app.post("/artists", (req, res) => {
     .setHeader("Content-Type", "application/json") // Then we use the .setHeader() method to set the headers of our response
     .send(JSON.stringify(newArtist)); // Finally, we send the response body by using JSON.stringify() to convert our 'newArtist' into the necessary JSON format
 
-  // Note that the .send() method must come LAST when sending responses. We cannot alter the response (add new headers, etc) after the response has already been send. 
+  // Note that the .send() method must come LAST when sending responses. We cannot alter the response (add new headers, etc) after the response has already been send.
 })
 
 // DO NOT MODIFY
