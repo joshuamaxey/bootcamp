@@ -13,7 +13,7 @@ app.use(express.json());
 // Your code here
 
 app.get('/version', (req, res) => {
-    res.send("1.0.0")
+    res.send("1.0.0");
 })
 
 /**
