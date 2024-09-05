@@ -10,8 +10,12 @@ const router = express.Router(); // THe express module exports the Router class 
 
 // Starting with home.js...
 
-router.get('/home', (req, res) => {
+router.get('/', (req, res) => {
     res.send('Our team homepage');
 })
+
+// router.get('/home', (req, res) => {
+//     res.send('Our team homepage');
+// })
 
 module.exports = router;

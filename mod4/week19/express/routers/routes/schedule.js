@@ -9,6 +9,7 @@ router.get('/schedule', (req, res) => {
 const weeklySchedule = [false, true, true, false, true, false, true]
 
 router.get('/schedule/week', (req, res) => {
+    // send the full weekly schedule 
     res.json(weeklySchedule);
 });
 
