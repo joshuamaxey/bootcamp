@@ -1,0 +1,17 @@
+{
+  "name": "aa10-express-middleware",
+  "version": "1.0.0",
+  "description": "In this project, you will be connecting boilerplate middleware to your Express application and creating your own middleware.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.2",
+    "express": "^4.19.2"
+  }
+}

@@ -1,9 +1,29 @@
+//! dotenv
+
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
+// require('dotenv').config();
+//^ This will only work if we start the server from in the project's root directory, since that's where the .env file is located! If you want to load environmen
+
+//! express
+
 const express = require('express');
-require('express-async-errors');
 const app = express();
 app.use(express.json()) // Connect the expres.json middleware that allows us to easily parse the incoming body of a request in JSON. It desierializes the JSON into a JavaScript object for you.
 
+//! Router
+
+const dogRouter = require("./routes/dogs")
+app.use('/', dogRouter);
+
+require('express-async-errors');
+
+//! Catch-All Route Handler
+
 app.use((req, res, next) => {
+
+  // console.log(req.method, req.url)
 
   res.on("finish", () => {
     console.log(req.method, req.url, res.statusCode);
@@ -12,16 +32,7 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
-//* Alt Method:
-
-// app.use("/", (req, res, next) => {
-
-//   console.log(`${req.method} ${req.url}`);
-
-//   next();
-// })
+//! Test Route Handlers
 
 // For testing purposes, GET /
 app.get('/', (req, res) => {
@@ -43,10 +54,7 @@ app.get('/test-error', async (req, res) => {
   throw new Error("Hello World!")
 });
 
-// app.use((err, req, res, next) => {
-
-//   throw new Error("The requested resource couldn't be found").status(404)
-// })
+//! Error Handling
 
 app.use((req, res, next) => {
 
@@ -58,19 +66,21 @@ app.use((req, res, next) => {
 })
 
 app.use((err, req, res, next) => {
+  // console.error(err.stack)
+  res.status(err.statusCode || 500).json({
+    message: err.message || "Something went wrong",
+    statusCode: err.statusCode,
+    stack: err.stack
+  })
+})
+
+app.use((err, req, res, next) => {
 
   res.status(err.statusCode)
   res.json(err.message)
 })
 
-//! Alt ideal:
+//! Server Start
 
-// app.use((err, req, res, next) => {
-
-//   res.status(err.statusCode || 500).json({
-//     message: err.message || "internal Server Error"
-//   });
-// });
-
-const port = 5000;
+const port = process.env.PORT || 8000
 app.listen(port, () => console.log('Server is listening on port', port));
