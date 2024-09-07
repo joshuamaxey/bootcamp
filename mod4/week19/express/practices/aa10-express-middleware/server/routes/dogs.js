@@ -48,11 +48,20 @@ const getAllDogs = (req, res) => {
 };
 
 // GET /dogs/:dogId
-const getDogById = (req, res) => {
+const getDogById = (req, res, next) => {
   const { dogId } = req.params;
   const dog = dogs.find(dog => dog.dogId == dogId);
+
+  // Additional logic to handle no dog
+  if (!dog) {
+    const error = new Error("Dog not found");
+    error.statusCode = 404;
+    next(error);
+  }
+
   res.json(dog);
 }
+
 
 // POST /dogs
 const createDog = (req, res) => {

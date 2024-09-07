@@ -76,25 +76,26 @@ app.use((req, res, next) => { // initialize a new middleware function that will 
 // })
 
 //& Option 2 (Account for NODE_ENV)
-app.use((err, req, res, next) => { // initialie an error-handler (error-handling middleware function) to catch any incoming errors that are passed through "next()" from previous middleware functions
+// app.use((err, req, res, next) => { // initialie an error-handler (error-handling middleware function) to catch any incoming errors that are passed through "next()" from previous middleware functions
 
-  const response = { // create a 'response' object
-    message: err.message || "Something went wrong", // set the message to the message of the incoming error (if it has one. If not, set to "Something went wrong" by default)
-    statusCode: err.statusCode || 500 // Set the statusCode of our response to the statusCode of the incoming error (if it has one. If not, set to 500 [internal server error] by default)
-  }
+//   const response = { // create a 'response' object
+//     message: err.message || "Something went wrong", // set the message to the message of the incoming error (if it has one. If not, set to "Something went wrong" by default)
+//     statusCode: err.statusCode || 500 // Set the statusCode of our response to the statusCode of the incoming error (if it has one. If not, set to 500 [internal server error] by default)
+//   }
 
-  if (process.env.NODE_ENV !== 'production') { // Check the .env file to see if the NODE_ENV (node environment) is set to "production". If it IS, do nothing.
-    response.stack = err.stack; // If it is NOT set to "production", set the "stack" of the response to the stack trace of the error.
-  }
+//   if (process.env.NODE_ENV !== 'production') { // Check the .env file to see if the NODE_ENV (node environment) is set to "production". If it IS, do nothing.
+//     response.stack = err.stack; // If it is NOT set to "production", set the "stack" of the response to the stack trace of the error.
+//   }
 
-  res.json(response); // Send our response in Json format, with a content-type header of application/json
-})
+//   res.json(response); // Send our response in Json format, with a content-type header of application/json
+// })
 
-app.use((err, req, res, next) => { // Set up another error-handling middleware for any errors that aren't caught by the first function
+//& Phase 2 Error Handler
+// app.use((err, req, res, next) => { // Set up another error-handling middleware for any errors that aren't caught by the first function
 
-  res.status(err.statusCode || 500); // set the status code of the response to the status code of the error (if there is one. If not, set to 500 [internal server error] by default)
-  res.json(err.message || "Something went wrong"); // Set the message/body of the response to the message of the incoming error (if there is one. If not, set to the specified string by default)
-})
+//   res.status(err.statusCode || 500); // set the status code of the response to the status code of the error (if there is one. If not, set to 500 [internal server error] by default)
+//   res.json(err.message || "Something went wrong"); // Set the message/body of the response to the message of the incoming error (if there is one. If not, set to the specified string by default)
+// })
 
 //! Server Start
 
