@@ -3,8 +3,7 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-// require('dotenv').config();
-//^ This will only work if we start the server from in the project's root directory, since that's where the .env file is located! If you want to load environmen
+// require('dotenv').config(); //& This will only work if we start the server from in the project's root directory, since that's where the .env file is located! If you want to load environmen
 
 //! express
 
