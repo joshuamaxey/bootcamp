@@ -55,6 +55,7 @@ app.get('/test-error', async (req, res) => { // Send an asynchronous GET request
 
 //! Error Handling
 
+//& Error generator
 app.use((req, res, next) => { // initialize a new middleware function that will catch any requests that do not match any preceding route handlers or other middleware functions
 
   const error = new Error("The requested resource couldn't be found"); // create an error with the specified text
@@ -64,12 +65,29 @@ app.use((req, res, next) => { // initialize a new middleware function that will 
   next(error); // pass the error to the next error-handler (error-handling middleware function). Note that because we're passing in an error, this next() will NOT target regular middleware functions but instead will pass the error to the next available error-handler (middleware with 4 parameters- err, req, res, and next)
 })
 
+//& Option 1 (Do not account for NODE_ENV)
+// app.use((err, req, res, next) => { // initialie an error-handler (error-handling middleware function) to catch any incoming errors that are passed through "next()" from previous middleware functions
+//   res.status(err.statusCode || 500).json({ // Set the statusCode of our response to the status code of the incoming error (if there is one. If not, set the status code of the response to 500 [internal server error] by default)
+//     message: err.message || "Something went wrong", // Set the message of the response to the message of the incoming error (if there is one. If not, set the message to the specified string by default)
+//     statusCode: err.statusCode, // I think this line is redundant
+
+//     stack: err.stack // Set the 'stack' of the response to the stack trace of the error
+//   })
+// })
+
+//& Option 2 (Account for NODE_ENV)
 app.use((err, req, res, next) => { // initialie an error-handler (error-handling middleware function) to catch any incoming errors that are passed through "next()" from previous middleware functions
-  res.status(err.statusCode || 500).json({ // Set the statusCode of our response to the status code of the incoming error (if there is one. If not, set the status code of the response to 500 [internal server error] by default)
-    message: err.message || "Something went wrong", // Set the message of the response to the message of the incoming error (if there is one. If not, set the message to the specified string by default)
-    statusCode: err.statusCode, // I think this line is redundant
-    stack: err.stack // Set the 'stack' of the response to the stack trace of the error
-  })
+
+  const response = { // create a 'response' object
+    message: err.message || "Something went wrong", // set the message to the message of the incoming error (if it has one. If not, set to "Something went wrong" by default)
+    statusCode: err.statusCode || 500 // Set the statusCode of our response to the statusCode of the incoming error (if it has one. If not, set to 500 [internal server error] by default)
+  }
+
+  if (process.env.NODE_ENV !== 'production') { // Check the .env file to see if the NODE_ENV (node environment) is set to "production". If it IS, do nothing.
+    response.stack = err.stack; // If it is NOT set to "production", set the "stack" of the response to the stack trace of the error.
+  }
+
+  res.json(response); // Send our response in Json format, with a content-type header of application/json
 })
 
 app.use((err, req, res, next) => { // Set up another error-handling middleware for any errors that aren't caught by the first function
