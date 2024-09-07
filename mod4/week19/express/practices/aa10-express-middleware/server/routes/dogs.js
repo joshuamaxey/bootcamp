@@ -1,3 +1,9 @@
+const express = require("express");
+const router = express.Router();
+
+const dogFoodRouter = require("./dog-foods");
+router.use("/", dogFoodRouter);
+
 // ------------------------------  SERVER DATA ------------------------------
 
 let nextDogId = 1;
@@ -34,8 +40,8 @@ const validateDogId = (req, res, next) => {
   if (!dog) {
     const err = new Error("Couldn't find dog with that dogId")
     err.statusCode = 404;
-    throw err;
-    // return next(err); // alternative to throwing it
+    // throw err;
+    return next(err); // alternative to throwing it
   }
   next();
 }
@@ -95,18 +101,14 @@ const deleteDog = (req, res) => {
 
 // Your code here
 
-const express = require("express");
+router.get("/", getAllDogs);
 
-const router = express.Router();
+router.get("/:dogId", getDogById);
 
-router.get("/dogs", getAllDogs);
+router.post("/", validateDogInfo, createDog);
 
-router.get("/dogs/:dogId", getDogById);
+router.put("/:dogId", validateDogId, updateDog);
 
-router.post("/dogs", createDog);
-
-router.put("/dogs/:dogId", updateDog);
-
-router.delete("/dogs/:dogId", deleteDog);
+router.delete("/:dogId", deleteDog);
 
 module.exports = router;

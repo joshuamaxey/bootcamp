@@ -15,8 +15,7 @@ require('express-async-errors'); // import the exrpess-async-errors module. Note
 //! Router
 
 const dogRouter = require("./routes/dogs") // import the router from the dogs.js file
-app.use('/', dogRouter); // tell express to use the dogRouter
-
+app.use('/dogs', dogRouter); // tell express to use the dogRouter
 
 //! Catch-All Route Handler
 
