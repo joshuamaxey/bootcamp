@@ -1,7 +1,7 @@
 //! dotenv
 
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+const path = require('path'); // import the 'path' module
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') }); // manually set the path to the .env file. This is necessary because the .env file is in the root directory of the project, but I usually start the server from within the server directory. Because that is the case, JS will automatically look for the .env file within the server folder. The result is that JS cannot find the .env file, which is why we have to manually specify the location of the file. We can use the code directly below if we choose to start the server from within the root directory of the project where the .env file is located.
 
 // require('dotenv').config(); //& This will only work if we start the server from in the project's root directory, since that's where the .env file is located! If you want to load environmen
 
