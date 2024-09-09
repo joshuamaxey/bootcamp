@@ -77,16 +77,16 @@ app.use((req, res, next) => { // initialize a new middleware function that will 
 //& Option 2 (Account for NODE_ENV)
 app.use((err, req, res, next) => { // initialie an error-handler (error-handling middleware function) to catch any incoming errors that are passed through "next()" from previous middleware functions
 
-  const response = { // create a 'response' object
+  const error = { // create a 'response' object
     message: err.message || "Something went wrong", // set the message to the message of the incoming error (if it has one. If not, set to "Something went wrong" by default)
     statusCode: err.statusCode || 500 // Set the statusCode of our response to the statusCode of the incoming error (if it has one. If not, set to 500 [internal server error] by default)
   }
 
   if (process.env.NODE_ENV !== 'production') { // Check the .env file to see if the NODE_ENV (node environment) is set to "production". If it IS, do nothing.
-    response.stack = err.stack; // If it is NOT set to "production", set the "stack" of the response to the stack trace of the error.
+    error.stack = err.stack; // If it is NOT set to "production", set the "stack" of the response to the stack trace of the error.
   }
 
-  res.status(err.statusCode).json(response); // Send our response in Json format, with a content-type header of application/json
+  res.status(err.statusCode).json(error); // Send our response in Json format, with a content-type header of application/json
 })
 
 //& Phase 2 Test Error Handler
