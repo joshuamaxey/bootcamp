@@ -2,7 +2,7 @@
 
 // A primary key is a column (field) that stores a unique value for each row (record).
 
-//^ A foreign key is column references the primary key of another table
+//^ A foreign key is a column that references the primary key of another table
 
 //* A foreign key is made by combining the singular form of the foreign table with the name of the primary key in that foreign table:
 
@@ -35,3 +35,5 @@
 // Each row in one table can be referencesd by many rows in another table, and vice versa.
 
 // For example: each person can read multiple books, and each book can be read by multiple people.
+
+// We often represent many-to-many relationships with a join table, which is made of the primary keys of multiple tables (as foreign keys in the join table).
