@@ -8,6 +8,12 @@ FROM cats
 JOIN cat_toys ON cats.id = cat_toys.cat_id -- joins the cats table with the cat_toys table on the cat_id column
 WHERE cat_toys.toy_id = 5; -- Filters results to only include those rows where the toy_id is 5
 
+-- SELECT * FROM cats
+-- WHERE id IN (
+--     SELECT cat_id FROM cat_toys
+--     WHERE toy_id = 5;
+-- )
+
 --^ Paste your results below (as a comment) (These are the initial results of running the query):
 
 -- 4002|Rachele|Maroon|Foldex Cat
@@ -70,7 +76,6 @@ WHERE cat_toys.toy_id = 5;
 -- Query (to be used in the sqlite CLI):
 
 .timer on
-
 SELECT cats.*
 FROM cats
 JOIN cat_toys ON cats.id = cat_toys.cat_id
@@ -95,12 +100,11 @@ CREATE INDEX idx_cat_id ON cat_toys(cat_id); -- Create an index on the cat_id co
 
 -- Analyze Query:
 
-.timer on
 EXPLAIN QUERY PLAN
 SELECT cats.*
 FROM cats
 JOIN cat_toys ON cats.id = cat_toys.cat_id
-WHERE cat_toys.toy_id = 5
+WHERE cat_toys.toy_id = 5;
 
 -- ^ Paste your results below (as a comment):
 
@@ -188,7 +192,7 @@ WHERE cat_toys.toy_id = 5;
 
     -- * Did the execution time improve (decrease)?
 
-    -- Yes, the execution time did improve. We can see that the index is optimizing the query by reducing the need for full tabl scans and minimizing system calls. This leads to more efficient execution. 
+    -- Yes, the execution time did improve. We can see that the index is optimizing the query by reducing the need for full tabl scans and minimizing system calls. This leads to more efficient execution.
 
     -- * Do you see any other opportunities for making this query more efficient?
 
