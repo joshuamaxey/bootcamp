@@ -102,7 +102,16 @@ app.get('/puppies/shepherds', async (req, res, next) => {
 app.get('/puppies/tinybabies', async (req, res, next) => {
     let tinyBabyPuppies;
 
-    // Your code here
+    tinyBabyPuppies = await Puppy.findAll({
+        where: {
+            ageYrs: {
+                [Op.lte]: 10
+            },
+            weightLbs: {
+                [Op.lte]: 20
+            }
+        }
+    })
 
     res.json(tinyBabyPuppies);
 })
