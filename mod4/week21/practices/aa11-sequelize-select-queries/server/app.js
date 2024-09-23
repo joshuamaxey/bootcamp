@@ -21,7 +21,9 @@ app.use(express.json());
 app.get('/puppies', async (req, res, next) => {
     let allPuppies;
 
-    allPuppies = await Puppy.findAll();
+    allPuppies = await Puppy.findAll({
+        order: ["name"] // "order" orders ASCENDING by default
+    });
 
     res.json(allPuppies);
 });
@@ -73,6 +75,10 @@ app.get('/puppies/:id', async (req, res, next) => {
             id: puppyId
         }
     })
+
+    // Alternatively:
+
+    // puppyById = await Puppy.findByPk(puppyId); // This works because the 'id' parameter is a primary key in the Puppy model
 
     res.json(puppyById);
 });

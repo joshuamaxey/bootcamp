@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
+
   Color.init({
     name: {
       type: DataTypes.STRING,

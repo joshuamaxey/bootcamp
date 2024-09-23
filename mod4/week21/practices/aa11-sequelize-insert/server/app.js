@@ -24,7 +24,50 @@ app.get('/puppies', async (req, res, next) => {
 // Use these values to BUILD a new Puppy in the database.
 // Respond to the request by sending a success message
 app.post('/puppies/build', async (req, res, next) => {
-    // Your code here 
+
+    // const newPuppy = Puppy.build({
+    //     id: 11,
+    //     name: "Trudy",
+    //     ageYrs: 2,
+    //     breed: "Brittany Spaniel",
+    //     weightLbs: 38,
+    //     microchipped: false
+    // })
+
+    // await newPuppy.save();
+
+    // res.json(`${newPuppy.name} successfully created!`);
+
+    // ! ------------------------------------
+
+    // const newPuppy = Puppy.build({
+    //     name: "George",
+    //     ageYrs: 1.2,
+    //     breed: "Bulldog",
+    //     weightLbs: 40,
+    //     microchipped: true
+    // })
+
+    // await newPuppy.save();
+
+    // ! ------------------------------------
+
+    const { name, ageYrs, breed, weightLbs, microchipped } = req.body;
+
+    const newPuppy = Puppy.build({
+      name,
+      ageYrs,
+      breed,
+      weightLbs,
+      microchipped
+    })
+
+    await newPuppy.save();
+
+    res.json({
+        message: `${newPuppy.name} was successfully created!`,
+        data: newPuppy
+    })
 })
 
 // STEP 2
@@ -33,7 +76,42 @@ app.post('/puppies/build', async (req, res, next) => {
 // Use these values to CREATE a new Puppy in the database.
 // Respond to the request by sending a success message
 app.post('/puppies/create', async (req, res, next) => {
-    // Your code here 
+
+    const newPuppy = await Puppy.create({
+        id: 12,
+        name: "Beans",
+        ageYrs: 1.6,
+        breed: "Bulldog",
+        weightLbs: 42,
+        microchipped: true
+    })
+
+    // ! -------------------------------------
+
+    // const { name, ageYrs, breed, weightLbs, microchipped } = req.body;
+
+    // const newPuppy = Puppy.create({
+    //     name,
+    //     ageYrs,
+    //     breed,
+    //     weightLbs,
+    //     microchipped
+    // })
+
+    // ! -------------------------------------
+
+    // const newPuppy = await Puppy.create({
+    //     name: "Fred",
+    //     ageYrs: 2.1,
+    //     breed: "Boston Terrier",
+    //     weightLbs: 20,
+    //     microchipped: true
+    // })
+
+    res.json({
+        message: `${newPuppy.name} was successfully created!`,
+        data: newPuppy
+    })
 })
 
 
