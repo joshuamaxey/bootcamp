@@ -49,8 +49,8 @@ Returns the information about the current user that is logged in.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * Route path: ?
+  * Method: GET
+  * Route path: api/users/:userId
   * Body: none
 
 * Successful Response when there is a logged in user
@@ -90,8 +90,12 @@ information.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * Route path: ?
+  * Method: POST
+  * Route path: api/session <br>
+  <br>
+  ***Notice that the route path here is 'session' because the act of 'logging in' essentially establishes a user session. This means that a user is authenticated and will maintain a logged-in state. When we log in, we are creating a session for that user which allows them to interact wit hthe application as an authenticated user. This is why the endpoing is called 'session'.*** <br>
+  *Also note that to log out a user, we will DELETE the api/session.* <br>
+  <br>
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -156,8 +160,11 @@ user's information.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * Route path: ?
+  * Method: POST
+  * Route path: api/users <br>
+  <br>
+  ***Note that signing up a new user ALSO logs that user in and returns returns a response that includes that user's information, just like when we log in a user via the endpoint above this one. When the user signs up, the first thing that happens is that their details are stored in the database. Once stored, the server will generate a session for them, which might involve creating a session token or cookie. Then the server sends a response which include's the user's information (just like when we log in an existing user). That makes this an all-in-one process where signing up not only registers the user but ALSO logs them in.*** <br>
+  <br>
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -230,10 +237,13 @@ user's information.
 
 Returns all the spots.
 
-* Require Authentication: false
+* Require Authentication: false <br>
+<br>
+***Note that we can access this endpoint without authenticating the user, which means that users can access this information without being logged in. This makes sense for publicly available data, such as available spots, and is different from endpoints which handle sensitive data such as user profiles or account settings (which will require authentication in order to ensure that only authorized users can access that data).*** <br>
+<br>
 * Request
-  * Method: ?
-  * Route path: ?
+  * Method: GET
+  * Route path: api/spots
   * Body: none
 
 * Successful Response
@@ -272,8 +282,11 @@ Returns all the spots owned (created) by the current user.
 
 * Require Authentication: true
 * Request
-  * Method: ?
-  * Route path: ?
+  * Method: GET
+  * Route path: api/users/:userId/spots <br>
+  <br>
+  ***Note the use of the ':userId' request parameter instead of ':id' here because we want to clarify that this id belongs to the user (as opposed to the owner or the spot, both of which have their own id's).*** <br>
+  <br>
   * Body: none
 
 * Successful Response
@@ -312,8 +325,8 @@ Returns the details of a spot specified by its id.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * Route path: ?
+  * Method: GET
+  * Route path: api/spots/:spotId
   * Body: none
 
 * Successful Response
@@ -377,8 +390,11 @@ Creates and returns a new spot.
 
 * Require Authentication: true
 * Request
-  * Method: ?
-  * Route path: ?
+  * Method: POST
+  * Route path: api/spots <br>
+  <br>
+  ***This endpoint will create a new record in our 'Spots' table using the data provided in the request body.*** <br>
+  <br>
   * Headers:
     * Content-Type: application/json
   * Body:
