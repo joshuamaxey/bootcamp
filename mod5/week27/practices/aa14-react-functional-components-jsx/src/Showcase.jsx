@@ -19,7 +19,7 @@ function Showcase() { // All components (including functions) are capitalized in
 
             <br></br>
 
-            <h2>{ favPokemon }&apos;s type is { pokeCharacteristics.type } and one of their moves is { pokeCharacteristics.move } </h2>
+            <h2>{ favPokemon }&apos;s type is <span>{ pokeCharacteristics.type }</span> and one of their moves is <span>{ pokeCharacteristics.move }</span> </h2>
         </div>
     );
 }
