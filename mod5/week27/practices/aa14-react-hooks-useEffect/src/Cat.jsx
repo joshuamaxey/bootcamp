@@ -30,7 +30,7 @@ const Cat = () => {
     if (storedStatus) {
       setStatusChange(storedStatus)
     } else {
-      setStatusChange('418');
+      setStatusChange(418);
     }
   }, []);
 
