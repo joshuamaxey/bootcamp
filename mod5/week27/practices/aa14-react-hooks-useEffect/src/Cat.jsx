@@ -8,7 +8,7 @@ const Cat = () => {
   const navigate = useNavigate();
   const [colorIdx, setColorIdx] = useState(0);
   const [delayChange, setDelayChange] = useState(5000);
-  const [statusChange, setStatusChange] = useState('418');
+  const [statusChange, setStatusChange] = useState(418);
   const [delay, setDelay] = useState('');
   const [status, setStatus] = useState('');
 
@@ -23,6 +23,22 @@ const Cat = () => {
     return () => clearInterval(colorInterval);
   }, [delayChange]);
 
+  // Now we create a second useEffect to check whether there is a 'statusCode' stored in our local storage. If there is, we set statusChange to the storedStatus. If not, we set it to the default value of 418
+  useEffect(() => {
+    const storedStatus = localStorage.getItem('statusCode');
+    console.log('Stored Status:', storedStatus);
+    if (storedStatus) {
+      setStatusChange(storedStatus)
+    } else {
+      setStatusChange('418');
+    }
+  }, []);
+
+  // Next, we create another useEffect that will watch for changes to statusChange. It will update the stored status code whenever statusChange updates.
+  useEffect(() => {
+    console.log('statusChange updated:', statusChange)
+    localStorage.setItem('statusCode', statusChange);
+  }, [statusChange])
 
   const handleDelaySubmit = (e) => {
     e.preventDefault();
