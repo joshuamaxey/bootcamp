@@ -7,14 +7,17 @@ export const ClimateContext = createContext(); // create a new context
 
 export const useClimate = () => useContext(ClimateContext); // create a custom hoook to access the context
 
-export default function ClimateProvider({ children }) { 
+export default function ClimateProvider({ children }) {
     const [temperature, setTemperature] = useState(50);
+    const [humidity, setHumidity] = useState(40);
 
     return (
         <ClimateContext.Provider
             value={{
                 temperature,
-                setTemperature
+                setTemperature,
+                humidity,
+                setHumidity
             }}
         >
             {children}
