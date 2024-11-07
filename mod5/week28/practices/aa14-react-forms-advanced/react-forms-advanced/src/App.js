@@ -1,8 +1,12 @@
-import React from 'react';
+import React from "react";
+import SurveyRoutes from "./components/SurveyRoutes";
 
 function App() {
   return (
-    <h1>Hello world!</h1>
+    <>
+      <h1>a/A Forms</h1>
+      <SurveyRoutes />
+    </>
   );
 }
 
