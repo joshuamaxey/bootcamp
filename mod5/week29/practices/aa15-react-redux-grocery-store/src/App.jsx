@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Cart from './components/Cart';
 import ProduceList from './components/ProduceList';
+import { useDispatch } from 'react-redux';
+import { populateProduce } from './store/produce';
 
 function App() {
   const [showCart, setShowCart] = useState(false);
+
+  // assign the useDispatch() method to a variable called 'dispatch' for easy use
+  const dispatch = useDispatch();
+
+  // Create a useEffect that will dispatch the POPULATE action from the 'populateProduce()' action creator
+  useEffect(() => {
+    dispatch(populateProduce());
+  }, [dispatch]) // technically, dispatch is a dependency of this useEffect because it is defined outside of the useEffect and used within it. But the definition of 'dispatch' should never change, so this function should run only once (or twice, with strict mode turned on) despite that 'dispatch' is present in its dependency array
 
   return (
     <>
