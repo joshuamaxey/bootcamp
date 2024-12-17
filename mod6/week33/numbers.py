@@ -64,3 +64,14 @@ print(x ** 2) # prints x^2, x squared (625), still an integer
 print(y ** 2) # prints y^2, y squared (289.0), still a float
 
 # Note that in Python, floats can have ROUNDING ERRORS while whole numbers will not
+
+# ~ NUMBERS QUIZ
+
+print(9 ** 4) # returns 6561
+print(5 / 2) # prints 2.5
+print(5 // 2) # prints 2
+print(8.0 / 2.0) # prints 4.0
+print(34 % 5) # prints 4
+print(34 // 5) # prints 6
+print(2 ** 3) # prints 8
+print(3 ** 2) # prints 9
