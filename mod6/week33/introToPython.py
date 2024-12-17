@@ -1,3 +1,5 @@
+# For Python setup, go to: https://github.com/appacademy/practice-for-SETUP-unified-setup/blob/main/08-python-setup.md
+
 # To install Python, go to: https://www.python.org/downloads/?form=MG0AV3
 
 # Make sure to add to PATH when installing
