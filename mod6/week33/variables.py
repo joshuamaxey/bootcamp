@@ -44,3 +44,12 @@ print(x) # prints 5
 
 x = "five"
 print(x) # prints "five"
+
+# ! CLASS NOTES
+
+# There is no way to declare constants in Python
+# If you want a variable to be 'constant', declare it like this:
+
+MY_CONSTANT_VARIABLE = "constant"
+# This capital/underscore syntax will indicate to other devs that this variable is not meant to be changed
+

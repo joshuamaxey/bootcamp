@@ -28,3 +28,12 @@ The code above prints:
 Silently handle error here
 3
 """
+
+# ! Throwing Custom Errors
+
+# Use the 'raise' keyword to throw an error
+
+a = 1
+
+if (a):
+    raise("Error!") # This is not a valid error, but is an example of how to use 'raise'
