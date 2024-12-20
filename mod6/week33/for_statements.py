@@ -48,3 +48,34 @@ print(total) # prints 5050
 for a in "abcdefg": # 'a' represents the current letter in the loop
     print(a)        # prints the letter at the current iteration of the loop
                     # "a" the first iteration, "b" the second iteration... and so on.
+
+# ! Using the length of a list as a range to iterate over a list using a for loop in Python
+
+supplies = ['pens', 'staplers', 'flame-throwers', 'binders'] # Make a list of strings
+
+for i in range(len(supplies)):
+    print('Index ' + str(i) + ' in supplies is: ' + supplies[i])
+
+"""
+The code above prints the following:
+
+Index 0 in supplies is: pens
+Index 1 in supplies is: staplers
+Index 2 in supplies is: flame-throwers
+Index 3 in supplies is: binders
+"""
+
+# ! Looping over and Destructuring a list of lists
+
+my_list_of_lists = [[0, 1], [2, 3], [4, 5]]
+
+for x, y in my_list_of_lists:
+    print(x, ', ', y)
+
+"""
+The code above prints:
+
+0 ,  1
+2 ,  3
+4 ,  5
+"""

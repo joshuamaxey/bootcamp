@@ -131,3 +131,21 @@ print(letters_set) # prints {'f', 'a', 'd', 'g', 'c', 'e', 'b'} (notice they are
 print('a' in letters_set) # prints True
 print('b' not in letters_set) # prints False
 print(1 in letters_set) # prints False
+
+# ! Data Types Quiz
+
+nums = [1,6,4.3,7,-8,9,2]
+sorted(nums)
+print(nums[4:])
+
+nums = [1, 6, 7, 9, 2]
+print(sorted(nums)[4:])
+
+nums = 1, 2, 3, 4, 5
+print(sum(nums))
+
+nums = set([1, 2, 3, 4, 5, 4, 3, 2, 1])
+print(sum(nums))
+
+nums = ['1','2','3','4','5','4','3','2','1']
+print(sum(nums))
