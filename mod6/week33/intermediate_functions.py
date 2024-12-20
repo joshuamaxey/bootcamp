@@ -33,3 +33,60 @@ print(toUpper("joshua")) # prints JOSHUA
 # ^ Python number-of-argument Errors
 # Note that unlike in JavaScript, we cannot provide more argument or fewer arguments than expected
 # If we invoke a function with more or less arguments than expected, Python will throw an error
+
+# ~ Functions Returning Functions (DEMO)
+
+def greeting_maker(salutation):
+    def greeting(name):
+        return f'{salutation} {name}'
+    return greeting
+
+hello = greeting_maker("Hello")
+hiya = greeting_maker("Hiya")
+
+print(hello("Monica"))
+print(hiya("Raja"))
+
+# ^ Variable-number (Additional) Positional Arguments
+
+# In Python, we can use extra positional arguments using the * operator in the function definition
+# By convention, these arguments are to be called 'args'
+# Python collects all of the extra arguments and puts them into a tuple
+def add(a, b, *args):
+    total = a + b
+    for n in args:
+        total += n
+    return total
+
+print(add(1, 2)) # prints 3
+print(add(2, 3, 4, 5)) # prints 14
+
+# ^ Variable-number (additional) Keyword Arguments
+
+# For extra keyword arguments (formatted: keyword="value"), we can use the ** operator in the function declaration
+# By ocnvention, these arguments are to be called "kwargs" (keyword arguments)
+# Python will collect them all and put them into a dictionary
+def print_names_and_countries(greeting, **kwargs):
+    for key, value in kwargs.items():
+        print(greeting, key, "from", value)
+
+print_names_and_countries("Hi", Monica="Sweeden", Charles="Britain", Carlo="Portugal")
+
+"""
+The function above prints:
+
+Hi Monica from Sweeden
+Hi Charles from Britain
+Hi Carlo from Portugal
+"""
+
+# ^ Python Functions and Order of Arguments
+
+# In Python, the ordering of our arguments matters. Order parameters/argumetns like this:
+# 1. formal positional arguments
+# 2. *args (tuple)
+# 3. Keyword arguments with default values
+# 4. **kwargs (dictionary)
+
+def exampmle(arg1, *args, kw1="shark", **kwargs):
+    pass
