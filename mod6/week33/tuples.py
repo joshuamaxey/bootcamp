@@ -97,3 +97,19 @@ print(minmax(myNums)) # prints (-8, 25)
 print(lowest) # prints -8
 print(highest) # prints 25
 print(lowest + highest) # prints 17
+
+# ! Single-Item or Empty Tuples
+
+a = 1, 2, 3
+b = ('a', 'b', 'c')
+
+empty = ()
+print(empty) # prints ()
+
+single = (1)
+print(single) # prints 1, NOT A TUPLE
+
+# We can fix this using a trailing comma
+
+single = (1,)
+print(single) # prints (1,)
