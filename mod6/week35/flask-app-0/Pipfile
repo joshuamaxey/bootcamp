@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+jinja2 = "~=2.11"
+python-dotenv = "~=0.13"
+markupsafe = "*"
+flask-wtf = "~=0.14"
+flask = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
