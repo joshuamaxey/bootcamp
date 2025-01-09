@@ -7,9 +7,11 @@ configure our Flask instance with the Config class we've imported
 """
 
 import random
-from flask import Flask, render_template
+from datetime import date
+from flask import Flask, render_template, redirect, url_for, request
 from app.config import Config
 from app.tweets import tweets
+from app.forms.form import TweetForm
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -36,3 +38,22 @@ def feed():
     """
 
     return render_template('feed.html', tweets=tweets) #pass the tweets list to the template
+
+@app.route('/new', methods=['GET', 'POST'])
+def new_tweet():
+    """
+    Create an instance of the tweetform
+    render the new_tweet.html template, using our tweetform as the form
+    """
+    form = TweetForm()
+    if form.validate_on_submit():
+        tweet = {
+            'id': len(tweets),
+            'author': form.author.data,
+            'tweet': form.tweet.data,
+            'date': date.today().strftime('%Y-%m-%d'),
+            'likes': random.randint(0, 1000)
+        }
+        tweets.append(tweet)
+        return redirect(url_for('feed'))
+    return render_template('new_tweet.html', form=form)
